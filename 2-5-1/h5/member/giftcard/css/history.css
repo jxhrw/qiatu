@@ -1,0 +1,99 @@
+body{
+    font-family: 'Helvetica Neue','PingFang SC',STHeitiSC-Light,Helvetica,Arial,sans-serif;
+    color: #333;
+    background-color: #f4f4f4;
+    font-size: 14px;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+.history-header{
+    background-color: #33404b;
+    color: #fff;
+    padding: 1rem;
+}
+.card-name {
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 1.33rem;
+}
+.card-code {
+    font-size: 1rem;
+    margin: 0;
+}
+.group-header {
+    height: 2.46rem;
+    line-height: 2.46;
+    background-color: #ebeef0;
+    color: #4c4c4d;
+    padding-left: 1rem;
+    font-size: 1rem;
+}
+.group-item {
+    background-color: #fff;
+    display: -webkit-box;
+    border-bottom: 1px solid #e4e4e4;
+    font-size: 1rem;
+    color: gray;
+}
+.cell-aside,.cell-main {
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-orient: vertical;
+}
+.cell-aside {
+    padding: 0.33rem 1.66rem 0.33rem 1rem;
+    position: relative;
+    width: 3.5rem;
+}
+.cell-main {
+    padding: 0.33rem 0;
+}
+.group-item p {
+    margin: 0.33rem 0;
+}
+.order-amount {
+    font-size: 1.33rem;
+    color: #000;
+}
+.order-amount .red {
+    color: #d33d49;
+}
+.field-label {
+    display: inline-block;
+    width: 3.8em;
+}
+.field-content {
+    color: gray;
+}
+.order-date,.order-time {
+    color: gray;
+}
+.field-content {
+    color: gray;
+}
+.consumptionType {
+    width: 3.5rem;
+    height: 3.5rem;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    color: #fff;
+    text-align: center;
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-orient: vertical;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+}
+.duihuan {
+    background-color: #d3b366;
+}
+.tuikuan {
+    background-color: #acb2be;
+}
+.zhusu {
+    background-color: #e07d77;
+}

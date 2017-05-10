@@ -1,0 +1,21 @@
+body{background: #ebedf0 url("../images/topBg.png") no-repeat top center/contain;min-height: 300px;}
+.open{height: 10.1rem;}
+.phoneBox{width: 19.2rem;padding: 1rem 1.9rem 2rem 1.9rem;margin: 0 auto;background:-webkit-gradient(linear,0 0,0 70%,from(rgba(255, 255, 255, 0.6)),to(rgba(255, 255, 255, 1)));border-radius: 5px;box-shadow: 0 0 15px #666;font-size: 1rem;color: #4a4a4a;font-weight: bold;}
+.pbCall{line-height: 2rem;}
+.pbTxt{text-indent: 2em;font-weight: normal;color: #878787;font-size: 0.9rem;line-height: 1.66rem;letter-spacing: 2px;}
+
+.checkBox{width: 19.2rem;padding: 0 1.9rem 2rem 1.9rem;margin: 1rem auto 0 auto;background:#fff;border-radius: 5px;box-shadow: 0 0 15px #666;font-size: 1rem;color: #4a4a4a;text-align: center;}
+.checkBox .cardName{color: #000;font-size: 1.2rem;font-weight: bold;padding-top: 1.5rem;}
+.checkBox .pbDiv{margin-top: 1.5rem;}
+.checkBox input{font-size: 1.1rem;position: relative;top: -0.2rem;border-radius: 0;margin-left: 0.5rem;border: none;border-bottom: 1px solid #838383;padding: 0 0.5rem;}
+.checkBox .tel{width: 8rem;}
+.checkBox .chDiv{margin-top: 1.5rem;margin-bottom: 1rem;}
+.checkBox .isChoose{width: 0.93rem;height: 0.93rem;display: inline-block;border: 1px solid #979797;border-radius: 2px;margin-right: 5px;position: relative;top: -0.1rem;color: #fff;font-size: 0.7rem;line-height: 0.96rem;}
+.checkBox .hasChoose{background: #000;border-color: #000;}
+.checkBox .chDiv a{color: #336dc1;}
+
+.checkBtnBox{width: 100%;height: 2.9rem;border-radius: 5px;border: none;background: #000;color: #fff;font-size: 1.1rem;margin-top: 1rem;box-shadow: 0 0 8px #000;}
+
+.logo{height: 2.27rem;background: url("../images/LOGO.png") no-repeat center/contain;margin-top: 1rem;margin-bottom: 0.5rem;}
+
+#prompt{max-width: 18rem;line-height: 2rem;text-align: center;background: #000;color: #fff;border-radius: 0.7rem;position: fixed;top: 40%;left: 50%;transform: translate(-50%,-50%);display: none;z-index: 100;padding: 0 1rem;}

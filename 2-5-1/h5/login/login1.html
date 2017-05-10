@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>几何生活</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <script type="text/javascript" src="http://7xio74.com2.z0.glb.qiniucdn.com/rem.js"></script>
+    <script type="text/javascript" src="http://7xio74.com2.z0.glb.qiniucdn.com/jquery-1.4.2.js"></script>
+    <link rel="stylesheet" href="css/reset.css">
+    <script type="text/javascript" src="/html/h5/publicFile/js/general.js"></script>
+    <script type="text/javascript" src="js/hostAll.js"></script>
+    <script type="text/javascript" src="js/regNamePhone.js"></script>
+</head>
+<style type="text/css">
+    body{
+        width: 100%;
+        background:  url(http://7xio74.com2.z0.glb.qiniucdn.com/memberBodyBg.jpg) center center no-repeat;
+        -webkit-background-size: cover;
+        background-size: cover;
+        box-sizing:border-box;
+        -webkit-box-sizing:border-box;
+        -moz-box-sizing:border-box;
+        -ms-box-sizing:border-box;
+        -o-box-sizing:border-box;
+        overflow: hidden;
+    }
+    .content{
+        padding: 2.2rem 2.4rem;
+    }
+</style>
+<body>
+<div class="content">
+    <h1>登录/注册<span id="where">几何</span>会员</h1>
+    <!-- <form action="/user/h5/bindmobile" method="post"> -->
+    <p class="phoneWrap"><input class="phone" type="text" value="请输入手机号码"/><input class="phone1" type="tel" maxlength="11" value="" name="accountname" autocomplete="on"/><input type="button" id="btn" value="发送验证码"/></p>
+    <p class="phoneWrap1"> <input class="phoneNum" type="text" value="请输入短信验证码"/><input class="phoneNum1" maxlength="6" type="tel" name="verifycode"/></p>
+    <input class="submitBtn" type="submit" id="phoneAuth" style="background-color:#bb8e4b;" value="登录 / 注册"/>
+    <div class="jiheCon">几何会员介绍</div>
+</div>
+<img class="weibo" id="weiboAuth" src="images/weiboLoginIcon.png" alt="">
+<div class="tip">验证码已发送</div>
+<!-- </form> -->
+<div class="mask1">
+    <div class="alert1">
+        <div class="closeBtn"></div>
+        <p>该手机号已绑定昵称为“<span class="oldweixin">微信昵称</span>”，继续下一步将解绑原有微信账号，重新绑定昵称为“<span class="newweixin">微信昵称</span>”的微信号。</p>
+        <div class="fanPaiBtn">下一步</div>
+    </div>
+</div>
+<div style="display:none">
+    <script src="http://s11.cnzz.com/z_stat.php?id=1253954519&web_id=1253954519" language="JavaScript"></script>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+body{
+    text-align: center;
+    position: relative;
+    background: url("../images/background.png") no-repeat center/100% 100%;
+    overflow: hidden;
+}
+img{
+    display: block;
+    margin: auto;
+}
+.invite{
+    width: 47.73%;
+    padding-top: 4.63rem;
+}
+.map{
+    width: 22.2rem;
+    height: 12.03rem;
+    margin-top: 2.36rem;
+}
+.registerBtn{
+    width: 85.33%;
+    top: 26.8rem;
+    left: 7.335%;
+    position: absolute;
+}
+.checkIn,.checkInTrue{
+    width: 48.27%;
+    padding-top: 4.63rem;
+}
+.checkInFalse{
+    width: 43.73%;
+    padding-top: 4.63rem;
+}
+.checkInBtn{
+    width: 85.33%;
+    top: 26.67rem;
+    left: 7.335%;
+    position: absolute;
+}
+
+
+.members,.non-members,.checkIn,.checkInTrue,.checkInFalse,.checkInBtn{
+    display: none;
+}

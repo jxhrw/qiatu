@@ -1,0 +1,202 @@
+@font-face {
+    font-family: impact; /*这里是说明调用来的字体名字*/
+    src: url('../font/impact.ttf'); /*这里是字体文件路径*/
+}
+body{
+    background-color: #595d6a;
+    padding: 2.23rem 0;
+}
+.content{
+    padding: 0 7.33% ;
+}
+.cardsBox{
+    border-radius: 0.6rem;
+    box-shadow: 0 0 0.5rem rgba(0,0,0,0.5);
+    -o-box-shadow: 0 0 0.5rem rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 0 0.5rem rgba(0,0,0,0.5);
+    -moz-box-shadow: 0 0 0.5rem rgba(0,0,0,0.5);
+}
+.card{
+    height: 11.33rem;
+    width: 100%;
+    color: #fff;
+    font-size: 0.8rem;
+    background: url("") no-repeat center/100% 100%;
+    position: relative;
+    border-radius: 0.6rem;
+    -webkit-border-radius: 0.6rem;
+    -moz-border-radius: 0.6rem;
+    overflow: hidden;
+}
+.cardsName{
+    padding: 0 1rem 0 1.4rem;
+    line-height: 3.33rem;
+    font-size: 1rem;
+    font-weight: bold;
+}
+.cardDiscount{
+    font-size: 0.7rem;
+    font-weight: 100;
+}
+.cardDiscount span{
+    font-family: impact;
+    font-size: 1.8rem;
+}
+.cardInfo{
+    line-height: 1.2rem;
+    position: absolute;
+    left:1.4rem;
+    bottom: 1.2rem;
+}
+.cardLogo{
+    width: 5.33rem;
+    height: 5.33rem;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    position: absolute;
+    right: 1.33rem;
+    bottom: 1.33rem;
+}
+.wavy{
+    height: 0.8rem;
+    background-color: grey;
+}
+.coupon{
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    -o-box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    border-radius: 0.3rem;
+    -webkit-border-radius: 0.3rem;
+    -moz-border-radius: 0.3rem;
+}
+.giftCardName{
+    padding: 1px 1px 0 1px;
+    color: #4a4a4a;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+.giftCardName p{
+    background-color: #d4dfe9;
+    height: 3.33rem;
+    position: relative;
+    padding: 0 1.33rem;
+}
+.giftCardName p:before{
+    /*content: "";*/
+    /*width: 0.2rem;*/
+    /*height: 1rem;*/
+    /*background: #E2574C;*/
+    /*position: absolute;*/
+    /*left: 0.7rem;*/
+    /*top: 34%;*/
+    /*border-radius: 3px;*/
+    /*-moz-border-radius: 3px;*/
+    /*-webkit-border-radius: 3px;*/
+}
+.giftCardName p span:before{
+    content: "";
+    width: 0.2rem;
+    height: 1rem;
+    background: #E2574C;
+    position: absolute;
+    left: -0.6rem;
+    top: 0.1rem;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+.giftCardName p span{
+    position: absolute;
+    line-height: 1.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    width: 87%;
+}
+.giftInfo{
+    font-size: 0.8rem;
+    color: #4a4a4a;
+    line-height: 1.3rem;
+    padding: 1rem 1.33rem;
+}
+.applicable{
+    position: absolute;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    overflow: hidden;
+    width: 5rem;
+    border: 1px solid #999;
+    bottom: 1rem;
+    right: 1.3rem;
+    border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    text-align: center;
+}
+
+.function{
+    color: #fff;
+    width: 93.33%;
+    margin: 0 auto;
+    table-layout: fixed;
+    text-align: center;
+    font-size: 0.8rem;
+    margin-top: 2.5rem;
+}
+.function td{
+
+}
+.function div{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    overflow: hidden;
+    margin: auto;
+    margin-bottom: 0.5rem;
+    background-color: #0b66ef;
+}
+.function td.unavailable{
+    pointer-events: none;
+    color: rgba(255,255,255,0.3);
+}
+.function td.unavailable div{
+    opacity: 0.3;
+    -moz-opacity: 0.3;
+    -khtml-opacity:0.3; /* 老版Safari */
+    filter:alpha(opacity=30);
+    -ms-filter:alpha(opacity=30);
+}
+.instructions{
+    color: #fff;
+    font-size: 0.8rem;
+    line-height: 1.33rem;
+    margin-top: 2.5rem;
+}
+.introTitle{
+    font-size: 0.9rem;
+    text-align: center;
+    letter-spacing: -2px;
+    line-height: 2rem;
+    padding-bottom: 0.5rem;
+}
+.introTitle span{
+    letter-spacing: normal;
+}
+.productUsable,.dateUsable,.bookCondition,.remark,.equityInfo,.agreementInfo{
+    /*text-indent: 2em;*/
+}
+.agreementInfo a{
+    color: #fff;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.recharge,.forIntegral{display: none;}

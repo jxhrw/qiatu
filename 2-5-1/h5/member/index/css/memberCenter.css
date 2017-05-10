@@ -1,0 +1,359 @@
+body{
+	/*background: #ebedf0;*/
+    background: #fff;
+    font-family: "黑体",arial;
+}
+input{
+	border: none;
+	padding: 0;
+	margin: 0;
+}
+.in-store{
+    background: #fff;
+    display: none;
+}
+.inner{
+    overflow: hidden;
+    padding: 1rem 4%;
+}
+.inner img{
+    float: left;
+    width: 40.5%;
+    height: 6rem;
+}
+.payment{
+    float: right;
+    width:56%;
+    padding-left:0.667rem;
+    background: url("../images/arrow.png") no-repeat right center/4.136%;
+}
+.hotel{
+    line-height: 4.2rem;
+    font-size: 1.1rem;
+    white-space: nowrap;
+    margin-right: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.payment .pay{
+    display: block;
+    text-align: center;
+    color: #fff;
+    background: #d13f4c;
+    width: 51.5%;
+    line-height:1.6rem;
+    margin-top: 0.167rem;
+}
+.options{
+	background: #fff;
+    padding-bottom: 2rem;
+}
+.items{
+	border-bottom: 1px #e4e5e6 solid;
+    padding: 0 2.8%;
+    overflow: hidden;
+    width: 100%;
+}
+.items:last-child{
+	border: none;
+}
+.items td{
+    width: 25%;
+    height: 5.4rem;
+    text-align: center;
+    padding-top: 1.4rem;
+    position: relative;
+}
+.items td span:first-of-type{
+    display: block;
+    width: 2.534rem;
+    height: 2.534rem;
+    position: absolute;
+    top: 1.4rem;
+    left: 50%;
+    transform: translate(-50%,0);
+    -webkit-transform: translate(-50%,0);
+    -webkit-background-size:contain;
+    background-size:contain;
+    /* margin: 50% -50%; */
+}
+.items td span:last-of-type{
+    color: #616161;
+	font-size: 0.8rem;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left:50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    line-height: 0.68rem;
+    white-space: nowrap;
+    padding-bottom:1.067rem ;
+}
+.information{
+	height: 12rem;
+	/*background:no-repeat center top;*/
+	/*background-size: contain;*/
+	/*border: 1px red solid;*/
+    position: relative;
+}
+.info_left{
+    float: left;
+    width:21%;
+    /*border: 1px red solid;*/
+    margin: 1.4rem 0 0 6.2rem;
+    text-align: center;
+    /*text-align: center;*/
+    /*color: #000;*/
+}
+.avatar{
+    display: block;
+    width: 5rem;
+    height: 5rem;
+    border: 0.2rem #fff solid;
+    border-radius: 50%;
+
+}
+.userName{
+    font-size: 1.4rem;
+    margin-top: 0.8rem;
+  /*  letter-spacing: 1px;*/
+    /*color: red;*/
+    white-space: nowrap;
+}
+.memberCode{
+    line-height: 1.6rem;
+    letter-spacing: 1px;
+    font-family: arial;
+}
+.info_right{
+    float: right;
+    width:29.6%;
+}
+.info_right li{
+    font-size: 0.8rem;
+    color: #7f7f7f;
+    /*color:red;*/
+   /* border: 1px red solid;*/
+   /* padding-top: 1.2rem;*/
+}
+.points{
+    margin-top:1.4rem;
+}
+.annual{
+    margin-top:0.4rem;
+}
+.info_right .grade{
+    margin-top: 0.2rem;
+}
+.info_right li span{
+    letter-spacing: 1px;
+    display: block;
+    /*color: red;*/
+    font-size: 1.4rem;
+    line-height: 1.9rem;
+    /*font-weight: bold;*/
+    font-family: Arial;
+   /* color: #000;*/
+}
+.info_right .grade span{
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: "黑体", arial;
+}
+.upGrade{
+    font-size: 0.8rem;
+    line-height: 1.5rem;
+    height: 1.334rem;
+    text-align: center;
+    color: #fff;
+}
+.tradesBtn{
+    height: 4rem;
+    margin: 0 auto;
+    background:#483e34;
+}
+.tradesBtn li{
+    width: 50%;
+    float: left;
+    position: relative;
+    text-align: center;
+}
+.tradesBtn li a{
+    color: #fff;
+    display: block;
+    line-height: 4.2rem;
+    font-size: 0.934rem;
+}
+.booking{
+    position: relative;
+}
+.tradesBtn li span{
+    float: left;
+    width: 2rem;
+    height: 2rem;
+    margin:1.5rem 1rem 0 2.5rem;
+}
+.booking span:first-of-type{
+    background: url("../images/booking.png") center;
+}
+.marketing span:first-of-type{
+    background: url("../images/marketing.png") center;
+}
+.tradesBtn li:last-child:before{
+    content:"";
+    width:1px;
+    height: 2.33rem;
+    background:#ccc;
+    position: absolute;
+    left: 0;
+    top: 0.88rem;
+}
+/*图标链接样式*/
+/*现金资产*/
+.cashAccount span:first-of-type{
+    background: url("../images/1.png") no-repeat;
+}
+/*众享资产计划*/
+.shareAssets span:first-of-type{
+    background: url("../images/2.png") no-repeat;
+}
+/*我的礼券*/
+.myCoupon span:first-of-type{
+    background: url("../images/3.png") no-repeat;
+}
+/*我的订单*/
+.orderList span:first-of-type{
+    background: url("../images/4.png") no-repeat;
+}
+/*积分兑换*/
+.exchange span:first-of-type{
+    background: url("../images/5.png") no-repeat;
+}
+/*积分商城*/
+.integralMall span:first-of-type{
+    background: url("../images/jfShop.png") no-repeat center;
+}
+/*赚取积分*/
+.earnPoints span:first-of-type{
+    background: url("../images/6.png") no-repeat;
+}
+/*积分动态*/
+.trends span:first-of-type{
+    background: url("../images/7.png") no-repeat;
+}
+/*会员礼遇*/
+.vip span:first-of-type{
+    background: url("../images/8.png") no-repeat;
+}
+/*个人信息*/
+.myInfo span:first-of-type{
+    background: url("../images/9.png") no-repeat;
+}
+/*常见问题*/
+.faq span:first-of-type{
+    background: url("../images/10.png") no-repeat;
+}
+/*弹窗遮罩样式*/
+.modal,.receiveBox{
+    display: none;
+}
+.mask{
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+/*弹窗样式*/
+.popup {
+    width: 16.67rem;
+    height: 23.27rem;
+    background-color: #fff;
+    border-radius: 0.3rem;
+    -moz-border-radius: 0.3rem;
+    -webkit-border-radius: 0.3rem;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: -11rem auto 0;
+    top: 48%;
+}
+ .word {
+    color: #000;
+    line-height: 1.67rem;
+    text-align: center;
+    padding-top: 3rem;
+}
+.arrow {
+    height: 0.9rem;
+    margin: 0.7rem 0 2rem 0;
+    background: url("../images/tipArrow.jpg") no-repeat center top;
+    background-size: contain;
+}
+.code {
+    width: 8.57rem;
+    height: 8.57rem;
+    position: relative;
+    left: 50%;
+    margin-left: -4.28rem;
+}
+/*关闭按钮样式*/
+.close {
+    color: #fff;
+    text-align: center;
+    font-size: 2rem;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -4rem;
+}
+
+/*领取权益*/
+.popup2{
+    width: 16.67rem;
+    background-color: #fff;
+    border-radius: 0.3rem;
+    -moz-border-radius: 0.3rem;
+    -webkit-border-radius: 0.3rem;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto 0;
+    transform: translateY(-50%);
+    top: 48%;
+}
+.receive{
+    padding: 1.5rem 1.55rem 2rem 1.55rem;
+    font-size: 0.9rem;
+    color: #4A4A4A;
+}
+.call{
+    line-height: 1.67rem;
+    margin-bottom: 0.5rem;
+}
+.recExplain{
+    text-indent: 2em;
+    line-height: 1.5rem;
+}
+.rightsBox{
+    position: relative;
+    padding: 1.6rem 0 2.5rem 0;
+}
+.rights{
+    text-align: center;
+    color: #000;
+}
+.goReceive{
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    padding: 0.7rem 0;
+    background: #000;
+    border-radius: 5px;
+}

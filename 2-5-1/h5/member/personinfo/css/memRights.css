@@ -1,0 +1,23 @@
+body{-moz-user-select:none;/*火狐*/-webkit-user-select:none;/*webkit浏览器*/-ms-user-select:none;/*IE10*/-khtml-user-select:none;/*早期浏览器*/user-select:none;background: #ebedf0;}
+
+.widthCon{padding: 1rem 1rem;color: #4a4a4a;font-size: 0.9rem;}
+.changeInfo{color: #808080;font-size: 0.9rem;letter-spacing: 1px;margin-bottom: 0.5rem;}
+.remind{text-align: center;color: #808080;font-size: 0.8rem;line-height: 1.33rem;margin-top: 0.7rem;}
+
+.cardList{}
+.cardBg{height: 4.5rem;background: url("../images/cardBg.png") no-repeat center/100% 100%;margin-bottom: 0.67rem;position: relative;color: #000;font-size: 1.1rem;font-weight: bold;}
+.cardName{position: absolute;top: 50%;left: 5.5rem;transform: translateY(-50%);}
+.agree{padding-bottom: 1.6rem;}
+.agree a{color: #336dc1;line-height: 1.6rem;}
+
+.inputBox{font-size: 0.9rem;position: relative;}
+.cardID{width: 21rem;padding: 0 1rem;border: 1px solid #343f4c;border-radius: 0;height: 2.9rem;margin-left: -1px;font-size: 0.9rem;}
+.cusName{position: absolute;top: 50%;right: 1rem;transform: translateY(-50%);}
+
+.btnBox{text-align: center;font-size: 0.9rem;margin-bottom: 2rem;}
+.btnBox button{width: 16.67rem;height: 2.67rem;border: 0;border-radius: 3px;color: #fff;background: #000;font-size: 0.9rem;}
+
+#needAuth{margin-bottom: 4rem;}
+#noAuth{margin-bottom: 4rem;}
+
+#prompt{max-width: 18rem;line-height: 2rem;text-align: center;background: #000;color: #fff;border-radius: 0.7rem;position: fixed;top: 40%;left: 50%;transform: translate(-50%,-50%);display: none;z-index: 100;padding: 0 1rem;}
