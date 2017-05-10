@@ -106,7 +106,7 @@ $(document).ready(function() {
                         }
                     });
                 }else{
-                    window.location.href="/user/h5/qrcode";
+                    window.location.href="/user/h5/mbcenter";
                 }
             });
         }
@@ -119,7 +119,7 @@ $(document).ready(function() {
         imgUrl;
     if(hotelId!=null){
         if(memberStatus==-1){
-            window.location.href="/user/h5/qrcode?regsucc_tourl="+encodeURIComponent(window.location.href);
+            window.location.href="/user/h5/mbcenter?regsucc_tourl="+encodeURIComponent(window.location.href);
         }
         $(".in-store").css("display","block");
         $.post('/content/client/hotel/detail',{data: JSON.stringify({"id":hotelId})}, function(data) {

@@ -33,12 +33,12 @@ $(document).ready(function(){
         $('body').prepend(navHtml);
         $(".navigation").css({'padding':'0 4%','clear':'both','overflow':'hidden','height':'3rem','background':'#fff','font-size':'0.8rem','color':'#484848','position':'fixed','top':'0','width':'92%','z-index':'1'});
         $(".jiheLogo").css({'float':'left','width':'3rem','position':'relative','top':'50%','transform':'translateY(-50%)'}).click(function(){
-            window.location.href='/user/h5/qrcode';
+            window.location.href='/user/h5/mbcenter';
         });
         $(".navIconBox").css({'float':'right','height':'1.8rem','line-height':'1.8rem','margin-top': '0.6rem'});
         $(".navIcon").css({'display':'inline-block'}).find("img").css({'width':'1.67rem','float':'left','margin-right':'0.4rem','position':'relative','top':'0.1rem'});
         $("#navPerson").click(function(){
-            window.location.href='/user/h5/qrcode';
+            window.location.href='/user/h5/mbcenter';
         });
         $("#navSearch").click(function(){
             window.location.href='/html/h5/product/list/findMinsu.html';

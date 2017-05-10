@@ -172,7 +172,7 @@ $(document).ready(function(){
                     }
                     else {
                         var urlLocation = "http://"+window.location.host+"/html/order/buyConsumption.html?payMethod="+payMethod+"&couponId="+couponId;
-                        //location.href = "/user/h5/qrcode?regsucc_tourl=" + urlLocation;
+                        //location.href = "/user/h5/mbcenter?regsucc_tourl=" + urlLocation;
                         location.href = "/user/h5/auth?h5url=" + encodeURIComponent(urlLocation);
                     }
                 }

@@ -5,7 +5,7 @@ var memberStatus;
 $(document).ready(function(){
     ifLogin();
     if(memberStatus==-1){
-        window.location.href="/user/h5/qrcode?regsucc_tourl="+encodeURIComponent(window.location.href);
+        window.location.href="/user/h5/mbcenter?regsucc_tourl="+encodeURIComponent(window.location.href);
     }
     $.ajax({
         type: 'post',

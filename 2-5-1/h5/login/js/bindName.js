@@ -32,7 +32,7 @@ $(document).ready(function(){
             if(res.sc==0){
                 window.location.href=res.data.jumpurl;
             }else if(res.sc=="USER-1016"){
-                window.location.href='/user/h5/qrcode';
+                window.location.href='/user/h5/mbcenter';
             }
             else if(res.sc=="-99999"){
                 errorPrompt("系统繁忙",2000);

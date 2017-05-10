@@ -230,7 +230,7 @@ $(document).ready(function() {
             $.post('/user/h5/loginbyphone' ,{data:JSON.stringify({"accountname":phoneNumber,"verifycode":verifycode})},function(resu){
                 console.log(resu);
                 if(resu.sc==0){
-                    window.location='/user/h5/qrcode';
+                    window.location='/user/h5/mbcenter';
                 }
                 $("#submitBtn").removeAttr("disabled");
             });
