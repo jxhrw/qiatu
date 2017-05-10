@@ -1,1 +1,180 @@
-﻿$(document).ready(function(){$(".screenBox,.screenFull").height($(window).height());$("#winResults").click(function(){$("#winningList").show()});$(".shadow,.close").click(function(){$(".screenFull").hide()});$(".plus:last-child").css("display","none");var a,b,c,d;var e=GetParams().id;var f;var g="{'id':"+e+"}";$.ajax({url:"/product/h5/query",type:'POST',data:{data:g},dataType:'json',success:function(h){console.log(h);a=h.data.productPrice.totalPrice;b=h.data.serviceUrl;c=h.data.productDesc;d=h.data.imgList[0];f=h.data.payTypes[0];document.title=h.data.productName;$(".activityName").html(h.data.productName);$(".bannerBgp").css("background-img",'url('+d+')');$(".activityPrize").html(c);if(f==0){$("#price").html(parseInt(h.data.productPrice.totalPrice/100))};if(f==4){$("#payWeChat").html(parseInt(h.data.productPrice.totalPointPrice)+" 积分支付").css("text-align","center")}},error:function(h){console.log(h.status)}});$("#payWeChat").click(function(){$("#payWeChat").css({"pointer-events":"none"});setTimeout(function(){$("#payWeChat").css({"pointer-events":""})},5000);createAndPayServiceOrder(e,a,b,f)});function createAndPayServiceOrder(h,i,j,k){queryParam={'productid':h};$.post("/order/h5/list",{data:JSON.stringify(queryParam)},function(l,m){var n=null;if("0"==l.sc&&l.data.length>0){for(var o=0;o<l.data.length;o++){if(2==l.data[o].paystatus){window.location.href=j;return};if(9!=l.data[o].status){n=l.data[o];break}};$("#payWeChat").css({"pointer-events":""})};if(null!=n){if(k==0){payParam={"orderid":n.orderid,'paychannel':'wx_pub2'}};if(k==4){payParam={"orderid":n.orderid};var o=confirm("确认支付吗？");if(o!=true){return}};$.post("/order/h5/pay",{data:JSON.stringify(payParam)},function(o,p){if("0"==o.sc){var q=o.data.orderid;if(null!=o.data.payTicketInfo){pingpp.createPayment(o.data.payTicketInfo,function(r,s){if("cancel"==r){$.post('/order/h5/breakpay/'+q,function(t,u){console.log(t)})}else if("success"==r){checkPayStatus(q,j)}})}else{window.location.href=j}}else if("ORDER-1006"==o.sc){window.location.href=j}else{errorPrompt(chinese(o.ErrorMsg),2000)};$("#payWeChat").css({"pointer-events":""})})}else{if(k==0){createParam={'productid':h,'quantity':1,'amount':i,'payments':[{'paytype':0,'amount':i}],'paychannel':'wx_pub2'}};if(k==4){createParam={'productid':h,'quantity':1,'amount':i,'payments':[{'paytype':4,'amount':i,'points':i/8}]};var o=confirm("确认支付吗？");if(o!=true){return}};$.post("/order/h5/createandpay",{data:JSON.stringify(createParam)},function(o,p){console.log(o);if(o.sc=="0"){var q=o.data.orderid;if(null!=o.data.payTicketInfo){pingpp.createPayment(o.data.payTicketInfo,function(r,s){console.log(r);console.log(s);if("cancel"==r){$.post('/order/h5/breakpay/'+q,function(t,u){console.log(t)})}else if("success"==r){checkPayStatus(q,j)}})}else{window.location.href=j}}else if("ORDER-1010"==o.sc){window.location.href=j}else{errorPrompt(chinese(o.ErrorMsg),2000)};$("#payWeChat").css({"pointer-events":""})})}})};function checkPayStatus(h,i){var j={"orderid":h};setTimeout(function(){$.post('/order/h5/info',{data:JSON.stringify(j)},function(k,l){if("0"==k.sc&&"2"==k.data.paystatus&&"9"!=k.data.status){console.log(k);window.location.href=i}else{console.log(k)};$("#payWeChat").css({"pointer-events":""})})},1000)}});
+$(document).ready(function(){
+    $(".screenBox,.screenFull").height($(window).height());
+
+    $("#winResults").click(function(){
+        $("#winningList").show();
+    });
+
+    $(".shadow,.close").click(function(){
+        $(".screenFull").hide();
+    });
+
+    $(".plus:last-child").css("display","none");
+
+    var price,paidToURL,productDesc,imgSrc;
+    var productId=GetParams().id;
+    var payType;//支付方式
+    var data="{'id':"+productId+"}";
+    $.ajax({
+        url:"/product/h5/query",
+        type:'POST',
+        data:{data:data},
+        dataType:'json',
+        success:function(data){
+            console.log(data);
+            price=data.data.productPrice.totalPrice;
+            paidToURL=data.data.serviceUrl;
+            productDesc=data.data.productDesc;
+            imgSrc=data.data.imgList[0];
+            payType=data.data.payTypes[0];
+            document.title=data.data.productName;
+            $(".activityName").html(data.data.productName);
+            $(".bannerBgp").css("background-img",'url('+imgSrc+')');
+            $(".activityPrize").html(productDesc);
+            if(payType==0){//现金支付
+                $("#price").html(parseInt(data.data.productPrice.totalPrice/100));
+            }
+            if(payType==4){//积分支付
+                $("#payWeChat").html(parseInt(data.data.productPrice.totalPointPrice)+" 积分支付").css("text-align","center");
+            }
+        },
+        error: function(error){
+            console.log(error.status);
+        }
+    });
+
+    $("#payWeChat").click(function(){
+        $("#payWeChat").css({"pointer-events": "none"});
+        setTimeout(function(){
+            $("#payWeChat").css({"pointer-events": ""});
+        },5000);
+        createAndPayServiceOrder(productId,price,paidToURL,payType);
+    });
+
+    function createAndPayServiceOrder(productId, price, paidToUrl, payType) {  //产品ID、产品价格、支付成功后跳转url、支付方式
+        queryParam = {'productid': productId};
+        $.post("/order/h5/list",{data: JSON.stringify(queryParam)},function (resp, status) {
+            var orderObject = null;
+            if("0" == resp.sc && resp.data.length > 0){
+                for(var i=0;i<resp.data.length;i++){
+                    if(2 == resp.data[i].paystatus){
+                        window.location.href = paidToUrl;
+                        return;
+                    }
+                    if(9 != resp.data[i].status){
+                        orderObject = resp.data[i];
+                        break;
+                    }
+                }
+                $("#payWeChat").css({"pointer-events": ""});
+            }
+
+            if(null != orderObject ){//代支付状态
+                if(payType==0){
+                    payParam = {"orderid":orderObject.orderid,'paychannel': 'wx_pub2'};
+                }
+                if(payType==4){
+                    payParam = {"orderid":orderObject.orderid};
+                    var ry=confirm("确认支付吗？");
+                    if (ry!=true) {
+                        return;
+                    }
+                }
+                $.post("/order/h5/pay", {data: JSON.stringify(payParam)},function (resp, status) {
+                    if ("0" == resp.sc) {
+                        var orderid = resp.data.orderid;
+                        if (null != resp.data.payTicketInfo) {
+                            pingpp.createPayment(resp.data.payTicketInfo, function (result, err) {
+                                if ("cancel" == result) {
+                                    $.post('/order/h5/breakpay/' + orderid, function (resp, status) {
+                                        console.log(resp);
+                                    })
+                                } else if ("success" == result) {
+                                    checkPayStatus(orderid, paidToUrl);
+                                }
+                            });
+                        } else {
+                            window.location.href = paidToUrl;
+                        }
+                    }else if("ORDER-1006" == resp.sc){
+                        window.location.href = paidToUrl;
+                    }else {
+                        errorPrompt(chinese(resp.ErrorMsg),2000);
+                    }
+                    $("#payWeChat").css({"pointer-events": ""});
+                });
+            }else{
+                if(payType==0){
+                    createParam = {
+                        'productid': productId,
+                        'quantity': 1,
+                        'amount': price,
+                        'payments': [{'paytype': 0, 'amount': price}],
+                        'paychannel': 'wx_pub2'
+                    };
+                }
+                if(payType==4){
+                    createParam = {
+                        'productid': productId,
+                        'quantity': 1,
+                        'amount': price,
+                        'payments': [{'paytype': 4, 'amount': price, 'points': price/8}]
+                    };
+                    var ry=confirm("确认支付吗？");
+                    if (ry!=true) {
+                        return;
+                    }
+                }
+                $.post("/order/h5/createandpay", {data: JSON.stringify(createParam)},
+                    function (resp, status) {
+                        console.log(resp);
+                        if (resp.sc == "0") {
+                            var orderid = resp.data.orderid;
+                            if (null != resp.data.payTicketInfo) {
+                                pingpp.createPayment(resp.data.payTicketInfo, function (result, err) {
+                                    console.log(result);
+                                    console.log(err);
+                                    if ("cancel" == result) {
+                                        $.post('/order/h5/breakpay/' + orderid, function (resp, status) {
+                                            console.log(resp);
+                                        })
+                                    } else if ("success" == result) {
+                                        checkPayStatus(orderid, paidToUrl);
+                                    }
+                                });
+                            } else {
+                                window.location.href = paidToUrl;
+                            }
+                        }
+                        else if("ORDER-1010" == resp.sc){
+                            window.location.href = paidToUrl;
+                        }
+                        else {
+                            errorPrompt(chinese(resp.ErrorMsg),2000);
+                        }
+                        $("#payWeChat").css({"pointer-events": ""});
+                    }
+                );
+            }
+        });
+    }
+
+    function checkPayStatus(orderid, paidToUrl) {
+        var infoParm = {"orderid": orderid};
+        setTimeout(function () {
+            $.post('/order/h5/info', {data: JSON.stringify(infoParm)}, function (resp, status) {
+                //判断支付状态
+                if ("0" == resp.sc && "2" == resp.data.paystatus && "9" != resp.data.status) {
+                    console.log(resp);
+                    //支付成功跳转到目标页面
+                    window.location.href = paidToUrl;
+                } else {
+                    console.log(resp);
+                }
+                $("#payWeChat").css({"pointer-events": ""});
+            })
+        }, 1000);
+    }
+
+
+});

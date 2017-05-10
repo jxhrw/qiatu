@@ -1,1 +1,303 @@
-var orderUrl="/order/h5/info",orderData={orderid:GetParams().orderid},ua=window.navigator.userAgent.toLowerCase(),objectType,again=0,referrer=document.referrer;$(document).ready(function(){function e(){$.post(h5orClient(orderUrl),{data:JSON.stringify(orderData)},function(t){if(0==t.sc){objectType=t.data.objectType;var o,i=0,s=0,r=0,n=0,d=0,c=parseInt(t.data.countDown?t.data.countDown:0),l=parseInt(t.data.checkin),m=parseInt(t.data.checkout),h=t.data.nights?t.data.nights:1,f=t.data.quantity?t.data.quantity:1,u=t.data.payments;showCyType=t.data.showCyType,showCyCode=t.data.showCyCode?t.data.showCyCode:"",showCyUnit=t.data.showCyUnit?t.data.showCyUnit:"",showCyAmount=t.data.showCyAmount?t.data.showCyAmount:0,"0"!=showCyType&&"5"!=showCyType||(showCyAmount=t.data.showCyAmount/100);var p='<div class="clearfix multiLine" id="zgJia"><div class="function gray fl">总价：</div><div class="quota fr">'+showCyCode+showCyAmount+showCyUnit+"</div></div>";if($("#roomName").html(t.data.ordername),$("#checkIn").html(newFormatStrDateNoYear(new Date(l),"/")),$("#checkOut").html(newFormatStrDateNoYear(new Date(m),"/")),$("#nights").html(h),$("#quantity").html(f),$("#customerName").html(t.data.customerName),$("#customerMobile").html(t.data.customerMobile),$("#comments").html(t.data.comments),$("#countDown").html(a(c)),$("#orderid").html(GetParams().orderid),void 0!=t.data.customerAddress){var y=t.data.customerAddress;y=y.split(","),$("#customerName").html(y[0]),$("#customerMobile").html(y[1]),$("#customerAddress").html(y[2]).parents(".customerAddress").show()}if("31"==objectType||"30"==objectType||"40"==objectType||"99"==objectType?($(".bookingTips").html("").css("padding","0.5rem 1rem"),$("#checkTime,#hotelBox").hide()):"12"==objectType||void 0==objectType?($(".bookingTips").html("").css("padding","0.5rem 1rem"),$("#header,#customer").hide(),$("#hotelBox").show()):($(".bookingTips").html(t.data.cancelPolicy),$("#checkTime,#hotelBox").show()),c>0){$("#goOnPay").show(),$("#bottomFree").css("height","5.4rem");var v=setInterval(function(){c--,$("#countDown").html(a(c)),0==c&&($("#goOnPay").hide(),$("#bottomFree").css("height","2.4rem"),e(),clearInterval(v))},1e3)}else $("#goOnPay").hide(),$("#bottomFree").css("height","2.4rem");for(var w=0;void 0!=u&&w<u.length;w++)if(0==u[w].payType)i+=parseInt(u[w].amount);else if(1==u[w].payType||2==u[w].payType)s+=parseInt(u[w].amount);else if(3==u[w].payType)r+=parseInt(u[w].amount);else if(4==u[w].payType)n+=parseInt(u[w].amount);else if(5==u[w].payType||7==u[w].payType)d+=parseInt(u[w].amount);else if(6==u[w].payType)p+='<div class="clearfix multiLine2"><div class="function gray fl">积分：</div><div class="quota fr">积分'+u[w].faceValue+"个</div></div>";else if(11==u[w].payType){var g=u[w].faceValue;void 0==g&&(g=1),p+='<div class="clearfix multiLine"><div class="function gray fl">礼券：</div><div class="quota fr">'+u[w].couponAlias+g+"张</div></div>"}else 12==u[w].payType&&(p+='<div class="clearfix multiLine"><div class="function gray fl">礼券：</div><div class="quota fr">'+u[w].couponAlias+u[w].faceValue/100+"元</div></div>");switch(s>0&&(p+='<div class="clearfix multiLine"><div class="function gray fl">礼券：</div><div class="quota fr">-￥'+s/100+"</div></div>"),d>0&&(p+='<div class="clearfix multiLine"><div class="function gray fl">优惠券：</div><div class="quota fr">-￥'+d/100+"</div></div>"),r>0&&(p+='<div class="clearfix multiLine"><div class="function gray fl">积分兑房：</div><div class="quota fr">-￥'+r/100+"</div></div>"),n>0&&(p+='<div class="clearfix multiLine"><div class="function gray fl">积分抵现：</div><div class="quota fr">-￥'+n/100+"</div></div>"),i>0?($("#shouldPay").html("￥"+i/100),p+='<div class="clearfix multiLine"><div class="function gray fl"><span id="payNot">实付：</span></div><div class="quota <!--paleRed--> fr">￥'+i/100+"</div></div>"):0==i&&$("#shouldPay").html("￥"+i/100),$("#payInfoDiv").html(p),t.data.closereson?($("#nowStatus").html(t.data.statedesc+"("+t.data.closereson+")"),"待支付"==t.data.statedesc&&$("#payNot").html("应付：")):($("#nowStatus").html(t.data.statedesc),"待支付"==t.data.statedesc&&$("#payNot").html("应付：")),t.data.stateremark?$("#nowTips").html(t.data.stateremark):$("#nowTips").html(""),1==t.data.allowCancel?$("#cancelBtn").show():$("#cancelBtn").hide(),"1"==t.data.refundStatus?($("#nowTips").html("退款中"),$(".refundBox").show()):"9"==t.data.refundStatus?($("#nowTips").html("已退款"),$(".refundBox").hide()):$(".refundBox").hide(),t.data.status){case"5":case"8":case"11":case"12":o="&#xe610;";break;case"3":case"4":o="&#xe618;";break;default:o="&#xe60d;"}if($("#iconStatus").html(o),"&#xe618;"==o&&again<3&&setTimeout(function(){again++,e()},1500),"11"!=objectType&&"12"!=objectType&&void 0!=objectType||!t.data.hotelId)-1!=referrer.indexOf("myOrderList")||""==referrer?$("#productHref").attr("href","/html/order/virtualGoods.html?id="+t.data.productid).css("color","#000"):$("#productHref").attr("href","javascript:history.go(-1)").css("color","#000");else{var T='<div class="clearfix multiLine"><div class="function gray fl">支付方式：</div><div class="quota fr"><span>'+t.data.paydesc+"</span></div></div>";if(-1==$("#payInfoDiv").html().indexOf("支付方式")&&$("#zgJia").after(T),$("#productHref .arrowImg").hide(),t.data.paidTime){var C=newFormatStrDate(new Date(parseInt(t.data.paidTime)),"/"),I=timeFormatSecond(new Date(parseInt(t.data.paidTime)),":"),b='<div class="clearfix multiLine"><div class="function gray fl">支付时间：</div><div class="quota fr"><span>'+C+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+I+"</span></div></div>";-1==$("#orderidDiv").html().indexOf("支付时间")&&$("#orderidBox").before(b)}if(t.data.hotelId){var x={id:t.data.hotelId};$.post(h5orClient("/content/h5/hotel/detail"),{data:JSON.stringify(x)},function(e){if(0==e.sc){$("#address").html(e.data.hotelBaseInfo.address),$("#hotelCname").html(e.data.hotelBaseInfo.hotelCname),$("#hotelCname").parents(".hotelName").click(function(){window.location.href="/html/h5/product/detail/bnbShare.html?id="+x.id});var a=e.data.hotelBaseInfo.locLat,t=e.data.hotelBaseInfo.locLon,o=e.data.hotelBaseInfo.address,i=e.data.hotelBaseInfo.cityName;$("#navigation").attr("href","http://apis.map.qq.com/tools/poimarker?type=0&marker=coord:"+a+","+t+";title:"+i+";addr:"+o+";&key=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77&referer=myapp"),$("#hotelPhone").attr("href","tel://"+e.data.hotelBaseInfo.phone).html(e.data.hotelBaseInfo.phone)}})}}}else errorPrompt(chinese(t.ErrorMsg),2e3)})}function a(e){return minutes=parseInt(e/60),seconds=parseInt(e%60),formatNum(minutes)+":"+formatNum(seconds)}-1==referrer.indexOf("myOrderList")&&(sessionStorage.setItem("toOrderLeave",1),sessionStorage.setItem("paymentLeave",1)),$(".mainContent").height($(window).height()),e(),$("#cancel").click(function(){$("#cancel").addClass("no"),$(".mainContent,.cancelBox,.underWindow").hide();$.post(h5orClient("/order/h5/cancel"),{data:JSON.stringify(orderData)},function(a){0==a.sc?e():"-99999"!=a.sc?errorPrompt(a.ErrorMsg,2e3):errorPrompt(chinese("系统开小差了"),2e3),$("#cancel").removeClass("no")})}),$("#goOnPay").click(function(){sessionStorage.setItem("paymentLeave",0),window.location.href="/html/h5/order/payment.html?orderid="+orderData.orderid}),$("#cancelBtn").click(function(){$(".mainContent,.cancelBox").show()}),$(".refundBox").click(function(){$(".mainContent,.underWindow").show()}),$(".shadow,#wrong,#clearDisc").click(function(){$(".mainContent,.cancelBox,.underWindow").hide()})});
+var orderUrl='/order/h5/info';
+var orderData={orderid:GetParams().orderid};
+var ua = window.navigator.userAgent.toLowerCase();
+var objectType;
+var again=0;//支付中刷新次数
+var referrer=document.referrer;//当前页前一页的链接
+
+$(document).ready(function(){
+    if(referrer.indexOf("myOrderList")==-1){
+        sessionStorage.setItem("toOrderLeave",1);
+        sessionStorage.setItem("paymentLeave",1);
+    }/*else {
+        sessionStorage.setItem("toOrderLeave",0);
+        sessionStorage.setItem("paymentLeave",0);
+    }*/
+    $(".mainContent").height($(window).height());
+
+    detailInfo();
+
+    //取消订单
+    $("#cancel").click(function(){
+        $("#cancel").addClass("no");
+        $(".mainContent,.cancelBox,.underWindow").hide();
+        var cancelUrl='/order/h5/cancel';
+        $.post(h5orClient(cancelUrl),{data:JSON.stringify(orderData)},function(res){
+            if(res.sc==0){
+                detailInfo();
+            }
+            else if(res.sc!="-99999"){
+                errorPrompt((res.ErrorMsg),2000);
+            }
+            else {
+                errorPrompt(chinese("系统开小差了"),2000);
+            }
+            $("#cancel").removeClass("no");
+        });
+    });
+
+    //继续支付
+    $("#goOnPay").click(function(){
+        sessionStorage.setItem("paymentLeave",0);
+        window.location.href="/html/h5/order/payment.html?orderid="+orderData.orderid;
+    });
+
+    $("#cancelBtn").click(function(){
+        $(".mainContent,.cancelBox").show();
+    });
+
+    $(".refundBox").click(function(){
+        $(".mainContent,.underWindow").show();
+    });
+
+    $(".shadow,#wrong,#clearDisc").click(function(){
+        $(".mainContent,.cancelBox,.underWindow").hide();
+    });
+
+    //详情信息
+    function detailInfo(){
+        $.post(h5orClient(orderUrl),{data:JSON.stringify(orderData)},function(orderRes){
+            if(orderRes.sc==0){
+                objectType=orderRes.data.objectType;
+                var cashAmount=0;//现金支付
+                var couponDeductible=0;//礼券抵扣
+                var housingDeductible=0;//积分兑房抵扣
+                var integralDeductible=0;//积分抵现抵扣
+                var discDeductible=0;//优惠券和红包抵扣
+                var countDown=parseInt(orderRes.data.countDown?orderRes.data.countDown:0);//倒计时
+                var checkin=parseInt(orderRes.data.checkin);
+                var checkout=parseInt(orderRes.data.checkout);
+                //var nights=parseInt((checkout-checkin)/24/3600/1000);
+                var nights=orderRes.data.nights?orderRes.data.nights:1;
+                var quantity=orderRes.data.quantity?orderRes.data.quantity:1;
+                var payments=orderRes.data.payments;
+                var iconHtml;
+                showCyType=orderRes.data.showCyType;
+                showCyCode=orderRes.data.showCyCode?orderRes.data.showCyCode:"";
+                showCyUnit=orderRes.data.showCyUnit?orderRes.data.showCyUnit:"";
+                showCyAmount=orderRes.data.showCyAmount?orderRes.data.showCyAmount:0;
+                if(showCyType=="0" || showCyType=="5"){
+                    showCyAmount=orderRes.data.showCyAmount/100;
+                }
+                var payInfoDivHtml='<div class="clearfix multiLine" id="zgJia"><div class="function gray fl">总价：</div><div class="quota fr">'+ showCyCode + showCyAmount + showCyUnit  +'</div></div>';
+                $("#roomName").html(orderRes.data.ordername);
+                $("#checkIn").html(newFormatStrDateNoYear(new Date(checkin),"/"));
+                $("#checkOut").html(newFormatStrDateNoYear(new Date(checkout),"/"));
+                $("#nights").html(nights);
+                $("#quantity").html(quantity);
+                $("#customerName").html(orderRes.data.customerName);
+                $("#customerMobile").html(orderRes.data.customerMobile);
+                $("#comments").html(orderRes.data.comments);
+                $("#countDown").html(countDownFun(countDown));
+                $("#orderid").html(GetParams().orderid);
+
+                if(undefined!=orderRes.data.customerAddress){
+                    var customerAddress=orderRes.data.customerAddress;
+                    customerAddress=customerAddress.split(",");
+                    $("#customerName").html(customerAddress[0]);
+                    $("#customerMobile").html(customerAddress[1]);
+                    $("#customerAddress").html(customerAddress[2]).parents(".customerAddress").show();
+                }
+
+                if("31"==objectType || "30"==objectType || "40"==objectType || "99"==objectType){
+                    $(".bookingTips").html("").css("padding","0.5rem 1rem");
+                    $("#checkTime,#hotelBox").hide();
+                }
+                else if("12"==objectType || undefined==objectType){
+                    $(".bookingTips").html("").css("padding","0.5rem 1rem");
+                    $("#header,#customer").hide();
+                    $("#hotelBox").show();
+                }
+                else {
+                    $(".bookingTips").html(orderRes.data.cancelPolicy);
+                    $("#checkTime,#hotelBox").show();
+                }
+
+                if(countDown>0){
+                    $("#goOnPay").show();
+                    $("#bottomFree").css("height","5.4rem");
+                    var it=setInterval(function(){
+                        countDown--;
+                        $("#countDown").html(countDownFun(countDown));
+                        if(countDown==0){
+                            $("#goOnPay").hide();
+                            $("#bottomFree").css("height","2.4rem");
+                            detailInfo();
+                            clearInterval(it);
+                        }
+                    },1000);
+                }else {
+                    $("#goOnPay").hide();
+                    $("#bottomFree").css("height","2.4rem");
+                }
+                for (var i =0;undefined != payments && i < payments.length; i++) {
+                    //1是房券，2是现金抵用券，3是积分兑房，4是积分抵现，5是优惠券,7红包
+                    if(payments[i].payType==0){
+                        cashAmount+=parseInt(payments[i].amount);
+                    }
+                    else if(payments[i].payType==1 || payments[i].payType==2){
+                        couponDeductible+=parseInt(payments[i].amount);
+                    }
+                    else if(payments[i].payType==3){
+                        housingDeductible+=parseInt(payments[i].amount);
+                    }
+                    else if(payments[i].payType==4){
+                        integralDeductible+=parseInt(payments[i].amount);
+                    }
+                    else if(payments[i].payType==5 || payments[i].payType==7){ //5折扣，7红包
+                        discDeductible+=parseInt(payments[i].amount);
+                    }
+                    else if(payments[i].payType==6){ //6积分抵积分
+                        payInfoDivHtml+='<div class="clearfix multiLine2"><div class="function gray fl">积分：</div><div class="quota fr">'+ '积分' + payments[i].faceValue + '个' +'</div></div>';
+                    }
+                    else if(payments[i].payType==11){ //11房券抵积分
+                        var faceValue=payments[i].faceValue;
+                        if(undefined==faceValue){
+                            faceValue=1;
+                        }
+                        payInfoDivHtml+='<div class="clearfix multiLine"><div class="function gray fl">礼券：</div><div class="quota fr">'+ payments[i].couponAlias + faceValue + '张' +'</div></div>';
+                    }
+                    else if(payments[i].payType==12){ //12消费金抵积分
+                        payInfoDivHtml+='<div class="clearfix multiLine"><div class="function gray fl">礼券：</div><div class="quota fr">'+ payments[i].couponAlias + payments[i].faceValue/100 + '元' +'</div></div>';
+                    }
+                }
+
+                if(couponDeductible>0){
+                    payInfoDivHtml+='<div class="clearfix multiLine"><div class="function gray fl">礼券：</div><div class="quota fr">-￥'+ couponDeductible/100 +'</div></div>';
+                }
+                if(discDeductible>0){
+                    payInfoDivHtml+='<div class="clearfix multiLine"><div class="function gray fl">优惠券：</div><div class="quota fr">-￥'+ discDeductible/100 +'</div></div>';
+                }
+                if(housingDeductible>0){
+                    payInfoDivHtml+='<div class="clearfix multiLine"><div class="function gray fl">积分兑房：</div><div class="quota fr">-￥'+ housingDeductible/100 +'</div></div>';
+                }
+                if(integralDeductible>0){
+                    payInfoDivHtml+='<div class="clearfix multiLine"><div class="function gray fl">积分抵现：</div><div class="quota fr">-￥'+ integralDeductible/100 +'</div></div>';
+                }
+                if(cashAmount>0){
+                    $("#shouldPay").html('￥'+ cashAmount/100);
+                    payInfoDivHtml+='<div class="clearfix multiLine"><div class="function gray fl"><span id="payNot">实付：</span></div><div class="quota <!--paleRed--> fr">￥'+ cashAmount/100 +'</div></div>';
+                }else if(cashAmount==0){
+                    $("#shouldPay").html('￥'+ cashAmount/100);
+                }
+
+
+                $("#payInfoDiv").html(payInfoDivHtml);
+
+                if(orderRes.data.closereson){
+                    $("#nowStatus").html(orderRes.data.statedesc+"("+orderRes.data.closereson+")");
+                    if(orderRes.data.statedesc=="待支付"){
+                        $("#payNot").html("应付：");
+                    }
+                }
+                else{
+                    $("#nowStatus").html(orderRes.data.statedesc);
+                    if(orderRes.data.statedesc=="待支付"){
+                        $("#payNot").html("应付：");
+                    }
+                }
+                if(orderRes.data.stateremark){
+                    $("#nowTips").html(orderRes.data.stateremark);
+                }else {
+                    $("#nowTips").html("");
+                }
+                if(orderRes.data.allowCancel==1){
+                    $("#cancelBtn").show();
+                }else {
+                    $("#cancelBtn").hide();
+                }
+                if(orderRes.data.refundStatus=="1"){
+                    $("#nowTips").html("退款中");
+                    $(".refundBox").show();
+                }
+                else if(orderRes.data.refundStatus=="9"){
+                    $("#nowTips").html("已退款");
+                    $(".refundBox").hide();
+                }
+                else {
+                    $(".refundBox").hide();
+                }
+
+
+                switch(orderRes.data.status) {
+                    case "5":
+                    case "8":
+                    case "11":
+                    case "12":
+                        iconHtml='&#xe610;';//交易完成等
+                        break;
+                    case "3":
+                    case "4":
+                        iconHtml='&#xe618;';//待支付等
+                        break;
+                    default:
+                        iconHtml='&#xe60d;';//取消等
+                        break;
+                }
+                $("#iconStatus").html(iconHtml);
+                if(iconHtml=='&#xe618;' && again<3){
+                    setTimeout(function(){
+                        again++;
+                        detailInfo();
+                    },1500);
+                }
+
+                if((objectType=="11" || objectType=="12" || undefined==objectType) && orderRes.data.hotelId){
+                    var paydescHtml='<div class="clearfix multiLine"><div class="function gray fl">支付方式：</div><div class="quota fr"><span>'+ orderRes.data.paydesc +'</span></div></div>';
+                    /*if($("#orderidDiv").html().indexOf("支付方式")==-1){
+                        $("#orderidBox").after(paydescHtml);
+                    }*/
+                    if($("#payInfoDiv").html().indexOf("支付方式")==-1){
+                        $("#zgJia").after(paydescHtml);
+                    }
+                    $("#productHref .arrowImg").hide();
+                    if(orderRes.data.paidTime){
+                        var paidTime=newFormatStrDate(new Date(parseInt(orderRes.data.paidTime)),"/");
+                        var paisSecode=timeFormatSecond(new Date(parseInt(orderRes.data.paidTime)),":");
+                        var paidTimeHtml='<div class="clearfix multiLine"><div class="function gray fl">支付时间：</div><div class="quota fr"><span>'+ paidTime + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + paisSecode +'</span></div></div>';
+                        if($("#orderidDiv").html().indexOf("支付时间")==-1){
+                            $("#orderidBox").before(paidTimeHtml);
+                        }
+                    }
+                    if(orderRes.data.hotelId){
+                        var hoteldata={id:orderRes.data.hotelId};
+                        var hotelUrl='/content/h5/hotel/detail';
+                        $.post(h5orClient(hotelUrl),{data:JSON.stringify(hoteldata)},function(res) {
+                            if(res.sc==0) {
+                                $("#address").html(res.data.hotelBaseInfo.address);
+                                $("#hotelCname").html(res.data.hotelBaseInfo.hotelCname);
+                                $("#hotelCname").parents(".hotelName").click(function () {
+                                    window.location.href = "/html/h5/product/detail/bnbShare.html?id=" + hoteldata.id;
+                                    return;
+                                });
+                                var cityLat = res.data.hotelBaseInfo.locLat;
+                                var cityLon = res.data.hotelBaseInfo.locLon;
+                                var address = res.data.hotelBaseInfo.address;
+                                var cityName = res.data.hotelBaseInfo.cityName;
+                                $("#navigation").attr("href", "http://apis.map.qq.com/tools/poimarker?type=0&marker=coord:" + cityLat + "," + cityLon + ";title:" + cityName + ";addr:" + address + ";&key=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77&referer=myapp");
+                                $("#hotelPhone").attr("href", "tel://" + res.data.hotelBaseInfo.phone).html(res.data.hotelBaseInfo.phone);
+                            }
+                        });
+                    }
+                }
+                else {
+                    if(referrer.indexOf("myOrderList")!=-1 || ""==referrer){
+                        $("#productHref").attr("href","/html/order/virtualGoods.html?id="+orderRes.data.productid).css("color","#000");
+                    }else {
+                        $("#productHref").attr("href","javascript:history.go(-1)").css("color","#000");
+                    }
+                }
+            }
+            else {
+                errorPrompt(chinese(orderRes.ErrorMsg),2000);
+            }
+        });
+    }
+
+    //倒计时
+    function countDownFun(num){
+        minutes=parseInt(num/60);
+        seconds=parseInt(num%60);
+        return formatNum(minutes)+":"+formatNum(seconds);
+    }
+});
