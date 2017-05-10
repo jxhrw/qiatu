@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>几何生活</title>
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes"> -->
+	<meta name="format-detection" content="telephone=no"/>
+	<meta http-equiv="cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="expires" content="0" />
+	<script type="text/javascript" src="http://7xio74.com2.z0.glb.qiniucdn.com/rem.js"></script>
+	<script type="text/javascript" src="http://7xio74.com2.z0.glb.qiniucdn.com/jquery-1.4.2.js"></script>
+	<script src="http://7xio74.com1.z0.glb.clouddn.com/js/general.js?h6"></script>
+	<link rel="stylesheet" href="css/reset.css">
+	<script type="text/javascript" src="js/hostAll.js"></script>
+	<script type="text/javascript" src="js/enquiry.js"></script>
+	<script src="yui-min.js"></script>
+	<script src="jquery.js"></script>
+	<script>
+
+		YUI({
+			modules: {
+				'trip-calendar': {
+					fullpath: 'trip-calendar.js',
+					type    : 'js',
+					requires: ['trip-calendar-css']
+				},
+				'trip-calendar-css': {
+					fullpath: 'trip-calendar.css',
+					type    : 'css'
+				}
+			}
+		}).use('trip-calendar', function(Y) {
+			var oCal= new Y.TripCalendar({
+				minDate         : "",     //最小时间限制
+				maxDate         : "",
+				triggerNode     : '#J_DepDate1', //第一个触节点
+				finalTriggerNode: '#J_EndDate1' ,//最后一个触发节点
+				count           : 1
+
+			});
+			var oCal= new Y.TripCalendar({
+				minDate         : "2016-01-01",     //最小时间限制
+				maxDate         : "",
+				triggerNode     : '#J_DepDate2', //第一个触节点
+				finalTriggerNode: '#J_EndDate2' ,//最后一个触发节点
+				count           : 1
+
+			});
+
+		});
+
+	</script>
+
+	<style type="text/css">
+		.dl1 input,.dl2 input{
+			width: 200px !important;
+			color: #000;
+		}
+		input::-webkit-outer-spin-button,
+		input::-webkit-inner-spin-button {
+			-webkit-appearance: none !important;
+			margin: 0;
+		}
+	</style>
+</head>
+<body>
+<div class="bmsEnquiry">
+	<div class="bmsEnquiryTop">
+		<ul class="bmsEnquiryTopLeft">
+			<li>会员姓名：<span></span></li>
+			<li>会员电话：<span></span></li>
+			<li>会员权益：<span></span></li>
+		</ul>
+		<ul class="bmsEnquiryTopCenter">
+			<li>会员卡号：<span></span></li>
+			<li>会员级别：<span></span></li>
+			<li>会员积分：<span></span></li>
+		</ul>
+		<ul class="bmsEnquiryTopRight">
+			<li>入住</li>
+			<li>离店补录</li>
+			<li>非住宿消费</li>
+		</ul>
+	</div>
+	<div class="writeOffDiv">
+		<table class="writeOffTable" cellspacing="0" cellpadding="0">
+
+		</table>
+	</div>
+	<div class="bmsEnquiryBottom" style="display: none;">
+		<table class="hovertable" >
+			<tr class="hovertableTitle">
+				<th>消费项</th><th>会员姓名</th><th>会员级别</th><th>手机号</th><th>入住/消费<br/>日期</th><th>离店日期</th><th>消费金额/元</th><th>房间号</th><th>预定渠道</th><th colspan=2 align="center">操作</th>
+			</tr>
+		</table>
+	</div>
+</div>
+<div class="none3" style="display:none"></div>
+<!-- 入住弹层 -->
+<div class="mask">
+	<div class="alert">
+		<p class="maskTitle">入住消费<span class="maskClose"></span></p>
+		<div class="alertWrap">
+			<div class="alertLeft">
+				<dl class="dl1" style="padding:35px 0 0px;">
+					<dt>手机号：</dt>
+					<dd></dd>
+				</dl>
+				<dl class="dl2">
+					<dt>入住日期：</dt>
+					<dd><input id="J_DepDate1" type="text" value=""/><span class="errTip2">入住日期不能为空</span></dd>
+				</dl>
+				<dl class="dl2">
+					<dt>离店日期：</dt>
+					<dd><input id="J_EndDate1" type="text" value=""/><span class="errTip3">离店日期不能为空</span></dd>
+				</dl>
+
+				<dl class="dl2">
+					<dt>消费金额：</dt>
+					<dd><input type="number" class="amount"/><span class="errTip5">金额不能为空</span></dd>
+				</dl>
+				<dl class="dl2">
+					<dt>房间号：</dt>
+					<dd><input type="text" class="roomNights" placeholder="选填"/></dd>
+				</dl>
+			</div>
+			<div class="alertRight">
+				<dl class="memberName" style="padding:35px 0 0px;">
+					<dt>会员姓名：</dt>
+					<dd>几何君</dd>
+				</dl>
+				<dl class="memberClass">
+					<dt>会员级别：</dt>
+					<dd>黑卡会员</dd>
+				</dl>
+				<dl class="memberEq">
+					<dt>会员权益：</dt>
+					<dd></dd>
+				</dl>
+			</div>
+		</div>
+
+		<buttom class="xiugaimimaBtn" id="xiugaimimaBtn1">录入</buttom>
+	</div>
+</div>
+<!-- 非住宿弹层 -->
+<div class="mask1">
+	<div class="alert">
+		<p class="maskTitle">非住宿消费<span class="maskClose"></span></p>
+		<div class="alertWrap">
+			<div class="alertLeft">
+				<dl class="dl1" style="padding:35px 0 0px;">
+					<dt>手机号：</dt>
+					<dd></dd>
+				</dl>
+				<dl class="dl2">
+					<dt>消费日期：</dt>
+					<dd><input id="J_DepDate1" type="text" value=""/><span class="errTip2">入住日期不能为空</span></dd>
+				</dl>
+				<dl class="dl2">
+					<dt>消费金额：</dt>
+					<dd><input type="number" class="amount"/><span class="errTip5">金额不能为空</span></dd>
+				</dl>
+			</div>
+			<div class="alertRight">
+				<dl class="memberName" style="padding:35px 0 0px;">
+					<dt>会员姓名：</dt>
+					<dd>几何君</dd>
+				</dl>
+				<dl class="memberClass">
+					<dt>会员级别：</dt>
+					<dd>黑卡会员</dd>
+				</dl>
+				<dl class="memberEq">
+					<dt>会员权益：</dt>
+					<dd></dd>
+				</dl>
+
+			</div>
+		</div>
+
+		<buttom class="xiugaimimaBtn" id="xiugaimimaBtn2">录入</buttom>
+	</div>
+</div>
+<div class="memberEqUid" style="display:none"></div>
+<!-- 修改弹层 -->
+<div class="mask3">
+	<div class="alert">
+		<p class="maskTitle">入住消费<span class="maskClose"></span></p>
+		<div class="alertWrap">
+			<div class="alertLeft">
+				<dl class="dl1" style="padding:35px 0 0px;">
+					<dt>手机号：</dt>
+					<dd></dd>
+				</dl>
+				<dl class="dl2">
+					<dt>入住日期：</dt>
+					<dd><input id="J_DepDate2" type="text" value=""/><span class="errTip2">入住日期不能为空</span></dd>
+				</dl>
+				<dl class="dl2">
+					<dt>离店日期：</dt>
+					<dd><input id="J_EndDate2" type="text" value=""/><span class="errTip3">离店日期不能为空</span></dd>
+				</dl>
+
+				<dl class="dl2">
+					<dt>消费金额：</dt>
+					<dd><input type="number" class="amount"/><span class="errTip5">金额不能为空</span></dd>
+				</dl>
+				<dl class="dl2">
+					<dt>房间号：</dt>
+					<dd><input type="text" class="roomNights" placeholder="选填"/></dd>
+				</dl>
+			</div>
+			<div class="alertRight">
+				<dl class="memberName" style="padding:35px 0 0px;">
+					<dt>会员姓名：</dt>
+					<dd>几何君</dd>
+				</dl>
+				<dl class="memberClass">
+					<dt>会员级别：</dt>
+					<dd>黑卡会员</dd>
+				</dl>
+				<dl class="memberEq">
+					<dt>会员权益：</dt>
+					<dd></dd>
+				</dl>
+			</div>
+		</div>
+
+		<buttom class="xiugaimimaBtn" id="xiugaimimaBtn3">录入</buttom>
+	</div>
+</div>
+<!-- 确认删除 -->
+<div class="mask2">
+	<div class="maskAlert">
+		<p class="maskTitle"><span class="maskClose"></span></p>
+		<p class="maskConTip">消费记录删除后，将不可恢复，确认删除？</p>
+		<div class="mask2Btn"><span>确认</span><span>关闭</span></div>
+
+	</div>
+</div>
+<!-- 消费记录详情 -->
+<div class="mask4">
+	<div class="alert">
+		<p class="maskTitle">消费记录详情 <span class="maskClose"></span></p>
+		<iframe class="recordIfr" src=""></iframe>
+	</div>
+</div>
+
+<!-- 扣减额度详情 -->
+<div class="mask10">
+	<div class="alert">
+		<p class="maskTitle">用户资产核销 <span class="maskClose"></span></p>
+		<div class="writeOffBox">
+			<p class="writeOffP"></p>
+			<input  class="writeOffNum" type="tel" placeholder="请输入要扣减的额度">
+			<div class="writeOffTypeBox">
+				<input name="writeType" type="radio" value="订房" /><span class="writeType">订房</span>
+				<input name="writeType" type="radio" value="餐饮" /><span class="writeType">餐饮</span>
+				<input name="writeType" type="radio" value="商品" /><span class="writeType">商品</span>
+				<input name="writeType" type="radio" value="旅游摄影" /><span class="writeType">旅游摄影</span>
+				<br>
+				<input name="writeType" type="radio" value="休闲娱乐" /><span class="writeType">休闲娱乐</span>
+				<input name="writeType" type="radio" value="其他" /><span class="writeType">其他</span>
+			</div>
+			<textarea class="writeOffText" name="" id="" cols="30" rows="10" placeholder="备注"></textarea>
+			<br>
+			<button class="writeOffBtn">提交</button>
+		</div>
+	</div>
+</div>
+<!-- 核销记录 -->
+<div class="mask11">
+	<div class="alert">
+		<p class="maskTitle">变动记录 <span class="maskClose"></span></p>
+		<div class="writeOffRecordBox">
+
+		</div>
+	</div>
+</div>
+<!--弹窗提示-->
+<div id="prompt"><!--已扣减500--></div>
+</body>
+
+
+</html>
+
+

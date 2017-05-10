@@ -1,0 +1,24 @@
+﻿/*!	* common.css * CSS Document */
+@charset "utf-8";
+body{background: #ebedf0;}
+.bookingOrderBox{background: #fff;width: 7.5rem;}
+.bookingOrderLi{/*height: 1.99rem;*/border-top: 1px solid #ebedf0;padding: 0 0.22rem 0 0.3rem;position: relative;}
+.bookingOrderLi .orderDetail{display: block;height:100%;}
+.bookingOrderLi .triangle{border: 0.14rem solid #fff;border-left-color: #808080;position: absolute;top: 0;bottom: 0;right: 0.14rem;margin: auto;width: 0;height: 0;}
+.bookingOrderLi .nameBox{padding-top: 0.3rem;}
+.bookingOrderLi .state{width: 1.2rem;height: 0.35rem;color: #fff;font-size: 0.24rem;line-height: 0.35rem;text-align: center;border-radius: 2px;-moz-border-radius: 2px;-webkit-border-radius: 2px;}
+.bookingOrderLi .state1{background-color: #e07d77;}
+.bookingOrderLi .state2{background-color: #66afba;}
+.bookingOrderLi .state3{background-color: #b3b3b3;}
+.bookingOrderLi .proName{width: 5.45rem;font-size: 0.32rem;height: 0.35rem;line-height: 0.35rem;margin-left: 0.15rem;white-space:nowrap;/*不换行*/ overflow:hidden;text-overflow:ellipsis;color: #000;}
+.bookingOrderLi .information{font-size: 0.28rem;color: #666;line-height: 0.54rem;padding: 0.12rem 0;}
+.bookingOrderLi .phoneNum{margin-left: 0.36rem;}
+
+
+
+
+
+
+
+
+
