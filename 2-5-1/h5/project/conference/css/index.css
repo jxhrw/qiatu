@@ -1,7 +1,7 @@
 body{
     text-align: center;
     position: relative;
-    background: url("../images/background.png") no-repeat center/100% 100%;
+    background: #0c0e0f url("../images/background.png") no-repeat center/100% 100%;
     overflow: hidden;
 }
 img{

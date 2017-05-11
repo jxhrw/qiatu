@@ -7,7 +7,7 @@ body{background: #f2f5fa;color: #4a4a4a;}
 
 .activeState{margin-top: 2.8rem;}
 .states{font-size: 0.9rem;font-weight: bold;padding-bottom: 0.6rem;color: #4a4a4a;text-align: left;}
-.redLine{width: 2.33rem;height: 0.13rem;background-color: #db5e5e;/*margin: auto;*/margin-bottom: 1.5rem;box-shadow: 0 4px 10px rgba(226,87,76,0.6);-o-box-shadow: 0 4px 10px rgba(226,87,76,0.6);-moz-box-shadow: 0 4px 10px rgba(226,87,76,0.6);-webkit-box-shadow: 0 4px 10px rgba(226,87,76,0.6);}
+.redLine{/*width: 2.33rem;height: 0.13rem;background-color: #db5e5e;!*margin: auto;*!margin-bottom: 1.5rem;box-shadow: 0 4px 10px rgba(226,87,76,0.6);-o-box-shadow: 0 4px 10px rgba(226,87,76,0.6);-moz-box-shadow: 0 4px 10px rgba(226,87,76,0.6);-webkit-box-shadow: 0 4px 10px rgba(226,87,76,0.6);*/width: 3.33rem;height: 1.33rem;background: url("../images/redline.png") no-repeat center/100% 100%;position: relative;left: -0.4rem;margin-top: -0.3rem;margin-bottom: 0.8rem;}
 
 .prize{font-size: 0.9rem;line-height: 1.6rem;}
 .codeQR{display: inline-block;width: 8.4rem;height: 8.4rem;border: 0.2rem solid #d8d8d8;margin-top: 2.4rem;position: relative;left: 0.7rem;}

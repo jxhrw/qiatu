@@ -17,7 +17,7 @@ a.submit{display: inline-block;margin-top: 1rem;color: #4a4a4a;background-color:
 .tips3_box{min-height: 7rem;}
 .tips3{font-size: 1rem;text-align: left;padding: 1rem 2.8rem 2rem 2.8rem;}
 .states{font-size: 0.9rem;font-weight: bold;padding-bottom: 0.6rem;}
-.redLine{width: 2.33rem;height: 0.13rem;background-color: #db5e5e;margin: auto;box-shadow: 0 4px 10px rgba(226,87,76,0.6);-o-box-shadow: 0 4px 10px rgba(226,87,76,0.6);-moz-box-shadow: 0 4px 10px rgba(226,87,76,0.6);-webkit-box-shadow: 0 4px 10px rgba(226,87,76,0.6);}
+.redLine{/*width: 2.33rem;height: 0.13rem;background-color: #db5e5e;margin: auto;box-shadow: 0 4px 10px rgba(226,87,76,0.6);-o-box-shadow: 0 4px 10px rgba(226,87,76,0.6);-moz-box-shadow: 0 4px 10px rgba(226,87,76,0.6);-webkit-box-shadow: 0 4px 10px rgba(226,87,76,0.6);*/width: 3.33rem;height: 1.33rem;background: url("../images/redline.png") no-repeat center/100% 100%;position: relative;margin: auto;left: -0.4rem;margin-top: -0.3rem;margin-bottom: -0.7rem;}
 .submit2{margin-top: 2.6rem;}
 
 /*弹窗*/

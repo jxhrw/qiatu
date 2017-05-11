@@ -3,22 +3,22 @@ body{background: #f2f5fa;color: #4a4a4a;}
 .bannerBgp{height: 25rem;width: 25rem;background: url("http://7xio74.com1.z0.glb.clouddn.com/bannerBgp.jpg") no-repeat center/100% 100%;position: absolute;}
 .triangle{position: absolute;left: 0;bottom: 0;width: 0;height: 0;border-left: 25rem solid transparent;border-bottom: 5.1rem solid #f2f5fa;}
 .signBox{font-size: 0.8rem;width: 20rem;padding: 2rem 1.5rem 2rem 1.5rem;min-height: 16rem;background-color: rgba(255,255,255,0.95);margin: auto;-moz-box-shadow: 0 2px 20px rgba(0,0,0,0.2);box-shadow: 0 2px 20px rgba(0,0,0,0.2);-o-box-shadow: 0 2px 20px rgba(0,0,0,0.2);-webkit-box-shadow: 0 2px 20px rgba(0,0,0,0.2);overflow: hidden;text-align: center;position: relative;z-index: 10;}
-.activityName{font-size: 1.1rem;font-weight: bold;padding: 0 1rem 0 1rem;margin-bottom: 0.2rem;line-height: 1.67rem;max-height: 3.34rem;overflow: hidden;}
+.activityName{font-size: 1.1rem;font-weight: bold;padding: 0 1rem 0 1rem;margin-bottom: 0.2rem;line-height: 1.67rem;max-height: 3.34rem;overflow: hidden;color: #000;}
 
 .activeState{margin-top: 3rem;}
 .activeState2{margin: 2.5rem auto 0 auto;width: 15.6rem;}
-.states{font-size: 0.9rem;font-weight: bold;padding-bottom: 0.6rem;color: #4a4a4a;text-align: left;}
-.redLine{width: 2.33rem;height: 0.13rem;background-color: #db5e5e;/*margin: auto;*/box-shadow: 0 4px 10px rgba(226,87,76,0.6);-o-box-shadow: 0 4px 10px rgba(226,87,76,0.6);-moz-box-shadow: 0 4px 10px rgba(226,87,76,0.6);-webkit-box-shadow: 0 4px 10px rgba(226,87,76,0.6);}
+.states{font-size: 0.93rem;font-weight: bold;padding-bottom: 0.6rem;color: #4a4a4a;text-align: left;}
+.redLine{/*width: 2.33rem;height: 3px;background-color: #db5e5e;!*margin: auto;*!box-shadow: 0 4px 10px rgba(226,87,76,0.6);-o-box-shadow: 0 4px 10px rgba(226,87,76,0.6);-moz-box-shadow: 0 4px 10px rgba(226,87,76,0.6);-webkit-box-shadow: 0 4px 10px rgba(226,87,76,0.6);*/width: 3.33rem;height: 1.33rem;background: url("../images/redline.png") no-repeat center/100% 100%;position: relative;left: -0.4rem;margin-top: -0.3rem;margin-bottom: -0.7rem;}
 
 .participants{color: #9b9b9b;}
 .participants span{color: #4a4a4a;}
-.winningInfo{border: 1px solid #999;padding: 1.6rem 0 2rem 0;margin-top: 2.5rem;text-align: center;color: #4a4a4a;}
+.winningInfo{border: 1px solid rgba(153,153,153,0.95);;padding: 1.6rem 0 2rem 0;margin-top: 2.5rem;text-align: center;color: #4a4a4a;}
 .resultsHref{color: #4a4a4a;}
 .winState{margin-bottom: 2.1rem;font-weight: bold;}
 .rightArrow{height: 0.5rem;width: 0.36rem;display: inline-block;background: url("http://7xio74.com1.z0.glb.clouddn.com/arrow.png") no-repeat center/100% 100%;margin-left: 0.3rem;position: relative;top: -1px;}
 .upArrow{transform:rotate(90deg);-ms-transform:rotate(90deg);-moz-transform:rotate(90deg);-webkit-transform:rotate(90deg);-o-transform:rotate(90deg);}
 .prizes{font-size: 0.9rem;line-height: 1.6rem;}
-.submit{background-color: #333;width: 16.6rem;height: 2.4rem;border: 1px solid #333;text-align: center;line-height: 2.4rem;border-radius: 2rem;font-size: 0.9rem;color: #fff;margin: 2rem 0 1.5rem 0;display: inline-block;}
+.submit{background-color: #333;width: 16.6rem;height: 2.4rem;border: 1px solid #333;text-align: center;line-height: 2.4rem;border-radius: 2rem;font-size: 0.8rem;color: #fff;margin: 2rem 0 1.5rem 0;display: inline-block;}
 .submit2{margin: 0;}
 .submit3{margin-top: 1rem;margin-bottom: 0;background-color: #fff;border: 1px solid #333;color: #333;height: 2.3rem;}
 .submit4{margin-left: -0.5rem;}
@@ -29,8 +29,8 @@ body{background: #f2f5fa;color: #4a4a4a;}
 .codeBox{position: relative;}
 .myHead{/*position: absolute;*/width: 3.33rem;height: 3.33rem;border-radius: 50%;overflow: hidden;top: 1.1rem;left: 0;margin: 1rem auto;}
 .codeUl{/*padding-left: 4.8rem;*/text-align: left;margin-top: 1rem;}
-.codeUl li{height: 4.6rem;border-bottom: 1px dotted #c4c4c4;position: relative;}
-.myCode{padding-top: 1rem;padding-bottom: 0.5rem;font-size: 1.2rem;font-weight: bold;color: #000;}
+.codeUl li{height: 4.66rem;border-bottom: 1px dotted #c4c4c4;position: relative;}
+.myCode{padding-top: 1rem;padding-bottom: 0.4rem;line-height: 1.53rem;font-size: 1.8rem;font-weight: bold;color: #000;letter-spacing: 1px;}
 .partner{position: absolute;width: 2rem;height: 2rem;border-radius: 50%;-moz-border-radius: 50%;-webkit-border-radius: 50%;overflow: hidden;top: 0.6rem;right: 0;}
 .codeTime{color: #808080;}
 .moreCode{padding-top: 1.2rem;display: none;}

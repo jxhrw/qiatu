@@ -5,11 +5,12 @@ $(document).ready(function(){
     if(location.indexOf("index.html")>0){
         var lon = 120.087183;
         var lat = 30.26573;
-        $(".map").attr("src","http://restapi.amap.com/v3/staticmap?location=" + lon + "," + lat + "&zoom=12&size=666*361&markers=mid,,A:" + lon + "," + lat + "&key=ee95e52bf08006f63fd29bcfbcf21df0").click(function(){
+        //attr("src","http://restapi.amap.com/v3/staticmap?location=" + lon + "," + lat + "&zoom=12&size=666*361&markers=mid,,A:" + lon + "," + lat + "&key=ee95e52bf08006f63fd29bcfbcf21df0")
+        $(".map").click(function(){
             window.location.href="http://apis.map.qq.com/tools/poimarker?type=0&marker=coord:" + lat + "," + lon + ";title:" + "西溪天堂" + ";addr:" + "杭州西溪天堂艺术中心" + "&key=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77&referer=myapp";
         });
         $(".registerBtn").click(function(){
-            window.location.href="/user/h5/mbcenter?regsucc_tourl="+encodeURIComponent(location);
+            window.location.href="/user/h5/qrcode?regsucc_tourl="+encodeURIComponent(location);
         });
         $.post("/user/h5/info",{data:JSON.stringify({})},function(res){
             if(res.sc=="0"){
@@ -26,6 +27,7 @@ $(document).ready(function(){
 
             }
         });
+
     }
     if(location.indexOf("checkIn.html")>0){
         var actId=GetParams().actId;

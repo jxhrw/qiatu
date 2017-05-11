@@ -15,7 +15,7 @@
 
 var ajaxUrlAll={
     "cardList":"/coupon/h5/cardList",
-    "couponList":"/coupon/h5/list",
+    "couponList":"/coupon/h5/couponList",
     "couponCardDetail":'/coupon/h5/info'
 };
 function ajaxPost(url,data,successFunc,errorFunc){
@@ -150,7 +150,7 @@ function h5orClient(url){
 
 //列表页背景图
 function hasBackground(reminder,top){
-    var html='<div><div style="text-align:center;margin-top:'+top+';background:url(http://7xio74.com1.z0.glb.clouddn.com/blankPage.png) no-repeat center top/contain;height: 12rem;"></div><p style="text-align: center;margin-top: 2rem;color: #000;">'+reminder+'</p></div>';
+    var html='<div id="hasBackground"><div style="text-align:center;margin-top:'+top+';background:url(http://7xio74.com1.z0.glb.clouddn.com/blankPage.png) no-repeat center top/contain;height: 12rem;"></div><p style="text-align: center;margin-top: 2rem;color: #000;">'+reminder+'</p></div>';
     return html;
 }
 

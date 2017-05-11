@@ -16,6 +16,11 @@ body{background: #ebedf0;}
 .noLine{line-height: 3rem;}
 .oneLine{border-bottom: 1px solid #e4e5e6;line-height: 3rem;height: 3rem;overflow: hidden;}
 .oneLine:last-child{border-bottom: none;}
+
+.singleAsset{border-bottom: 1px solid #e4e5e6;}
+.singleAsset:last-child{border-bottom: none;}
+.singleAsset .oneLine{border-bottom: none;}
+
 .multiLineBox{padding: 0.45rem 1rem;}
 .multiLine{line-height: 2rem;}
 .reseBox{padding: 1rem;}

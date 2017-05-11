@@ -12,6 +12,7 @@ $(document).ready(function(){
     function cardListFun(res){
         if(res.data && res.data.length>0){
             $(".cardsBox").show();
+            $("#hasBackground").remove();
             var cardsLi="";
             for(var i=0;i<res.data.length;i++){
                 var cardName=res.data[i].couponBaseInfo.couponName,
@@ -55,6 +56,7 @@ $(document).ready(function(){
     function couponListFun(res){
         if(res.data && res.data.length>0){
             $(".giftsBox").show();
+            $("#hasBackground").remove();
             var giftCardsLi="";
             for(var i=0;i<res.data.length;i++){
                 //couponType:1-房券;couponType:2-消费金;couponType:5-折扣券;couponType:7-红包

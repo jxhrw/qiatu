@@ -119,30 +119,61 @@
         <div id="assets" class="innerBox">
             <div class="subHeading">资产选择</div>
             <div class="whiteBack black">
-                <div class="clearfix oneLine">
-                    <div class="function fl">优惠券</div>
-                    <div id="myDisc" class="quota fr"><span id="discountCouponInfo" class="paleRed smaller quarantine"></span><span class="arrowImg turnLeft tuneLeft"></span></div>
+                <div class="singleAsset">
+                    <div class="clearfix oneLine">
+                        <div class="function fl"><span  id="mbCards" class="choice"></span>会员卡</div>
+                        <div id="mbCardsBtn" class="quota fr"><span id="mbCardsInfo" class="paleRed smaller quarantine">下单享9折</span><span class="arrowImg tuneLeft"></span></div>
+                    </div>
+                    <ul class="">
+
+                    </ul>
                 </div>
-                <div class="clearfix oneLine">
-                    <div class="function fl"><span  id="coupSelected" class="choice"></span>礼券</div>
-                    <div id="myCoup" class="quota fr"><span id="couponInfo" class="paleRed smaller quarantine"></span><span class="arrowImg turnLeft tuneLeft"></span></div>
+                <div class="singleAsset">
+                    <div class="clearfix oneLine">
+                        <div class="function fl"><span  id="cashCoupons" class="choice"></span>消费金</div>
+                        <div id="cashCouponsBtn" class="quota fr"><span id="cashCouponsInfo" class="paleRed smaller quarantine"></span><span class="arrowImg tuneLeft"></span></div>
+                    </div>
                 </div>
-                <div class="clearfix oneLine">
-                    <div class="function fl"><span id="integralToRoom" class="choice"></span>积分兑房：<span id="roomPointsInfo"></span></div>
-                    <div class="quota fr"><span id="roomPointsAmount" class="smaller quarantine"></span></div>
+                <div class="singleAsset">
+                    <div class="clearfix oneLine">
+                        <div class="function fl"><span  id="roomCoupons" class="choice"></span>礼券</div>
+                        <div id="roomCouponsBtn" class="quota fr"><span id="roomCouponsInfo" class="paleRed smaller quarantine"></span><span class="arrowImg tuneLeft"></span></div>
+                    </div>
                 </div>
-                <div class="clearfix oneLine">
-                    <div class="function fl">积分抵现：<span id="pointsToCashDesc"></span></div>
-                    <div class="quota fr">
-                        <div id="switchOpen" class="switchBox">
-                            <div class="switchSpot"></div>
+                <div class="singleAsset">
+                    <div class="clearfix oneLine">
+                        <div class="function fl"><span  id="discCoupons" class="choice"></span>折扣券</div>
+                        <div id="discCouponsBtn" class="quota fr"><span id="discCouponsInfo" class="paleRed smaller quarantine"></span><span class="arrowImg tuneLeft"></span></div>
+                    </div>
+                </div>
+                <div class="singleAsset">
+                    <div class="clearfix oneLine">
+                        <div class="function fl"><span  id="envelopes" class="choice"></span>红包</div>
+                        <div id="envelopesBtn" class="quota fr"><span id="envelopesInfo" class="paleRed smaller quarantine"></span><span class="arrowImg tuneLeft"></span></div>
+                    </div>
+                </div>
+                <div class="singleAsset">
+                    <div class="clearfix oneLine">
+                        <div class="function fl"><span id="integralToRoom" class="choice"></span>积分兑房：<span id="roomPointsInfo"></span></div>
+                        <div class="quota fr"><span id="roomPointsAmount" class="smaller quarantine"></span></div>
+                    </div>
+                </div>
+                <div class="singleAsset">
+                    <div class="clearfix oneLine">
+                        <div class="function fl">积分抵现：<span id="pointsToCashDesc"></span></div>
+                        <div class="quota fr">
+                            <div id="switchOpen" class="switchBox">
+                                <div class="switchSpot"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="clearfix oneLine" style="display: none;">
-                    <div class="function fl">积分余额：<span id="myPoints"></span></div>
-                    <div class="quota fr">
-                        <a style="display: none;" id="buyPoints"><span class="paleRed">购买积分</span><span class="arrowImg turnLeft tuneLeft"></span></a>
+                <div class="singleAsset">
+                    <div class="clearfix oneLine" style="display: none;">
+                        <div class="function fl">积分余额：<span id="myPoints"></span></div>
+                        <div class="quota fr">
+                            <a style="display: none;" id="buyPoints"><span class="paleRed">购买积分</span><span class="arrowImg turnLeft tuneLeft"></span></a>
+                        </div>
                     </div>
                 </div>
             </div>

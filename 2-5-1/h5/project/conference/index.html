@@ -11,79 +11,74 @@
     <link rel="stylesheet" type="text/css" href="http://7xio74.com1.z0.glb.clouddn.com/css/base.css?h7">
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <script src="http://7xio74.com1.z0.glb.clouddn.com/jquery-2.1.4.min.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" ></script>
     <script src="js/index.js"></script>
     <title>邀请函</title>
     <script type="text/javascript">
-        var data = {'h5url':window.location.href,'weixinid':'${shareWeixinId}'};
-        $.post("/weixin/h5/getjssignature",{data: JSON.stringify(data)},function(resp, status) {
-            console.log(resp);
-            if("0" == resp.sc){
-                wx.config({
-                    debug: false,
-                    appId: resp.data.appid,
-                    timestamp: resp.data.timestamp,
-                    nonceStr: resp.data.noncestr,
-                    signature: resp.data.signature,
-                    jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage']
+        var data = {'h5url':window.location.href};
+        var id=253;
+        $.post("/activity/detail/"+ id +"/",{data:JSON.stringify({})},function(res){
+            var shareTitle = res.data.shareTitle,
+                    shareImg = res.data.shareImg,
+                    shareUrl = res.data.shareUrl,
+                    shareDesc = res.data.shareDesc,
+                    shareCallback = res.data.shareCallback;
+            $.post("/weixin/h5/getjssignature",{data: JSON.stringify(data)},function(resp, status) {
+                console.log(resp);
+                if("0" == resp.sc){
+                    wx.config({
+                        debug: false,
+                        appId: resp.data.appid,
+                        timestamp: resp.data.timestamp,
+                        nonceStr: resp.data.noncestr,
+                        signature: resp.data.signature,
+                        jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage']
+                        //onMenuShareTimeline-分享到朋友圈；onMenuShareAppMessage-分享给朋友；
+                    });
+                }
+            });
+            wx.ready(function(){
+                wx.onMenuShareAppMessage({
+                    title: shareTitle,
+                    desc: shareDesc,
+                    link: shareUrl,
+                    imgUrl: shareImg,
+                    type: '', // 分享类型,music、video或link，不填默认为link
+                    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                    trigger: function (res) {},
+                    success: function (res) {
+                        var share={type:0};
+                        $.post(shareCallback,{data:JSON.stringify(share)},function(rsl){
+                            //window.location.href = rsl.data.nexturl;
+                        });
+                    },
+                    cancel: function (res) {},
+                    fail: function (res) {}
                 });
-            }
-        });
+                wx.onMenuShareTimeline({
+                    title: shareTitle,
+                    link: shareUrl,
+                    imgUrl: shareImg,
+                    trigger: function (res) {},
+                    success: function (res) {
+                        var share={type:1};
+                        $.post(shareCallback,{data:JSON.stringify(share)},function(rsl){
+                            //window.location.href = rsl.data.nexturl;
+                        });
+                    },
+                    cancel: function (res) {},
+                    fail: function (res) {}
+                });
 
-        wx.ready(function(){
-            wx.onMenuShareAppMessage({
-                title: '${shareTitle}',
-                desc: '${shareDesc}',
-                link: '${shareUrl}',
-                imgUrl: '${shareImg}',
-                type: '', // 分享类型,music、video或link，不填默认为link
-                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
-                trigger: function (res) {
-
-                },
-                success: function (res) {
-                    var share={type:0};
-                    $.post('${shareCallback}',{data:JSON.stringify(share)},function(rsl){
-                        $("#shareFriend").hide();
-                    });
-                },
-                cancel: function (res) {
-
-                },
-                fail: function (res) {
-
-                }
             });
-            wx.onMenuShareTimeline({
-                title: '${shareTitle}',
-                link: '${shareUrl}',
-                imgUrl: '${shareImg}',
-                trigger: function (res) {
-
-                },
-                success: function (res) {
-                    var share={type:1};
-                    $.post('${shareCallback}',{data:JSON.stringify(share)},function(rsl){
-                        $("#shareFriend").hide();
-                    });
-                },
-                cancel: function (res) {
-
-                },
-                fail: function (res) {
-
-                }
-            });
-
-        });
-        wx.error(function(res){
-
+            wx.error(function(res){});
         });
     </script>
 </head>
 <body>
 <div class="members">
     <img src="images/invite.png" alt="" class="invite">
-    <img src="" alt="" class="map">
+    <img src="images/map.png" alt="" class="map">
 </div>
 <div class="non-members">
     <img src="images/registeredTxt.png" alt="" class="invite">

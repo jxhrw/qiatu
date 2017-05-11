@@ -351,17 +351,17 @@ $(document).ready(function(){
         $(".windowBox,.underWindow,.upWindow").hide();
     });
 
-    $("#myDisc").click(function(){
-        if($(".discListUl li").length!=0){
-            $(".windowBox,#discList").show();
-        }
-    });
+    //$("#myDisc").click(function(){
+    //    if($(".discListUl li").length!=0){
+    //        $(".windowBox,#discList").show();
+    //    }
+    //});
 
-    $("#myCoup").click(function(){
-        if($("#cashCouponUl li").length!=0 || $("#roomCouponUl li").length!=0){
-            $(".useCoupons").show();
-        }
-    });
+    //$("#myCoup").click(function(){
+    //    if($("#cashCouponUl li").length!=0 || $("#roomCouponUl li").length!=0){
+    //        $(".useCoupons").show();
+    //    }
+    //});
 
     $("#coupChoose").click(function(){
         $(".useCoupons").hide();
