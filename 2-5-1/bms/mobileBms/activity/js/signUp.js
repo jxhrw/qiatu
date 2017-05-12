@@ -80,7 +80,7 @@ var activity={
                 var html="";
                 $.each(res.data,function(i){
                     html+='<li>'
-                        +'<img src="'+ +'" alt="" class="winnerHead">'
+                        +'<img src="'+ res.data[i].headimg +'" alt="" class="winnerHead">'
                         +'<table>'
                         +'<tr>'
                         +'<td>昵称：</td>'
