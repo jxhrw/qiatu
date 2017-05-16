@@ -1,6 +1,9 @@
 var scrollHeight;
 $(document).ready(function() {
     var data={/*"ordertype":6,*/"pageno":1,"pagecnt":"8"};
+    if(GetParams().hotelid && GetParams().hotelid!="undefined"){
+        data.hotelid=GetParams().hotelid;
+    }
     var b=1;
     if(sessionStorage.getItem("leaveOrderList")==1){//检测到离开过页面则重新加载页面，并将状态归零
         b=sessionStorage.getItem("pageOrderList");

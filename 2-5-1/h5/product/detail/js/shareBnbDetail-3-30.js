@@ -38,11 +38,11 @@ $(document).ready(function () {
         if ($(".hidden").length != 0) {
             $("#shopkeeper_intro").removeClass();
             $("#more p").html("收起");
-            $("#more img").attr("src", "../h5_2.0/images/up.png");
+            $("#more img").attr("src", "images/up.png");
         } else {
             $("#shopkeeper_intro").addClass("hidden");
             $("#more p").html("查看全部");
-            $("#more img").attr("src", "../h5_2.0/images/down.png");
+            $("#more img").attr("src", "images/down.png");
         }
 
     });
@@ -110,10 +110,10 @@ function iOSToGo(urlHotelWant, paramHotelWant) {
     }, function (result) {
         $("#like .togo span").html(result.data[0].count);
         if (result.data[0].status == 0) {
-            $("#like .togo img").attr("src", "../h5_2.0/images/ungone.png");
+            $("#like .togo img").attr("src", "images/ungone.png");
         }
         else {
-            $("#like .togo img").attr("src", "../h5_2.0/images/gone.png");
+            $("#like .togo img").attr("src", "images/gone.png");
         }
     });
 }
@@ -131,10 +131,10 @@ function iOSWantTo(urlHotelLike, paramHotelLike) {
 
 
         if (result.data[1].status == 0) {
-            $("#like .want img").attr("src", "../h5_2.0/images/unstar.png");
+            $("#like .want img").attr("src", "images/unstar.png");
         }
         else {
-            $("#like .want img").attr("src", "../h5_2.0/images/star.png");
+            $("#like .want img").attr("src", "images/star.png");
         }
     });
 }
@@ -249,7 +249,7 @@ $(document).ready(function () {
                 latestDate=getTimestamp(getDate(parseInt(data.data.productBaseInfo.productPrice.latestDate)));
             }
             if((undefined!=data.data.hotelBaseInfo && "1"==data.data.hotelBaseInfo.jiheBusinessMember) || (undefined!=data.data.productBaseInfo && "1"==data.data.productBaseInfo.jiheBusinessMember)){
-                $("#distance").after("<img src='/html/member/images/jiheBusinessMember.png' style='display: block;margin: 1rem auto 0 auto;height: 1.3rem;width: 5.5rem;' />")
+                $("#distance").after("<img src='images/jiheBusinessMember.png' style='display: block;margin: 1rem auto 0 auto;height: 1.3rem;width: 5.5rem;' />")
             }
 
             var liHtml='<ul class="entrance">';
@@ -319,14 +319,14 @@ $(document).ready(function () {
             $("#distance_unit").append(distance);
 
             if (data.data.hotelBaseInfo.userFavorites[1].status == 0) {
-                $("#like .want img").attr("src", "../h5_2.0/images/unstar.png");
+                $("#like .want img").attr("src", "images/unstar.png");
             } else {
-                $("#like .want img").attr("src", "../h5_2.0/images/star.png");
+                $("#like .want img").attr("src", "images/star.png");
             }
             if (data.data.hotelBaseInfo.userFavorites[0].status == 0) {
-                $("#like .togo img").attr("src", "../h5_2.0/images/ungone.png");
+                $("#like .togo img").attr("src", "images/ungone.png");
             } else {
-                $("#like .togo img").attr("src", "../h5_2.0/images/gone.png");
+                $("#like .togo img").attr("src", "images/gone.png");
             }
             $("#like .want span").append(data.data.hotelBaseInfo.userFavorites[1].count);
             $("#like .togo span").append(data.data.hotelBaseInfo.userFavorites[0].count);
@@ -399,7 +399,7 @@ $(document).ready(function () {
                     }
             }
             //猜你喜欢
-            var recommendbox = "<a href=\"#\"><div class=\"prom_list\"><img src=\"../h5_2.0/images/p4.jpeg\" class=\"prom_img\"><p class=\"prom_title\"></p><p class=\"prom_price\"><span> 起/<span class=\"prom_unit\"></span>晚</span></p></div></a><div class=\"gap_2\"></div>";
+            var recommendbox = "<a href=\"#\"><div class=\"prom_list\"><img src=\"images/p4.jpeg\" class=\"prom_img\"><p class=\"prom_title\"></p><p class=\"prom_price\"><span> 起/<span class=\"prom_unit\"></span>晚</span></p></div></a><div class=\"gap_2\"></div>";
             if (recommendPromotions) {
                 for (var n = 0; n < recommendPromotions.length; n++) {
                     var imgStr=recommendPromotions[n].imgUri+"?imageView2/1/w/320/h/192";
@@ -413,7 +413,7 @@ $(document).ready(function () {
                 $("#title_guess").remove();
                 $(".gap").eq(1).remove();
             }
-            $("#content_1").append("<img id=\"end_line\" src=\"../h5_2.0/images/TheEnd.png\">");
+            $("#content_1").append("<img id=\"end_line\" src=\"images/TheEnd.png\">");
             //房型
             //         <div class="type">
             //     <img class="type_img" src="http://7xio74.com2.z0.glb.clouddn.com/220419">
@@ -506,7 +506,7 @@ $(document).ready(function () {
                             if (res.sc == 0) {
                                 console.debug(res)
                                 /*window.location = phone1;*/
-                                window.location ='/h5_2.0/tip2.html?jumpurl='+ encodeURIComponent(phone1);
+                                window.location ='tip2.html?jumpurl='+ encodeURIComponent(phone1);
                             }
                         })
                     }
@@ -541,7 +541,7 @@ $(document).ready(function () {
                                 $.post('/content/client/hotel/otaurl', {data: JSON.stringify(tt)}, function (result) {
                                     console.debug(result)
                                     /*window.location = result.data.bookUrl*/
-                                    window.location ='/h5_2.0/tip2.html?a=1&jumpurl='+ encodeURIComponent(result.data.bookUrl);
+                                    window.location ='tip2.html?a=1&jumpurl='+ encodeURIComponent(result.data.bookUrl);
                                 });
                             }
                         });
@@ -1098,7 +1098,7 @@ function popup(){
     $(".popup").show();
     $(".mask").show();
     $(".login").click(function () {
-        window.location.href="/user/h5/qrcode?regsucc_tourl="+encodeURIComponent(window.location.href);
+        window.location.href="/user/h5/mbcenter?regsucc_tourl="+encodeURIComponent(window.location.href);
     });
 }
 function cancelPop(){

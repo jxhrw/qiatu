@@ -78,10 +78,9 @@ body{
 }
 .wavy{
     height: 0.8rem;
-    background-color: #e5e5e5;
 }
 .giftCards li{
-    background-color: #fff;
+    background: #e5e5e5 url("../images/couponBg.png") no-repeat center/100% 100%;
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
     -moz-box-shadow: 0 0 10px rgba(0,0,0,0.3);
     -o-box-shadow: 0 0 10px rgba(0,0,0,0.3);
@@ -97,7 +96,6 @@ body{
     font-weight: bold;
 }
 .giftCardName p{
-    background-color: #d4dfe9;
     height: 3.33rem;
     position: relative;
     padding: 0 1.33rem;
@@ -129,7 +127,7 @@ body{
 .giftCardName p span{
     position: absolute;
     line-height: 1.2rem;
-    top: 50%;
+    top: 56%;
     transform: translateY(-50%);
     -moz-transform: translateY(-50%);
     -ms-transform: translateY(-50%);

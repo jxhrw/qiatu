@@ -7,13 +7,14 @@ var roomPayAmount;//订房应付
 var payPointAmounts;//积分支付
 var unitPrice;//单价
 var unitPricePoint;//积分单价
-var selectedCouponArray=[];//已选礼券和优惠券
+//var selectedCouponArray=[];//已选礼券和优惠券
+var bookingPayments=[];//已选资产
 var nights;//订房晚数
-var cashPointsPaymentInfo=0;//是否积分抵现,0-没选，{}-已选
-var canCashPoint=0;//积分抵现总额
+//var cashPointsPaymentInfo=0;//是否积分抵现,0-没选，{}-已选
+var canCashPoint=0;//积分可抵现总额
 var objectType;//产品类型
 var typeLast=[];//众享权益
-var cashPointsAmount;
+//var cashPointsAmount;
 var tolAmount;//库存
 var canBuyQuantity;//个人最大购买量
 var maxBuyQuantity;
@@ -21,7 +22,7 @@ var priceType=0;//商品定价0-现金，1-积分；默认现金
 var buyPointsId;
 var atidcode=[1,4,"52ac-f76d-804a-9f7c"];
 var assetType,couponId,couponCode;
-var payments;
+var payments=[];
 var productInfo;
 if(undefined!=atidcode){
     assetType=GetParams().assettype?GetParams().assettype:GetParams().assetType;
@@ -103,91 +104,77 @@ $(document).ready(function(){
         }
     });
 
-    //优惠券取消选中
-    $("#clearDisc").click(function(){
-        $(".discListUl li .choice").removeClass("choosed");
-        $(".windowBox,.underWindow,.upWindow").hide();
-        roombook.defaultSelectDiscount=0;
-        cancelAllVouchers(".discListUl li");
-        mutexDisplay(".discListUl li",".choice");
-        coupHasSelected();
-        roombook.paymentInfoList=selectedCouponArray;
+    //资产选择   oneLine;ul li 本店资产选择;function 取消选择 和 积分兑房
+    $("#assets").on("click",".oneLine",function(){
+        var $singleAsset=$(this).parents(".singleAsset");
+        var $ul=$singleAsset.find("ul");
+        var $arrowImg=$(".arrowImg",this);
+        if($ul.css("display")=="none"){
+            $(".singleAsset ul").hide();
+            $(".singleAsset .arrowImg").removeClass("turnUp");
+            $arrowImg.addClass("turnUp");
+            $ul.show();
+        }else {
+            $arrowImg.removeClass("turnUp");
+            $ul.hide();
+        }
+    }).on("click","ul li",function(){
+        var $li=$(this);
+        var $choiceBtn=$li.find(".choiceBtn");
+        var this_paymentInfo=JSON.parse($li.find("._paymentInfo").attr("value"));
+        var this_rejectCouponCodes=($li.find("._rejectCouponCodes").attr("value") && "undefined"!=$li.find("._rejectCouponCodes").attr("value"))?JSON.parse($li.find("._rejectCouponCodes").attr("value")):[];
+        //与交换资产大类互斥
+        if($("#exchangeAssets .choice").hasClass("choosed")){
+            roombook.paymentInfoList=[];
+        }
+        if($choiceBtn.hasClass("choosed")){
+            removeArrayEle(roombook.paymentInfoList,this_paymentInfo);
+        }else {
+            roombook.paymentInfoList=roombook.paymentInfoList.concat(this_paymentInfo);
+            removeArray(roombook.paymentInfoList,this_rejectCouponCodes);
+        }
+        personalAssets(roombook);
+    }).on("click",".function",function(event){
+        event.stopPropagation();
+        var $ul=$(this).parents(".singleAsset").find("ul");
+        var $li=$ul.find("li");
+        if("integralToRoom"==$(".choice",this).attr("id")){
+            if($(".choice",this).hasClass("choosed")){
+                roombook.paymentInfoList=[];
+            }else {
+                roombook.paymentInfoList=[{"payType":"3"}]
+            }
+        }
+        $.each($li,function(i){
+            var this_paymentInfo=JSON.parse($li.eq(i).find("._paymentInfo").attr("value"));
+            removeArrayEle(roombook.paymentInfoList,this_paymentInfo);
+        });
         personalAssets(roombook);
     });
 
-    //取消已选礼券
-    $("#coupSelected").click(function(){
-        if($("#cashCouponUl li").length!=0 || $("#roomCouponUl li").length!=0){
-            if($(this).hasClass("choosed")){
-                $(this).removeClass("choosed");
-                $("#cashVouchers,#roomVouchers").removeClass("choosed");
-                cancelAllVouchers("#cashCouponUl li");
-                mutexDisplay("#cashCouponUl li",".choice2");
-                cancelAllVouchers("#roomCouponUl li");
-                mutexDisplay("#roomCouponUl li",".choice2");
-                coupHasSelected();
-                roombook.paymentInfoList=selectedCouponArray;
-                personalAssets(roombook);
-            }
-            else {
-                $(".useCoupons").show();
-            }
-        }
-    });
-
-    //取消已选消费金
-    $("#cashVouchers").click(function(){
-        if($(this).hasClass("choosed")){
-            $(this).removeClass("choosed");
-            cancelAllVouchers("#cashCouponUl li");
-            mutexDisplay("#cashCouponUl li",".choice2");
-            coupHasSelected();
-            roombook.paymentInfoList=selectedCouponArray;
-            personalAssets(roombook);
-        }
-        else {
-            $("#cashCouponUl").toggle();
-            $("#cashArrow").toggleClass("turnUp");
-        }
-    });
-
-    //取消已选房券
-    $("#roomVouchers").click(function(){
-        if($(this).hasClass("choosed")){
-            $(this).removeClass("choosed");
-            cancelAllVouchers("#roomCouponUl li");
-            mutexDisplay("#roomCouponUl li",".choice2");
-            coupHasSelected();
-            roombook.paymentInfoList=selectedCouponArray;
-            personalAssets(roombook);
-        }
-        else {
-            $("#roomCouponUl").toggle();
-            $("#roomArrow").toggleClass("turnUp");
-        }
-    });
-
-    //积分兑房
-    $("#integralToRoom").click(function(){
-        selectedCouponArray=[];
-        roombook.defaultSelectDiscount=0;
-        if($(this).hasClass("choosed")){
+    //交换资产选择
+    $(".contentBox").on("click","#exchangeAssetsLis li",function(){
+        var $li=$(this);
+        var $choiceBtn=$li.find(".choice");
+        var this_paymentInfo=JSON.parse($li.find("._paymentInfo").attr("value"));
+        var this_rejectCouponCodes=($li.find("._rejectCouponCodes").attr("value") && "undefined"!=$li.find("._rejectCouponCodes").attr("value"))?JSON.parse($li.find("._rejectCouponCodes").attr("value")):[];
+        //与资产选择大类互斥
+        if($("#assets .choice").hasClass("choosed")){
             roombook.paymentInfoList=[];
-        }else {
-            roombook.paymentInfoList=[{"payType":"3"}];
         }
-        $(this).toggleClass("choosed");
-        $("#coupSelected,#cashVouchers,#roomVouchers").removeClass("choosed");
-        mutexDisplay(".discListUl li",".choice");
-        mutexDisplay("#cashCouponUl li",".choice2");
-        mutexDisplay("#roomCouponUl li",".choice2");
+        if($choiceBtn.hasClass("choosed")){
+            removeArrayEle(roombook.paymentInfoList,this_paymentInfo);
+        }else {
+            roombook.paymentInfoList=roombook.paymentInfoList.concat(this_paymentInfo);
+            removeArray(roombook.paymentInfoList,this_rejectCouponCodes);
+        }
         personalAssets(roombook);
     });
 
     //积分抵现
     $("#switchOpen").click(function(){
         if(canCashPoint>0){
-            delete roombook.defaultSelectDiscount;
+            //delete roombook.defaultSelectDiscount;
             $(this).toggleClass("open");
             personalAssets(roombook);
         }
@@ -311,7 +298,7 @@ $(document).ready(function(){
                     $(".rightsUnit",this).html("￥"+floatFixed2(typeLast[i].serviceValue*num/100));
                 });
                 roombook.quantity=num;
-                roombook.paymentInfoList=selectedCouponArray;
+                //roombook.paymentInfoList=selectedCouponArray;
                 personalAssets(roombook);
             });
         }else {
@@ -332,7 +319,7 @@ $(document).ready(function(){
                 $(".rightsUnit",this).html("￥"+floatFixed2(typeLast[i].serviceValue*num/100));
             });
             roombook.quantity=num;
-            roombook.paymentInfoList=selectedCouponArray;
+            //roombook.paymentInfoList=selectedCouponArray;
             personalAssets(roombook);
         }
     }
@@ -350,18 +337,6 @@ $(document).ready(function(){
     $("#shadow").click(function(){
         $(".windowBox,.underWindow,.upWindow").hide();
     });
-
-    //$("#myDisc").click(function(){
-    //    if($(".discListUl li").length!=0){
-    //        $(".windowBox,#discList").show();
-    //    }
-    //});
-
-    //$("#myCoup").click(function(){
-    //    if($("#cashCouponUl li").length!=0 || $("#roomCouponUl li").length!=0){
-    //        $(".useCoupons").show();
-    //    }
-    //});
 
     $("#coupChoose").click(function(){
         $(".useCoupons").hide();
@@ -483,7 +458,7 @@ $(document).ready(function(){
                     }
 
                     $("#lockTime").html(roomProRes.data.additionalInfo);
-                    roombook.paymentInfoList=selectedCouponArray;
+                    //roombook.paymentInfoList=selectedCouponArray;
                     personalAssets(roombook,"first");
                 }
                 else{
@@ -499,7 +474,7 @@ $(document).ready(function(){
                         }
                         $(".roomNumberUl").html(roomNumberLi);
                     }
-                    roombook.paymentInfoList=selectedCouponArray;
+                    //roombook.paymentInfoList=selectedCouponArray;
                     personalAssets(roombook,"first");
                 }
 
@@ -520,7 +495,7 @@ $(document).ready(function(){
                     mutexDisplay("#roomCouponUl li",".choice2");
                     coupHasSelected();
                     ////清理掉房券-end
-                    roombook.paymentInfoList=selectedCouponArray;
+                    //roombook.paymentInfoList=selectedCouponArray;
                     personalAssets(roombook);
                 });
             }
@@ -530,10 +505,54 @@ $(document).ready(function(){
         });
     }
 
+    //资产选择展示
+    function assetsShow(couponDisplayList,ulId,choiceBtn){
+        $.each(couponDisplayList,function(i){
+            if(couponDisplayList[i].isSelected){
+                $(ulId+" li").eq(i).find(choiceBtn).addClass("choosed");
+                var dikou;
+                var deductionDesc="";
+                if(showCyType=="0"){
+                    dikou=showCyCode+couponDisplayList[i].costAmount/100;
+                }else {
+                    if(showCyType=="1"){
+                        dikou=showCyCode+((couponDisplayList[i].costPoints)?couponDisplayList[i].costPoints:0)+showCyUnit;
+                    }
+                    else if(showCyType=="5"){
+                        dikou=showCyCode+((couponDisplayList[i].paidFaceValue)?couponDisplayList[i].paidFaceValue/100:0)+showCyUnit;
+                    }
+                    else{
+                        dikou=showCyCode+((couponDisplayList[i].paidFaceValue)?couponDisplayList[i].paidFaceValue:0)+showCyUnit;
+                    }
+                }
+                if("#exchangeAssetsLis"==ulId){
+                    if(showCyType=="0" || showCyType=="5"){
+                        deductionDesc="本次支付："+((couponDisplayList[i].paidFaceValue)?couponDisplayList[i].paidFaceValue/100:0);
+                    }else {
+                        deductionDesc="本次支付："+((couponDisplayList[i].paidFaceValue)?couponDisplayList[i].paidFaceValue:0)
+                    }
+
+                }
+                if($(ulId+" li").eq(i).find(".deduction").length==0){
+                    $(ulId+" li").eq(i).append('<div class="deduction">'+deductionDesc+'&nbsp;&nbsp; 抵扣 <span class="deductAmount">'+ dikou +'</span></div>');
+                }else {
+                    $(ulId+" li").eq(i).find(".deductAmount").html(dikou);
+                }
+            }else {
+                $(ulId+" li").eq(i).find(choiceBtn).removeClass("choosed");
+                $(ulId+" li").eq(i).find(".deduction").remove();
+            }
+        });
+    }
+    //资产选择隐藏
+    function assetsHide(ulId){
+        $(ulId+" .choiceBtn").removeClass("choosed");
+        $(ulId+" li").find(".deduction").remove();
+    }
+
     //个人资产
     function personalAssets(assetsData,firstLoad){
         var assetsUrl='/pay/h5/payable/booking';
-        payments=[];
         if(undefined!=assetType){
             assetsData.assetType=assetType;
         }
@@ -552,275 +571,210 @@ $(document).ready(function(){
         }
         $.post(h5orClient(assetsUrl),{data:JSON.stringify(assetsData)},function(assetsRes){
             if(assetsRes.sc==0){
-                if(undefined!=assetsRes.data.cashPointsInfo && undefined!=assetsRes.data.cashPointsInfo.paymentInfoList && $("#switchOpen").hasClass("open")){
-                    payments=payments.concat(assetsRes.data.cashPointsInfo.paymentInfoList);
-                }
-                if(undefined!=assetsRes.data.couponInfo && undefined!=assetsRes.data.couponInfo.paymentInfoList && true==assetsRes.data.couponInfo.isSelected){
-                    payments=payments.concat(assetsRes.data.couponInfo.paymentInfoList);
-                }
-                if(undefined!=assetsRes.data.discountCouponInfo && undefined!=assetsRes.data.discountCouponInfo.paymentInfoList && true==assetsRes.data.discountCouponInfo.isSelected){
-                    payments=payments.concat(assetsRes.data.discountCouponInfo.paymentInfoList);
-                }
-                if(undefined!=assetsRes.data.roomPointsInfo && undefined!=assetsRes.data.roomPointsInfo.paymentInfoList && true==assetsRes.data.roomPointsInfo.isSelected){
-                    payments=payments.concat(assetsRes.data.roomPointsInfo.paymentInfoList);
-                }
-                if(undefined!=assetsRes.data.pointsFixedInfo && true==assetsRes.data.pointsFixedInfo.isSelected && undefined!=assetsRes.data.pointsFixedInfo.paymentInfoList){
-                    payments=payments.concat(assetsRes.data.pointsFixedInfo.paymentInfoList);
-                }
-
-                //优惠券抵扣
-                var discountCouponAmount=0;
-                if(assetsRes.data.discountCouponInfo){
-                    discountCouponAmount=parseInt(assetsRes.data.discountCouponInfo.selectedDiscountCouponValue?assetsRes.data.discountCouponInfo.selectedDiscountCouponValue:0);
-                    var couponDesc=assetsRes.data.discountCouponInfo.couponDesc;
-                    $("#discountCouponInfo").html(couponDesc);
-                    if(couponDesc && couponDesc.indexOf("￥")!=-1){
-                        $("#discountCouponInfo").html(couponDesc).removeClass("paleRed");
-                    }else {
-                        $("#discountCouponInfo").html(couponDesc).addClass("paleRed");
-                    }
-                }else {
-                    $("#discountCouponInfo").parents(".oneLine").hide();
-                }
-                //礼券抵扣
-                var couponAmount=0;
-                var couponDesc="";
-                if(assetsRes.data.couponInfo){
-                    //消费金和房券选中
-                    if(true==assetsRes.data.couponInfo.isSelected){
-                        $.each(assetsRes.data.couponInfo.paymentInfoList,function(i){
-                            var chongfu=0;
-                            var obj={convert:assetsRes.data.couponInfo.paymentInfoList[i].convert,couponCode:assetsRes.data.couponInfo.paymentInfoList[i].couponCode,payType:assetsRes.data.couponInfo.paymentInfoList[i].payType};
-                            for(var j=0;j<selectedCouponArray.length;j++){
-                                if(selectedCouponArray[j].couponCode==assetsRes.data.couponInfo.paymentInfoList[i].couponCode){
-                                    chongfu++;
-                                }
-                            }
-                            if(chongfu==0){
-                                selectedCouponArray.push(obj);
-                            }
-                        });
-                        mutexDisplay(".discListUl li",".choice");
-                        mutexDisplay("#cashCouponUl li",".choice2");
-                        mutexDisplay("#roomCouponUl li",".choice2");
-                        if($("#cashCouponUl li .choice2").hasClass("choosed")){
-                            $("#cashVouchers").addClass("choosed");
-                        }
-                        if($("#roomCouponUl li .choice2").hasClass("choosed")){
-                            $("#roomVouchers").addClass("choosed");
-                        }
-                        coupHasSelected();
-                    }
-                    couponAmount=parseInt(assetsRes.data.couponInfo.selectedCouponValue?assetsRes.data.couponInfo.selectedCouponValue:0);
-                    couponDesc=assetsRes.data.couponInfo.couponDesc;
-                    if(couponAmount>0){
-                        //couponDesc="-￥"+couponAmount/100;
-                    }
-                    if(/*couponDesc.indexOf("￥")!=-1*/ /[0-9]/.test(couponDesc)){
-                        $("#couponInfo").html(couponDesc).removeClass("paleRed");
-                    }else {
-                        $("#couponInfo").html(couponDesc).addClass("paleRed");
-                    }
-                }else {
-                    $("#couponInfo").parents(".oneLine").hide();
-                }
-                //积分兑房抵扣
-                var roomPointsAmount=0;
-                var amountByPointsExchange=0;
-                if(assetsRes.data.roomPointsInfo){
-                    amountByPointsExchange=parseInt(assetsRes.data.roomPointsInfo.amountByPointsExchange?assetsRes.data.roomPointsInfo.amountByPointsExchange:0);
-                    if(amountByPointsExchange>0){
-                        $("#integralToRoom").removeClass("no");
-                        if(assetsRes.data.roomPointsInfo.isSelected==true){
-                            roomPointsAmount=amountByPointsExchange;
-                            $("#integralToRoom").addClass("choosed");
-                            $("#roomPointsAmount").html("-￥"+roomPointsAmount/100);
-                        }else {
-                            cancelToRoom();
-                            $("#integralToRoom").removeClass("choosed");
-                            $("#roomPointsAmount").html("");
-                        }
-                    }else {
-                        $("#integralToRoom").addClass("no");
-                    }
-                    $("#roomPointsInfo").html(assetsRes.data.roomPointsInfo.pointsExchangeDesc);
-                }else {
-                    $("#roomPointsInfo").parents(".oneLine").hide();
-                }
-
-                //积分抵现抵扣
-                cashPointsAmount=0;
-                if(assetsRes.data.cashPointsInfo){
-                    canCashPoint=parseInt(assetsRes.data.cashPointsInfo.amountByPointsToCash?assetsRes.data.cashPointsInfo.amountByPointsToCash:0);
-                    if($("#switchOpen").hasClass("open")){
-                        cashPointsAmount=canCashPoint;
-                    }else {
-                        cashPointsAmount=0;
-                        cashPointsPaymentInfo=0;
-                    }
-                    $("#pointsToCashDesc").html(assetsRes.data.cashPointsInfo.pointsToCashDesc);
-                }else {
-                    $("#pointsToCashDesc").parents(".oneLine").hide();
-                }
-
-                //积分支付
-                payPointAmounts=0;
-                if(assetsRes.data.pointsFixedInfo){
-                    if(true==assetsRes.data.pointsFixedInfo.isSelected){
-                        payPointAmounts=parseInt(assetsRes.data.pointsFixedInfo.pointsFixed?assetsRes.data.pointsFixedInfo.pointsFixed:0);
-                    }
-                    if(assetsRes.data.pointsFixedInfo.paymentInfoList){
-                        $("#buyPoints").hide();
-                        $("#createandsubmit").removeClass("unSubmit");
-                    }else {
-                        $("#buyPoints").show().attr("href","/html/order/virtualGoods.html?mc=zqjf&id="+buyPointsId+"&needpoints="+productPiontPrice);
-                    }
-                    $("#myPoints").html(assetsRes.data.pointsFixedInfo.pointsFixedDesc).parents(".oneLine").show();
-                }else {
-                    $("#myPoints").parents(".oneLine").hide();
-                }
-
-                if("none"==$("#discountCouponInfo").parents(".oneLine").css("display") && "none"==$("#couponInfo").parents(".oneLine").css("display") && "none"==$("#roomPointsInfo").parents(".oneLine").css("display") && "none"==$("#pointsToCashDesc").parents(".oneLine").css("display") && "none"==$("#myPoints").parents(".oneLine").css("display")){
+                if(!assetsRes.data.membershipCardInfo && !assetsRes.data.cashCouponInfo && !assetsRes.data.roomCouponInfo && !assetsRes.data.discountCouponInfo && !assetsRes.data.redPacketInfo && !assetsRes.data.roomPointsInfo){
                     $("#assets").hide();
                 }
-
-                if(priceType==1){
-                    roomPayAmount=productPiontPrice-discountCouponAmount-couponAmount-roomPointsAmount-cashPointsAmount-payPointAmounts;
-                    if(roomPayAmount>0){
-                        $("#createandsubmit").addClass("unSubmit");
-                    }
-                    else {
-                        $("#createandsubmit").removeClass("unSubmit");
-                    }
-                }else {
-                    roomPayAmount=productPrice-discountCouponAmount-couponAmount-roomPointsAmount-cashPointsAmount-payPointAmounts;
-                }
-
-                //$("#roomPrice").html("￥"+productPrice/100);
-
                 if(firstLoad=="first"){
-                    //优惠券
-                    if(undefined!=assetsRes.data.discountCouponInfo && assetsRes.data.discountCouponInfo.availableCouponPieces>0){
-                        var discountCouponList=assetsRes.data.discountCouponInfo.discountCouponList;
-                        var discountCouponLi="";
-                        for(var i=0;i<discountCouponList.length;i++){
-                            var spanClass="choice discChoice";
-                            var thisId=JSON.stringify(discountCouponList[i].paymentInfo);
-                            var thisRejectCouponCodes=JSON.stringify(discountCouponList[i].rejectCouponCodes);
-                            if(typeof discountCouponList[i].isSelected!="undefined"){//有默认被选中的
-                                spanClass="choice discChoice choosed";
-                                selectedCouponArray.push(discountCouponList[i].paymentInfo);
-                            }
-                            discountCouponLi+='<li value='+thisRejectCouponCodes+'><h2>'+discountCouponList[i].couponBaseInfo.couponName+'</h2><span class="'+spanClass+'"></span><span class="thisInfo" value='+ thisId +'></span></li>';
-                        }
-                        $(".discListUl").html(discountCouponLi);
-                        //优惠券选中
-                        $(".discListUl li").on("click",function(){
-                            delete roombook.defaultSelectDiscount;
-                            cancelToRoom();
-                            $(".discListUl li .choice").removeClass("choosed");
-                            $(this).find(".choice").addClass("choosed");
-                            $(".windowBox,.underWindow,.upWindow").hide();
-                            var thisPaymentInfo=JSON.parse($(".thisInfo",this).attr("value"));
-                            var thisRejectCouponCodes=[];
-                            if(undefined!=$(this).attr("value") && "undefined"!=$(this).attr("value")){
-                                thisRejectCouponCodes=JSON.parse($(this).attr("value"));
-                            }
-                            mutexCoupons(thisPaymentInfo,thisRejectCouponCodes);
-                            coupHasSelected()
+                    //会员卡
+                    if(assetsRes.data.membershipCardInfo){
+                        $("#membershipCardInfo").parents(".singleAsset").show();
+                        $("#mbCardsInfo").html(assetsRes.data.membershipCardInfo.couponDesc);
+                        var membershipCardList=assetsRes.data.membershipCardInfo.couponDisplayList;
+                        var membershipCardUl='';
+                        $.each(membershipCardList,function(i){
+                            var couponName=membershipCardList[i].couponBaseInfo.couponName;
+                            var effectiveTime=parseInt(membershipCardList[i].couponBaseInfo.effectiveTime);
+                            var expireTime=parseInt(membershipCardList[i].couponBaseInfo.expireTime);
+                            var remain,discount;
+                            var paymentInfo=JSON.stringify(membershipCardList[i].paymentInfoList);
+                            var rejectCouponCodes=JSON.stringify(membershipCardList[i].rejectCouponCodes);
+                            var rejectPayTypes=JSON.stringify(membershipCardList[i].rejectPayTypes);
+                            $.each(membershipCardList[i].subCouponList,function(j){
+                                if(membershipCardList[i].subCouponList[j].couponBaseInfo.couponType=="2"){
+                                    remain=membershipCardList[i].subCouponList[j].remain;
+                                }
+                                if(membershipCardList[i].subCouponList[j].couponBaseInfo.couponType=="5"){
+                                    discount=membershipCardList[i].subCouponList[j].faceValue;
+                                }
+                            });
+                            membershipCardUl+='<li>'
+                                +'<span class="_paymentInfo" value='+ paymentInfo +'></span>'
+                                +'<span class="_rejectCouponCodes" value='+ rejectCouponCodes +'></span>'
+                                +'<span class="_rejectPayTypes" value='+ rejectPayTypes +'></span>'
+                                    //+'<span class="choiceBtn"></span>'
+                                +'<div class="couponCardName">'+ couponName +' <span>'+ discount/10 +'折</span><span class="choiceBtn"></span></div>'
+                                +'<div class="other"><pre>有效期：</pre> <span>'+ newFormatStrDate(new Date(effectiveTime),"/") +'-'+ newFormatStrDate(new Date(expireTime),"/") +'</span></div>'
+                                +'<div class="other"><pre>余额：　</pre> <span>￥'+ remain/100 +'</span></div>'
+                                    //+'<div class="deduction">抵扣 <span class="deductAmount">￥200</span></div>'
+                                +'</li>';
                         });
+                        $("#membershipCardInfo").html(membershipCardUl);
                     }
-                    //消费金券
-                    if(undefined!=assetsRes.data.couponInfo && undefined!=assetsRes.data.couponInfo.cashCouponList){
-                        var cashCouponList=assetsRes.data.couponInfo.cashCouponList;
-                        var cashCouponLi="";
-                        for(var i=0;i<cashCouponList.length;i++){
-                            var thisId=JSON.stringify(cashCouponList[i].paymentInfo);
-                            var thisRejectCouponCodes=JSON.stringify(cashCouponList[i].rejectCouponCodes);
-                            cashCouponLi+='<li value='+ thisRejectCouponCodes +'><p class="couponName">'+cashCouponList[i].couponBaseInfo.couponName+'</p><p><i>有效期：</i>'+ newFormatStrDate(new Date(parseInt(cashCouponList[i].couponBaseInfo.effectiveTime)),"/") +' - '+ newFormatStrDate(new Date(parseInt(cashCouponList[i].couponBaseInfo.expireTime)),"/") +'</p><p><i>余额：</i><span>￥<em>'+cashCouponList[i].remain/100+'</em></span></p><span class="choice2"></span><span class="thisInfo" value='+ thisId +'></span></li>'
-                        }
-                        $("#cashCouponUl").html(cashCouponLi);
-                        //消费金券选中
-                        $("#cashCouponUl li").on("click",function(){
-                            delete roombook.defaultSelectDiscount;
-                            cancelToRoom();
-                            var thisPaymentInfo=JSON.parse($(".thisInfo",this).attr("value"));
-                            var thisRejectCouponCodes=[];
-                            if(undefined!=$(this).attr("value") && "undefined"!=$(this).attr("value")){
-                                thisRejectCouponCodes=JSON.parse($(this).attr("value"));
-                            }
-                            if($(".choice2",this).hasClass("choosed")){
-                                $(".choice2",this).removeClass("choosed");
-                                mutexCoupons(thisPaymentInfo,thisRejectCouponCodes,"detele");
-                            }else {
-                                $(".choice2",this).addClass("choosed");
-                                mutexCoupons(thisPaymentInfo,thisRejectCouponCodes);
-                            }
-                            if($("#cashCouponUl li .choice2").hasClass("choosed")){
-                                $("#cashVouchers").addClass("choosed");
-                            }else {
-                                $("#cashVouchers").removeClass("choosed");
-                            }
-                            coupHasSelected()
+                    //消费金
+                    if(assetsRes.data.cashCouponInfo){
+                        $("#cashCouponInfo").parents(".singleAsset").show();
+                        $("#cashCouponsInfo").html(assetsRes.data.cashCouponInfo.couponDesc);
+                        var cashCouponList=assetsRes.data.cashCouponInfo.couponDisplayList;
+                        var cashCouponUl='';
+                        $.each(cashCouponList,function(i){
+                            var couponName=cashCouponList[i].couponBaseInfo.couponName;
+                            var effectiveTime=parseInt(cashCouponList[i].couponBaseInfo.effectiveTime);
+                            var expireTime=parseInt(cashCouponList[i].couponBaseInfo.expireTime);
+                            var remain=cashCouponList[i].remain;
+                            var paymentInfo=JSON.stringify(cashCouponList[i].paymentInfoList);
+                            var rejectCouponCodes=JSON.stringify(cashCouponList[i].rejectCouponCodes);
+                            var rejectPayTypes=JSON.stringify(cashCouponList[i].rejectPayTypes);
+                            cashCouponUl+='<li>'
+                                +'<span class="_paymentInfo" value='+ paymentInfo +'></span>'
+                                +'<span class="_rejectCouponCodes" value='+ rejectCouponCodes +'></span>'
+                                +'<span class="_rejectPayTypes" value='+ rejectPayTypes +'></span>'
+                                    //+'<span class="choiceBtn"></span>'
+                                +'<div class="couponCardName">'+ couponName +'<span class="choiceBtn"></span></div>'
+                                +'<div class="other"><pre>有效期：</pre> <span>'+ newFormatStrDate(new Date(effectiveTime),"/") +'-'+ newFormatStrDate(new Date(expireTime),"/") +'</span></div>'
+                                +'<div class="other"><pre>余额：　</pre> <span>￥'+ remain/100 +'</span></div>'
+                                    //+'<div class="deduction">抵扣 <span class="deductAmount">￥200</span></div>'
+                                +'</li>';
                         });
-                    }
-                    else {
-                        $("#cashCouponUl").parents(".couponBox").hide();
+                        $("#cashCouponInfo").html(cashCouponUl);
                     }
                     //房券
-                    if(undefined!=assetsRes.data.couponInfo && undefined!=assetsRes.data.couponInfo.roomCouponList){
-                        var roomCouponList=assetsRes.data.couponInfo.roomCouponList;
-                        var roomCouponLi="";
-                        for(var i=0;i<roomCouponList.length;i++){
-                            var thisId=JSON.stringify(roomCouponList[i].paymentInfo);
-                            var thisRejectCouponCodes=JSON.stringify(roomCouponList[i].rejectCouponCodes);
-                            roomCouponLi+='<li value='+thisRejectCouponCodes+'><p class="couponName">'+roomCouponList[i].couponBaseInfo.couponName+'</p><p><i>晚数：</i><span>'+roomCouponList[i].couponBaseInfo.applyNights+'晚</span></p><span class="choice2"></span><span class="thisInfo" value='+ thisId +'></span></li>';
-                        }
-                        $("#roomCouponUl").html(roomCouponLi);
-                        //房券选中
-                        $("#roomCouponUl li").on("click",function(){
-                            delete roombook.defaultSelectDiscount;
-                            cancelToRoom();
-                            var thisPaymentInfo=JSON.parse($(".thisInfo",this).attr("value"));
-                            var thisRejectCouponCodes=[];
-                            if(undefined!=$(this).attr("value") && "undefined"!=$(this).attr("value")){
-                                thisRejectCouponCodes=JSON.parse($(this).attr("value"));
-                            }
-                            if($(".choice2",this).hasClass("choosed")){
-                                $(".choice2",this).removeClass("choosed");
-                                mutexCoupons(thisPaymentInfo,thisRejectCouponCodes,"detele");
-                            }else {
-                                /*if($("#roomCouponUl li .choice2.choosed").length>=nights*roombook.quantity){
-                                    errorPrompt("使用房券数量不能大于订单间夜",2000);
-                                    return;
-                                }*/
-                                $(".choice2",this).addClass("choosed");
-                                mutexCoupons(thisPaymentInfo,thisRejectCouponCodes);
-                            }
-                            if($(".cashCouponUl li .choice2").hasClass("choosed")){
-                                $("#roomVouchers").addClass("choosed");
-                            }else {
-                                $("#roomVouchers").removeClass("choosed");
-                            }
-                            coupHasSelected();
+                    if(assetsRes.data.roomCouponInfo){
+                        $("#roomCouponInfo").parents(".singleAsset").show();
+                        $("#roomCouponsInfo").html(assetsRes.data.roomCouponInfo.couponDesc);
+                        var roomCouponList=assetsRes.data.roomCouponInfo.couponDisplayList;
+                        var roomCouponUl='';
+                        $.each(roomCouponList,function(i){
+                            var couponName=roomCouponList[i].couponBaseInfo.couponName;
+                            var effectiveTime=parseInt(roomCouponList[i].couponBaseInfo.effectiveTime);
+                            var expireTime=parseInt(roomCouponList[i].couponBaseInfo.expireTime);
+                            var applyNights=roomCouponList[i].couponBaseInfo.applyNights;
+                            var paymentInfo=JSON.stringify(roomCouponList[i].paymentInfoList);
+                            var rejectCouponCodes=JSON.stringify(roomCouponList[i].rejectCouponCodes);
+                            var rejectPayTypes=JSON.stringify(roomCouponList[i].rejectPayTypes);
+                            roomCouponUl+='<li>'
+                                +'<span class="_paymentInfo" value='+ paymentInfo +'></span>'
+                                +'<span class="_rejectCouponCodes" value='+ rejectCouponCodes +'></span>'
+                                +'<span class="_rejectPayTypes" value='+ rejectPayTypes +'></span>'
+                                    //+'<span class="choiceBtn"></span>'
+                                +'<div class="couponCardName">'+ couponName +'<span class="choiceBtn"></span></div>'
+                                +'<div class="other"><pre>有效期：</pre> <span>'+ newFormatStrDate(new Date(effectiveTime),"/") +'-'+ newFormatStrDate(new Date(expireTime),"/") +'</span></div>'
+                                +'<div class="other"><pre>晚数：　</pre> <span>'+ applyNights +'晚</span></div>'
+                                    //+'<div class="deduction">抵扣 <span class="deductAmount">￥200</span></div>'
+                                +'</li>';
                         });
+                        $("#roomCouponInfo").html(roomCouponUl);
                     }
-                    else {
-                        $("#roomCouponUl").parents(".couponBox").hide();
+                    //折扣券
+                    if(assetsRes.data.discountCouponInfo){
+                        $("#discountCouponInfo").parents(".singleAsset").show();
+                        $("#discCouponsInfo").html(assetsRes.data.discountCouponInfo.couponDesc);
+                        var discountCouponList=assetsRes.data.discountCouponInfo.couponDisplayList;
+                        var discountCouponUl='';
+                        $.each(discountCouponList,function(i){
+                            var couponName=discountCouponList[i].couponBaseInfo.couponName;
+                            var effectiveTime=parseInt(discountCouponList[i].couponBaseInfo.effectiveTime);
+                            var expireTime=parseInt(discountCouponList[i].couponBaseInfo.expireTime);
+                            var discount=discountCouponList[i].faceValue;
+                            var paymentInfo=JSON.stringify(discountCouponList[i].paymentInfoList);
+                            var rejectCouponCodes=JSON.stringify(discountCouponList[i].rejectCouponCodes);
+                            var rejectPayTypes=JSON.stringify(discountCouponList[i].rejectPayTypes);
+                            discountCouponUl+='<li>'
+                                +'<span class="_paymentInfo" value='+ paymentInfo +'></span>'
+                                +'<span class="_rejectCouponCodes" value='+ rejectCouponCodes +'></span>'
+                                +'<span class="_rejectPayTypes" value='+ rejectPayTypes +'></span>'
+                                    //+'<span class="choiceBtn"></span>'
+                                +'<div class="couponCardName">'+ couponName +'<span class="choiceBtn"></span></div>'
+                                +'<div class="other"><pre>有效期：</pre> <span>'+ newFormatStrDate(new Date(effectiveTime),"/") +'-'+ newFormatStrDate(new Date(expireTime),"/") +'</span></div>'
+                                +'<div class="other"><pre>折扣：　</pre> <span>'+ discount/10 +'折</span></div>'
+                                    //+'<div class="deduction">抵扣 <span class="deductAmount">￥200</span></div>'
+                                +'</li>';
+                        });
+                        $("#discountCouponInfo").html(discountCouponUl);
                     }
+                    //红包
+                    if(assetsRes.data.redPacketInfo){
+                        $("#redPacketInfo").parents(".singleAsset").show();
+                        $("#envelopesInfo").html(assetsRes.data.redPacketInfo.couponDesc);
+                        var redPacketList=assetsRes.data.redPacketInfo.couponDisplayList;
+                        var redPacketUl='';
+                        $.each(redPacketList,function(i){
+                            var couponName=redPacketList[i].couponBaseInfo.couponName;
+                            var effectiveTime=parseInt(redPacketList[i].couponBaseInfo.effectiveTime);
+                            var expireTime=parseInt(redPacketList[i].couponBaseInfo.expireTime);
+                            var remain=redPacketList[i].faceValue;
+                            var paymentInfo=JSON.stringify(redPacketList[i].paymentInfoList);
+                            var rejectCouponCodes=JSON.stringify(redPacketList[i].rejectCouponCodes);
+                            var rejectPayTypes=JSON.stringify(redPacketList[i].rejectPayTypes);
+                            redPacketUl+='<li>'
+                                +'<span class="_paymentInfo" value='+ paymentInfo +'></span>'
+                                +'<span class="_rejectCouponCodes" value='+ rejectCouponCodes +'></span>'
+                                +'<span class="_rejectPayTypes" value='+ rejectPayTypes +'></span>'
+                                    //+'<span class="choiceBtn"></span>'
+                                +'<div class="couponCardName">'+ couponName +'<span class="choiceBtn"></span></div>'
+                                +'<div class="other"><pre>有效期：</pre> <span>'+ newFormatStrDate(new Date(effectiveTime),"/") +'-'+ newFormatStrDate(new Date(expireTime),"/") +'</span></div>'
+                                +'<div class="other"><pre>余额：　</pre> <span>￥'+ remain/100 +'</span></div>'
+                                    //+'<div class="deduction">抵扣 <span class="deductAmount">￥200</span></div>'
+                                +'</li>';
+                        });
+                        $("#redPacketInfo").html(redPacketUl);
+                    }
+                    //积分兑房
+                    if(assetsRes.data.roomPointsInfo){
+                        $("#roomPointsInfo").html(assetsRes.data.roomPointsInfo.pointsExchangeDesc).parents(".singleAsset").show();
+                    }
+                    //交换资产
+                    if(assetsRes.data.jiheXCouponInfo){
+                        $("#exchangeAssets").show();
+                        var jiheXCouponList=assetsRes.data.jiheXCouponInfo.couponDisplayList;
+                        var jiheXCouponUl='';
+                        $.each(jiheXCouponList,function(i){
+                            var couponName=jiheXCouponList[i].couponBaseInfo.couponName;
+                            var effectiveTime=parseInt(jiheXCouponList[i].couponBaseInfo.effectiveTime);
+                            var expireTime=parseInt(jiheXCouponList[i].couponBaseInfo.expireTime);
+                            var discount=jiheXCouponList[i].faceValue;
+                            var paymentInfo=JSON.stringify(jiheXCouponList[i].paymentInfoList);
+                            var rejectCouponCodes=JSON.stringify(jiheXCouponList[i].rejectCouponCodes);
+                            var rejectPayTypes=JSON.stringify(jiheXCouponList[i].rejectPayTypes);
+                            var couponType=jiheXCouponList[i].couponBaseInfo.couponType;
+                            var jiheXCouponLi;
+                            //couponType 1房券，2消费金，3会员卡
+                            if(couponType=="1"){
+                                jiheXCouponLi='<div class="otherEc"><pre>有效期：</pre> <span>'+ newFormatStrDate(new Date(effectiveTime),"/") +'-'+ newFormatStrDate(new Date(expireTime),"/") +'</span></div>'
+                                    +'<div class="otherEc"><pre>晚数：　</pre> <span>'+ jiheXCouponList[i].couponBaseInfo.applyNights +'晚</span></div>';
+                            }else if(couponType=="2" || couponType=="3"){
+                                var remain;
+                                if(couponType=="3"){
+                                    $.each(jiheXCouponList[i].subCouponList,function(j){
+                                        if(jiheXCouponList[i].subCouponList[j].couponBaseInfo.couponType=="2"){
+                                            remain=jiheXCouponList[i].subCouponList[j].remain;
+                                        }
+                                    });
+                                }else {
+                                    remain=jiheXCouponList[i].remain;
+                                }
+                                jiheXCouponLi='<div class="otherEc"><pre>有效期：</pre> <span>'+ newFormatStrDate(new Date(effectiveTime),"/") +'-'+ newFormatStrDate(new Date(expireTime),"/") +'</span></div>'
+                                    +'<div class="otherEc"><pre>余额：　</pre> <span>￥'+ remain/100 +'</span></div>';
+                            }
+                            jiheXCouponUl+='<li>'
+                                +'<span class="_paymentInfo" value='+ paymentInfo +'></span>'
+                                +'<span class="_rejectCouponCodes" value='+ rejectCouponCodes +'></span>'
+                                +'<span class="_rejectPayTypes" value='+ rejectPayTypes +'></span>'
+                                +'<span class="choice"></span>'
+                                +'<div class="couponCardNameEc">'+ couponName +'</div>'
+                                + jiheXCouponLi
+                                    //+'<div class="deduction">抵扣 <span class="deductAmount">￥200</span></div>'
+                                +'</li>';
+                        });
+                        $("#exchangeAssetsLis").html(jiheXCouponUl);
+                    }
+                    //积分抵现
+                    if(assetsRes.data.cashPointsInfo){
+                        $("#pointsToCashDesc").parents(".singleAsset").show().parents("#integralAssets").show().find(".subHeading").html("积分抵现");
 
-                    //消费金和房券默认选中
-                    if(undefined!=assetsRes.data.couponInfo && true==assetsRes.data.couponInfo.isSelected){
-                        mutexDisplay(".discListUl li",".choice");
-                        mutexDisplay("#cashCouponUl li",".choice2");
-                        mutexDisplay("#roomCouponUl li",".choice2");
-                        if($("#cashCouponUl li .choice2").hasClass("choosed")){
-                            $("#cashVouchers").addClass("choosed");
-                        }
-                        if($("#roomCouponUl li .choice2").hasClass("choosed")){
-                            $("#roomVouchers").addClass("choosed");
-                        }
-                        coupHasSelected();
+                    }
+                    //积分支付 默认选择
+                    if(assetsRes.data.pointsFixedInfo){
+                        $("#myPoints").parents(".singleAsset").show().parents("#integralAssets").show().find(".subHeading").html("积分支付");
                     }
 
                     if(buyPointsId==GetParams().id && undefined!=GetParams().needpoints){
@@ -829,6 +783,134 @@ $(document).ready(function(){
                         virProChangeQuantity(num);
                     }
                 }
+
+                roombook.defaultSelectDiscount=0;
+                if(assetsRes.data.paymentInfoList){
+                    roombook.paymentInfoList=assetsRes.data.paymentInfoList;
+                }else {
+                    roombook.paymentInfoList=[];
+                }
+                payments=roombook.paymentInfoList;
+                //是否积分抵现
+                if(assetsRes.data.cashPointsInfo && assetsRes.data.cashPointsInfo.paymentInfoList && $("#switchOpen").hasClass("open")){
+                    payments=payments.concat(assetsRes.data.cashPointsInfo.paymentInfoList);
+                }
+                var membershipCardAmount=0,
+                    couponAmount= 0,
+                    roomCouponAmount= 0,
+                    discountCouponAmount= 0,
+                    redPacketAmount= 0,
+                    roomPointsAmount= 0,
+                    jiheXCouponAmount= 0,
+                    cashPointsAmount=0,
+                    payPointAmounts=0;
+                //会员卡展示
+                if(assetsRes.data.membershipCardInfo && assetsRes.data.membershipCardInfo.isSelected){
+                    membershipCardAmount=assetsRes.data.membershipCardInfo.selectedCouponValue;
+                    var couponDisplayList=assetsRes.data.membershipCardInfo.couponDisplayList;
+                    $("#mbCards").addClass("choosed");
+                    assetsShow(couponDisplayList,"#membershipCardInfo",".choiceBtn");
+                }else {
+                    $("#mbCards").removeClass("choosed");
+                    assetsHide("#membershipCardInfo");
+                }
+                //消费金展示
+                if(assetsRes.data.cashCouponInfo && assetsRes.data.cashCouponInfo.isSelected){
+                    couponAmount=assetsRes.data.cashCouponInfo.selectedCouponValue;
+                    var couponDisplayList=assetsRes.data.cashCouponInfo.couponDisplayList;
+                    $("#cashCoupons").addClass("choosed");
+                    assetsShow(couponDisplayList,"#cashCouponInfo",".choiceBtn");
+                }else {
+                    $("#cashCoupons").removeClass("choosed");
+                    assetsHide("#cashCouponInfo");
+                }
+                //房券展示
+                if(assetsRes.data.roomCouponInfo && assetsRes.data.roomCouponInfo.isSelected){
+                    roomCouponAmount=assetsRes.data.roomCouponInfo.selectedCouponValue;
+                    var couponDisplayList=assetsRes.data.roomCouponInfo.couponDisplayList;
+                    $("#roomCoupons").addClass("choosed");
+                    assetsShow(couponDisplayList,"#roomCouponInfo",".choiceBtn");
+                }else {
+                    $("#roomCoupons").removeClass("choosed");
+                    assetsHide("#roomCouponInfo");
+                }
+                //折扣券展示
+                if(assetsRes.data.discountCouponInfo && assetsRes.data.discountCouponInfo.isSelected){
+                    discountCouponAmount=assetsRes.data.discountCouponInfo.selectedCouponValue;
+                    var couponDisplayList=assetsRes.data.discountCouponInfo.couponDisplayList;
+                    $("#discCoupons").addClass("choosed");
+                    assetsShow(couponDisplayList,"#discountCouponInfo",".choiceBtn");
+                }else {
+                    $("#discCoupons").removeClass("choosed");
+                    assetsHide("#discountCouponInfo");
+                }
+                //红包展示
+                if(assetsRes.data.redPacketInfo && assetsRes.data.redPacketInfo.isSelected){
+                    redPacketAmount=assetsRes.data.redPacketInfo.selectedCouponValue;
+                    var couponDisplayList=assetsRes.data.redPacketInfo.couponDisplayList;
+                    $("#envelopes").addClass("choosed");
+                    assetsShow(couponDisplayList,"#redPacketInfo",".choiceBtn");
+                }else {
+                    $("#envelopes").removeClass("choosed");
+                    assetsHide("#redPacketInfo");
+                }
+                //积分兑房展示
+                if(assetsRes.data.roomPointsInfo && assetsRes.data.roomPointsInfo.isSelected){
+                    roomPointsAmount=assetsRes.data.roomPointsInfo.amountByPointsExchange;
+                    $("#integralToRoom").addClass("choosed");
+                }else {
+                    $("#integralToRoom").removeClass("choosed");
+                }
+                //交换 资产展示
+                if(assetsRes.data.jiheXCouponInfo){
+                    jiheXCouponAmount=assetsRes.data.jiheXCouponInfo.selectedCouponValue?assetsRes.data.jiheXCouponInfo.selectedCouponValue:0;
+                    var couponDisplayList=assetsRes.data.jiheXCouponInfo.couponDisplayList;
+                    assetsShow(couponDisplayList,"#exchangeAssetsLis",".choice");
+                }
+                //积分抵现
+                if(assetsRes.data.cashPointsInfo){
+                    cashPointsAmount=0;
+                    canCashPoint=parseInt(assetsRes.data.cashPointsInfo.amountByPointsToCash?assetsRes.data.cashPointsInfo.amountByPointsToCash:0);
+                    if(!assetsRes.data.cashPointsInfo.paymentInfoList){
+                        $("#switchOpen").removeClass("open");
+                    }
+                    if($("#switchOpen").hasClass("open")){
+                        cashPointsAmount=canCashPoint;
+                    }
+                    $("#pointsToCashDesc").html(assetsRes.data.cashPointsInfo.pointsToCashDesc);
+                }
+                //积分支付
+                if(assetsRes.data.pointsFixedInfo){
+                    var pointsFixedDesc= assetsRes.data.pointsFixedInfo.pointsFixedDesc;
+                    if(true==assetsRes.data.pointsFixedInfo.isSelected){
+                        payPointAmounts=parseInt(assetsRes.data.pointsFixedInfo.pointsFixed?assetsRes.data.pointsFixedInfo.pointsFixed:0);
+                    }
+                    if(assetsRes.data.pointsFixedInfo.paymentInfoList){
+                        $("#buyPoints").hide();
+                        $("#createandsubmit").removeClass("unSubmit");
+                    }else {
+                        if(pointsFixedDesc.indexOf("应付为0")>-1){
+                            $("#buyPoints").hide();
+                        }else {
+                            $("#buyPoints").show().attr("href","/html/h5/order/virtualGoods.html?mc=zqjf&id="+buyPointsId+"&needpoints="+productPiontPrice);
+                        }
+                    }
+                    $("#myPoints").html(pointsFixedDesc);
+                }
+
+                if(priceType==1){
+                    roomPayAmount=productPiontPrice-membershipCardAmount-couponAmount-roomCouponAmount-discountCouponAmount-redPacketAmount-roomPointsAmount-jiheXCouponAmount-cashPointsAmount-payPointAmounts;
+                    if(roomPayAmount>0){
+                        $("#createandsubmit").addClass("unSubmit");
+                    }
+                    else {
+                        $("#createandsubmit").removeClass("unSubmit");
+                    }
+                }else {
+                    roomPayAmount=productPrice-membershipCardAmount-couponAmount-roomCouponAmount-discountCouponAmount-redPacketAmount-roomPointsAmount-jiheXCouponAmount-cashPointsAmount-payPointAmounts;
+                }
+
+                //$("#roomPrice").html("￥"+productPrice/100);
 
                 if(priceType==1 && (showCyType=="4" || showCyType=="5" || showCyType=="1")){
                     if(showCyType=="5"){
@@ -844,108 +926,11 @@ $(document).ready(function(){
                     $("#roomPrice").html(showCyCode+Math.round(showTotalPrice*roombook.quantity)/100+showCyUnit);
                 }
             }
+            else if(assetsRes.sc=="-99999"){
+                errorPrompt("请稍后再试",2000);
+            }
             else {
                 errorPrompt(chinese(assetsRes.ErrorMsg),2000);
-            }
-        });
-    }
-
-    //取消积分兑房
-    function cancelToRoom(){
-        for(var i=0;i<selectedCouponArray.length;i++){
-            if("3"==selectedCouponArray[i].payType){
-                selectedCouponArray.splice(i,1);
-                i=i-1;
-                break;
-            }
-        }
-    }
-
-    //券互斥this_PaymentInfo:当前券信息；this_RejectCouponCodes:当前券的互斥券
-    function mutexCoupons(this_PaymentInfo,this_RejectCouponCodes,addDetele){
-        var hasNot=0;
-        if(addDetele=="detele"){
-            for(var i=0;i<selectedCouponArray.length;i++){
-                if(this_PaymentInfo.couponCode==selectedCouponArray[i].couponCode){
-                    selectedCouponArray.splice(i,1);
-                    i=i-1;
-                    break;
-                }
-            }
-        }
-        else {
-            for(var i=0;i<selectedCouponArray.length;i++){
-                if(this_PaymentInfo.couponCode==selectedCouponArray[i].couponCode){
-                    hasNot=1;
-                }
-                for(var j=0;j<this_RejectCouponCodes.length;j++){
-                    if(this_RejectCouponCodes[j]==selectedCouponArray[i].couponCode){
-                        selectedCouponArray.splice(i,1);
-                        i=i-1;
-                        break;
-                    }
-                }
-            }
-            if(hasNot==0){
-                selectedCouponArray.push(this_PaymentInfo);
-            }
-        }
-        console.log(selectedCouponArray);
-        roombook.paymentInfoList=selectedCouponArray;
-        personalAssets(roombook);
-
-        //互斥展示效果
-        mutexDisplay(".discListUl li",".choice");
-        mutexDisplay("#cashCouponUl li",".choice2");
-        mutexDisplay("#roomCouponUl li",".choice2");
-        if(!$("#cashCouponUl li .choice2").hasClass("choosed")){
-            $("#cashVouchers").removeClass("choosed");
-        }
-        if(!$("#roomCouponUl li .choice2").hasClass("choosed")){
-            $("#roomVouchers").removeClass("choosed");
-        }
-        coupHasSelected();
-        //互斥展示效果-结束
-    }
-
-    //互斥展示效果方法
-    function mutexDisplay(liClass,spanClass){
-        $(liClass).each(function(){
-            var thisPaymentInfo=JSON.parse($(".thisInfo",this).attr("value"));
-            if(selectedCouponArray.length==0){
-                $(spanClass,this).removeClass("choosed");
-            }
-            for(var i=0;i<selectedCouponArray.length;i++){
-                if(thisPaymentInfo.couponCode==selectedCouponArray[i].couponCode){
-                    $(spanClass,this).addClass("choosed");
-                    break;
-                }
-                else {
-                    $(spanClass,this).removeClass("choosed");
-                }
-            }
-        });
-    }
-
-    //是否已选礼券
-    function coupHasSelected(){
-        if(!$("#cashCouponUl li .choice2").hasClass("choosed") && !$("#roomCouponUl li .choice2").hasClass("choosed")){
-            $("#coupSelected").removeClass("choosed");
-        }else {
-            $("#coupSelected").addClass("choosed");
-        }
-    }
-
-    //取消所有消费金/房券
-    function cancelAllVouchers(classId){
-        $(classId).each(function(){
-            var thisPaymentInfo=JSON.parse($(".thisInfo",this).attr("value"));
-            for(var i=0;i<selectedCouponArray.length;i++){
-                if(thisPaymentInfo.couponCode==selectedCouponArray[i].couponCode){
-                    selectedCouponArray.splice(i,1);
-                    i=i-1;
-                    break;
-                }
             }
         });
     }
@@ -1011,6 +996,30 @@ $(document).ready(function(){
         }
     }
 
+    function removeArray(a,b){
+        //把数组a中a.couponCode 和数组b相同的a的元素移除
+        for(var i=0;i< b.length;i++){
+            for(var j=0;j< a.length;j++){
+                if(a[j].couponCode==b[i]){
+                    a.splice(j,1);
+                    j=j-1;
+                }
+            }
+        }
+        return a;
+    }
+    function removeArrayEle(a,b){
+        //把数组a中a.couponCode 和数组b.couponCode相同的a的元素移除
+        for(var i=0;i< b.length;i++){
+            for(var j=0;j< a.length;j++){
+                if(a[j].couponCode==b[i].couponCode){
+                    a.splice(j,1);
+                    j=j-1;
+                }
+            }
+        }
+        return a;
+    }
 });
 
 

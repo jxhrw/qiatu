@@ -60,10 +60,9 @@ body{
 }
 .wavy{
     height: 0.8rem;
-    background-color: grey;
 }
 .coupon{
-    background-color: #fff;
+    background: #595d6a url("../images/couponBg.png") no-repeat center/100% 100%;
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
     -moz-box-shadow: 0 0 10px rgba(0,0,0,0.3);
     -o-box-shadow: 0 0 10px rgba(0,0,0,0.3);
@@ -79,7 +78,6 @@ body{
     font-weight: bold;
 }
 .giftCardName p{
-    background-color: #d4dfe9;
     height: 3.33rem;
     position: relative;
     padding: 0 1.33rem;
@@ -111,7 +109,7 @@ body{
 .giftCardName p span{
     position: absolute;
     line-height: 1.2rem;
-    top: 50%;
+    top: 56%;
     transform: translateY(-50%);
     -moz-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
@@ -161,7 +159,24 @@ body{
     overflow: hidden;
     margin: auto;
     margin-bottom: 0.5rem;
-    background-color: #0b66ef;
+}
+.booking div{
+    background: url("../images/booking.png") no-repeat center/100% 100%;
+}
+.forNight div{
+    background: url("../images/forNight.png") no-repeat center/100% 100%;
+}
+.forGoods div{
+    background: url("../images/goods.png") no-repeat center/100% 100%;
+}
+.transfer div{
+    background: url("../images/transfer.png") no-repeat center/100% 100%;
+}
+.recharge div{
+    background: url("../images/recharge.png") no-repeat center/100% 100%;
+}
+.forIntegral div{
+    background: url("../images/integral.png") no-repeat center/100% 100%;
 }
 .function td.unavailable{
     pointer-events: none;

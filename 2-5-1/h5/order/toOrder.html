@@ -122,35 +122,82 @@
                 <div class="singleAsset">
                     <div class="clearfix oneLine">
                         <div class="function fl"><span  id="mbCards" class="choice"></span>会员卡</div>
-                        <div id="mbCardsBtn" class="quota fr"><span id="mbCardsInfo" class="paleRed smaller quarantine">下单享9折</span><span class="arrowImg tuneLeft"></span></div>
+                        <div id="mbCardsBtn" class="quota fr"><span id="mbCardsInfo" class="smaller quarantine">下单享9折</span><span class="arrowImg tuneLeft"></span></div>
                     </div>
-                    <ul class="">
-                        <li></li>
+                    <ul class="openCards" id="membershipCardInfo">
+                        <li>
+                            <span class="choiceBtn"></span>
+                            <div class="couponCardName">会员卡 <span>9折</span></div>
+                            <div class="other"><pre>有效期：</pre> <span>2017/05/14-2017/06/15</span></div>
+                            <div class="other"><pre>余额：　</pre> <span>￥1000</span></div>
+                            <div class="deduction">抵扣 <span class="deductAmount">￥200</span></div>
+                        </li>
+                        <li>
+                            <div class="couponCardName">会员卡</div>
+                            <div class="other"><pre>有效期：</pre> <span>2017/05/14-2017/06/15</span></div>
+                            <div class="other"><pre>余额：　</pre> <span>￥1000</span></div>
+                        </li>
                     </ul>
                 </div>
                 <div class="singleAsset">
                     <div class="clearfix oneLine">
                         <div class="function fl"><span  id="cashCoupons" class="choice"></span>消费金</div>
-                        <div id="cashCouponsBtn" class="quota fr"><span id="cashCouponsInfo" class="paleRed smaller quarantine"></span><span class="arrowImg tuneLeft"></span></div>
+                        <div id="cashCouponsBtn" class="quota fr"><span id="cashCouponsInfo" class="smaller quarantine"></span><span class="arrowImg tuneLeft"></span></div><!--paleRed-->
                     </div>
+                    <ul class="openCards" id="cashCouponInfo">
+                        <li>
+                            <span class="choiceBtn"></span>
+                            <div class="couponCardName">消费金</div>
+                            <div class="other"><pre>有效期：</pre> <span>2017/05/14-2017/06/15</span></div>
+                            <div class="other"><pre>余额：　</pre> <span>￥1000</span></div>
+                            <div class="deduction">抵扣 <span class="deductAmount">￥200</span></div>
+                        </li>
+                    </ul>
                 </div>
                 <div class="singleAsset">
                     <div class="clearfix oneLine">
-                        <div class="function fl"><span  id="roomCoupons" class="choice"></span>礼券</div>
-                        <div id="roomCouponsBtn" class="quota fr"><span id="roomCouponsInfo" class="paleRed smaller quarantine"></span><span class="arrowImg tuneLeft"></span></div>
+                        <div class="function fl"><span  id="roomCoupons" class="choice"></span>房券</div>
+                        <div id="roomCouponsBtn" class="quota fr"><span id="roomCouponsInfo" class="smaller quarantine"></span><span class="arrowImg tuneLeft"></span></div>
                     </div>
+                    <ul class="openCards" id="roomCouponInfo">
+                        <li>
+                            <span class="choiceBtn"></span>
+                            <div class="couponCardName">房券</div>
+                            <div class="other"><pre>有效期：</pre> <span>2017/05/14-2017/06/15</span></div>
+                            <div class="other"><pre>张数：　</pre> <span>1张</span></div>
+                            <div class="deduction">抵扣 <span class="deductAmount">￥200</span></div>
+                        </li>
+                    </ul>
                 </div>
                 <div class="singleAsset">
                     <div class="clearfix oneLine">
                         <div class="function fl"><span  id="discCoupons" class="choice"></span>折扣券</div>
-                        <div id="discCouponsBtn" class="quota fr"><span id="discCouponsInfo" class="paleRed smaller quarantine"></span><span class="arrowImg tuneLeft"></span></div>
+                        <div id="discCouponsBtn" class="quota fr"><span id="discCouponsInfo" class="smaller quarantine"></span><span class="arrowImg tuneLeft"></span></div>
                     </div>
+                    <ul class="openCards" id="discountCouponInfo">
+                        <li>
+                            <span class="choiceBtn"></span>
+                            <div class="couponCardName">折扣券</div>
+                            <div class="other"><pre>有效期：</pre> <span>2017/05/14-2017/06/15</span></div>
+                            <div class="other"><pre>折扣：　</pre> <span>9折</span></div>
+                            <div class="deduction">抵扣 <span class="deductAmount">￥200</span></div>
+                        </li>
+                    </ul>
                 </div>
                 <div class="singleAsset">
                     <div class="clearfix oneLine">
                         <div class="function fl"><span  id="envelopes" class="choice"></span>红包</div>
-                        <div id="envelopesBtn" class="quota fr"><span id="envelopesInfo" class="paleRed smaller quarantine"></span><span class="arrowImg tuneLeft"></span></div>
+                        <div id="envelopesBtn" class="quota fr"><span id="envelopesInfo" class="smaller quarantine"></span><span class="arrowImg tuneLeft"></span></div>
                     </div>
+                    <ul class="openCards" id="redPacketInfo">
+                        <li>
+                            <span class="choiceBtn"></span>
+                            <div class="couponCardName">红包</div>
+                            <div class="other"><pre>有效期：</pre> <span>2017/05/14-2017/06/15</span></div>
+                            <div class="other"><pre>余额：　</pre> <span>￥1000</span></div>
+                            <div class="deduction">抵扣 <span class="deductAmount">￥200</span></div>
+                        </li>
+                    </ul>
                 </div>
                 <div class="singleAsset">
                     <div class="clearfix oneLine">
@@ -158,9 +205,27 @@
                         <div class="quota fr"><span id="roomPointsAmount" class="smaller quarantine"></span></div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div id="exchangeAssets" class="innerBox">
+            <div class="subHeading">交换资产</div>
+            <div class="whiteBack black">
+                <ul class="exchangeAssetsLis" id="exchangeAssetsLis">
+                    <li>
+                        <span class="choice"></span>
+                        <div class="couponCardNameEc">红包</div>
+                        <div class="otherEc"><pre>有效期：</pre> <span>2017/05/14-2017/06/15</span></div>
+                        <div class="otherEc"><pre>余额：　</pre> <span>￥1000</span></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="integralAssets" class="innerBox">
+            <div class="subHeading">积分抵现</div>
+            <div class="whiteBack black">
                 <div class="singleAsset">
                     <div class="clearfix oneLine">
-                        <div class="function fl">积分抵现：<span id="pointsToCashDesc"></span></div>
+                        <div class="function fl"><span id="pointsToCashDesc"></span></div>
                         <div class="quota fr">
                             <div id="switchOpen" class="switchBox">
                                 <div class="switchSpot"></div>
@@ -169,8 +234,8 @@
                     </div>
                 </div>
                 <div class="singleAsset">
-                    <div class="clearfix oneLine" style="display: none;">
-                        <div class="function fl">积分余额：<span id="myPoints"></span></div>
+                    <div class="clearfix oneLine">
+                        <div class="function fl"><span id="myPoints"></span></div>
                         <div class="quota fr">
                             <a style="display: none;" id="buyPoints"><span class="paleRed">购买积分</span><span class="arrowImg turnLeft tuneLeft"></span></a>
                         </div>

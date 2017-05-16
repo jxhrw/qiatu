@@ -11,7 +11,6 @@ $(document).ready(function(){
 
     $(".plus:last-child").css("display","none");
 
-
 });
 
 var activity={
@@ -105,18 +104,18 @@ var activity={
         var actId=params['actid'];
         var registerUrl=params['registerurl'];
         //绑定
-        $('html').on("click","#signUp",function(){
+        $("#signUp").click(function(){
             activity.register(actId);
         });
 
         //开奖结果
-        $("html").on("click","#winResults",function(){
+        $("#winResults").click(function(){
             var resData={};
             activity.winResults(actId,resData);
         });
 
         //注册会员
-        $('html').on("click","#register",function(){
+        $("#register").click(function(){
             window.location.href = registerUrl;
         });
     }

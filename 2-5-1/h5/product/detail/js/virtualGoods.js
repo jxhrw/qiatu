@@ -358,7 +358,7 @@ $(document).ready(function(){
         $(".payBoxShadow").hide();
     });
     $("#buyIntegral").click(function(){
-        window.location.href="/html/order/virtualGoods.html?id=38607&mc=zqjf";
+        window.location.href="/html/h5/order/virtualGoods.html?id=38607&mc=zqjf";
     });
 
     //获取url的参数
@@ -628,7 +628,7 @@ $(document).ready(function(){
                                         $("#hasOrder").show();
                                         $(".notPay").show();
                                         $(".notPayLook").click(function(){
-                                            window.location.href="/html/order/orderDetailN.html?orderid="+res.data[0].orderid;
+                                            window.location.href="/html/h5/order/orderDetailN.html?orderid="+res.data[0].orderid;
                                         });
                                     }
                                     else {
@@ -709,7 +709,7 @@ $(document).ready(function(){
                             if(isApp==undefined){
                                 var urlLocation=window.location.href;
                                 //location.href="/user/h5/auth?h5url="+urlLocation;
-                                location.href="/user/h5/qrcode?regsucc_tourl="+urlLocation;
+                                location.href="/user/h5/mbcenter?regsucc_tourl="+urlLocation;
                                 return;
                             }
                             if(isApp=="jiheios"){
@@ -798,14 +798,14 @@ $(document).ready(function(){
                                     var data2=JSON.stringify(data);
                                     console.log(data);
                                     if(undefined!=GetParams().needpoints){
-                                        window.location.href='/html/order/toOrder.html?id='+data.productid+"&needpoints="+GetParams().needpoints+'&assettype='+assetType+'&couponid='+couponId+'&couponcode='+couponCode;
+                                        window.location.href='/html/h5/order/toOrder.html?id='+data.productid+"&needpoints="+GetParams().needpoints+'&assettype='+assetType+'&couponid='+couponId+'&couponcode='+couponCode;
                                     }else {
-                                        window.location.href='/html/order/toOrder.html?id='+data.productid+'&assettype='+assetType+'&couponid='+couponId+'&couponcode='+couponCode;
+                                        window.location.href='/html/h5/order/toOrder.html?id='+data.productid+'&assettype='+assetType+'&couponid='+couponId+'&couponcode='+couponCode;
                                     }
                                 }
                                 else if(res.sc=="PRODUCT-1010"){
                                     var urlLocation=window.location.href;
-                                    var html=res.ErrorMsg+'<div class="isMember"><p class="memb">该产品仅限几何会员可参与购买</p><a href="/user/h5/qrcode?regsucc_tourl='+urlLocation+'">注册加入会员</a></div>';
+                                    var html=res.ErrorMsg+'<div class="isMember"><p class="memb">该产品仅限几何会员可参与购买</p><a href="/user/h5/mbcenter?regsucc_tourl='+urlLocation+'">注册加入会员</a></div>';
                                     $(".Box2 .confContent").html(html);
                                     $(".Box2").show();
                                 }
@@ -865,9 +865,9 @@ $(document).ready(function(){
                                     var data2=JSON.stringify(data);
                                     console.log(data);
                                     if(undefined!=GetParams().needpoints){
-                                        window.location.href='/html/order/toOrder.html?id='+data.productid+"&needpoints="+GetParams().needpoints+'&assettype='+assetType+'&couponid='+couponId+'&couponcode='+couponCode;
+                                        window.location.href='/html/h5/order/toOrder.html?id='+data.productid+"&needpoints="+GetParams().needpoints+'&assettype='+assetType+'&couponid='+couponId+'&couponcode='+couponCode;
                                     }else {
-                                        window.location.href='/html/order/toOrder.html?id='+data.productid+'&assettype='+assetType+'&couponid='+couponId+'&couponcode='+couponCode;
+                                        window.location.href='/html/h5/order/toOrder.html?id='+data.productid+'&assettype='+assetType+'&couponid='+couponId+'&couponcode='+couponCode;
                                     }
                                 }
                                 else if(res.sc=="PRODUCT-1010"){

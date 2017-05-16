@@ -275,3 +275,12 @@ function uaType() {
     }
     return device;
 }
+
+//判断是否空对象
+function isEmptyObject( obj ) {
+    var name;
+    for( name in obj ) {
+        return false;
+    }
+    return true;
+}

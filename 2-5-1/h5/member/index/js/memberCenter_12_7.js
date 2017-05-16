@@ -23,7 +23,7 @@ $(document).ready(function() {
         });
     });
     $(".myCoupon").click(function () {//我的礼券
-        window.location.href="giftcard/index.html?member_hotelid=";
+        window.location.href="giftcard/memberships.html";
     });
     $(".orderList").click(function () {//我的订单
         window.location.href="../order/myOrderList.html?member_hotelid=";

@@ -43,7 +43,7 @@ body{background: #ebedf0;}
 .tuneDown{position: absolute;top: 50%;right: 0;transform: translateY(-50%);-moz-transform: translateY(-50%);-ms-transform: translateY(-50%);-o-transform: translateY(-50%);-webkit-transform: translateY(-50%);}
 
 .choice{width: 1.2rem;height: 1.2rem;display: inline-block;background: url("../images/unchoosed.jpg") no-repeat center/100% 100%;position: relative;top: 0.2rem;margin-right: 0.86rem;}
-.choice.choosed{background: url("../images/choosed.jpg") no-repeat center/100% 100%;}
+.choice.choosed{background: url("../images/choosedBlack.png") no-repeat center/100% 100%;}
 .choice2{width: 1.5rem;height: 1.5rem;display: inline-block;background: url("../images/unchoosed.jpg") no-repeat center/100% 100%;position: absolute;top: 50%;right: 1.3rem;transform: translateY(-50%);-moz-transform: translateY(-50%);-ms-transform: translateY(-50%);-o-transform: translateY(-50%);-webkit-transform: translateY(-50%);}
 .choice2.choosed{background: url("../images/choosedRed.jpg") no-repeat center/100% 100%;}
 .discChoice{position: absolute;top: 50%;right: 0;transform: translateY(-50%);-moz-transform: translateY(-50%);-ms-transform: translateY(-50%);-o-transform: translateY(-50%);-webkit-transform: translateY(-50%);margin: 0;}
@@ -102,3 +102,32 @@ body{background: #ebedf0;}
 #buyPoints .arrowImg{margin-left: 0.4rem;}
 
 .thisInfo{display: none;}
+
+
+
+/*可展开的资产*/
+.singleAsset{display: none;}
+.singleAsset ul{margin-left: 2.23rem;width: 85.2%;border-top: 1px solid #d8d8d8;padding-top: 0.85rem;display: none;}
+.singleAsset ul li{padding-left: 0.67rem;font-size: 0.8rem;color: #4a4a4a;padding-bottom: 1.2rem;position: relative;}
+.singleAsset ul li:last-child{padding-bottom: 0.6rem;}
+.singleAsset ul li div{padding-bottom: 0.6rem;}
+.singleAsset pre,.exchangeAssetsLis pre{color: #a4a4a4;display: inline-block;}
+.couponCardName{color: #000;position: relative;}
+.couponCardName:before{content: "";width: 3px;height: 1rem;background: #e2574c;border-radius: 3px;-moz-border-radius: 3px;-webkit-border-radius: 3px;position: absolute;left: -0.5rem;top: 4%;}
+.couponCardName span{display: inline-block;width: 2.1rem;font-size: 0.67rem;border: 1px solid #e2574c;border-radius: 2px;-webkit-border-radius: 2px;-moz-border-radius: 2px;color: #e2574c;text-align: center;margin-left: 0.4rem;line-height: 0.8rem;}
+.choiceBtn{width: 1.2rem!important;height: 1.2rem;display: inline-block;background: url("../images/unchoosed.jpg") no-repeat center/100% 100%;position: absolute;bottom: -1.1rem;right: 0;border: none!important;}
+.choiceBtn.choosed{background: url("../images/choosedRed.png") no-repeat center/100% 100%;}
+.deduction{height: 1rem;background: #f5f6f5;text-align: right;padding-bottom: 0!important;padding-right: 0.4rem;line-height: 1rem;overflow: hidden;}
+.deductAmount{color: #d13f4c;}
+
+
+/*交换资产*/
+.exchangeAssetsLis{color: #4a4a4a;font-size: 0.8rem;}
+.exchangeAssetsLis li{padding-left: 2.06rem;border-bottom: 1px solid #e4e5e6;position: relative;padding-bottom: 0.3rem;padding-top: 0.9rem;}
+.exchangeAssetsLis .choice{position: absolute;left: 0;top: 0.9rem;}
+.exchangeAssetsLis li div{padding-bottom: 0.6rem;}
+.couponCardNameEc{color: #000;}
+
+
+
+

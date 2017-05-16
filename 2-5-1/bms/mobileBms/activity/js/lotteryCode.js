@@ -28,7 +28,9 @@ $(document).ready(function(){
     $(".changeBtn").click(function(){
         $("#modifyPhone").show();
     });
+
 });
+
 
 var actType;
 var activity={
@@ -88,12 +90,12 @@ var activity={
             $("#moreCode").show().find("#codeNum").html(codeLength);
         }
         //开奖结果
-        $("html").on("click","#winResults",function(){
+        $("#winResults").click(function(){
             var resData={};
             activity.winResults(actId,resData);
             $("#winningList").show();
         });
-        $("html").on("click","#changeSubmit",function(){
+        $("#changeSubmit").click(function(){
             var modifyData={phone:$("#newPhone").val()};
             if(!(/^\d+$/).test(modifyData.phone) || modifyData.phone.length<11){
                 errorPrompt("手机号码错误",2000);
@@ -103,3 +105,5 @@ var activity={
         });
     }
 };
+
+

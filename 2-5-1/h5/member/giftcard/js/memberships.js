@@ -4,8 +4,14 @@ $(document).ready(function(){
     var giftCardsInfo={"ul":"#giftCards","titleDiv":".giftCardName"};
     var cardListData={};
     var couponListData={"pageno":1,"pagecnt":50};
-
-    ajaxPost(ajaxUrlAll.cardList,cardListData,cardListFun);
+    if(GetParams().hotelIds && GetParams().hotelIds!="undefined"){
+        var arr=decodeURIComponent(GetParams().hotelIds);
+        arr=arr.split(",");
+        cardListData.hotelIds=arr;
+        couponListData.hotelIds=arr;
+    }else {
+        ajaxPost(ajaxUrlAll.cardList,cardListData,cardListFun);
+    }
     ajaxPost(ajaxUrlAll.couponList,couponListData,couponListFun);
 
     //卡信息请求
