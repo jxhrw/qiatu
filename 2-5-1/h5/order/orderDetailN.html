@@ -27,14 +27,12 @@
                     <p class="nowStatus" id="nowStatus"></p>
                     <p class="nowTips" id="nowTips"></p>
                 </div>
-                <div id="cancelBtn" class="cancelOrder heightCenter">
-                    取消订单
-                </div>
                 <div class="refundBox">退款说明 <span class="refund"> > </span></div>
             </div>
         </div>
         <div id="header" class="innerBox">
-            <div class="whiteBack multiLineBox2">
+            <div class="kindIcon proNameIcon"></div>
+            <div class="whiteBack multiLineBox2 morePadding">
                 <a id="productHref">
                     <p class="bookingName" id="roomName"></p>
                     <p class="bookingInfo" id="checkTime"><span id="checkIn"></span>入住 &nbsp;&nbsp; <span id="checkOut"></span>离店 &nbsp;&nbsp; <span id="nights"></span>晚 &nbsp;&nbsp; 预定<span id="quantity"></span>间房</p>
@@ -43,6 +41,7 @@
             </div>
         </div>
         <div id="customer" class="innerBox">
+            <div class="kindIcon cursumeIcon"></div>
             <div class="whiteBack"><div class="borTop"></div></div>
             <div class="whiteBack black multiLineBox2 ">
                 <div class="clearfix multiLine">
@@ -60,12 +59,23 @@
             </div>
         </div>
         <div class="innerBox">
+            <div class="kindIcon priceIcon"></div>
             <div class="whiteBack"><div class="borTop"></div></div>
             <div class="whiteBack black multiLineBox2" id="payInfoDiv">
 
             </div>
         </div>
+        <div id="hotelBox" class="innerBox">
+            <div class="kindIcon hotelIcon"></div>
+            <div class="whiteBack"><div class="borTop"></div></div>
+            <div class="whiteBack black multiLineBox2">
+                <div class="multiLine black hotelName"><span id="hotelCname"></span><span class="arrowImg tuneLeft turnLeft fr"></span></div>
+                <div class="multiLine gray"><span id="address"></span></div>
+                <div class="merchantBtn clearfix"><a id="navigation" class="fl">路线导航</a><a id="hotelPhone" class="fr">联系电话</a></div>
+            </div>
+        </div>
         <div class="innerBox">
+            <div class="kindIcon payIcon"></div>
             <div class="whiteBack"><div class="borTop"></div></div>
             <div class="whiteBack black multiLineBox2" id="orderidDiv">
                 <div class="clearfix multiLine" id="orderidBox">
@@ -74,17 +84,14 @@
                 </div>
             </div>
         </div>
-        <div id="hotelBox" class="innerBox">
-            <div class="whiteBack"><div class="borTop"></div></div>
-            <div class="whiteBack black multiLineBox2">
-                <div class="multiLine black hotelName"><span id="hotelCname"></span><span class="arrowImg tuneLeft turnLeft fr"></span></div>
-                <div class="multiLine gray"><span id="address"></span></div>
-                <div class="merchantBtn"><a id="navigation">路线导航</a><a id="hotelPhone"></a></div>
-            </div>
-        </div>
         <div  class="innerBox">
-            <div class="bookingTips">
-                <!--预定成功后，取消房间预订请提前一周通知预订部，确认后可免费取消，其他时间将扣除首晚房费-->
+            <div class="relative">
+                <div class="bookingTips">
+                    <!--预定成功后，取消房间预订请提前一周通知预订部，确认后可免费取消，其他时间将扣除首晚房费-->
+                </div>
+                <div id="cancelBtn" class="cancelOrder heightCenter">
+                    取消订单
+                </div>
             </div>
             <div class="whiteBack">
                 <a href="tel:400-026-5225">

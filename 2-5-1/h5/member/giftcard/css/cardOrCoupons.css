@@ -10,6 +10,7 @@ body{
     padding: 0 7.33% ;
 }
 .cardsBox{
+    min-height: 11rem;
     border-radius: 0.6rem;
     box-shadow: 0 0 0.5rem rgba(0,0,0,0.5);
     -o-box-shadow: 0 0 0.5rem rgba(0,0,0,0.5);
@@ -33,6 +34,12 @@ body{
     line-height: 3.33rem;
     font-size: 1rem;
     font-weight: bold;
+}
+.thisCardName{
+    width: 70%;
+    display: inline-block;
+    line-height: initial;
+    padding-top: 1rem;
 }
 .cardDiscount{
     font-size: 0.7rem;
@@ -116,6 +123,9 @@ body{
     -o-transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
     width: 87%;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
 }
 .giftInfo{
     font-size: 0.8rem;

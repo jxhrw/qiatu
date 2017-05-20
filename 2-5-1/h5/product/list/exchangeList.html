@@ -11,6 +11,9 @@
     <meta name="format-detection" content="telephone=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>列表</title>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_ww6ko2hlo6979zfr.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_v0gs76qswwubx1or.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_ynv0jgh0lmnm6lxr.css">
     <link href="css/exchange.css" rel="stylesheet">
     <script src="http://7xio74.com1.z0.glb.clouddn.com/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="http://7xio74.com2.z0.glb.qiniucdn.com/rem.js"></script>
@@ -18,6 +21,28 @@
     <script src="js/exchange.js"></script>
 </head>
 <body>
+    <div class="header">
+        <div class="navBar">
+            <form onsubmit="return false">
+                <label><i class="iconfont icon-search"></i><input type="search" class="search"></label>
+            </form>
+            <span>会员中心</span>
+            <div class="history">
+                <p><i class="iconfont icon-clock"></i>搜索历史<i class="iconfont icon-delete fr"></i></p>
+                <ul></ul>
+            </div>
+        </div>
+        <table class="screen" cellpadding="0" cellspacing="0">
+            <tbody>
+                <tr>
+                    <td class="manualSort redFont">综合</td>
+                    <td class="sellAmountSort">销量</td>
+                    <td class="updateTimeSort">上新</td>
+                    <td class="priceSort">价格 <img src="images/up_down.png" alt="" class="up_down"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     <div class="items"></div>
     <div class="scrollBot"></div>
     <!--统计代码-->

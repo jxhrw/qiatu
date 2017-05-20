@@ -22,7 +22,7 @@ $(document).ready(function(){
                 remainValue = oRemainValue + oFreeze,
 
                 usageStatus = res.data.usageStatus,
-                backgroundImg='http://img3.imgtn.bdimg.com/it/u=3408403074,1974597991&fm=23&gp=0.jpg',
+                backgroundImg='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1494931546473&di=00f05f4228f8615fb9aaf05f468fa928&imgtype=0&src=http%3A%2F%2Fuploadfile.bizhizu.cn%2F2014%2F0912%2F20140912112409224.jpg',
                 logoImg,
                 currencyType = res.data.couponBaseInfo.currencyType,//转让的售出类型
                 getRatio = res.data.couponBaseInfo.exchangePointsRatio,//兑换比例
@@ -35,6 +35,8 @@ $(document).ready(function(){
                 tradable = res.data.couponBaseInfo.tradable,//可转让
                 exchangePointsDeadline = parseInt(res.data.couponBaseInfo.exchangePointsDeadline),
                 exchangePoints = res.data.couponBaseInfo.exchangePoints;//可换积分
+            var discountHtml='';
+            var logoHtml='';
             if(couponType=="3"){
                 var discount,remain;
                 document.title="我的会员卡";
@@ -55,13 +57,19 @@ $(document).ready(function(){
                         }
                     }
                 }
+                if(discount){
+                    discountHtml='<span>'+ discount/10 +'</span> 折';
+                }
+                if(logoImg){
+                    logoHtml='<img src="" alt="logo" class="cardLogo">';
+                }
                 cardsDiv+='<div class="card" style="background-image: url('+ backgroundImg +')">'
-                    +'<div class="cardsName">'+ getCouponName +' <p class="cardDiscount fr"><span>'+ discount/10 +'</span> 折</p></div>'
+                    +'<div class="cardsName"><span class="thisCardName">'+ getCouponName +'</span> <p class="cardDiscount fr">'+discountHtml+'</p></div>'
                     +'<div class="cardInfo">'
                     +'<p>卡内余额： '+ remain/100 +'</p>'
                     +'<p>有效期： '+ effectiveTime + ' - ' + expireTime +'</p>'
                     +'</div>'
-                    +'<img src="" alt="logo" class="cardLogo">'
+                    +logoHtml
                     +'</div>';
             }
             else {
@@ -104,6 +112,7 @@ $(document).ready(function(){
                     +'</div>';
             }
             $(".cardsBox").html(cardsDiv);
+
 
             clickHref($(".booking"),bookingUrl);
             if(businessExchange==1){

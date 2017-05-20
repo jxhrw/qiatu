@@ -40,7 +40,7 @@ body{background: #ebedf0;}
 .choice{width: 1.2rem;height: 1.2rem;display: inline-block;background: url("../images/unchoosed.jpg") no-repeat center/100% 100%;position: relative;top: 0.2rem;margin-right: 0.86rem;}
 .choice.choosed{background: url("../images/choosed.jpg") no-repeat center/100% 100%;}
 .choice2{width: 1.5rem;height: 1.5rem;display: inline-block;background: url("../images/unchoosed.jpg") no-repeat center/100% 100%;position: absolute;top: 50%;right: 0;transform: translateY(-50%);-moz-transform: translateY(-50%);-ms-transform: translateY(-50%);-o-transform: translateY(-50%);-webkit-transform: translateY(-50%);}
-.choice2.choosed{background: url("../images/choosedRed.jpg") no-repeat center/100% 100%;}
+.choice2.choosed{background: url("../images/choosedRed.png") no-repeat center/100% 100%;}
 .discChoice{position: absolute;top: 50%;right: 0;transform: translateY(-50%);-moz-transform: translateY(-50%);-ms-transform: translateY(-50%);-o-transform: translateY(-50%);-webkit-transform: translateY(-50%);margin: 0;}
 .headSwitchBox{padding-top: 0.6rem;padding-bottom: 0.6rem;line-height: 1.8rem;}
 .switchBox{width: 3.2rem;height: 1.8rem;border-radius: 1rem;border: 1px solid #e5e5e5;position: relative;top: 0.5rem;}

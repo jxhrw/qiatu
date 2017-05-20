@@ -13,10 +13,10 @@ body{background: #ebedf0;}
 .gray{color: #808080;}
 .paleRed{color: #d13f4c;}
 .quota{position: relative;}
-.noLine{line-height: 3rem;}
+.noLine{padding: 0.9rem 0;}
 .oneLine{border-bottom: 1px solid #e4e5e6;line-height: 3rem;height: 3rem;overflow: hidden;}
 .oneLine:last-child{border-bottom: none;}
-
+input{font-size: 0.9rem;}
 .singleAsset{border-bottom: 1px solid #e4e5e6;}
 .singleAsset:last-child{border-bottom: none;}
 .singleAsset .oneLine{border-bottom: none;}
@@ -108,8 +108,8 @@ body{background: #ebedf0;}
 /*可展开的资产*/
 .singleAsset{display: none;}
 .singleAsset ul{margin-left: 2.23rem;width: 85.2%;border-top: 1px solid #d8d8d8;padding-top: 0.85rem;display: none;}
-.singleAsset ul li{padding-left: 0.67rem;font-size: 0.8rem;color: #4a4a4a;padding-bottom: 1.2rem;position: relative;}
-.singleAsset ul li:last-child{padding-bottom: 0.6rem;}
+.singleAsset ul li{padding-left: 0.67rem;font-size: 0.8rem;color: #4a4a4a;padding-bottom: 0.6rem;position: relative;}
+.singleAsset ul li:last-child{padding-bottom: 0;}
 .singleAsset ul li div{padding-bottom: 0.6rem;}
 .singleAsset pre,.exchangeAssetsLis pre{color: #a4a4a4;display: inline-block;}
 .couponCardName{color: #000;position: relative;}
@@ -117,14 +117,14 @@ body{background: #ebedf0;}
 .couponCardName span{display: inline-block;width: 2.1rem;font-size: 0.67rem;border: 1px solid #e2574c;border-radius: 2px;-webkit-border-radius: 2px;-moz-border-radius: 2px;color: #e2574c;text-align: center;margin-left: 0.4rem;line-height: 0.8rem;}
 .choiceBtn{width: 1.2rem!important;height: 1.2rem;display: inline-block;background: url("../images/unchoosed.jpg") no-repeat center/100% 100%;position: absolute;bottom: -1.1rem;right: 0;border: none!important;}
 .choiceBtn.choosed{background: url("../images/choosedRed.png") no-repeat center/100% 100%;}
-.deduction{height: 1rem;background: #f5f6f5;text-align: right;padding-bottom: 0!important;padding-right: 0.4rem;line-height: 1rem;overflow: hidden;}
+.deduction{height: 1rem;background: #f5f6f5;text-align: right;padding-bottom: 0!important;padding-right: 0.4rem;line-height: 1rem;overflow: hidden;margin-bottom: 0.6rem;}
 .deductAmount{color: #d13f4c;}
 
 
 /*交换资产*/
 .exchangeAssetsLis{color: #4a4a4a;font-size: 0.8rem;}
-.exchangeAssetsLis li{padding-left: 2.06rem;border-bottom: 1px solid #e4e5e6;position: relative;padding-bottom: 0.3rem;padding-top: 0.9rem;}
-.exchangeAssetsLis .choice{position: absolute;left: 0;top: 0.9rem;}
+.exchangeAssetsLis li{padding-left: 2.06rem;border-bottom: 1px solid #e4e5e6;position: relative;padding-bottom: 0.1rem;padding-top: 0.9rem;}
+.exchangeAssetsLis .choice{position: absolute;left: 0;top: 0.8rem;}
 .exchangeAssetsLis li div{padding-bottom: 0.6rem;}
 .couponCardNameEc{color: #000;}
 

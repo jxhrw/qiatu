@@ -127,7 +127,7 @@ $(document).ready(function() {
         if(memberStatus==-1){
             window.location.href="/user/h5/mbcenter?regsucc_tourl="+encodeURIComponent(window.location.href);
         }
-        $(".in-store").css("display","block");
+        //$(".in-store").css("display","block");
         $.post('/content/client/hotel/detail',{data: JSON.stringify({"id":hotelId})}, function(data) {
             console.log(data);
             if(data.sc==0){

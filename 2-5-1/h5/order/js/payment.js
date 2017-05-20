@@ -10,6 +10,7 @@ var cashBalance;//会员账户余额
 var jsTime=0;
 var once=0;//标记，执行一次
 var showCyType;
+var cashAmount;//现金支付
 
 $(document).ready(function(){
     $(".popupT").height($(window).height());
@@ -27,11 +28,13 @@ $(document).ready(function(){
     $.post(h5orClient(orderUrl),{data:JSON.stringify(orderData)},function(orderRes){
         if(orderRes.sc==0){
             objectType=orderRes.data.objectType;
-            var cashAmount=0;//现金支付
-            var couponDeductible=0;//礼券抵扣
+            cashAmount=0;//现金支付
+            var cashCouponDeductible=0;//消费金抵扣
+            var roomCouponDeductible=0;//房券抵扣
             var housingDeductible=0;//积分兑房抵扣
             var integralDeductible=0;//积分抵现抵扣
-            var discDeductible=0;//优惠券和红包抵扣
+            var discDeductible=0;//折扣券抵扣
+            var redPacketDeductible=0;//红包抵扣
             var countDown=parseInt(orderRes.data.countDown?orderRes.data.countDown:0);//倒计时
             var checkin=parseInt(orderRes.data.checkin);
             var checkout=parseInt(orderRes.data.checkout);
@@ -62,7 +65,15 @@ $(document).ready(function(){
                     $("#virCustomerName").html(customerAddress[0]);
                     $("#virCustomerMobile").html(customerAddress[1]);
                     $("#virProAddress").html(customerAddress[2]);
+                }else {
+                    $("#virProAddress").parents(".multiLine").hide();
                 }
+            }
+            else if("12"==objectType || undefined==objectType){
+                //店内支付
+                $("#virOrderDetail,#lookVirOrderDetail").hide();
+                $("#virtualProName,#payInfo,#tipsAndPhone").show();
+                $("#virProName").html(orderRes.data.hotelCname+orderRes.data.ordername);
             }
             else {
                 $("#roomProName,#payInfo,#tipsAndPhone,.bookingTips").show();
@@ -98,8 +109,11 @@ $(document).ready(function(){
                 if(payments[i].payType==0){
                     cashAmount+=parseInt(payments[i].amount);
                 }
-                else if(payments[i].payType==1 || payments[i].payType==2){
-                    couponDeductible+=parseInt(payments[i].amount);
+                else if(payments[i].payType==1){
+                    roomCouponDeductible+=parseInt(payments[i].amount);
+                }
+                else if(payments[i].payType==2){
+                    cashCouponDeductible+=parseInt(payments[i].amount);
                 }
                 else if(payments[i].payType==3){
                     housingDeductible+=parseInt(payments[i].amount);
@@ -107,8 +121,11 @@ $(document).ready(function(){
                 else if(payments[i].payType==4){
                     integralDeductible+=parseInt(payments[i].amount);
                 }
-                else if(payments[i].payType==5 || payments[i].payType==7){ //5折扣，7红包
+                else if(payments[i].payType==5){
                     discDeductible+=parseInt(payments[i].amount);
+                }
+                else if(payments[i].payType==7){
+                    redPacketDeductible+=parseInt(payments[i].amount);
                 }
                 else if(payments[i].payType==6){ //6积分抵积分
                     payInfoDivHtml+='<div class="clearfix multiLine2"><div class="function gray fl">积分：</div><div class="quota fr">'+ '' + payments[i].faceValue + '个' +'</div></div>';
@@ -118,18 +135,24 @@ $(document).ready(function(){
                     if(undefined==faceValue){
                         faceValue=1;
                     }
-                    payInfoDivHtml+='<div class="clearfix multiLine2"><div class="function gray fl">礼券：</div><div class="quota fr">'+ payments[i].couponAlias + faceValue + '张' +'</div></div>';
+                    payInfoDivHtml+='<div class="clearfix multiLine2"><div class="function gray fl">房券：</div><div class="quota fr">'+ payments[i].couponAlias + faceValue + '张' +'</div></div>';
                 }
                 else if(payments[i].payType==12){ //12消费金抵积分
-                    payInfoDivHtml+='<div class="clearfix multiLine2"><div class="function gray fl">礼券：</div><div class="quota fr">'+ payments[i].couponAlias + payments[i].faceValue/100 + '元' +'</div></div>';
+                    payInfoDivHtml+='<div class="clearfix multiLine2"><div class="function gray fl">消费金：</div><div class="quota fr">'+ payments[i].couponAlias + payments[i].faceValue/100 + '元' +'</div></div>';
                 }
             }
 
-            if(couponDeductible>0){
-                payInfoDivHtml+='<div class="clearfix multiLine2"><div class="function gray fl">礼券：</div><div class="quota fr">-￥'+ couponDeductible/100 +'</div></div>';
+            if(cashCouponDeductible>0){
+                payInfoDivHtml+='<div class="clearfix multiLine2"><div class="function gray fl">消费金：</div><div class="quota fr">-￥'+ cashCouponDeductible/100 +'</div></div>';
+            }
+            if(roomCouponDeductible>0){
+                payInfoDivHtml+='<div class="clearfix multiLine2"><div class="function gray fl">房券：</div><div class="quota fr">-￥'+ roomCouponDeductible/100 +'</div></div>';
             }
             if(discDeductible>0){
-                payInfoDivHtml+='<div class="clearfix multiLine2"><div class="function gray fl">优惠券：</div><div class="quota fr">-￥'+ discDeductible/100 +'</div></div>';
+                payInfoDivHtml+='<div class="clearfix multiLine2"><div class="function gray fl">折扣券：</div><div class="quota fr">-￥'+ discDeductible/100 +'</div></div>';
+            }
+            if(redPacketDeductible>0){
+                payInfoDivHtml+='<div class="clearfix multiLine2"><div class="function gray fl">红包：</div><div class="quota fr">-￥'+ redPacketDeductible/100 +'</div></div>';
             }
             if(housingDeductible>0){
                 payInfoDivHtml+='<div class="clearfix multiLine2"><div class="function gray fl">积分兑房：</div><div class="quota fr">-￥'+ housingDeductible/100 +'</div></div>';
@@ -263,50 +286,53 @@ $(document).ready(function(){
     //立即支付
     $("#immPay").click(function(){
         $("#immPay").addClass("no");
-        if(paychannel=="jh"){
-            var phoneNum;
-            var owner;
-            var url3='/user/h5/existtradepasswd';
-            var data3={};
-            $.post(h5orClient(url3),{data:JSON.stringify(data3)},function(res){
-                if(res.sc==0){
-                    phoneNum=res.data.mobileAccount;
-                    owner=res.data.realName;
-                    //已设置密码
-                    if(res.data.existTradePasswd=="1"){
-                        $(".popupT,.checkPsword").show();
-                        inputFocus("#inputPassword");
-                        digitalInputMethod("#inputPassword",".keyboard","6","table","password",".button");
-                        if(once==0){
-                            setButton(phoneNum,owner);
-                            setForget();
-                            once++;
+        if(cashAmount>0){
+            if(paychannel=="jh"){
+                var phoneNum;
+                var owner;
+                var url3='/user/h5/existtradepasswd';
+                var data3={};
+                $.post(h5orClient(url3),{data:JSON.stringify(data3)},function(res){
+                    if(res.sc==0){
+                        phoneNum=res.data.mobileAccount;
+                        owner=res.data.realName;
+                        //已设置密码
+                        if(res.data.existTradePasswd=="1"){
+                            $(".popupT,.checkPsword").show();
+                            inputFocus("#inputPassword");
+                            digitalInputMethod("#inputPassword",".keyboard","6","table","password",".button");
+                            if(once==0){
+                                setButton(phoneNum,owner);
+                                setForget();
+                                once++;
+                            }
+                        }
+                        //未设置密码
+                        if(res.data.existTradePasswd=="0"){
+                            $(".popupT,.setPsword").show();
+                            if(once==0){
+                                setButton(phoneNum,owner);
+                                setForget();
+                                once++;
+                            }
                         }
                     }
-                    //未设置密码
-                    if(res.data.existTradePasswd=="0"){
-                        $(".popupT,.setPsword").show();
-                        if(once==0){
-                            setButton(phoneNum,owner);
-                            setForget();
-                            once++;
-                        }
+                    else {
+                        errorPrompt(chinese(res.ErrorMsg),2000);
                     }
-                }
-                else {
-                    errorPrompt(chinese(res.ErrorMsg),2000);
-                }
+                    $("#immPay").removeClass("no");
+                });
+            }
+            else if(undefined!=paychannel && paychannel!=""){
+                successPay(GetParams().orderid,"",paychannel);
+            }
+            else {
+                errorPrompt(chinese("请选择支付方式"),2000);
                 $("#immPay").removeClass("no");
-            });
+            }
+        }else {
+            successPay(GetParams().orderid,"","");
         }
-        else if(undefined!=paychannel && paychannel!=""){
-            successPay(GetParams().orderid,"",paychannel);
-        }
-        else {
-            errorPrompt(chinese("请选择支付方式"),2000);
-            $("#immPay").removeClass("no");
-        }
-
     });
 
     //余额支付
@@ -443,7 +469,7 @@ $(document).ready(function(){
                 }
             }
             else if(data.sc=="BASE-1002"){
-                errorPrompt(chinese("请选择支付方式"),2000);
+                errorPrompt(chinese(data.ErrorMsg),2000);
                 $("#immPay").removeClass("no");
             }
             else{

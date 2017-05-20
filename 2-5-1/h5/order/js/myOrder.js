@@ -69,7 +69,7 @@ $(document).ready(function() {
                     }
                     if(data.data[i].ordertype==6){//店内消费
                         /*console.log((new Date(parseInt(data.data[i].createtime)).getDate())*/
-                        $(".contentWrap").append(' <div class="card"><a class="tiao" href="/html/h5/order/orderDetailN.html?orderid='+data.data[i].orderid+'&hotelid='+data.data[i].hotelId+'"></a><ul class="cardLeft dian"><li><p class="nameTit">'+data.data[i].ordername+'</p><span class="orderStatus orderStatus1">'+data.data[i].statedesc+'</span></li><li>'+formatStrYear(new Date(parseInt(data.data[i].createtime)))+'<p class="price">'+showCyCode+'<span>'+showCyAmount+'</span>'+showCyUnit+'</p></li></ul></div>')
+                        $(".contentWrap").append(' <div class="card"><a class="tiao" href="/html/h5/order/orderDetailN.html?orderid='+data.data[i].orderid+'&hotelid='+data.data[i].hotelId+'"></a><ul class="cardLeft dian"><li><p class="nameTit">'+data.data[i].hotelCname+data.data[i].ordername+'</p><span class="orderStatus orderStatus1">'+data.data[i].statedesc+'</span></li><li>'+formatStrYear(new Date(parseInt(data.data[i].createtime)))+'<p class="price">'+showCyCode+'<span>'+showCyAmount+'</span>'+showCyUnit+'</p></li></ul></div>')
                     }
                 }
                 if(data.data.length<8 && data.data.length>=0){

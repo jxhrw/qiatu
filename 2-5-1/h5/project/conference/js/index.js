@@ -32,7 +32,7 @@ $(document).ready(function(){
     if(location.indexOf("checkIn.html")>0){
         var actId=GetParams().actId;
         $(".checkInBtn").click(function(){
-            window.location.href="";
+            window.location.href="/user/h5/mbcenter?member_hotelid=40810";
         });
         $.post("/activity/arrival/signin/",{data:JSON.stringify({"actId":actId})},function(res){
             if(res.sc=="0"){

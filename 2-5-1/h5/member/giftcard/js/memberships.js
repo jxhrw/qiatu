@@ -24,24 +24,28 @@ $(document).ready(function(){
                 var cardName=res.data[i].couponBaseInfo.couponName,
                     effectiveTime = newFormatStrDate(new Date(parseInt(res.data[i].effectiveTime)),"/"),
                     expireTime = newFormatStrDate(new Date(parseInt(res.data[i].expireTime)),"/"),
-                    backgroundImg='http://img3.imgtn.bdimg.com/it/u=3408403074,1974597991&fm=23&gp=0.jpg',
+                    backgroundImg='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1494931546473&di=00f05f4228f8615fb9aaf05f468fa928&imgtype=0&src=http%3A%2F%2Fuploadfile.bizhizu.cn%2F2014%2F0912%2F20140912112409224.jpg',
                     logoImg,
                     couponCode=res.data[i].couponCode,
                     discount,
                     remain;
+                var discountHtml="";
                 if(res.data[i].subCouponList){
                     for(var j=0;j<res.data[i].subCouponList.length;j++){
                         //couponType -2 消费金、5 折扣
                         if(res.data[i].subCouponList[j].couponBaseInfo.couponType=="2"){
-                            remain=res.data[i].subCouponList[j].remain;
+                            remain=res.data[i].subCouponList[j].remain?res.data[i].subCouponList[j].remain:0;
                         }else if(res.data[i].subCouponList[j].couponBaseInfo.couponType=="5"){
-                            discount=res.data[i].subCouponList[j].faceValue;
+                            discount=res.data[i].subCouponList[j].faceValue?res.data[i].subCouponList[j].faceValue:0;
                         }
                     }
                 }
+                if(discount){
+                    discountHtml='<span>'+ discount/10 +'</span> 折';
+                }
                 cardsLi+='<li class="" style="background-image: url('+ backgroundImg +')">'
                     +'<a href="cardOrCoupons.html?couponCode='+ couponCode +'">'
-                    +'<div class="cardsName">'+ cardName +' <p class="cardDiscount fr"><span>'+ discount/10 +'</span> 折</p></div>'
+                    +'<div class="cardsName"><span class="thisCardName">'+ cardName +'</span> <p class="cardDiscount fr">'+ discountHtml +'</p></div>'
                     +'<div class="cardInfo">'
                     +'<p>卡内余额： '+ remain/100 +'</p>'
                     +'<p>有效期： '+ effectiveTime + ' - ' + expireTime +'</p>'
