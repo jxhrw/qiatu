@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" name="viewport" id="viewport" />
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <script src="http://7xio74.com2.z0.glb.qiniucdn.com/rem.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://7xio74.com1.z0.glb.clouddn.com/css/base.css?h7">
+    <link rel="stylesheet" type="text/css" href="css/toOrder.css">
+    <script src="http://7xio74.com1.z0.glb.clouddn.com/jquery-2.1.4.min.js"></script>
+    <!--<script src="http://7xio74.com1.z0.glb.clouddn.com/js/general.js?h6"></script>-->
+    <script src="/html/h5/publicFile/js/general.js"></script>
+    <script src="js/toOrder.js"></script>
+    <title>下单</title>
+</head>
+<body>
+<div class="mainContent">
+    <div class="contentBox">
+        <div id="virtualPro" class="innerBox">
+            <div class="subHeading" id="virSubHeading">您的订单</div>
+            <div class="whiteBack black">
+                <div class="clearfix noLine">
+                    <div class="function fl" id="virProName"></div>
+                    <div class="quota fr"><span id="virProUnit"></span></div>
+                </div>
+            </div>
+        </div>
+        <div id="nonMember" class="innerBox">
+           <!-- <div class="subHeading headSwitchBox">
+                几何会员专享入住特权
+                <div id="Open" class="switchBox headSwitch fr">
+                    <div class="switchSpot"></div>
+                </div>
+            </div>-->
+            <div class="subHeading goReg" id="goReg" style="display: none;">
+                <p class="regCrude">注册几何会员享入住特权，赶快来加入吧！</p>
+                <p>会员订房享积分返利及到店赠送会员礼物特权 <br>白金和黑卡会员更享每权益年一次的住二(一)送一超级福利</p>
+                <button id="register">立即注册</button>
+            </div>
+            <div class="whiteBack black reseBox">
+                <div class="clearfix">
+                    <div class="function fl">
+                        <p class="bookingName" id="roomProName">产品名称/房型名称</p>
+                        <p class="bookingInfo"><span id="roomCheckIn"></span>入住 <span id="roomCheckOut"></span>离店 <span id="nights"></span>晚</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="fillProInfo" class="innerBox">
+            <div class="subHeading">填写信息</div>
+            <div class="whiteBack black">
+                <div class="clearfix oneLine">
+                    <div class="function fl">购买数量</div>
+                    <div class="quota fr"><span class="redBtn"></span><input class="number" type="tel" id="virProQuantity" value="1"><span class="addBtn"></span></div>
+                </div>
+                <div class="clearfix oneLine addressInfo">
+                    <div class="function fl">联系人：<input id="virCusName" class="remarks" type="text" placeholder="收货人姓名"></div>
+                </div>
+                <div class="clearfix oneLine addressInfo">
+                    <div class="function fl">手机号：<input id="virCusPhone" class="remarks" type="text" placeholder="收货人手机号"></div>
+                </div>
+                <div class="clearfix oneLine addressInfo">
+                    <div class="function fl">地址：　<input id="virCusAddress" class="remarks" type="text" placeholder="收货人地址"></div>
+                </div>
+                <div class="clearfix oneLine">
+                    <div class="function fl">备注：　<input id="virRemarks" class="remarks" type="text" placeholder="选填，您的特殊要求"></div>
+                </div>
+                <div class="clearfix oneLine">
+                    <div class="function fl">总价：<span id="virProPrice" style="margin-left: 1.8rem;"></span></div>
+                </div>
+            </div>
+        </div>
+        <div id="fillRoomInfo" class="innerBox">
+            <div class="subHeading">填写信息</div>
+            <div class="whiteBack black">
+                <div class="clearfix oneLine">
+                    <div class="function gray fl">房间数</div>
+                    <div class="quota fr"><input id="roomNumber" class="housing" type="text" placeholder="请选择房间数" readonly><span class="arrowImg tuneDown"></span></div>
+                </div>
+                <div class="clearfix oneLine">
+                    <div class="function gray fl">联系人</div>
+                    <div class="quota fr"><input id="roomCusName" class="housing" type="text" placeholder="联系人姓名"></div>
+                </div>
+                <div class="clearfix oneLine">
+                    <div class="function gray fl">手机号</div>
+                    <div class="quota fr"><input id="roomCusPhone" class="housing" type="text" placeholder="联系人手机号"></div>
+                </div>
+                <div class="clearfix oneLine">
+                    <div class="function gray fl">备注：</div>
+                    <div class="quota fr"><input id="roomRemarks" class="housing" type="text" placeholder="选填，您对房间的特殊要求"></div>
+                </div>
+                <div class="clearfix oneLine">
+                    <div class="function gray fl">总价：</div>
+                    <div class="quota fr"><p id="roomPrice" class="housingP paleRed"></p></div>
+                </div>
+            </div>
+        </div>
+        <div id="lock" class="innerBox">
+            <div class="subHeading">本金及锁定期</div>
+            <div class="whiteBack black multiLineBox">
+                <div class="clearfix multiLine">
+                    <div class="function gray fl">存入本金</div>
+                    <div class="quota fr"><span id="principal"></span></div>
+                </div>
+                <div class="clearfix multiLine">
+                    <div class="function gray fl">锁定期</div>
+                    <div class="quota fr"><span id="lockTime"></span></div>
+                </div>
+            </div>
+        </div>
+        <div id="rights" class="innerBox">
+            <div class="subHeading">可得权益</div>
+            <div class="whiteBack black multiLineBox" id="rightsDiv">
+            </div>
+        </div>
+        <div id="assets" class="innerBox">
+            <div class="subHeading">资产选择</div>
+            <div class="whiteBack black">
+                <div class="singleAsset">
+                    <div class="clearfix oneLine">
+                        <div class="function fl"><span  id="mbCards" class="choice"></span>会员卡</div>
+                        <div id="mbCardsBtn" class="quota fr"><span id="mbCardsInfo" class="paleRed smaller quarantine">下单享9折</span><span class="arrowImg tuneLeft"></span></div>
+                    </div>
+                    <ul class="">
+                        <li></li>
+                    </ul>
+                </div>
+                <div class="singleAsset">
+                    <div class="clearfix oneLine">
+                        <div class="function fl"><span  id="cashCoupons" class="choice"></span>消费金</div>
+                        <div id="cashCouponsBtn" class="quota fr"><span id="cashCouponsInfo" class="paleRed smaller quarantine"></span><span class="arrowImg tuneLeft"></span></div>
+                    </div>
+                </div>
+                <div class="singleAsset">
+                    <div class="clearfix oneLine">
+                        <div class="function fl"><span  id="roomCoupons" class="choice"></span>礼券</div>
+                        <div id="roomCouponsBtn" class="quota fr"><span id="roomCouponsInfo" class="paleRed smaller quarantine"></span><span class="arrowImg tuneLeft"></span></div>
+                    </div>
+                </div>
+                <div class="singleAsset">
+                    <div class="clearfix oneLine">
+                        <div class="function fl"><span  id="discCoupons" class="choice"></span>折扣券</div>
+                        <div id="discCouponsBtn" class="quota fr"><span id="discCouponsInfo" class="paleRed smaller quarantine"></span><span class="arrowImg tuneLeft"></span></div>
+                    </div>
+                </div>
+                <div class="singleAsset">
+                    <div class="clearfix oneLine">
+                        <div class="function fl"><span  id="envelopes" class="choice"></span>红包</div>
+                        <div id="envelopesBtn" class="quota fr"><span id="envelopesInfo" class="paleRed smaller quarantine"></span><span class="arrowImg tuneLeft"></span></div>
+                    </div>
+                </div>
+                <div class="singleAsset">
+                    <div class="clearfix oneLine">
+                        <div class="function fl"><span id="integralToRoom" class="choice"></span>积分兑房：<span id="roomPointsInfo"></span></div>
+                        <div class="quota fr"><span id="roomPointsAmount" class="smaller quarantine"></span></div>
+                    </div>
+                </div>
+                <div class="singleAsset">
+                    <div class="clearfix oneLine">
+                        <div class="function fl">积分抵现：<span id="pointsToCashDesc"></span></div>
+                        <div class="quota fr">
+                            <div id="switchOpen" class="switchBox">
+                                <div class="switchSpot"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="singleAsset">
+                    <div class="clearfix oneLine" style="display: none;">
+                        <div class="function fl">积分余额：<span id="myPoints"></span></div>
+                        <div class="quota fr">
+                            <a style="display: none;" id="buyPoints"><span class="paleRed">购买积分</span><span class="arrowImg turnLeft tuneLeft"></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="height: 5.4rem;"></div>
+    <div id="createandsubmit" class="toOrderBtn">
+        <span>提交</span><span class="hide">|</span><span id="roomPayAmount" class="hide"></span>
+    </div>
+</div>
+
+<div class="mainContent windowBox">
+    <div class="shadow" id="shadow"></div>
+    <div class="underWindow" id="roomNumBox">
+        <div class="windowHead">房间数</div>
+        <ul class="roomNumberUl"></ul>
+    </div>
+    <div class="underWindow" id="discList">
+        <div class="windowHead">可用优惠券</div>
+        <ul class="discListUl"></ul>
+        <div id="clearDisc" class="clearDisc">清除使用</div>
+    </div>
+    <div class="upWindow">
+        <p class="pad1">会员订房享积分返利及到店赠送会员礼物特权 <br>白金和黑卡会员更享每权益年一次的住二（一）送一超级福利赶快来加入吧！</p>
+        <div class="registerBox">
+            <span>手机号</span><input id="registerPhone" class="registerInput" type="tel" maxlength="11" placeholder="请输入手机号码"><button id="sendCode" class="fr">发送验证码</button>
+        </div>
+        <div class="registerBox">
+            <span>验证码</span><input id="registerCode" class="registerInput" type="tel" maxlength="6" placeholder="请输入短信验证码">
+        </div>
+        <div class="registerBox">
+            <span>真实姓名</span><input id="registerName" class="registerInput" type="text" placeholder="请填写您的真实姓名">
+        </div>
+        <p class="pad2 gray">姓名将用于预定客房，请保持与您的身份证上的姓名一致，确定后不能更改</p>
+        <button id="registerBtn" class="registerBtn">注册</button>
+    </div>
+</div>
+
+<div class="mainContent useCoupons">
+    <!--<div class="searchCoupon">
+        <input class="searchInput" type="text" placeholder="请输入礼券/免房券兑换码"><button class="searchBtn">兑换</button>
+    </div>-->
+    <div class="couponBox">
+        <div class="clearfix couponHead">
+            <div class="function fl"><span id="cashVouchers" class="choice"></span>现金抵用券（可同时使用多张）</div>
+            <div class="quota fr"><span id="cashArrow" class="arrowImg turnUp tuneLeft"></span></div>
+        </div>
+        <ul id="cashCouponUl" class="cashCouponUl"></ul>
+    </div>
+    <div class="couponBox">
+        <div class="clearfix couponHead">
+            <div class="function fl"><span id="roomVouchers" class="choice"></span>房券（多选）</div>
+            <div class="quota fr"><span id="roomArrow" class="arrowImg tuneLeft turnUp"></span></div>
+        </div>
+        <ul id="roomCouponUl" class="cashCouponUl"></ul>
+    </div>
+    <div style="height: 4rem;"></div>
+    <div id="coupChoose" class="toOrderBtn">
+        <span>确认</span>
+    </div>
+</div>
+
+
+<!--统计代码-->
+<div style="display:none">
+    <script src="http://s11.cnzz.com/z_stat.php?id=1253954519&web_id=1253954519" language="JavaScript"></script>
+</div>
+</body>
+</html>

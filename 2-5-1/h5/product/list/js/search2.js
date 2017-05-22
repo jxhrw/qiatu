@@ -262,7 +262,7 @@ $(document).ready(function() {
 						}
 						$(".wrap").eq(a+d*5).children('.pic').children('.priceWrap').children('#price').html(html);
 						if(undefined==result.data.searchList[a].price){
-							$(".wrap").eq(a).children('.pic').children('.priceWrap').children('.price').remove();
+							$(".wrap").eq(a+d*5).children('.pic').children('.priceWrap').children('.price').remove();
 						}
 						//直接展示一句话
 						$(".wrap").eq(a+d*5).children('.pic').children('.topic').remove();

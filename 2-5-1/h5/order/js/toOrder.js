@@ -606,6 +606,7 @@ $(document).ready(function(){
                             var effectiveTime=parseInt(membershipCardList[i].couponBaseInfo.effectiveTime);
                             var expireTime=parseInt(membershipCardList[i].couponBaseInfo.expireTime);
                             var remain,discount;
+                            var discounthtml='';
                             var paymentInfo=JSON.stringify(membershipCardList[i].paymentInfoList);
                             var rejectCouponCodes=JSON.stringify(membershipCardList[i].rejectCouponCodes);
                             var rejectPayTypes=JSON.stringify(membershipCardList[i].rejectPayTypes);
@@ -617,12 +618,15 @@ $(document).ready(function(){
                                     discount=membershipCardList[i].subCouponList[j].faceValue;
                                 }
                             });
+                            if(discount){
+                                discounthtml=' <span>'+ discount/10 +'折</span>';
+                            }
                             membershipCardUl+='<li>'
                                 +'<span class="_paymentInfo" value='+ paymentInfo +'></span>'
                                 +'<span class="_rejectCouponCodes" value='+ rejectCouponCodes +'></span>'
                                 +'<span class="_rejectPayTypes" value='+ rejectPayTypes +'></span>'
                                     //+'<span class="choiceBtn"></span>'
-                                +'<div class="couponCardName">'+ couponName +' <span>'+ discount/10 +'折</span><span class="choiceBtn"></span></div>'
+                                +'<div class="couponCardName">'+ couponName + discounthtml +'<span class="choiceBtn"></span></div>'
                                 +'<div class="other"><pre>有效期：</pre> <span>'+ newFormatStrDate(new Date(effectiveTime),"/") +'-'+ newFormatStrDate(new Date(expireTime),"/") +'</span></div>'
                                 +'<div class="other"><pre>余额：　</pre> <span>￥'+ remain/100 +'</span></div>'
                                     //+'<div class="deduction">抵扣 <span class="deductAmount">￥200</span></div>'

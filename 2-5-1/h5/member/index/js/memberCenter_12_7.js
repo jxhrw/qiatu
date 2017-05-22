@@ -73,6 +73,7 @@ $(document).ready(function() {
                 $(".info_left").css("color","#fff");
                 $(".info_right li span").css("color","#fff");
                 $(".upGrade").css("display","none");
+                $(".tradesBtn").css("background","#454955");
             }else{
                 $(".info_left").css("color","#000");
                 $(".info_right li span").css("color","#000");
@@ -80,6 +81,7 @@ $(document).ready(function() {
                     $(".upGrade").css("background","#BB8E4B");
                 }else if(grade==1){
                     $(".upGrade").css("background","#4a4a4a");
+                    $(".tradesBtn").css("background","#454955");
                 }
             }
             $.post('/user/h5/info', function(userData) {

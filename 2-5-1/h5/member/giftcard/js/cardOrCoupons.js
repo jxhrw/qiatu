@@ -37,6 +37,7 @@ $(document).ready(function(){
                 exchangePoints = res.data.couponBaseInfo.exchangePoints;//可换积分
             var discountHtml='';
             var logoHtml='';
+            var subCouponCode;
             if(couponType=="3"){
                 var discount,remain;
                 document.title="我的会员卡";
@@ -52,6 +53,7 @@ $(document).ready(function(){
                             goodspurchaseUrl = res.data.subCouponList[j].goodspurchaseUrl;
                             h5url_trade_in = res.data.subCouponList[j].h5url_trade_in;
                             h5url_trade_out = res.data.subCouponList[j].h5url_trade_out;
+                            subCouponCode = res.data.subCouponList[j].couponCode;
                         }else if(res.data.subCouponList[j].couponBaseInfo.couponType=="5"){
                             discount=res.data.subCouponList[j].faceValue;
                         }
@@ -63,7 +65,7 @@ $(document).ready(function(){
                 if(logoImg){
                     logoHtml='<img src="" alt="logo" class="cardLogo">';
                 }
-                cardsDiv+='<div class="card" style="background-image: url('+ backgroundImg +')">'
+                cardsDiv+='<div class="card" style="background-image: url('+ backgroundImg +');">'
                     +'<div class="cardsName"><span class="thisCardName">'+ getCouponName +'</span> <p class="cardDiscount fr">'+discountHtml+'</p></div>'
                     +'<div class="cardInfo">'
                     +'<p>卡内余额： '+ remain/100 +'</p>'
@@ -111,10 +113,20 @@ $(document).ready(function(){
                     +'<p>有效期： ' + effectiveTime + ' - '+ expireTime +'</p>'
                     +'</div>';
             }
-            $(".cardsBox").html(cardsDiv);
+            $(".cardsBox").html(cardsDiv).click(function(){
+                if(subCouponCode){
+                    window.location.href='/html/h5/member/giftcard/history.html?code='+GetParams().couponCode+"&subCouponCode="+subCouponCode;
+                }else {
+                    window.location.href='/html/h5/member/giftcard/history.html?code='+GetParams().couponCode;
+                }
+            });
 
 
-            clickHref($(".booking"),bookingUrl);
+            if(bookingUrl){
+                var $dom=$(".booking");
+                $dom.removeClass("unavailable");
+                clickHref($dom,bookingUrl);
+            }
             if(businessExchange==1){
                 var $dom1=$(".forNight"),
                     $dom2=$(".forGoods");

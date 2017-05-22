@@ -1,6 +1,9 @@
 $(document).ready(function(){
     var url="/coupon/h5/record";
     var data={"couponCode":GetParams().code};
+    if(GetParams().subCouponCode && 'undefined'!=GetParams().subCouponCode){
+        data={"couponCode":GetParams().subCouponCode}
+    }
     $.post(url,{data:JSON.stringify(data)},function(res){
         console.log(res);
         if(res.sc==0) {
@@ -59,6 +62,10 @@ $(document).ready(function(){
                                 consumptionType='退款';
                                 consumptionTypeClass='tuikuan';
                                 break;
+                            default:
+                                consumptionType='变动';
+                                consumptionTypeClass='zhusu';
+                                break;
                         }
                         var changeMoneyClass,amount;//金额改变时的颜色
                         if(parseInt(recordInfo[key][i].amount)>=0){
@@ -78,28 +85,34 @@ $(document).ready(function(){
                             orderId="";
                         }
                         var amountAndBalance;
+                        var amountHtml='';
+                        if(amount){
+                            amountHtml='<p class="order-amount">'
+                                +'<span class="'+changeMoneyClass+'">'+ amount +'</span></p>';
+                        }
                         if(recordInfo[key][i].recordType=="7" || recordInfo[key][i].recordType=="47" || recordInfo[key][i].recordType=="1" || recordInfo[key][i].recordType=="41"){
                             amountAndBalance='';
                         }
                         else if(recordInfo[key][i].recordType=="5" || recordInfo[key][i].recordType=="45"){
-                            amountAndBalance='<p class="order-amount">'
-                                +'<span class="'+changeMoneyClass+'">'+ amount +'</span></p>';
+                            amountAndBalance=amountHtml;
                         }
                         else {
                             var remain;
+                            var remainHtml="";
                             if(undefined==recordInfo[key][i].remain){
                                 remain=0;
                             }else {
                                 remain=recordInfo[key][i].remain;
                             }
-                            amountAndBalance='<p class="order-amount">'
-                                +'<span class="'+changeMoneyClass+'">'+ amount +'</span></p>'
-                                +'<p class="card-balance">'
-                                +'<span class="field-label">余额:</span>'
-                                +'<span class="field-content">'
-                                +'<span class="rmb"></span>'+remain/100
-                                +'</span>'
-                                +'</p>';
+                            if(remain && remain>0){
+                                remainHtml='<p class="card-balance">'
+                                    +'<span class="field-label">余额:</span>'
+                                    +'<span class="field-content">'
+                                    +'<span class="rmb"></span>'+remain/100
+                                    +'</span>'
+                                    +'</p>';
+                            }
+                            amountAndBalance=amountHtml + remainHtml;
                         }
                         groupItem+='<div class="group-item">'
                             +'<div class="cell-aside">'

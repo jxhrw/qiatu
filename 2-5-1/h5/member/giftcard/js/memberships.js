@@ -30,6 +30,7 @@ $(document).ready(function(){
                     discount,
                     remain;
                 var discountHtml="";
+                var logoHtml='';
                 if(res.data[i].subCouponList){
                     for(var j=0;j<res.data[i].subCouponList.length;j++){
                         //couponType -2 消费金、5 折扣
@@ -43,6 +44,9 @@ $(document).ready(function(){
                 if(discount){
                     discountHtml='<span>'+ discount/10 +'</span> 折';
                 }
+                if(logoImg){
+                    logoHtml='<img src="" alt="logo" class="cardLogo">';
+                }
                 cardsLi+='<li class="" style="background-image: url('+ backgroundImg +')">'
                     +'<a href="cardOrCoupons.html?couponCode='+ couponCode +'">'
                     +'<div class="cardsName"><span class="thisCardName">'+ cardName +'</span> <p class="cardDiscount fr">'+ discountHtml +'</p></div>'
@@ -50,7 +54,7 @@ $(document).ready(function(){
                     +'<p>卡内余额： '+ remain/100 +'</p>'
                     +'<p>有效期： '+ effectiveTime + ' - ' + expireTime +'</p>'
                     +'</div>'
-                    +'<img src="" alt="logo" class="cardLogo">'
+                    +logoHtml
                     +'</a>'
                     +'</li>'
             }
