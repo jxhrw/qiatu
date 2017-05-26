@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no">
+    <script src="/html/h5/member/index/js/flexible_css.js"></script>
+    <script src="/html/h5/member/index/js/flexible.js"></script>
+    <link href="//at.alicdn.com/t/font_d7m23ofhvl2chaor.css" rel="stylesheet">
+    <link href="css/instorePay.css" rel="stylesheet">
+    <script src="http://7xio74.com1.z0.glb.clouddn.com/jquery-2.1.4.min.js"></script>
+    <title>店内支付</title>
+</head>
+
+<body>
+    <!--输入需要支付的金额-->
+    <div class="enterAmount">
+        <h1 class="hotelName"></h1>
+        <form><span>&yen;</span><input placeholder="请输入要支付的金额" type="number"></form>
+    </div>
+    <!--可使用资产-->
+    <div class="assetsWrap">
+        <!--资产选择-->
+        <div class="assets">
+            <p class="caption">资产选择</p>
+            <ul class="options">
+                <li class="option" id="memberCards">
+                    <p class="brief"><span class="iconfont icon-unselected"></span><span>会员卡</span><span class="desc"></span></p>
+                    <ul class="subOptions disabled" style="display:block;">
+                    </ul>
+                </li>
+                <li class="option" id="cashCoupons">
+                    <p class="brief"><span class="iconfont icon-unselected"></span><span>消费金</span><span class="desc"></span></p>
+                    <ul class="subOptions disabled">
+                    </ul>
+                </li>
+                <li class="option" id="roomCoupons">
+                    <p class="brief"><span class="iconfont icon-unselected"></span>房券<span></span><span class="desc"></span></p>
+                    <ul class="subOptions disabled"></ul>
+                </li>
+                <li class="option" id="discountCoupons">
+                    <p class="brief"><span class="iconfont  icon-unselected"></span>折扣券<span></span><span class="desc"></span></p>
+                    <ul class="subOptions disabled"></ul>
+                </li>
+                <li class="option" id="redPackets">
+                    <p class="brief"><span class="iconfont  icon-unselected"></span>红包<span></span><span class="desc"></span></p>
+                    <ul class="subOptions desabled"></ul>
+                </li>
+            </ul>
+        </div>
+        <!--交换资产-->
+        <div class="exchangeAssets hide disabled">
+            <p class="caption">交换资产</p>
+            <ul class="exchOptions">
+            </ul>
+        </div>
+        <!--积分抵现-->
+        <div class="pointsToCash hide disabled">
+            <p class="caption">积分抵现</p>
+            <p class="pointsToCashInfo">
+                <span class="pointsToCashDesc"></span>
+                <span class="pointsSwitch">
+                    <span></span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <!--加入会员-->
+    <div class="joinMember hide">
+        <div class="joinContent">
+            <h1>注册会员享入住特权，赶快来加入吧！</h1>
+            <p class="hide">会员订房享积分返利及到店赠送会员礼物特权<br>白金和黑卡会员更享每权益年一次的住二（一）送一超级福利</p>
+            <p class="hide">加入本店会员，可享受多重惊喜。</p>
+            <button>加入会员</button>
+        </div>
+    </div>
+    <button class="submit">提交&nbsp;|&nbsp;<span></span></button>
+    <script src="js/instorePay.js"></script>
+</body>
+
+</html>

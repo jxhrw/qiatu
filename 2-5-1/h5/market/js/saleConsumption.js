@@ -14,8 +14,8 @@ $(document).ready(function(){
         goHttp=0;
         sessionStorage.setItem("goHttp",JSON.stringify(goHttp));
         var saleInfo=JSON.parse(sessionStorage.getItem("saleInfo"));
-        if(undefined!=JSON.parse(sessionStorage.getItem("tradeToken"))){
-            saleInfo.tradeToken=JSON.parse(sessionStorage.getItem("tradeToken"));
+        if(undefined!=sessionStorage.getItem("tradeToken") && ""!=sessionStorage.getItem("tradeToken")){
+            saleInfo.tradeToken=sessionStorage.getItem("tradeToken");
             successSale(saleInfo);
         }
     }else {
