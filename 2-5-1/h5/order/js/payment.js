@@ -182,94 +182,93 @@ $(document).ready(function(){
                     var memberUrl="/member/h5/info";
                     var memberData={};
                     $.post(h5orClient(memberUrl),{data:JSON.stringify(memberData)},function(res){
-                        if(res.sc==0){
-                            if(cashAmount>0){
+                        if(cashAmount>0){
+                            if(res.sc==0){
                                 cashBalance=parseInt(res.data.cashBalance?res.data.cashBalance:0);
-                                for(var i=0;undefined!=payChannelList && i<payChannelList.length;i++){
-                                    if(/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent) && /jihe/i.test(navigator.userAgent)){
-                                        //iOS app打开
-                                        if("alipay"==payChannelList[i]){
-                                            payChannelUlHtml+='<li id="alipay"><img class="alipay" src="images/alipay.png" alt="">支付宝支付<span class="choice2 fr"></span></li>';
-                                        }
-                                        if("wx"==payChannelList[i]){
-                                            payChannelUlHtml+='<li id="wx"><img class="wxpay" src="images/wxpay.png" alt="">微信支付<span class="choice2 fr"></span></li>';
-                                        }
+                            }else {
+                                cashBalance=0;
+                            }
+                            for(var i=0;undefined!=payChannelList && i<payChannelList.length;i++){
+                                if(/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent) && /jihe/i.test(navigator.userAgent)){
+                                    //iOS app打开
+                                    if("alipay"==payChannelList[i]){
+                                        payChannelUlHtml+='<li id="alipay"><img class="alipay" src="images/alipay.png" alt="">支付宝支付<span class="choice2 fr"></span></li>';
                                     }
-                                    else if (ua.match(/MicroMessenger/i) == "micromessenger") {
-                                        //在微信中打开
-                                        if("wx_pub2"==payChannelList[i]){
-                                            payChannelUlHtml+='<li id="wx_pub2"><img class="wxpay" src="images/wxpay.png" alt="">微信支付<span class="choice2 fr"></span></li>';
-                                        }else if("wx_pub"==payChannelList[i]){
-                                            payChannelUlHtml+='<li id="wx_pub"><img class="wxpay" src="images/wxpay.png" alt="">微信支付<span class="choice2 fr"></span></li>';
-                                        }
-                                    }
-                                    else {
-                                        //在普通浏览器打开
-                                        if("alipay_wap"==payChannelList[i]){
-                                            payChannelUlHtml+='<li id="alipay_wap"><img class="alipay" src="images/alipay.png" alt="">支付宝支付<span class="choice2 fr"></span></li>';
-                                        }
-                                    }
-                                    if("jh"==payChannelList[i]){
-                                        if(cashBalance>=cashAmount){
-                                            payChannelUlHtml+='<li id="jh"><img class="jhpay" src="images/jhpay.png" alt="">账户余额支付(<span id="remain">￥'+ cashBalance/100 +'</span>)<span class="choice2 fr"></span></li>';
-                                        }else {
-                                            payChannelUlHtml+='<li id="jh" class="no" style="color: #999;"><img class="jhpay" src="images/jhpaygrey.png" alt="">账户余额支付(<span id="remain">￥'+ cashBalance/100 +'</span>)<span class="choice2 fr"></span></li>';
-                                        }
-                                    }
-                                    if("mz"==payChannelList[i]){
-                                        payChannelUlHtml='';
-                                        paychannel="mz";
-                                        $("#immPay .payWord").html("米庄支付");
-                                        break;
+                                    if("wx"==payChannelList[i]){
+                                        payChannelUlHtml+='<li id="wx"><img class="wxpay" src="images/wxpay.png" alt="">微信支付<span class="choice2 fr"></span></li>';
                                     }
                                 }
-                                if(payChannelUlHtml!=""){
-                                    $("#payMethod").show();
-                                    $("#payChannelUl").html(payChannelUlHtml);
-                                    var $payChannelUlLi=$("#payChannelUl li");
-                                    if($payChannelUlLi.length==1){
-                                        $payChannelUlLi.find(".choice2").addClass("choosed");
-                                        paychannel=$payChannelUlLi.attr("id");
+                                else if (ua.match(/MicroMessenger/i) == "micromessenger") {
+                                    //在微信中打开
+                                    if("wx_pub2"==payChannelList[i]){
+                                        payChannelUlHtml+='<li id="wx_pub2"><img class="wxpay" src="images/wxpay.png" alt="">微信支付<span class="choice2 fr"></span></li>';
+                                    }else if("wx_pub"==payChannelList[i]){
+                                        payChannelUlHtml+='<li id="wx_pub"><img class="wxpay" src="images/wxpay.png" alt="">微信支付<span class="choice2 fr"></span></li>';
                                     }
-                                    $payChannelUlLi.on("touchstart",function(){
-                                        if($(".choice2",this).hasClass("choosed")){
-                                            $(".choice2",this).removeClass("choosed");
-                                            paychannel="";
-                                        }
-                                        else {
-                                            $(".payChannelList li .choice2").removeClass("choosed");
-                                            $(".choice2",this).addClass("choosed");
-                                            paychannel=$(this).attr("id");
-                                        }
-                                    });
+                                }
+                                else {
+                                    //在普通浏览器打开
+                                    if("alipay_wap"==payChannelList[i]){
+                                        payChannelUlHtml+='<li id="alipay_wap"><img class="alipay" src="images/alipay.png" alt="">支付宝支付<span class="choice2 fr"></span></li>';
+                                    }
+                                }
+                                if("jh"==payChannelList[i]){
+                                    if(cashBalance>=cashAmount){
+                                        payChannelUlHtml+='<li id="jh"><img class="jhpay" src="images/jhpay.png" alt="">账户余额支付(<span id="remain">￥'+ cashBalance/100 +'</span>)<span class="choice2 fr"></span></li>';
+                                    }else {
+                                        payChannelUlHtml+='<li id="jh" class="no" style="color: #999;"><img class="jhpay" src="images/jhpaygrey.png" alt="">账户余额支付(<span id="remain">￥'+ cashBalance/100 +'</span>)<span class="choice2 fr"></span></li>';
+                                    }
+                                }
+                                if("mz"==payChannelList[i]){
+                                    payChannelUlHtml='';
+                                    paychannel="mz";
+                                    $("#immPay .payWord").html("米庄支付");
+                                    break;
                                 }
                             }
-                            else {
-                                for(var i=0;undefined!=payChannelList && i<payChannelList.length;i++){
-                                    if(/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent) && /jihe/i.test(navigator.userAgent)){
-                                        //iOS app打开
-                                        paychannel="wx";
-                                    }
-                                    else if (ua.match(/MicroMessenger/i) == "micromessenger") {
-                                        //在微信中打开
-                                        if("wx_pub2"==payChannelList[i]){
-                                            paychannel="wx_pub2";
-                                        }else if("wx_pub"==payChannelList[i]){
-                                            paychannel="wx_pub";
-                                        }
+                            if(payChannelUlHtml!=""){
+                                $("#payMethod").show();
+                                $("#payChannelUl").html(payChannelUlHtml);
+                                var $payChannelUlLi=$("#payChannelUl li");
+                                if($payChannelUlLi.length==1){
+                                    $payChannelUlLi.find(".choice2").addClass("choosed");
+                                    paychannel=$payChannelUlLi.attr("id");
+                                }
+                                $payChannelUlLi.on("touchstart",function(){
+                                    if($(".choice2",this).hasClass("choosed")){
+                                        $(".choice2",this).removeClass("choosed");
+                                        paychannel="";
                                     }
                                     else {
-                                        //在普通浏览器打开
-                                        paychannel="alipay_wap";
+                                        $(".payChannelList li .choice2").removeClass("choosed");
+                                        $(".choice2",this).addClass("choosed");
+                                        paychannel=$(this).attr("id");
                                     }
-                                }
-                                if(undefined!=orderRes.data.payments && orderRes.data.payments.length==1 && (orderRes.data.payments[0].payType==6 ||orderRes.data.payments[0].payType==11 || orderRes.data.payments[0].payType==12)){
-                                    paychannel="jf";
-                                }
+                                });
                             }
                         }
                         else {
-                            errorPrompt(chinese(res.ErrorMsg),2000);
+                            for(var i=0;undefined!=payChannelList && i<payChannelList.length;i++){
+                                if(/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent) && /jihe/i.test(navigator.userAgent)){
+                                    //iOS app打开
+                                    paychannel="wx";
+                                }
+                                else if (ua.match(/MicroMessenger/i) == "micromessenger") {
+                                    //在微信中打开
+                                    if("wx_pub2"==payChannelList[i]){
+                                        paychannel="wx_pub2";
+                                    }else if("wx_pub"==payChannelList[i]){
+                                        paychannel="wx_pub";
+                                    }
+                                }
+                                else {
+                                    //在普通浏览器打开
+                                    paychannel="alipay_wap";
+                                }
+                            }
+                            if(undefined!=orderRes.data.payments && orderRes.data.payments.length==1 && (orderRes.data.payments[0].payType==6 ||orderRes.data.payments[0].payType==11 || orderRes.data.payments[0].payType==12)){
+                                paychannel="jf";
+                            }
                         }
                     })
                 }

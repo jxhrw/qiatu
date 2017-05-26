@@ -1,5 +1,5 @@
+var requestTwo=0;
 $(document).ready(function(){
-
     var membershipInfo={"ul":"#membershipCards","titleDiv":".cardsName"};
     var giftCardsInfo={"ul":"#giftCards","titleDiv":".giftCardName"};
     var cardListData={};
@@ -24,13 +24,16 @@ $(document).ready(function(){
                 var cardName=res.data[i].couponBaseInfo.couponName,
                     effectiveTime = newFormatStrDate(new Date(parseInt(res.data[i].effectiveTime)),"/"),
                     expireTime = newFormatStrDate(new Date(parseInt(res.data[i].expireTime)),"/"),
-                    backgroundImg='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1494931546473&di=00f05f4228f8615fb9aaf05f468fa928&imgtype=0&src=http%3A%2F%2Fuploadfile.bizhizu.cn%2F2014%2F0912%2F20140912112409224.jpg',
+                    backgroundImg = res.data[i].couponBaseInfo.cardFacePic?res.data[i].couponBaseInfo.cardFacePic:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1494931546473&di=00f05f4228f8615fb9aaf05f468fa928&imgtype=0&src=http%3A%2F%2Fuploadfile.bizhizu.cn%2F2014%2F0912%2F20140912112409224.jpg',
                     logoImg,
                     couponCode=res.data[i].couponCode,
                     discount,
                     remain;
                 var discountHtml="";
                 var logoHtml='';
+                if(i==res.data.length-1 && res.data[i].couponBaseInfo.cardFacePic){
+                    cardName='';
+                }
                 if(res.data[i].subCouponList){
                     for(var j=0;j<res.data[i].subCouponList.length;j++){
                         //couponType -2 消费金、5 折扣
@@ -64,6 +67,7 @@ $(document).ready(function(){
         else{
             $(".cardsBox").hide();
         }
+        requestTwo++;
     }
 
     //券信息请求
@@ -84,8 +88,10 @@ $(document).ready(function(){
                     faceValue = parseInt(res.data[i].faceValue),//总额或折扣
                     oFreeze = res.data[i].freeze ? parseInt(res.data[i].freeze):0,
                     oRemainValue = parseInt(res.data[i].remain),
-                    remainValue = oRemainValue + oFreeze;
+                    remainValue = oRemainValue + oFreeze,
+                    usageStatus = res.data[i].usageStatus;
                 var giftInfoHtml='';
+                var giftCardNameAddClass='';
                 if(couponType=="1"){
                     giftInfoHtml='<p>&nbsp;</p>'
                         +'<p>&nbsp;</p>'
@@ -110,9 +116,12 @@ $(document).ready(function(){
                         +'<p>&nbsp;</p>'
                         +'<p>&nbsp;</p>';
                 }
+                if (usageStatus == 5 || usageStatus == 4 || usageStatus == 2) {//5-未到使用时间,4-已过期,2-已使用
+                    giftCardNameAddClass='titleGray';
+                }
                 giftCardsLi+='<li class="">'
                     +'<a href="cardOrCoupons.html?couponCode='+ couponCode +'">'
-                    +'<div class="giftCardName"><p><span>'+getCouponName+'</span></p></div>'
+                    +'<div class="giftCardName '+ giftCardNameAddClass +'"><p><span>'+getCouponName+'</span></p></div>'
                     +'<div class="wavy"></div>'
                     +'<div class="giftInfo">'
                         //+'<p class="applicable">适用详情</p>'
@@ -129,6 +138,7 @@ $(document).ready(function(){
         else{
             $(".giftsBox").hide();
         }
+        requestTwo++;
     }
 
     //设定卡券位置
@@ -145,9 +155,17 @@ $(document).ready(function(){
 });
 
 window.onload=function(){
-    setTimeout(function(){
-        if($(".cardsBox").is(":hidden") && $(".giftsBox").is(":hidden")){
-            $("body").html(hasBackground("您还没有卡和礼券","40%")).find("p").css("color","#fff");
+    var timePassed=0;
+    var interval=setInterval(function(){
+        timePassed++;
+        if(requestTwo>=2){
+            if($(".cardsBox").is(":hidden") && $(".giftsBox").is(":hidden")){
+                $("body").html(hasBackground("您还没有卡和礼券","40%")).find("p").css("color","#fff");
+            }
+            clearInterval(interval);
+        }
+        if(timePassed>=10){
+            clearInterval(interval);
         }
     },1000);
 };

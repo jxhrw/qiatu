@@ -54,14 +54,14 @@ a{
     z-index: 1;
     background: #fff;
 }
-form{
+.form{
     /*height: 2.267rem;*/
     background: #fff;
     border-radius: 0.134rem;
     border: 1px solid #d8d8d8;
     margin: 0.5rem 0 0.5rem 0.7rem;
 }
-.navBar form{
+.navBar .form{
     width: 18rem;
     float: left;
 }
@@ -73,7 +73,7 @@ form{
     color: #808080;
     background: url(http://7xio74.com1.z0.glb.clouddn.com/navPerson.png) no-repeat 0 0.8rem/32%;
 }
-form i{
+.form i{
     color: #9b9b9b;
 }
 .iconfont{
@@ -85,12 +85,12 @@ form i{
 .navBar .iconfont{
     padding: 0 0.6rem 0 0.667rem;
 }
-form input[type=search]{
+.form input[type=search]{
     width: 80%;
     display: inline-block;
     line-height: 2rem;
     font-size: 0.93rem;
-    color: #d13f4c;
+    color: #000000;
     outline: none;
     background: transparent;
     border: none;

@@ -94,7 +94,7 @@ input{
     padding-bottom:1.067rem ;
 }
 .information{
-	height: 12rem;
+	height: 13.33rem;
 	/*background:no-repeat center top;*/
 	/*background-size: contain;*/
 	/*border: 1px red solid;*/
@@ -104,21 +104,18 @@ input{
     float: left;
     width:21%;
     /*border: 1px red solid;*/
-    margin: 1.4rem 0 0 6.2rem;
+    margin: 4.1rem 0 0 5.5rem;
     text-align: center;
     /*text-align: center;*/
     /*color: #000;*/
 }
 .avatar{
-    display: block;
-    width: 5rem;
-    height: 5rem;
-    border: 0.2rem #fff solid;
+    width: 3.33rem;
+    height: 3.33rem;
     border-radius: 50%;
-
 }
 .userName{
-    font-size: 1.4rem;
+    font-size: 1rem;
     margin-top: 0.8rem;
   /*  letter-spacing: 1px;*/
     /*color: red;*/
@@ -128,20 +125,21 @@ input{
     line-height: 1.6rem;
     letter-spacing: 1px;
     font-family: arial;
+    font-size: 0.8rem;
 }
 .info_right{
     float: right;
-    width:29.6%;
+    width:35.2%;
 }
 .info_right li{
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     color: #7f7f7f;
     /*color:red;*/
    /* border: 1px red solid;*/
    /* padding-top: 1.2rem;*/
 }
 .points{
-    margin-top:1.4rem;
+    margin-top:3.7rem;
 }
 .annual{
     margin-top:0.4rem;
@@ -153,14 +151,14 @@ input{
     letter-spacing: 1px;
     display: block;
     /*color: red;*/
-    font-size: 1.4rem;
+    font-size: 0.9rem;
     line-height: 1.9rem;
     /*font-weight: bold;*/
     font-family: Arial;
    /* color: #000;*/
 }
 .info_right .grade span{
-    font-size: 1.2rem;
+    font-size: 0.8rem;
     font-weight: bold;
     font-family: "黑体", arial;
 }

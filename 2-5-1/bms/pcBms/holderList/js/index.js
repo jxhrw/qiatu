@@ -4,92 +4,52 @@
 
 
 var pageNo=1,pageCnt,userType='';
-/**
- * td点击事件出现下拉框
- * [description]
- * @return {[type]} [description]
- */
-// $('#selectTd').click(function () {
-//     var _this=$(this);
-//     if($('#selectMenu').length){
-//         $('#selectMenu').remove();
-//     }else{
-//         var width=$(this).css('width');
-//         var X = $(this).offset().left;
-//         var Y = $(this).offset().top;
-//         var div=$('<div id="selectMenu"></div>');
-//         div.css(
-//             {
-//                 'position':'absolute',
-//                 'margin-left':X+1,
-//                 'margin-top':Y+6,
-//                 'width':width,
-//                 'background-color':'white',
-//                 'border':'1px solid #d8d8d8',
-//                 'text-align':'center',
-//                 '-webkit-box-shadow': '0 0 1px black',
-//                 '-moz-box-shadow':'0 0 1px black',
-//                 'box-shadow':'0 0 1px black'
-//             }
-//         );
-//         div.append('<p>全部持有人</p><p>投资人</p><p>普通持有人</p><p>换宿池</p>');
-//         div.children('p').css({
-//             // 'background':'blue',
-//             'padding':'20px',
-//             'margin':'0',
-//             // 'font-weight':'bold'
-//         }).click(function () {
-//           if($(this).text()!='全部持有人'){
-//             userType=$(this).text();
-//           }else{
-//             userType='';
-//           }
-//             _this.text($(this).text());
-//             _this.append('<img src="../setCoupons/images/icon.jpg" style="margin-left: 3px">');
-//             $('#selectMenu').remove();
-//             //接收请求参数
-//             $.ajax({
-//               url: '/coupon/bms/stat/holderInfo',
-//               type: 'post',
-//               data:{
-//                 data:JSON.stringify({couponId:getUrl(),pageNo:pageNo,pageCnt:10,userType:userType})
-//               }
-//             })
-//             .success(function(resp) {
-//               if(resp.sc=='0'){
-//                 //执行对table进行排列
-//                 forTable(resp.data);
-//               }else{
-//                 alert(resp.ErrorMsg);
-//               }
-//
-//             });
-//
-//
-//         });
-//         $('body').prepend(div);
-//
-//     }
-//
-// });
-
 jiHeSelect.addSelect('selectTd',
-[{key:"全部持有人",value:''},{key:"投资人",value:"投资人"},{key:'普通持有人',value:'普通持有人'},
-{key:'换宿池',value:"换宿池"}],
+[{key:"全部持有人",value:''},{key:"原始持有人",value:"1"},{key:'受让人',value:'2'}],
 function(p) {
   userType=p;
   //接收请求参数
+    jiHeAnimate.load();
              $.ajax({
                url: '/coupon/bms/stat/holderInfo',
                type: 'post',
                data:{
-                 data:JSON.stringify({couponId:getUrl(),pageNo:pageNo,pageCnt:10,userType:userType})
+                 data:JSON.stringify({couponId:getUrl(),pageNo:1,pageCnt:5,userType:userType})
                }
              })
              .success(function(resp) {
+                 jiHeAnimate.stopLoad();
                if(resp.sc=='0'){
                  //执行对table进行排列
                  forTable(resp.data);
+                 //清空分页器
+                 $('.tcdPageCode').empty();
+                 //重建分页器
+                 if(resp.data.length){
+                 $('.tcdPageCode').createPage({
+                     pageCount:resp.pageinfo.pageAmount,
+                     current:1,
+                     backFn:function (p) {
+                       //记录页码
+                         jiHeAnimate.load();
+                       pageNo=p;
+                       $.ajax({
+                         url: '/coupon/bms/stat/holderInfo',
+                         type: 'post',
+                         data:{
+                           data:JSON.stringify({couponId:getUrl(),pageNo:p,pageCnt:5,userType:userType})
+                         }
+                       })
+                       .success(function(resp) {
+                           jiHeAnimate.stopLoad();
+                          if(resp.sc=='0'){
+                           forTable(resp.data);
+                          }
+                       })
+
+                     }
+                 })
+               }
                }else{
                  alert(resp.ErrorMsg);
                }
@@ -103,6 +63,7 @@ function getUrl() {
 }
 
 //初始化获取couponName
+
   $.ajax({
     url: '/coupon/bms/baseinfo',
     type: 'post',
@@ -115,6 +76,7 @@ function getUrl() {
 
 //接收请求参数
 //初始化请求
+jiHeAnimate.load();
 $.ajax({
   url: '/coupon/bms/stat/holderInfo',
   type: 'post',
@@ -123,6 +85,7 @@ $.ajax({
   }
 })
 .success(function(resp) {
+    jiHeAnimate.stopLoad();
   if(resp.sc=='0'){
     //右上角name赋值
 
@@ -138,14 +101,16 @@ $.ajax({
         backFn:function (p) {
           //记录页码
           pageNo=p;
+            jiHeAnimate.load();
           $.ajax({
             url: '/coupon/bms/stat/holderInfo',
             type: 'post',
             data:{
-              data:JSON.stringify({couponId:getUrl(),pageNo:p,pageCnt:10,userType:userType})
+              data:JSON.stringify({couponId:getUrl(),pageNo:p,pageCnt:5,userType:userType})
             }
           })
           .success(function(resp) {
+              jiHeAnimate.stopLoad();
              if(resp.sc=='0'){
               forTable(resp.data);
              }
@@ -186,7 +151,12 @@ function forTable(data) {
         tr.append(td4);
         var td5=$('<td>'+data[v].checkoffAmount+'</td>');
         tr.append(td5);
-        var td6=$('<td>'+data[v].userType+'</td>');
+        if(data[v].userType=='1'){
+            var td6=$('<td>'+'原始持有人'+'</td>');
+        }
+        else if(data[v].userType=='2'){
+            var td6=$('<td>'+'受让人'+'</td>');
+        }
         tr.append(td6);
         $('.ifHaveTableContent').append(tr);
       }
@@ -201,25 +171,15 @@ function getParams() {
   return JSON.stringify({couponId:getUrl()});
 }
 
-$('.downloadExcel').click(function(event) {
-  /*下载获取后台链接地址 */
-  $.ajax({
-    url: '',
-    type: 'post',
-    data: {data:getParams()},
-  })
-  .success(function(resp) {
-      //执行下载excel
-      // createDownload();
-  });
-
-});
-
-
 //创建下载
- function createDownload(url){
+ function createDownload(){
    var iframe=document.createElement('iframe');
-       iframe.src=url;
+       iframe.src='/coupon/bms/excel/holderInfo?data='+encodeURIComponent(getParams());
        iframe.style.display='none';
        document.body.appendChild(iframe);
  }
+
+ //点击下载事件
+ $('.downloadExcel').click(function(){
+     createDownload();
+ })

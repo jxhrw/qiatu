@@ -1,8 +1,9 @@
+var hasCheck=1;
 $(document).ready(function(){
     $("#name").keyup(function(){
         var reg=/^[a-zA-Z0-9_\u4e00-\u9fa5]+$/;//只含有汉字、数字、字母、下划线，下划线
         var val=$("#name").val();
-        if(undefined!=val && ""!=val && $("#check").attr("value")=="checked"){
+        if(undefined!=val && ""!=val && hasCheck==1){
             $("#nameSubBtn").removeClass("cannotSub");
         }else {
             $("#nameSubBtn").addClass("cannotSub");
@@ -11,13 +12,15 @@ $(document).ready(function(){
 
     //需要同意会员协议
     $("#check").click(function(){
-        if($(this).attr("value")=="checked"){
-            $(this).attr("value","unCheck").attr("src","images/unCheck.png");
+        if(hasCheck==1){
+            hasCheck=0;
+            $(this).attr("src","images/unCheck.png");
             $("#nameSubBtn").addClass("cannotSub");
-        }else if($(this).attr("value")=="unCheck"){
-            $(this).attr("value","checked").attr("src","images/checked.png");
+        }else if(hasCheck!=1){
+            hasCheck=1;
+            $(this).attr("src","images/checked.png");
             var val=$("#name").val();
-            if(undefined!=val && ""!=val && $("#check").attr("value")=="checked"){
+            if(undefined!=val && ""!=val && hasCheck==1){
                 $("#nameSubBtn").removeClass("cannotSub");
             }
         }

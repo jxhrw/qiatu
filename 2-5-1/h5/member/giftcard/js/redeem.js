@@ -7,7 +7,7 @@ $(document).ready(function() {
 
     $(".consumetitle").text(store);
     $(".more strong").text(GetParams().num);
-    $(".more span").text((GetParams().num*ratio).toFixed(0));
+    $(".more span").text(Math.floor(GetParams().num*ratio));
     $(".deadLine span").html(newFormatStrDate(new Date(parseInt(GetParams().PointsDeadline)),"."));
     if(undefined==GetParams().PointsDeadline){
         $(".deadLine").hide();

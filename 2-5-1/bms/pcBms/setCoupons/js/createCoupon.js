@@ -98,7 +98,7 @@ $(document).ready(function () {
                         // console.log(parseInt(info.data.useConditionList[i].conditionValue));
 
                         if (!isNaN(parseInt(info.data.useConditionList[i].conditionValue))) {
-                            var limitedDate = getDate(parseInt(info.data.useConditionList[i].conditionValue));
+                            var limitedDate = info.data.useConditionList[i].conditionValue.replace(/\./g, "-");
                             if ((/^(\d{4})-(\d{2})-(\d{2})$/).test(limitedDate)) {
                                 var times = limitedDate.match(/^(\d{4})-(\d{2})-(\d{2})$/);
                                 var optionalDateHtml = $(".optionalDate").html;
@@ -175,9 +175,9 @@ $(document).ready(function () {
         var baseInfoUrl = '/coupon/bms/addBaseInfo',
             applyProductUrl = '/coupon/bms/addApplyProduct',
             useConditionUrl = '/coupon/bms/addUseCondition';
-            $(".consumerType li").eq(0).find(".checkbox").addClass("selected");
-            $(".consumerType li").eq(1).find(".checkbox").addClass("selected");
-            
+        $(".consumerType li").eq(0).find(".checkbox").addClass("selected");
+        $(".consumerType li").eq(1).find(".checkbox").addClass("selected");
+
     }
     $("#discount").bind('input propertychange', function () {//监听文本域内容的变化
         if ($("#discount").val().indexOf(".") > -1) {
@@ -192,7 +192,7 @@ $(document).ready(function () {
     $(".alertBox").height($(window).height());
 
     //单选
-    $(".radio").parent().on("click",function () {
+    $(".radio").parent().on("click", function () {
         var thisVal = $(this).find(".radio").attr("value");
         //alert(thisVal);
         if ($(this).find(".radio").hasClass("selected")) {
@@ -310,13 +310,13 @@ $(document).ready(function () {
     });
     //console.log(hotelId);
     $("#discountCoupon #save").click(function () {
-        if($("#setName").val()==""){
+        if ($("#setName").val() == "") {
             jiHeAlert.open("请填写券名称");
-        }else if($("#setName").val()!=""&&$("#discount").val()==""){
+        } else if ($("#setName").val() != "" && $("#discount").val() == "") {
             jiHeAlert.open("请设置券的折扣");
         }
-        else{
-            if ($("#setName").val()!=""&&$("#discount").val()!=""&&$("#nonEmpty").hasClass("selected")) {
+        else {
+            if ($("#setName").val() != "" && $("#discount").val() != "" && $("#nonEmpty").hasClass("selected")) {
                 if ($("#effective_begin").val() == "" || $("#effective_end").val() == "") {
                     jiHeAlert.open("日期不能为空");
                 }
@@ -330,23 +330,11 @@ $(document).ready(function () {
         if (getRequest().couponId != undefined) {
             addBaseInfoData.couponBaseInfo.couponId = getRequest().couponId;
         }
-        $.ajax({//创建券的基本信息
-            type: "post",
-            async:false,
-            url: baseInfoUrl,
-            data: { data: JSON.stringify(addBaseInfoData) },
-            success: function (getBaseInfo) {
-                console.log(getBaseInfo);
-                if (getRequest().couponId != undefined) {
-                    var couponId = getRequest().couponId;
-                } else {
-                    var couponId = getBaseInfo.data.couponId;
-                }
-                var applyProductArr = [];
+                        var applyProductArr = [];
                 for (var s = 0; s < $("#chooseMerchant li").length; s++) {
                     if ($("#chooseMerchant li").eq(s).find(".checkbox").hasClass("selected") == 1) {
                         var applyProduct = {};
-                        applyProduct.couponId = couponId;
+                        //applyProduct.couponId = couponId;
                         applyProduct.hotelId = $("#chooseMerchant li").eq(s).find(".checkbox").attr("title");
                         applyProduct.productId = -1;
                         applyProduct.ifCanUse = 1;
@@ -354,24 +342,25 @@ $(document).ready(function () {
                     }
                 }
                 console.log(applyProductArr);
-                var addApplyProduct = {};
-                addApplyProduct.couponId = couponId;
-                addApplyProduct.couponProductList = applyProductArr;
-                $.ajax({//创建券的适用商户
-                    type: "post",
-                    async:false,
-                    url: applyProductUrl,
-                    data: { data: JSON.stringify(addApplyProduct) },
-                    success: function (getApplyProduct) {
-                        console.log(getApplyProduct);
-                    }
-                });
+                //var addApplyProduct = {};
+                //addApplyProduct.couponId = couponId;
+                //addApplyProduct.couponProductList = applyProductArr;
+                addBaseInfoData.couponBaseInfo.couponProductList = applyProductArr;
+                // $.ajax({//创建券的适用商户
+                //     type: "post",
+                //     async: false,
+                //     url: applyProductUrl,
+                //     data: { data: JSON.stringify(addApplyProduct) },
+                //     success: function (getApplyProduct) {
+                //         console.log(getApplyProduct);
+                //     }
+                // });
                 console.log($(".consumerType li").length);
                 var consumerTypeArr = [];
                 for (var i = 0; i < $(".consumerType li").length; i++) {//可用消费类型
                     var consumerType = {};
                     if ($(".consumerType li").eq(i).find(".checkbox").hasClass("selected")) {
-                        consumerType.couponId = couponId;
+                        //consumerType.couponId = couponId;
                         consumerType.conditionType = "cond-producttype";
                         consumerType.conditionValue = $(".consumerType li").eq(i).find(".checkbox").attr("title"),
                             consumerType.ifCanUse = 1;
@@ -382,7 +371,7 @@ $(document).ready(function () {
                 for (var j = 0; j < $("#dateCondition td").length; j++) {//设置不可用日期
                     var consumerType = {};
                     if ($("#dateCondition td").eq(j).find(".checkbox").hasClass("selected")) {
-                        consumerType.couponId = couponId;
+                        //consumerType.couponId = couponId;
                         consumerType.conditionType = "cond-date";
                         consumerType.conditionValue = $("#dateCondition td").eq(j).find(".checkbox").attr("title");
                         consumerType.ifCanUse = 0;
@@ -395,14 +384,14 @@ $(document).ready(function () {
                         var consumerType = {};
                         for (var m = 0; m < $(".years").eq(k).find(".customDate li").length; m++) {
                             customDate = $(".years").eq(k).attr("id") + '.' + $(".years").eq(k).find(".customDate li").eq(m).attr("id");
-                            customDate = Date.parse(customDate.replace(/\./g, "/"));
+                            customDate = customDate.replace(/\./g, "-");
                             console.log(customDate);
                             customDateArr.push(customDate);
                         }
                         console.log(customDateArr);
                     }
                     if (customDateArr.length != 0) {
-                        consumerType.couponId = couponId;
+                        //consumerType.couponId = couponId;
                         consumerType.conditionType = "cond-date";
                         consumerType.conditionValue = customDateArr.join(',');
                         consumerType.ifCanUse = 0;
@@ -411,40 +400,55 @@ $(document).ready(function () {
                 }
                 if ($("#ifTogether .selected").attr("title") == 1) {//能否同时使用
                     var consumerType = {};
-                    consumerType.couponId = couponId;
+                    //consumerType.couponId = couponId;
                     consumerType.conditionType = "cond-coupontype";
                     consumerType.conditionValue = 2;
                     consumerType.ifCanUse = 1;
                     consumerTypeArr.push(consumerType);
                 } else {
                     var consumerType = {};
-                    consumerType.couponId = couponId;
+                    //consumerType.couponId = couponId;
                     consumerType.conditionType = "cond-coupontype";
                     consumerType.conditionValue = 2;
                     consumerType.ifCanUse = 0;
                     consumerTypeArr.push(consumerType);
                 }
                 console.log(consumerTypeArr);
-                var addUseCondition = {};
-                addUseCondition.couponId = couponId;
-                addUseCondition.useConditionList = consumerTypeArr;
-                $.ajax({//券的使用条件
-                    type: "post",
-                    url: useConditionUrl,
-                    data: { data: JSON.stringify(addUseCondition) },
-                    success: function (getUseCondition) {
-                        console.log(getUseCondition);
-                    }
-                });
-                window.location.href='/html/bms/BMSCouponDeploy/BMSCouponDeploy.html';
+                //var addUseCondition = {};
+                //addUseCondition.couponId = couponId;
+                addBaseInfoData.couponBaseInfo.useConditionList = consumerTypeArr;
+                // $.ajax({//券的使用条件
+                //     type: "post",
+                //     url: useConditionUrl,
+                //     data: { data: JSON.stringify(addUseCondition) },
+                //     success: function (getUseCondition) {
+                //         console.log(getUseCondition);
+                //     }
+                // });
+                console.log(addBaseInfoData);
+        $.ajax({//创建券的基本信息
+            type: "post",
+            async: false,
+            url: baseInfoUrl,
+            data: { data: JSON.stringify(addBaseInfoData) },
+            success: function (getBaseInfo) {
+                console.log(getBaseInfo);
+                // if (getRequest().couponId != undefined) {
+                //     var couponId = getRequest().couponId;
+                // } else {
+                //     var couponId = getBaseInfo.data.couponId;
+                // }
+                if(getBaseInfo.sc == 0){
+                    window.location.href = '/html/bms/BMSCouponDeploy/BMSCouponDeploy.html';
+                }
             }
         });
     })
     $("#roomVouchers #save").click(function () {
-        if($("#setName").val()==""){
+        if ($("#setName").val() == "") {
             jiHeAlert.open("请填写券名称");
-        }else{
-            if ($("#setName").val()!=""&&$("#nonEmpty").hasClass("selected")) {
+        } else {
+            if ($("#setName").val() != "" && $("#nonEmpty").hasClass("selected")) {
                 if ($("#effective_begin").val() == "" || $("#effective_end").val() == "") {
                     jiHeAlert.open("日期不能为空");
                 }
@@ -458,18 +462,11 @@ $(document).ready(function () {
         if (getRequest().couponId != undefined) {
             addBaseInfoData.couponBaseInfo.couponId = getRequest().couponId;
         }
-        $.ajax({//创建券的基本信息
-            type: "post",
-            async:false,
-            url: baseInfoUrl,
-            data: { data: JSON.stringify(addBaseInfoData) },
-            success: function (getBaseInfo) {
-                console.log(getBaseInfo);
-                if (getRequest().couponId != undefined) {
-                    var couponId = getRequest().couponId;
-                } else {
-                    var couponId = getBaseInfo.data.couponId;
-                }
+                        // if (getRequest().couponId != undefined) {
+                //     var couponId = getRequest().couponId;
+                // } else {
+                //     var couponId = getBaseInfo.data.couponId;
+                // }
                 var applyProductArr = [], consumerTypeArr = [];
                 if ($("#chooseRoom").hasClass("selected")) {
                     var productIdArr = [];
@@ -492,18 +489,19 @@ $(document).ready(function () {
                     applyProductArr.push(applyProduct);
                 }
                 console.log(applyProduct);
-                var addApplyProduct = {};
-                addApplyProduct.couponId = couponId;
-                addApplyProduct.couponProductList = applyProductArr;
-                $.ajax({//创建券的适用商户
-                    type: "post",
-                    async:false,
-                    url: applyProductUrl,
-                    data: { data: JSON.stringify(addApplyProduct) },
-                    success: function (getApplyProduct) {
-                        console.log(getApplyProduct);
-                    }
-                });
+                //var addApplyProduct = {};
+                //addApplyProduct.couponId = couponId;
+               // addApplyProduct.couponProductList = applyProductArr;
+               addBaseInfoData.couponBaseInfo.couponProductList = applyProductArr;
+                // $.ajax({//创建券的适用商户
+                //     type: "post",
+                //     async: false,
+                //     url: applyProductUrl,
+                //     data: { data: JSON.stringify(addApplyProduct) },
+                //     success: function (getApplyProduct) {
+                //         console.log(getApplyProduct);
+                //     }
+                // });
 
                 console.log($(".consumerType li").length);
                 if ($("#setLimitedDate").hasClass("selected")) {
@@ -522,7 +520,7 @@ $(document).ready(function () {
                         var consumerType = {};
                         for (var m = 0; m < $(".years").eq(k).find(".customDate li").length; m++) {
                             customDate = $(".years").eq(k).attr("id") + '.' + $(".years").eq(k).find(".customDate li").eq(m).attr("id");
-                            customDate = Date.parse(customDate.replace(/\./g, "/"));
+                            customDate = customDate.replace(/\./g, "-");
                             console.log(customDate);
                             customDateArr.push(customDate);
                         }
@@ -544,19 +542,29 @@ $(document).ready(function () {
                     consumerTypeArr.push(consumerType);
                 }
                 console.log(consumerTypeArr);
-                var addUseCondition = {};
-                addUseCondition.couponId = couponId;
-                addUseCondition.useConditionList = consumerTypeArr;
-                $.ajax({//券的使用条件
-                    type: "post",
-                    async:false,
-                    url: useConditionUrl,
-                    data: { data: JSON.stringify(addUseCondition) },
-                    success: function (getUseCondition) {
-                        console.log(getUseCondition);
-                    }
-                });
-                window.location.href='/html/bms/BMSCouponDeploy/BMSCouponDeploy.html';
+                //var addUseCondition = {};
+                //addUseCondition.couponId = couponId;
+               // addUseCondition.useConditionList = consumerTypeArr;
+               addBaseInfoData.couponBaseInfo.useConditionList = consumerTypeArr;
+                // $.ajax({//券的使用条件
+                //     type: "post",
+                //     async: false,
+                //     url: useConditionUrl,
+                //     data: { data: JSON.stringify(addUseCondition) },
+                //     success: function (getUseCondition) {
+                //         console.log(getUseCondition);
+                //     }
+                // });
+        $.ajax({//创建券的基本信息
+            type: "post",
+            async: false,
+            url: baseInfoUrl,
+            data: { data: JSON.stringify(addBaseInfoData) },
+            success: function (getBaseInfo) {
+                console.log(getBaseInfo);
+                if(getBaseInfo.sc == 0){
+                    window.location.href = '/html/bms/BMSCouponDeploy/BMSCouponDeploy.html';
+                }
             }
         });
     });

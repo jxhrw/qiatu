@@ -297,13 +297,13 @@ $(document).ready(function(){
                 if(undefined==payMethod || "point"==payMethod){
                     priceType=1;
                     $(".saleIntegral").show();
-                    $(".saleIntegral a").attr("href","/html/order/virtualGoods.html?id=38607&mc=zqjf");
+                    $(".saleIntegral a").attr("href","/html/h5/product/detail/virtualGoods.html?id=38607&mc=zqjf");
                 }
                 if("cash"==payMethod){
                     priceType=0;
                 }
                 $(".nameCons").html(res.data.couponName);
-                $(".banner").attr("src",res.data.picUrl);
+                $(".banner").attr("src",res.data.exhibitPic);
                 $("#deadLine").html(newFormatStrDate(new Date(parseInt(res.data.expireTime)),"/"));
                 if(ua.match(/MicroMessenger/i) != 'micromessenger' && /(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent) && /jihe/i.test(navigator.userAgent)){
                     exchangeUrl=res.data.exchangeUrlApp;

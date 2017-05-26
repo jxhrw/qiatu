@@ -2,7 +2,6 @@
 .actlist-warp {
 	width: 99%;
 	font-size: 12px;
-
 }
 .found-active {
 
@@ -18,24 +17,23 @@
 	color: #d0011b;
 }
 .list-warp {
-	width: 139px;
-	height: 160px;
-	border: 2px solid #dbdbdb; 
-	display: none;
-	position: absolute;
-	top: 100px;
-    left:86%;
-	background-color: #fff;
-	right: 180px;
+	padding-left: 0px;
+    width: 11.2%;
+    height: 160px;
+    border: 2px solid #dbdbdb;
+    display: none;
+    position: absolute;
+    top: 124px;
+    left: 87%;
+    background-color: #fff;
+    right: 180px;
 }
 .state {
 	text-align: center;
-    position: relative;
-    left: -40px;
-	list-style: none;
-	display: block;
-	width: 179px;
-	height: 32px;
+    list-style: none;
+    display: block;
+    height: 32px;
+
 }
 .state span {
 	position: relative;
@@ -165,7 +163,7 @@ td {
 .template {
 	z-index: 1002;
 	position: absolute;
-    top: 50%; 
+    top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
     display: none;
@@ -180,7 +178,7 @@ td {
 .set-warp {
     width: 625px;
 	padding-bottom: 30px;
-    
+
 }
 .copy-warp {
     width: 400px;
@@ -190,13 +188,13 @@ td {
 .link-warp {
     width: 400px;
 	padding-bottom: 30px;
-  
+
 }
 .cha-warp {
 	font-size: 11px;
     width: 601px;
     padding-bottom: 30px;
-   
+
 }
 .up-warp {
     width: 500px;
@@ -209,12 +207,9 @@ td {
 .winner-warp {
     width: 500px;
 	padding-bottom: 30px;
-    
+
 }
-.success-warp {
-	width: 276px;
-	padding-bottom: 30px;
-}
+
 #code {
 	width: 147px;
 	margin-left: 43px;
@@ -237,8 +232,7 @@ td {
     text-align: center;
     line-height: 2;
     display: inline-block;
-    color: #fff;
-    background-color: #000;
+    font-weight: bold;
 }
 
 .baoming {
@@ -250,8 +244,7 @@ td {
     text-align: center;
     line-height: 2;
     display: inline-block;
-    color: #fff;
-    background-color: #000;
+    font-weight: bold;
 }
 
 .yi {
@@ -263,22 +256,21 @@ td {
     text-align: center;
     line-height: 2;
     display: inline-block;
-    color: #fff;
-    background-color: #000;
+    font-weight: bold;
 }
 
 .tcback {
-	display: none;  
-    position: fixed;  
-    top: 0%;  
-    left: 0%;  
-    width: 100%;  
-    height: 100%;  
-    background-color: black;  
-    z-index:1001;  
-    -moz-opacity: 0.8;  
-    opacity:.80;  	
-    filter: alpha(opacity=80); 
+	display: none;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index:1001;
+    -moz-opacity: 0.8;
+    opacity:.80;
+    filter: alpha(opacity=80);
 }
 .ma-img {
 	width: 100px;
@@ -321,4 +313,15 @@ td {
 
 #last {
 	border-right: none;
+}
+.yhx_span1{
+	width: 80px;
+	display: inline-block;
+	font-size: 13px;
+}
+.yhx_span{
+  margin-left: 30px;
+	width: 80px;
+	display: inline-block;
+	font-size: 13px;
 }

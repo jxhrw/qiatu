@@ -4,7 +4,7 @@
 * 使用前需先引入jquery，在引入此文件
 * 打开弹窗
 *modalService.open(
-* {width:...;height:....;title:.....;content:......; })
+* {width:...;height:....;title:.....;content:......;close:......; })
 * 弹窗content内html模板写法<div id='??' class='template'>内容</div>
 *content:??(id)
 * 可以将此模板写入弹窗内
@@ -20,7 +20,7 @@ var modalService={
 $(function () {
     $('.template').css({'display':'none'});
 });
- 
+
 function open(obj) {
     var content=$('#'+obj.content).html();
     function tanchuang(obj) {
@@ -32,7 +32,7 @@ function open(obj) {
             'left': '50%',
             'top': '50%'
             });
-        
+
         $('#mry-opo-title').text(obj.title).css({
             'height': '35px',
         'font-size': '14px',
@@ -61,10 +61,13 @@ function open(obj) {
         $('#mry-mask').attr('deletes','');
         $('[deletes=mry-opo]').click(function () {
             $('#mry-opo,#mry-mask').remove();
+            if("undefined" != typeof(obj.close)){
+            obj.close();
+          }
         });
         //console.log($('[deletes=mry-opo]'));
     }
-     
+
     $('body').append('<div id="mry-mask" deletes="mry-opo"></div>');
     $("#mry-mask").css(
         {

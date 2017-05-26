@@ -240,10 +240,10 @@ body{font-family: "微软雅黑",Verdana,Tahoma,Arial,Helvetica,"宋体",sans-se
     background-position: 0 -132px;
 }
 .BMSLeft ul li:nth-child(5) span {
-    background: url(../images/settlement1.png) 0 0 no-repeat;
+    background: url(../image/settlement1.png) 0 0 no-repeat;
 }
 .BMSLeft ul li:nth-child(5).current span, .BMSLeft ul li:nth-child(5).current1 span {
-    background: url(../images/settlement2.png) 0 0 no-repeat;
+    background: url(../image/settlement2.png) 0 0 no-repeat;
 }*/
 /*.BMSLeft ul li:nth-child(5) span{
     background-position: 0 -200px;

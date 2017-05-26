@@ -1,38 +1,6 @@
-$(document).ready(function(){
-    var usersCount=$("#enrollment").html();
-    $("#enrollment").html(fmoney(usersCount,0));
-
-    $(".screenFull").height($(window).height());
-
-    $("#shareFri").click(function(){
-        $("#shareFriend").show();
-    });
-
-    $(".shadow,.close,.close2").click(function(){
-        $(".screenFull").hide();
-    });
-
-    $("#moreCode").click(function(){
-        $(".codeUl li:nth-child(n+4)").show();
-    });
-
-    $("#newPhone").keyup(function(){
-        var thisVal=$(this).val();
-        if(thisVal.length==11){
-            $("#changeSubmit").removeClass("cannotSub");
-        }else {
-            $("#changeSubmit").addClass("cannotSub");
-        }
-    });
-
-    $(".changeBtn").click(function(){
-        $("#modifyPhone").show();
-    });
-
-});
-
-
+var actId;
 var actType;
+var resData={};
 var activity={
     winResults:function(actid,obj){
         //请求中奖结果，与我的中奖码页面通用
@@ -75,9 +43,10 @@ var activity={
         });
     },
     init:function(params){
-        var actId=params['actid'];
+        actId=params['actid'];
         actType=params['acttype'];
         var codeLength=$(".codeUl li").length;
+        console.log(codeLength);
         if(codeLength==0){
             if(actType==2){
                 $("#myCodes").html("尚未邀请好友一起参与");
@@ -89,21 +58,54 @@ var activity={
             $(".codeUl li:nth-child(n+4)").hide();
             $("#moreCode").show().find("#codeNum").html(codeLength);
         }
-        //开奖结果
-        $("#winResults").click(function(){
-            var resData={};
-            activity.winResults(actId,resData);
-            $("#winningList").show();
-        });
-        $("#changeSubmit").click(function(){
-            var modifyData={phone:$("#newPhone").val()};
-            if(!(/^\d+$/).test(modifyData.phone) || modifyData.phone.length<11){
-                errorPrompt("手机号码错误",2000);
-                return;
-            }
-            activity.modifyPhone(actId,modifyData);
-        });
     }
 };
+
+$(document).ready(function(){
+    var usersCount=$("#enrollment").html();
+    $("#enrollment").html(fmoney(usersCount,0));
+
+    $(".screenFull").height($(window).height());
+
+    $("#shareFri").click(function(){
+        $("#shareFriend").show();
+    });
+
+    $(".shadow,.close,.close2").click(function(){
+        $(".screenFull").hide();
+    });
+
+    $("#moreCode").click(function(){
+        $(".codeUl li:nth-child(n+4)").show();
+    });
+
+    $("#newPhone").keyup(function(){
+        var thisVal=$(this).val();
+        if(thisVal.length==11){
+            $("#changeSubmit").removeClass("cannotSub");
+        }else {
+            $("#changeSubmit").addClass("cannotSub");
+        }
+    });
+
+    $(".changeBtn").click(function(){
+        $("#modifyPhone").show();
+    });
+
+    //开奖结果
+    $("#winResults").click(function(){
+        activity.winResults(actId,resData);
+        $("#winningList").show();
+    });
+    $("#changeSubmit").click(function(){
+        var modifyData={phone:$("#newPhone").val()};
+        if(!(/^\d+$/).test(modifyData.phone) || modifyData.phone.length<11){
+            errorPrompt("手机号码错误",2000);
+            return;
+        }
+        activity.modifyPhone(actId,modifyData);
+    });
+});
+
 
 

@@ -3,8 +3,30 @@
  */
 //外设
 //设置初始化label样式，并label函数
-  var actImgs='226543',joinfansQrcode,allCoupon,productId,couponList=[];
+  var actImgs='226543',joinfansQrcode,allCoupon,productId,couponList=[],isJihe;
    getUrl();
+$.ajax({
+  url:' /content/bms/merchant/detail',
+  type:'get',
+  success:function(resp){
+    console.log(resp);
+    isJihe=resp.data.isJihe;
+    if(resp.sc=='0'){
+      if(resp.data.isJihe=='1'){
+        $('#needFollow2').css('display','block');
+       var data=resp.data.weixinList;
+       for(v in data){
+         var option=$('<option>'+data[v].publicName+'</option>');
+         option.attr('value',data[v].weixinid);
+         $('#joinfans_weixinid').append(option);
+       }
+     }else{
+       $('#needFollow1').css('display', 'block');
+      //  $('#follow').css('display', 'none');
+     }
+    }
+  }
+})
 if("undefined" == typeof(actType)) {
     var data = {
         "actId":actId
@@ -508,7 +530,6 @@ function getParams() {
 
     //是否需要关注
     data.actBaseinfo.switchJoinfans=$('label.checked').children('input[name=switchJoinfans]').attr('value');
-
     //是否存在活动图片
         if(actImgs) {
             data.actBaseinfo.actImgs = actImgs;
@@ -517,7 +538,7 @@ function getParams() {
         }
     //是否存在二维码
     data.actBaseinfo.switchJoinfans=$('label.checked').children('input[name=switchJoinfans]').attr('value');
-    if($('label.checked').children('input[name=switchJoinfans]').attr('value')=='1'){
+    if($('label.checked').children('input[name=switchJoinfans]').attr('value')=='1'&&isJihe!='1'){
              //需要二维码
              if(joinfansQrcode) {
                  data.actBaseinfo.joinfansQrcode = joinfansQrcode;
@@ -530,6 +551,9 @@ function getParams() {
     else{
          //不需要二维码
      }
+      if(isJihe=='1'&&$('label.checked').children('input[name=switchJoinfans]').attr('value')=='1'){
+      data.actBaseinfo.joinfansWeixinid=$('#joinfans_weixinid').val();
+    }
 
     return data;
 
@@ -552,7 +576,11 @@ $("#save").click(function () {
             data:{data:JSON.stringify(data)},
             success:function (resp) {
                 if(resp.sc=='0'){
-                   jiHeAlert.open('活动创建成功');
+                  if("undefined" == typeof(actId)){
+                    jiHeAlert.open('活动创建成功');
+                  }else{
+                    jiHeAlert.open('活动更新成功');
+                  }
                     setTimeout(function () {
                         window.location.href='../BMSListActive/BMSListActive.html';
                     },1500)
@@ -583,6 +611,7 @@ function timestapToTime(nS) {
     var time2=time1.split(" ");
     var time3=time2[0].split('/');
     var time4=time2[1].split('午');
+    // console.log(time4);
     var time5=time4[1].split(':');
     var ytd='',time='';
     for(v in time3){
@@ -606,11 +635,14 @@ function timestapToTime(nS) {
           }
           time=time5[0]+":"+time5[1];
       }
-    if(time=='12:00'){
-        time='00:00';
+      timeT=time.split(':');
+    if(timeT[0]=='12'){
+        // time='00:00';
+        time='00:'+timeT[1];
     }
-    else if(time=='24:00'){
-        time='12:00';
+    else if(timeT[0]=='24'){
+        // time='12:00';
+        time='12:'+timeT[1];
     }
 
 
@@ -930,6 +962,9 @@ function evaluate(data) {
             $(this).parent().attr('class','checked');
         }
     })
+    if(data.actBaseinfo.joinfansWeixinid){
+      $('#joinfans_weixinid').val(data.actBaseinfo.joinfansWeixinid);
+    }
     /**
      * 判断显示的样式
      */
@@ -939,6 +974,7 @@ function evaluate(data) {
     else {
         $('#needFollow').css('display', 'none');
     }
+
     $('#follow label').click(function () {
         var radioId = $(this).attr('name');
 

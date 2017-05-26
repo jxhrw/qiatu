@@ -238,7 +238,7 @@ $(document).ready(function () {
                         authority();
                     }else{
                         //if(memberFlag==1){/*order*/
-                        payUrl="/html/order/consume.html?member_hotelid="+id+"&productId="+instorePayPid+"&storeName="+productName;
+                        payUrl="/html/h5/order/instorePay.html?member_hotelid="+id+"&productId="+instorePayPid+"&storeName="+productName;
                         $(".pay").prop("href",payUrl);
                         /* }else{
                          authority();
@@ -1098,7 +1098,7 @@ function popup(){
     $(".popup").show();
     $(".mask").show();
     $(".login").click(function () {
-        window.location.href="/user/h5/mbcenter?regsucc_tourl="+encodeURIComponent(window.location.href);
+        window.location.href="/user/h5/qrcode?regsucc_tourl="+encodeURIComponent(window.location.href);
     });
 }
 function cancelPop(){

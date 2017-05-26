@@ -147,6 +147,10 @@ $(document).ready(function(){
                 roombook.paymentInfoList=[{"payType":"3"}]
             }
         }else if(!$(".choice",this).hasClass("choosed")){
+            $(this).parents(".singleAsset").siblings().find("ul").hide();
+            $(this).parents(".singleAsset").siblings().find(".arrowImg").removeClass("turnUp");
+            $(this).parents(".singleAsset").find("ul").toggle();
+            $(this).parents(".singleAsset").find(".arrowImg").toggleClass("turnUp");
             return false;
         }
         $.each($li,function(i){
@@ -535,7 +539,9 @@ $(document).ready(function(){
                         deductionDesc="本次支付："/*+((couponDisplayList[i].paidFaceValue)?couponDisplayList[i].paidFaceValue:0)*/+"1张";
                     }
                 }else {
-                    action='扣减';
+                    if(couponDisplayList[i].couponBaseInfo.couponType=="2" || couponDisplayList[i].couponBaseInfo.couponType=="3"){
+                        action='扣减';
+                    }
                 }
                 if(showCyType=="0"){
                     dikou=showCyCode+couponDisplayList[i].costAmount/100;
@@ -632,7 +638,10 @@ $(document).ready(function(){
                                     //+'<div class="deduction">抵扣 <span class="deductAmount">￥200</span></div>'
                                 +'</li>';
                         });
-                        $("#membershipCardInfo").html(membershipCardUl);
+                        $("#membershipCardInfo").html(membershipCardUl).show().parents(".singleAsset").find(".arrowImg").addClass("turnUp");
+                    }
+                    else {
+                        $("#membershipCardInfo").parents(".singleAsset").remove();
                     }
                     //消费金
                     if(assetsRes.data.cashCouponInfo){
@@ -661,6 +670,9 @@ $(document).ready(function(){
                         });
                         $("#cashCouponInfo").html(cashCouponUl).find(".choiceBtn").css("bottom","-0.3rem");
                     }
+                    else {
+                        $("#cashCouponInfo").parents(".singleAsset").remove();
+                    }
                     //房券
                     if(assetsRes.data.roomCouponInfo){
                         $("#roomCouponInfo").parents(".singleAsset").show();
@@ -687,6 +699,9 @@ $(document).ready(function(){
                                 +'</li>';
                         });
                         $("#roomCouponInfo").html(roomCouponUl);
+                    }
+                    else {
+                        $("#roomCouponInfo").parents(".singleAsset").remove();
                     }
                     //折扣券
                     if(assetsRes.data.discountCouponInfo){
@@ -715,6 +730,9 @@ $(document).ready(function(){
                         });
                         $("#discountCouponInfo").html(discountCouponUl);
                     }
+                    else {
+                        $("#discountCouponInfo").parents(".singleAsset").remove();
+                    }
                     //红包
                     if(assetsRes.data.redPacketInfo){
                         $("#redPacketInfo").parents(".singleAsset").show();
@@ -742,9 +760,15 @@ $(document).ready(function(){
                         });
                         $("#redPacketInfo").html(redPacketUl);
                     }
+                    else {
+                        $("#redPacketInfo").parents(".singleAsset").remove();
+                    }
                     //积分兑房
                     if(assetsRes.data.roomPointsInfo){
                         $("#roomPointsInfo").html(assetsRes.data.roomPointsInfo.pointsExchangeDesc).parents(".singleAsset").show();
+                    }
+                    else {
+                        $("#roomPointsInfo").parents(".singleAsset").remove();
                     }
                     //交换资产
                     if(assetsRes.data.jiheXCouponInfo){
@@ -844,9 +868,13 @@ $(document).ready(function(){
                     var couponDisplayList=assetsRes.data.membershipCardInfo.couponDisplayList;
                     $("#mbCards").addClass("choosed");
                     assetsShow(couponDisplayList,"#membershipCardInfo",".choiceBtn");
+                    deductible($("#mbCardsInfo"),assetsRes.data.membershipCardInfo.selectedCouponValue);
                 }else {
                     $("#mbCards").removeClass("choosed");
                     assetsHide("#membershipCardInfo");
+                    if(assetsRes.data.membershipCardInfo){
+                        available($("#mbCardsInfo"),assetsRes.data.membershipCardInfo.availableCouponPieces);
+                    }
                 }
                 //消费金展示
                 if(assetsRes.data.cashCouponInfo && assetsRes.data.cashCouponInfo.isSelected){
@@ -854,9 +882,13 @@ $(document).ready(function(){
                     var couponDisplayList=assetsRes.data.cashCouponInfo.couponDisplayList;
                     $("#cashCoupons").addClass("choosed");
                     assetsShow(couponDisplayList,"#cashCouponInfo",".choiceBtn");
+                    deductible($("#cashCouponsInfo"),assetsRes.data.cashCouponInfo.selectedCouponValue);
                 }else {
                     $("#cashCoupons").removeClass("choosed");
                     assetsHide("#cashCouponInfo");
+                    if(assetsRes.data.cashCouponInfo){
+                        available($("#cashCouponsInfo"),assetsRes.data.cashCouponInfo.availableCouponPieces);
+                    }
                 }
                 //房券展示
                 if(assetsRes.data.roomCouponInfo && assetsRes.data.roomCouponInfo.isSelected){
@@ -864,9 +896,13 @@ $(document).ready(function(){
                     var couponDisplayList=assetsRes.data.roomCouponInfo.couponDisplayList;
                     $("#roomCoupons").addClass("choosed");
                     assetsShow(couponDisplayList,"#roomCouponInfo",".choiceBtn");
+                    deductible($("#roomCouponsInfo"),assetsRes.data.roomCouponInfo.selectedCouponValue);
                 }else {
                     $("#roomCoupons").removeClass("choosed");
                     assetsHide("#roomCouponInfo");
+                    if(assetsRes.data.roomCouponInfo){
+                        available($("#roomCouponsInfo"),assetsRes.data.roomCouponInfo.availableCouponPieces);
+                    }
                 }
                 //折扣券展示
                 if(assetsRes.data.discountCouponInfo && assetsRes.data.discountCouponInfo.isSelected){
@@ -874,9 +910,13 @@ $(document).ready(function(){
                     var couponDisplayList=assetsRes.data.discountCouponInfo.couponDisplayList;
                     $("#discCoupons").addClass("choosed");
                     assetsShow(couponDisplayList,"#discountCouponInfo",".choiceBtn");
+                    deductible($("#discCouponsInfo"),assetsRes.data.discountCouponInfo.selectedCouponValue);
                 }else {
                     $("#discCoupons").removeClass("choosed");
                     assetsHide("#discountCouponInfo");
+                    if(assetsRes.data.discountCouponInfo){
+                        available($("#discCouponsInfo"),assetsRes.data.discountCouponInfo.availableCouponPieces);
+                    }
                 }
                 //红包展示
                 if(assetsRes.data.redPacketInfo && assetsRes.data.redPacketInfo.isSelected){
@@ -884,9 +924,13 @@ $(document).ready(function(){
                     var couponDisplayList=assetsRes.data.redPacketInfo.couponDisplayList;
                     $("#envelopes").addClass("choosed");
                     assetsShow(couponDisplayList,"#redPacketInfo",".choiceBtn");
+                    deductible($("#envelopesInfo"),assetsRes.data.redPacketInfo.selectedCouponValue);
                 }else {
                     $("#envelopes").removeClass("choosed");
                     assetsHide("#redPacketInfo");
+                    if(assetsRes.data.redPacketInfo){
+                        available($("#envelopesInfo"),assetsRes.data.redPacketInfo.availableCouponPieces);
+                    }
                 }
                 //积分兑房展示
                 if(assetsRes.data.roomPointsInfo && assetsRes.data.roomPointsInfo.isSelected){
@@ -927,7 +971,7 @@ $(document).ready(function(){
                         if(pointsFixedDesc.indexOf("应付为0")>-1){
                             $("#buyPoints").hide();
                         }else {
-                            $("#buyPoints").show().attr("href","/html/h5/order/virtualGoods.html?mc=zqjf&id="+buyPointsId+"&needpoints="+productPiontPrice);
+                            $("#buyPoints").show().attr("href","/html/h5/product/detail/virtualGoods.html?mc=zqjf&id="+buyPointsId+"&needpoints="+productPiontPrice);
                         }
                     }
                     $("#myPoints").html(pointsFixedDesc);
@@ -943,7 +987,7 @@ $(document).ready(function(){
                     }
                 }else {
                     roomPayAmount=productPrice-membershipCardAmount-couponAmount-roomCouponAmount-discountCouponAmount-redPacketAmount-roomPointsAmount-jiheXCouponAmount-cashPointsAmount-payPointAmounts;
-                    if(roomPayAmount>0 && $.inArray("0", payTypes)!=-1 && (!payChannelList || payChannelList.length==0)){
+                    if(roomPayAmount>0 && $.inArray("0", payTypes)!=-1 && (!payChannelList || payChannelList.length==0 || (payChannelList.length==1 && payChannelList[0]==""))){
                         $("#createandsubmit").addClass("unSubmit");
                     }
                     else if(roomPayAmount>0 && $.inArray("0", payTypes)==-1){
@@ -1010,6 +1054,22 @@ $(document).ready(function(){
         });
     }
     //function 订房-------------------------------------------end
+
+    //本店资产大项抵扣
+    function deductible(dom,value){
+        if(value){
+            if(showCyType=="0" || showCyType=="5"){
+                value=value/100;
+            }
+            dom.html('-'+showCyCode+value+showCyUnit).addClass("paleRed");
+        }
+    }
+    //本店资产几张可用
+    function available(dom,value){
+        if(value){
+            dom.html(value+"张可用").removeClass("paleRed");
+        }
+    }
 
     //注册
     var jsTime=0;

@@ -1,10 +1,11 @@
-
+    var hotelid;
 	var actid;
     var order;
     var acttype;
     var listdata;
     var prize;
     var allpage;
+    var groupid;
 $(document).ready(function(){
 	$(".close").click(function() {
     	close();
@@ -13,7 +14,7 @@ $(document).ready(function(){
     	close();
     })
 // -----------------------------
-	
+
 		var page = {"status":"","pageno":1,"pagecnt":5}
 		$.ajax({
 			type:"POST",
@@ -34,7 +35,6 @@ $(document).ready(function(){
 			            	"pageno":p,
 			            	"pagecnt":5
 			            }
-			            console.log(allpage);
 			            $.ajax({
 			            	type:"POST",
 			            	url:"/activity/bms/list",
@@ -42,6 +42,7 @@ $(document).ready(function(){
 			            	data:{data:JSON.stringify(data)},
 			            	success:function (senddata) {
 			            		console.log("success");
+			            		$(".concent").remove();
 			            		ListData(senddata);
 			            	},
 			            	error:function() {
@@ -56,21 +57,254 @@ $(document).ready(function(){
 				console.log("error");
 			}
 		})
-//-----------------------------------	
-//获取当前页码
-			
-		       
-		   
-
-   
-
+//-----------------------------------
+//赛选列表
+  //草稿
+		  $("#cao").click(function () {
+		  	var cao = {"status":"0","pageno":1,"pagecnt":5}
+		  	$.ajax({
+		        type:"POST",
+				url:"/activity/bms/list",
+				dataType:"json",
+				data: {data:JSON.stringify(cao)},
+				success:function (data) {
+					$(".concent").remove();
+					ListData(data);
+					Btnstyle("J-cao");
+					$(".tcdPageCode").createPage({
+					    pageCount: data.pageinfo.pageAmount,
+					    current:1,
+					    backFn:function(p){
+					        //单击回调方法，p是当前页码
+					        console.log(p);
+					        $(".concent").remove();
+					        var data = {
+					            "status":"0",
+					            "pageno":p,
+					            "pagecnt":5
+					        }
+					     	$.ajax({
+					            type:"POST",
+					            url:"/activity/bms/list",
+					            datatype:"json",
+					            data:{data:JSON.stringify(data)},
+					            success:function (senddata) {
+					            	console.log("success");
+					            	$(".concent").remove();
+					            	ListData(senddata);
+					            	Btnstyle("J-cao");
+					            },
+					            error:function() {
+					            	console.log("error");
+					            }
+					        });
+						}
+		  			})
+		       },
+		       error:function () {
+		       	    console.log("error");
+		       }
+		    })
+		    $(".list-warp").hide();
+		})
+	//进行中
+		 $("#ing").click(function () {
+		  	var ing = {"status":"1","pageno":1,"pagecnt":5}
+		  	$.ajax({
+		        type:"POST",
+				url:"/activity/bms/list",
+				dataType:"json",
+				data: {data:JSON.stringify(ing)},
+				success:function (data) {
+					$(".concent").remove();
+					ListData(data);
+					Btnstyle("J-ing");
+					$(".tcdPageCode").createPage({
+					    pageCount: data.pageinfo.pageAmount,
+					    current:1,
+					    backFn:function(p){
+					        //单击回调方法，p是当前页码
+					        console.log(p);
+					        $(".concent").remove();
+					        var data = {
+					            "status":"1",
+					            "pageno":p,
+					            "pagecnt":5
+					        }
+					     	$.ajax({
+					            type:"POST",
+					            url:"/activity/bms/list",
+					            datatype:"json",
+					            data:{data:JSON.stringify(data)},
+					            success:function (senddata) {
+					            	console.log("success");
+					            	$(".concent").remove();
+					            	ListData(senddata);
+					            	Btnstyle("J-ing");
+					            },
+					            error:function() {
+					            	console.log("error");
+					            }
+					        });
+						}
+		  			})
+		       },
+		       error:function () {
+		       	    console.log("error");
+		       }
+		    })
+		    $(".list-warp").hide();
+		})
+	//等待开奖
+        $("#wait").click(function () {
+		  	var wait = {"status":"4","pageno":1,"pagecnt":5}
+		  	$.ajax({
+		        type:"POST",
+				url:"/activity/bms/list",
+				dataType:"json",
+				data: {data:JSON.stringify(wait)},
+				success:function (data) {
+					$(".concent").remove();
+					ListData(data);
+					Btnstyle("J-wait");
+					$(".tcdPageCode").createPage({
+					    pageCount: data.pageinfo.pageAmount,
+					    current:1,
+					    backFn:function(p){
+					        //单击回调方法，p是当前页码
+					        console.log(p);
+					        $(".concent").remove();
+					        var data = {
+					            "status":"4",
+					            "pageno":p,
+					            "pagecnt":5
+					        }
+					     	$.ajax({
+					            type:"POST",
+					            url:"/activity/bms/list",
+					            datatype:"json",
+					            data:{data:JSON.stringify(data)},
+					            success:function (senddata) {
+					            	console.log("success");
+					            	$(".concent").remove();
+					            	ListData(senddata);
+					            	Btnstyle("J-wait");
+					            },
+					            error:function() {
+					            	console.log("error");
+					            }
+					        });
+						}
+		  			})
+		       },
+		       error:function () {
+		       	    console.log("error");
+		       }
+		    })
+		    $(".list-warp").hide();
+		})
+   //已结束
+        $("#end").click(function () {
+		  	var end = {"status":"2","pageno":1,"pagecnt":5}
+		  	$.ajax({
+		        type:"POST",
+				url:"/activity/bms/list",
+				dataType:"json",
+				data: {data:JSON.stringify(end)},
+				success:function (data) {
+					$(".concent").remove();
+					ListData(data);
+					Btnstyle("J-end");
+					$(".tcdPageCode").createPage({
+					    pageCount: data.pageinfo.pageAmount,
+					    current:1,
+					    backFn:function(p){
+					        //单击回调方法，p是当前页码
+					        console.log(p);
+					        $(".concent").remove();
+					        var data = {
+					            "status":"2",
+					            "pageno":p,
+					            "pagecnt":5
+					        }
+					     	$.ajax({
+					            type:"POST",
+					            url:"/activity/bms/list",
+					            datatype:"json",
+					            data:{data:JSON.stringify(data)},
+					            success:function (senddata) {
+					            	console.log("success");
+					            	$(".concent").remove();
+					            	ListData(senddata);
+					            	Btnstyle("J-end");
+					            },
+					            error:function() {
+					            	console.log("error");
+					            }
+					        });
+						}
+		  			})
+		       },
+		       error:function () {
+		       	    console.log("error");
+		       }
+		    })
+		    $(".list-warp").hide();
+		})
+	//所有状态
+	    $(".J-all").click(function () {
+	    	var page = {"status":"","pageno":1,"pagecnt":5}
+			$.ajax({
+				type:"POST",
+				url:"/activity/bms/list",
+				dataType:"json",
+				data: {data:JSON.stringify(page)},
+				success:function (data) {
+					$(".concent").remove();
+					ListData(data);
+					$(".tcdPageCode").createPage({
+				        pageCount: data.pageinfo.pageAmount,
+				        current:1,
+				        backFn:function(p){
+				            //单击回调方法，p是当前页码
+				            console.log(p);
+				            $(".concent").remove();
+				            var data = {
+				            	"status":"",
+				            	"pageno":p,
+				            	"pagecnt":5
+				            }
+				            $.ajax({
+				            	type:"POST",
+				            	url:"/activity/bms/list",
+				            	datatype:"json",
+				            	data:{data:JSON.stringify(data)},
+				            	success:function (senddata) {
+				            		console.log("success");
+				            		$(".concent").remove();
+				            		ListData(senddata);
+				            	},
+				            	error:function() {
+				            		console.log("error");
+				            	}
+				            });
+				            console.log(p);
+				        }
+			         });
+				},
+				error:function () {
+					console.log("error");
+				}
+			})
+			$(".list-warp").hide();
+	    })
 //获取中奖人信息
   $(".J-luckman").click(function () {
 
         	var luckman = {"actId":actid};
         	if (actid == undefined) {
 				 return;
-				 $(".winner-warp").hide();	
+				 $(".winner-warp").hide();
 		    } else {
 		    	$.ajax({
 			    	type:"POST",
@@ -80,7 +314,7 @@ $(document).ready(function(){
 				    success:function (luckdata) {
 
 				    		console.log("success");
-				    			var a = "";
+				    			var a = "<p><span class='yhx_span1'>昵称</span><span class='yhx_span'>中奖码</span><span class='yhx_span'>手机号码</span><span class='yhx_span'>状态</span></p>";
 					    		$.each(luckdata.data,function (index) {
 
 							    	var nickname =luckdata.data[index].nickname;
@@ -94,32 +328,31 @@ $(document).ready(function(){
 									} else {
 										prizesStatus = "已发奖";
 									}
-									
+
 									// window.location.reload();
-									a +="<ul><li><span class='first'>昵称:</span><span class='second'>" + nickname + "</span></li><li><span class='first'>手机号码:</span><span class='second'>"+ phone +"</span></li><li><span class='first'>中奖码:</span><span class='second'>"+ code +"</span></li><li><span class='first'>状态:</span><span class='second'>"+ prizesStatus +"</span></li></ul>"
+									a +="<p><span class='yhx_span1'>"+nickname+"</span><span class='yhx_span'>"+code+"</span><span class='yhx_span'>"+phone+"</span><span class='yhx_span'>"+prizesStatus+"</span></p>"
 								})
 							    $("#winner").html(a);
 								$(".winner-warp").show();
-								$(".tcback").show();	
+								$(".tcback").show();
 								console.log("success");
-				    		
-                            
+
+
 				    	},
 				    	error:function () {
 				    		console.log("error");
 				    	}
 			    })
-		    }	
-	    	  	
+		    }
+
         })
-    	 		
+
 //复制活动链接
     $(".J-link").click(function () {
-    	
+
     	var copylink = {"actId":actid}
     	if (actid == undefined) {
-	        	return 0;
-
+	        	return;
 	    } else {
 	    	var dat;
 	    	$.ajax({
@@ -131,26 +364,32 @@ $(document).ready(function(){
                    $(".success-warp").show();
                    $(".tcback").show();
 		        	// console.log(datalink.data);
-		        	$(".J-success").click(function () {
+		        	$(".act-link").html(datalink.data);
+		        	$(".list-link").html("http://test.jihelife.com/html/mobileBms/activity/activities.html?groupid="+ groupid +"&hotelid=" + hotelid);
+		        	$(".J-actsuccess").click(function () {
 		        		$("#biao1").show();
 		        		$("#biao1").val(datalink.data);
 						$("#biao1").select();
-					    document.execCommand("Copy");//执行复制	
+					    document.execCommand("Copy");//执行复制
 					    $("#biao1").hide();
-					    jiHeAlert.open("复制活动链接成功");	
+					    jiHeAlert.open("复制活动链接成功");
 		        	})
-		        		          
+
 		        },
 		        error:function () {
 		        	console.log("error");
 		        }
 			});
-									
-								
-								
-
 	    }
-		
+    })
+
+    $(".J-listsuccess").click(function () {
+    	$("#biao1").show();
+		$("#biao1").val("http://test.jihelife.com/html/mobileBms/activity/activities.html?groupid="+ groupid +"&hotelid=" + hotelid);
+	    $("#biao1").select();
+		document.execCommand("Copy");//执行复制
+		$("#biao1").hide();
+		jiHeAlert.open("复制活动链接成功");
     })
 //活动下线
     $(".J-offbtn").click(function () {
@@ -165,7 +404,7 @@ $(document).ready(function(){
    	    	datatype:"json",
    	    	data:{data:JSON.stringify(offdata)},
    	    	success:function (data) {
-   	    		
+
    	    			$(".off-warp").show();
    	    			$(".tcback").show();
    	    			$("body").on("click",".J-OFFbtn",function () {
@@ -175,8 +414,8 @@ $(document).ready(function(){
 				   	    		// console.log("success");
 				   	    		close();
 				   	})
-   	    			
-   	    		
+
+
    	    	},
    	    	error:function () {
    	    		console.log("error");
@@ -197,7 +436,7 @@ $(document).ready(function(){
    	    	datatype:"json",
    	    	data:{data:JSON.stringify(updata)},
    	    	success:function (data) {
-   	    		
+
    	    			$(".up-warp").show();
    	    			$(".tcback").show();
    	    			$("body").on("click",".J-Upbtn",function () {
@@ -206,15 +445,15 @@ $(document).ready(function(){
 				   	    		// console.log("success");
 				   	    		close();
 				   	})
-   	    			
-   	    		
+
+
    	    	},
    	    	error:function () {
    	    		console.log("error");
    	    	}
    	    })
    	   }
-   		
+
     })
 //复制活动说明
 
@@ -231,10 +470,16 @@ $(document).ready(function(){
 	    		data:{data:JSON.stringify(copyact)},
 	    		success:function (smdata) {
                     prize = smdata;
-                    
+
 	    			var actname = smdata.data.actBaseinfo.actTitle;
-	    			var endtime = getDate(parseInt(smdata.data.actBaseinfo.actEndTime));
-	    			var publisht = getDate(parseInt(smdata.data.actBaseinfo.actPubTime));
+	    			var eDate = new Date(parseInt(smdata.data.actBaseinfo.actEndTime));
+	    			var endtshi = eDate.getHours();
+	    			var endtfen = eDate.getMinutes();
+	    			var pDate = new Date(parseInt(smdata.data.actBaseinfo.actPubTime));
+	    			var pubtshi = pDate.getHours();
+	    			var pubtfen = pDate.getMinutes();
+	    			var endtime = getDate(parseInt(smdata.data.actBaseinfo.actEndTime)) + " " + TimeG(endtshi) + ":" + TimeG(endtfen);
+	    			var publisht = getDate(parseInt(smdata.data.actBaseinfo.actPubTime))+ " " + TimeG(pubtshi) + ":" + TimeG(pubtfen);
 	    		    var	prizename = "";
 	    		    var prizecount = "";
 	    		    var prizesdesc = "";
@@ -249,7 +494,7 @@ $(document).ready(function(){
 			                        prizename += prize.data.actPrizeList[i].actPrizeObjects[j].objName + "x" + objamount +"<br>";
 			                    }
                             }
-                            
+
                             if (!("prizeDese" in smdata.data.actPrizeList)) {
                             	console.log("aaaa")
                             	$(".text span:eq(1)").html("");
@@ -263,10 +508,10 @@ $(document).ready(function(){
 	    		    	prizesdesc = "";
 	    		    	prizecount = "";
 	    		    }
-	    			
+
 	    			// console.log(prizesname);
-                     
-	    			
+
+
 	    		    $(".endt").html(endtime);
 	    			$(".publisht").html(publisht);
 	    			$(".hui").html(prizename);
@@ -288,26 +533,26 @@ $(document).ready(function(){
                           var attention ="/activity/bms/qrcode?data={'actId':"+ actid +"}";
                           img = "<img class='ma-img' src=" + attention  + ">";
                           $("#copyma").html(img);
-						
+
 	    			}
-	    			$(".copy-warp").show();	
+	    			$(".copy-warp").show();
 	    			$(".tcback").show();
-	   	    			
+
 	    		},
 	    		error:function () {
 	    			console.log("error");
 	    		}
 	    	})
    	    }
-    	
+
     })
-    
-    $(".J-Shuoming").click(function () {
-    	copyMes();
-    	jiHeAlert.open("复制活动说明成功");
-    	// $(".copy-warp").hide();	
-	    // $(".tcback").hide();
-    })
+
+    // $(".J-Shuoming").click(function () {
+    // 	copyMes();
+    // 	jiHeAlert.open("复制活动说明成功");
+    // 	// $(".copy-warp").hide();
+	   //  // $(".tcback").hide();
+    // })
 //删除活动
     $(".J-delete").click(function () {
 
@@ -333,9 +578,9 @@ $(document).ready(function(){
 		   	    	}
 		   	    })
 
-	   	    		
+
 	   	    })
-   	    	
+
    	   }
     })
 //查看活动配置信息
@@ -359,7 +604,7 @@ $(document).ready(function(){
 						datatype:"json",
 						data:{data:JSON.stringify(chakan)},
 				        success:function (chalink) {
-				        	
+
 								$("#mytxt").html(chalink.data);
 		                        var actname = listdata.data[order].actTitle;
 		                        var shareurl =  listdata.data[order].shareDestUrl;
@@ -376,7 +621,7 @@ $(document).ready(function(){
 		                        	$(".r-second:eq(7)").show();
 		                        	Lphone = prize.data.actBaseinfo.contactWay;
 		                        }
-		                         
+
 		                        // console.log(444444);
 		                        if(prize != undefined) {
 		                        	for (var i=0;i<prize.data.actPrizeList.length;i++) {
@@ -399,26 +644,27 @@ $(document).ready(function(){
 		                        	prizename = "";
 		                        	prizecount = "";
 		                        }
-		                        
+
 		                        var actdesc = listdata.data[order].actDesc;
 		                        var sDate = new Date(parseInt(listdata.data[order].actBeginTime));
 		                        var eDate = new Date(parseInt(listdata.data[order].actEndTime));
 		                        var pDate = new Date(parseInt(listdata.data[order].actPubTime));
 		                        var Sdateshi = sDate.getHours();
+		                        console.log(typeof Sdateshi);
 		                        var Sdatefen = sDate.getMinutes();
 		                        var Edateshi = eDate.getHours();
 		                        var Edatefen = eDate.getMinutes();
 		                        var Pdateshi = pDate.getHours();
 		                        var Pdatefen = pDate.getMinutes();
 
-		                        var actBtime = getDate(parseInt(listdata.data[order].actBeginTime))+ " " + Sdateshi +"时"+ Sdatefen+"分";
-		                        var actEtime = getDate(parseInt(listdata.data[order].actEndTime))+ " " + Edateshi +"时"+ Edatefen+"分";
-		                        var publisht = getDate(parseInt(listdata.data[order].actPubTime))+ " " + Pdateshi +"时"+ Pdatefen+"分";
-		                      	
-		                       
+		                        var actBtime = getDate(parseInt(listdata.data[order].actBeginTime))+ " " + TimeG(Sdateshi) +":"+ TimeG(Sdatefen);
+		                        var actEtime = getDate(parseInt(listdata.data[order].actEndTime))+ " " + TimeG(Edateshi) +":"+ TimeG(Edatefen);
+		                        var publisht = getDate(parseInt(listdata.data[order].actPubTime))+ " " + TimeG(Pdateshi) +":"+TimeG(Pdatefen);
+
+
 		                        // console.log(dateshi);
 		                        // console.log(datefen);
-   
+
 		                        $(".r-second:eq(0)").html(actname);
 		                        $(".r-second:eq(1)").html(shareurl);
 		                        $(".r-second:eq(2)").html(sharetitle);
@@ -437,21 +683,11 @@ $(document).ready(function(){
 		                        } else {
                                      $(".r-second:eq(10)").html("几何用户");
 		                        }
-		                        if (prize.data.actBaseinfo.switchJoinfans == "0") {
 		                        	$("#code").children().remove();
 		                        	$(".r-second:eq(11)").html("否");
 		                        	var src = "/activity/bms/qrcode?data={'actId':"+ actid +"}";
 		                        	img = "<img class='ma-img' src=" + src  + ">";
 		                        	$("#code").html(img);
-		                        } else {
-		                        	$("#code").children().remove();
-		                        	$(".r-second:eq(11)").html("是");
-		                        	var joinfansqrcode = listdata.data[order].joinfansQrcode;
-		                        	var attention = "http://7xio74.com2.z0.glb.clouddn.com/" + joinfansqrcode;
-		                        	var img = "";
-		                        	img = "<img class='ma-img' src=" + attention  + ">";
-		                        	$("#code").html(img);
-		                        }
 		                        //填充数据
 
 		                        $(".cha-warp").show();
@@ -466,8 +702,20 @@ $(document).ready(function(){
 					console.log("error");
 				}
 	    	})
-	    	
+
 	    }
+	})
+//点击活动
+    $("body").on("click",".concent",function () {
+
+		order = parseInt($(".active").attr("order"));
+		if ($(this).attr("class") == "concent") {
+				actid = undefined;
+		} else {
+				hotelid = listdata.data[order].hotelId;
+				actid = listdata.data[order].actId;
+                groupid = listdata.data[order].groupId;
+		}
 	})
 //活动流程介绍
     $(".creation").click(function () {
@@ -475,20 +723,22 @@ $(document).ready(function(){
     	$(".tcback").show();
     })
 //----------------------------
-	$(".all").click(function () {
-		if ($(".list-warp").is(':hidden')) {
-			$(".list-warp").show();
-		} else {
-			$(".list-warp").hide();
-		}
+	$(".all").click(function (e) {
+		e.stopPropagation();
+		$(".list-warp").toggle();
+
+	})
+	$('body').click(function(){
+		$(".list-warp").hide();
 	})
 //---------------------------
+    $(".concent").off("click");
 	$(".concent").click(function () {
         var cs = $(this).children(":last-child").attr("class");
 		if (cs == "J-to"||cs == "J-yet") {
 			$(".btn").show().removeClass("yangshi");
 		}
-	})	
+	})
 //已结束状态样式
 	$(".J-end").parent().css({'color':'#d4d4d4'});
 
@@ -497,7 +747,7 @@ $(document).ready(function(){
 		var last = $(this).children(":last-child").attr("class");
 		Btnstyle(last);
 	})
-	
+
 
 	$(".J-all").click(function (e) {
 		e.stopPropagation();
@@ -513,24 +763,24 @@ $(document).ready(function(){
 	})
 	$(".J-setact").click(function () {
 		if (acttype == "1"||acttype == "2"||acttype == "3") {
-			var rl = "/html/bms/createActivity/index.html";
+			var rl = "/html/bms/pcBms/createActivity/index.html";
 	   		document.location.href = rl + "?actType=" + acttype;
 		} else {
-			return 0;
+			return;
 		}
-	   	
+
 	})
 
 //编辑活动
     $(".J-bian").click(function () {
     	if (actid == undefined) {
-    		return 0;
+    		return;
     	} else {
-    		var rl = "/html/bms/createActivity/index.html";
+    		var rl = "/html/bms/pcBms/createActivity/index.html";
         	document.location.href = rl + "?actId=" + actid;
     	}
-        
-    }) 
+
+    })
 //活动流程说动滑动窗口
     var d;
     $(".prev_page").hide();
@@ -557,7 +807,7 @@ $(document).ready(function(){
 		}
 			$(".prev_page").show();
 
-	})	
+	})
 
 	$(".prev_page").click(function () {
 		console.log(d);
@@ -580,7 +830,7 @@ $(document).ready(function(){
 			$(".prev_page").show();
 		}
 		$(".next_page").show();
-	})	
+	})
 
 	$(".J-creatact").click(function () {
 		$(".set-warp").show();
@@ -588,77 +838,53 @@ $(document).ready(function(){
 	})
 
 	// $(".concent").children(":last-child").css({"border-right":"none"})
-    
+
 })
 
 
 //复制活动
 // var copyMesT=0;
 //复制活动
-function copyMes() {
-    html2canvas($("#copy"),{
-        height: $("#copy").outerHeight() + 220,
-        onrendered: function (canvas) {
+// function copyMes() {
+//     html2canvas($("#copy"),{
+//         height: $("#copy").outerHeight() + 220,
+//         onrendered: function (canvas) {
 
-            var image =canvas.toDataURL("image/png").replace("image/png","image/octet-stream");
-           document.location.href=image; // it will save locally
-            // if(copyMesT==0){
-            //     copyMesT=1;
-            //     copyMes();
-            // }
-            // else{
-            //     copyMesT=0;
-            //     var image =canvas.toDataURL("image/png").replace("image/png","image/octet-stream");
-            //     window.location.href=image; // it will save locally
-            // }
-        }
+//             var image =canvas.toDataURL("image/png").replace("image/png","image/octet-stream");
+//            document.location.href=images; // it will save locally
+//             // if(copyMesT==0){
+//             //     copyMesT=1;
+//             //     copyMes();
+//             // }
+//             // else{
+//             //     copyMesT=0;
+//             //     var image =canvas.toDataURL("image/png").replace("image/png","image/octet-stream");
+//             //     window.location.href=images; // it will save locally
+//             // }
+//         }
 
-    })
-    
-}
+//     })
+
+// }
 
 function ListData(data) {
 	    listdata = data;
 		$.each(data.data,function (index) {
-		$("tbody").append("<tr class='concent one' onclick='gouxuan(this)' order="+index+"><td class='J-first'><img src='img/gou1.jpg'></td><td></td><td></td><td></td><td><span class='start-time'></span>至<span class='end-time'></span></td><td></td><td id='last'></td></tr>")
-		            
-	    Tian(".one",index,data);
-	    $(".concent").removeClass("one");
-	    // $(".concent:eq(0)").addClass("active")
+			$("tbody").append("<tr class='concent one' onclick='gouxuan(this)' order="+index+"><td class='J-first'><img src='img/gou1.jpg'></td><td></td><td></td><td></td><td><span class='start-time'></span>至<span class='end-time'></span></td><td></td><td id='last'></td></tr>")
+
+		    Tian(".one",index,data);
+		    $(".concent").removeClass("one");
+		    // $(".concent:eq(0)").addClass("active")
 
 		})
-		    	 // console.log(222);
-		    	  // console.log(data.data[order].actId);
-		    	  
-		$("body").on("click",".concent",function () {
 
-		order = $(".active").attr("order");
-		order = parseInt(order);
-
-        
-	    if ($(this).attr("class") == "concent") {
-			   actid = undefined;
-		} else {
-			   actid = data.data[order].actId;
-		}
-		
-		
-		 console.log(actid);
-				
-	})
 }
 function close() {
 	$(".a").hide();
 	$(".tcback").hide();
 }
-// function close1() {
-// 	$(".delete-warp").hide();
-// }
-// function close2() {
-// 	$("#Copydata").hide();
-// }
-//生成二维码
-		
+
+
     function toUtf8(str) {
 		var out, i, len, c;
 		out = "";
@@ -683,7 +909,7 @@ function close() {
 
 // 填充数据
     function Tian(boj,i,data) {
-        
+
     	var Status = data.data[i].status;
 
 		$(boj).children(":eq(1)").append(data.data[i].actTitle);
@@ -706,9 +932,9 @@ function close() {
     	var Pdateshi = pDate.getHours();
     	var Pdatefen = pDate.getMinutes();
 
-    	var actbeigintime = getDate(parseInt(data.data[i].actBeginTime))+ " " + Sdateshi +"时"+ Sdatefen+"分";
-    	var actendtime = getDate(parseInt(data.data[i].actEndTime))+ " " + Edateshi +"时"+ Edatefen+"分";
-    	var actpubtime = getDate(parseInt(data.data[i].actPubTime))+ " " + Pdateshi +"时"+ Pdatefen+"分";
+    	var actbeigintime = getDate(parseInt(data.data[i].actBeginTime))+ " " + TimeG(Sdateshi) +":"+ TimeG(Sdatefen);
+    	var actendtime = getDate(parseInt(data.data[i].actEndTime))+ " " + TimeG(Edateshi) +":"+ TimeG(Edatefen);
+    	var actpubtime = getDate(parseInt(data.data[i].actPubTime))+ " " + TimeG(Pdateshi) +":"+ TimeG(Pdatefen);
 		$(boj).children(":eq(4)").find("span:eq(0)").append(actbeigintime);
 		$(boj).children(":eq(4)").find("span:eq(1)").append(actendtime);
 		$(boj).children(":eq(5)").append(actpubtime);
@@ -765,21 +991,21 @@ function gouxuan(gou) {
 	}
     Btnstyle(gou);
 }
-  
+
 //根据状态赛选活动列表
-function saixuan(obj) {
-	//获取需要表现的列表项并显示
-	var a = $(obj).attr("id");
-	var t = "J-"+a;
-	$(".J-"+a).parent().addClass("xian");
-	$(".concent").hide();
-	//将需要的列表显示出来
-	$(".xian").show();
-	$(".xian").removeClass("xian");
-	//隐藏操作按钮
-	Btnstyle(t);
-	$(".list-warp").show();
-}
+// function saixuan(obj) {
+// 	//获取需要表现的列表项并显示
+// 	var a = $(obj).attr("id");
+// 	var t = "J-"+a;
+// 	$(".J-"+a).parent().addClass("xian");
+// 	$(".concent").hide();
+// 	//将需要的列表显示出来
+// 	$(".xian").show();
+// 	$(".xian").removeClass("xian");
+// 	//隐藏操作按钮
+// 	Btnstyle(t);
+// 	$(".list-warp").show();
+// }
 
 //改变操作按钮的样式
 function Btnstyle(str) {
@@ -853,6 +1079,15 @@ function getDate(time) {//将时间戳转化为日期
 	 return y + "." + (m < 10 ? "0" + m : m) + "." + (d < 10 ? "0" + d : d);
 }
 
+function TimeG(time) {
+	if (time/10 > 1) {
+
+		time = time;
+	} else {
+		time = "0" + time;
+	}
+	return time;
+}
 
   // function ActType(obj) {
   // 	var newUrl = "";
@@ -873,20 +1108,19 @@ function getDate(time) {//将时间戳转化为日期
   // }
 
 //修改actType的值
-//  function changeURLArg(url,arg,arg_val){ 
-//     var pattern=arg+'=([^&]*)'; 
-//     var replaceText=arg+'='+arg_val; 
-//     if(url.match(pattern)){ 
-//         var tmp='/('+ arg+'=)([^&]*)/gi'; 
-//         tmp=url.replace(eval(tmp),replaceText); 
-//         return tmp; 
-//     }else{ 
-//         if(url.match('[\?]')){ 
-//             return url+'&'+replaceText; 
-//         }else{ 
-//             return url+'?'+replaceText; 
-//         } 
-//     } 
-//     return url+'\n'+arg+'\n'+arg_val; 
+//  function changeURLArg(url,arg,arg_val){
+//     var pattern=arg+'=([^&]*)';
+//     var replaceText=arg+'='+arg_val;
+//     if(url.match(pattern)){
+//         var tmp='/('+ arg+'=)([^&]*)/gi';
+//         tmp=url.replace(eval(tmp),replaceText);
+//         return tmp;
+//     }else{
+//         if(url.match('[\?]')){
+//             return url+'&'+replaceText;
+//         }else{
+//             return url+'?'+replaceText;
+//         }
+//     }
+//     return url+'\n'+arg+'\n'+arg_val;
 // }
-

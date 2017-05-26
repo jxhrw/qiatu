@@ -10,7 +10,7 @@ $(document).ready(function(){
             window.location.href="http://apis.map.qq.com/tools/poimarker?type=0&marker=coord:" + lat + "," + lon + ";title:" + "西溪天堂" + ";addr:" + "杭州西溪天堂艺术中心" + "&key=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77&referer=myapp";
         });
         $(".registerBtn").click(function(){
-            window.location.href="/user/h5/qrcode?regsucc_tourl="+encodeURIComponent(location);
+            window.location.href="/user/h5/mbcenter?regsucc_tourl="+encodeURIComponent(location);
         });
         $.post("/user/h5/info",{data:JSON.stringify({})},function(res){
             if(res.sc=="0"){

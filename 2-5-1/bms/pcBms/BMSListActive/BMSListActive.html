@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>几何生活</title>
-	<script src="http://7xio74.com1.z0.glb.clouddn.com/jquery-2.1.4.min.js"></script>	
+	<script src="http://7xio74.com1.z0.glb.clouddn.com/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript" src="js/jquery.qrcode.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/BMSListActive.css">
 	<link rel="stylesheet" type="text/css" href="css/BMSListActive-popup.css">
@@ -20,9 +20,9 @@
 <div id="main" style="display: none;">
 	<div class="demo">
 		<p>请输入内容然后提交生成二维码：</p>
-		<p><textarea type="text" cols="30" rows="10" class="input" id="mytxt" value=""></textarea> 
+		<p><textarea type="text" cols="30" rows="10" class="input" id="mytxt" value=""></textarea>
 		</p>
-		
+
 	</div>
 	<div id="hh"></div>
 </div>
@@ -30,19 +30,19 @@
 
 	<input type="button" name="" class="found-active" value="创建活动">
 	<a href="#" class="creation">活动创建流程?</a>
-    
+
 	<ul class="list-warp">
 		<li class="state J-all"><span>全部状态</span></li>
-		<li class="state" id="cao" onclick="saixuan(this)"><span>草稿</span></li>
-		<li class="state" id="ing" onclick="saixuan(this)"><span>进行中</span></li>	
-		<li class="state" id="wait" onclick="saixuan(this)"><span>等待开奖</span></li>
-		<li class="state" id="end" onclick="saixuan(this)"><span>已结束</span></li>
+		<li class="state" id="cao" "><span>草稿</span></li>
+		<li class="state" id="ing" "><span>进行中</span></li>
+		<li class="state" id="wait""><span>等待开奖</span></li>
+		<li class="state" id="end" "><span>已结束</span></li>
 	</ul>
-		
-	
+
+
 	<div class="activecontent">
 	<textarea id="biao1" rows="10" cols="60" style="display: none;"></textarea>
-		<table> 
+		<table>
 			<tbody>
 				<tr class="activecontent-title">
 					<td></td>
@@ -51,9 +51,9 @@
 					<td>参与人数</td>
 					<td>活动时间</td>
 					<td>开奖时间</td>
-					<td class="all" id="last"> 全部状态 <img src="img/icon.jpg"></td>
+					<td class="all" id="last" > 全部状态 <img src="img/icon.jpg"></td>
 				</tr>
-				
+
 			</tbody>
 		</table>
 		<div class="zero-warp"></div>
@@ -86,15 +86,28 @@
 	   </div>
    </div>
 
-   
+
 <!--成功复制链接-->
    <div  class="template success-warp a" >
        <div class="top">
-       	<img src="img/x.png">
+       	复制活动链接<img src="img/x.png">
        </div>
-	   <div id="delete" >
-		   	<h5>确认要复制链接吗？</h5>
-		   	<a href="javascript:void(0)" class="popup-btn btn-up close J-success">确定</a>
+	   <div class="copy-link" >
+		   	<h5>活动列表地址</h5>
+		   	<div class="list-link"></div>
+		   	<a href="javascript:void(0)" class="link-btn close J-listsuccess">复制地址</a>
+		   	<div class="link-txt">
+		   		您上线的所有活动都会出现在活动列表中，该地址为永久性的，无需因为不同活动而更新，用户可以点击活动列表中的活动参与活动或查看抽奖结果。为了方便用户参与活动及查看抽奖结果，强烈建议您将该地址配置在您的公众号菜单栏中。
+		   	</div>
+	   </div>
+	   <div class="copy-link" >
+		   	<h5>活动列表地址</h5>
+		   	<div class="act-link"></div>
+		   	<a href="javascript:void(0)" class="link-btn close J-actsuccess">复制地址</a>
+		   	<div class="link-txt">
+		   		如您举办的活动不需要用户关注您的公众号就能参与，您可以直接公布该地址，以方便用户参与。<br>
+				在您需要用户关注您的公众号才能报名时，请不要将该地址直接公布出去，以免用户在未关注您公众号的前提下参与活动，请引导用户通过您在公众号配置的活动列表地址页面参与活动。
+		   	</div>
 	   </div>
    </div>
 <!--中奖人-->
@@ -103,7 +116,7 @@
        	<img src="img/x.png">
        </div>
 	    <div id="winner">
-   	    	
+
    	    </div>
    	    <a href="javascript:void(0)" class="popup-btn btn-delete btn-winner close">关闭</a>
    </div>
@@ -122,7 +135,7 @@
    </div>
 <!--下线弹窗-->
    <div  class="template off-warp a" >
-       <div class="top"><span>上线</span>
+       <div class="top"><span>下线</span>
        	<img src="img/x.png">
        </div>
 	   <div id="Off" >
@@ -132,7 +145,7 @@
 		   	<a href="javascript:void(0)" class="popup-btn btn-up J-OFFbtn">下线活动</a>
 	   </div>
    </div>
-  
+
 <!--查看活动配置信息弹窗-->
    <div  class="template cha-warp a" >
        <div class="top"><span>查看活动配置信息</span>
@@ -197,33 +210,33 @@
 		   	<a href="javascript:void(0)" class="popup-btn btn-delete btn-yulan close">关闭</a>
 	   </div>
    </div>
-   
-   
+
+
 <!--复制活动说明弹窗-->
 
    <div  class="template copy-warp a" id="Copydata">
-       <div class="top"><span class="smtitle"></span>
+       <div class="top">复制活动说明
        	<img src="img/x.png">
        </div>
 	    <div id="copy" >
-		   	
-		   	<div class="take-in yi">
+
+		   	<!-- <div class="take-in yi">
 		   		<div class="take-title arrow">参与方式</div>
 		   		<div class="p-text">
 				   		<p class="changan">长按识别二维码</p>
 				   		<p class="baoming"></p>
 		   			    <div id="copyma"></div>
 		   			<br>
-			   		
+
 		   		</div>
-		   	</div>
-		   	<div class="tishi-title arrow">本期报名截止和公布时间</div>
+		   	</div> -->
+		   	<div class="tishi-title">报名截止和开奖时间</div>
 			   	<p>
 			   	    <span>报名截止：<span class="endt">3月21日（周三）12:00</span></span><br>
 			   		<span>获奖公布：<span class="publisht">3月21日（周三）12:00</span></span>
 			   	</p>
 		   	<div class="prize yi">
-		   		<p class="jp-title arrow">奖品</p>
+		   		<p class="jp-title">奖品</p>
 		   		<div class="text">
 		   			<span class="benci">本次活动将产生一个中奖码，拥有中奖码的人将获得：</span><br>
 			   		<div class="hui">大理千里走单骑.六和酒店海景房5天4晚套餐</div>
@@ -231,60 +244,17 @@
 		   		</div>
 		   	</div>
 		   	<div class="fangshi yi">
-		   		<div class="ctitle arrow">抽奖方式</div>
+		   		<div class="ctitle">抽奖方式</div>
 		   		<p>
 		   			<span>公平起见，将取开奖当天<span class="kaijiang"></span>收盘的上证指数倒序6位，中奖码 = （xxx.xxx+1000,000）*抽奖码总个数。<spanp><br>
 		   			<span>Ps:最终结果取四舍五入后的整数。</span>
 		   		</p>
-		   		
-		   	</div>
-		   
-	   </div>
-	   	<a href="javascript:void(0)" class="popup-btn btn-up btn-copy J-Shuoming">复制活动规则说明</a>
-   </div>
-  
 
-<!--复制活动链接弹窗-->
-   <div class="template link-warp a" >
-       <div class="top"><span>复制活动链接</span>
-       	<img src="img/x.png">
-       </div>
-	    <div id="copy" >
-		   	
-		   	<div class="take-in">
-		   		<h4>参与方式</h4><br>
-		   		<div class="p-text">
-		   			<img src="img/timg.jpg">
-			   		<p>
-				   		<span>长按识别二维码</span><br>
-				   		<span>去《喜新恋旧》公众号报名活动</span><br>
-			   		</p>
-			   		<p>
-			   			<span>报名截止：<span>3月21日（周三）12:00</span></span><br>
-			   			<span>获奖公布：<span>3月21日（周三）12:00</span></span>
-			   		</p>
-		   		</div>
 		   	</div>
-		   	<div class="prize">
-		   		<h4>奖品</h4><br>
-		   		<div class="p-text">
-		   			<span class="benci">本次活动将产生一个中奖码，拥有中奖码的人将获得：</span><br>
-			   		<div class="hui">大理千里走单骑.六和酒店海景房5天4晚套餐</div>
-			   		<span>（含云何星空海景大床房3天2晚住宿，朴约顶级套房海景房3天2晚住宿，以及每日早餐）</span><br>
-		   		</div>
-		   	</div>
-		   	<div class="fangshi">
-		   		<h4>抽奖方式</h4><br>
-		   		<p>
-		   			<span>公平起见，将取开奖当天（即3月1日）收盘的上证指数倒序6位，中奖码 = （xxx.xxx+1000,000）*抽奖码总个数。<spanp><br>
-		   			<span>Ps:最终结果取四舍五入后的整数。</span>
-		   		</p>
-		   		
-		   	</div>
-		   	<a href="javascript:void(0)" class="popup-btn btn-up btn-copy J-copylink">复制活动规则说明</a>
+
 	   </div>
+	   	<!-- <a href="javascript:void(0)" class="popup-btn btn-up btn-copy J-Shuoming">复制活动规则说明</a> -->
    </div>
-  
 
 <!--创建活动弹窗<--></-->
    <div class="template set-warp a">
@@ -296,7 +266,7 @@
 	   		<img src="img/yuan.jpg"><span>单人多码</span>
 	   		<p>单人抽奖活动，在用户报名后即可获得一个抽奖码，为了增加活动曝光率，用户可将活动分享给好友，每多一个好友报名，邀请人即可多获得一个抽奖码。</p>
 	   	</div>
-	   	<div onclick="Tangdx(this)" actType="2"> 
+	   	<div onclick="Tangdx(this)" actType="2">
 	   		<img src="img/yuan.jpg"><span>配对抽奖</span>
 	   		<p>参与配对抽奖活动的用户，必须邀请一个人一起参与活动才能获得一个抽奖码，该抽奖码邀请人和被邀请人共同拥有，如中奖，奖品会发放至邀请人账户。</p>
 	   	</div>
@@ -307,7 +277,7 @@
 	   	<a href="javascript:void(0)" class="popup-btn btn-up btn-link btn-copy J-setact">下一步</a>
    	</div>
    </div>
-  
+
 
 <!--保存活动弹窗-->
 	<!--    <div id="warp delete-warp" class="template" style="display: none;">
@@ -324,7 +294,7 @@
    		<a href="" class="popup-btn btn-up btn-link btn-copy btn-save">创建活动</a>
    	</div>
    </div> -->
-  
+
 <!--活动创建流程弹窗-->
    <div class="template flow-warp a">
         <div class="top"><span>活动流程说明</span>
@@ -339,49 +309,44 @@
        		<li class="homepage_one">
        			<div class="flow_one">
        				<img src="img/count1.jpg" class="shuzi">
-       				<p>准备活动文章</p>
-       				<p class="txt_concent">在微信公众号编辑活动介绍文章</p>
-       				<img src="img/1.jpg" class="datu">
+       				<p>编辑活动介绍文章</p>
+       				<p class="txt_concent">在微信公众号编辑一篇活动介绍文章，用于介绍您的活动。</p>
        			</div>
        			<div class="flow_two">
        				<img src="img/count2.jpg">
        				<p>创建活动</p>
-                    <p class="txt_concent">填写活动数据，配置奖品(在该系统下“营销工具”选项创建活动。)</p>
-       			</div>
+              <p class="txt_concent">在营销工具页面左上角点创建活动，然后配置活动信息，并保存。</p>
+              <img src="img/1.jpg" width='520'>
+						</div>
        		</li>
        		<li class="homepage_two other">
        			<div class="flow_three">
        				<img src="img/count3.jpg">
-       				<p>复制活动说明到微信文章</p>
-       				<p class="txt_concent">将活动配置好后生成的活动说明复制到公众号要发布的活动介绍文章中</p>
-       				<img src="img/2.jpg">
+       				<p>复制活动说明</p>
+       				<p class="txt_concent">保存活动后，在营销工具页面的活动列表中，将会自动出现您刚刚配置的活动，选中该活动，然后点复制开奖说明，在弹出的窗口中，将开奖说明文字复制到您的公众号活动介绍文章中。</p>
+       				<img src="img/2.jpg" width="510">
        			</div>
        		</li>
        		<li class="homepage_three other">
        			<div class="flow_four">
        				<img src="img/count4.jpg">
-       				<p>在微信公众号菜单配置活动报名入口</p>
-       				<p class="txt_concent">在您的公众号中添加一个活动报名入口（山水间活动永久性报名/查奖入口：www.jihelife.com），方便用户报名及查看开奖结果，建议您将该入口一直保留在公众号菜单栏，后期新创建上线的活动，将会自动加入该入口的活动列表中。</p>
-       				<img src="img/3.jpg">
+       				<p>复制活动链接</p>
+       				<p class="txt_concent">如步骤三所示，选中活动后，点击复制活动链接，在弹出的窗口中，复制活动参与地址，并配置在微信公众号的活动介绍文章中或公众号中。</p>
+       				<img src="img/3.jpg" width="300">
        			</div>
        			<div class="flow_five">
        				<img src="img/count5.jpg">
-       				<p>上线活动</p>
-       				<p class="txt_concent">选择你配置好的活动，然后上线。（在改系统中上线活动。）</p>
+       				<p>群发微信文章</p>
+       				<p class="txt_concent">在您配置好活动，且已将活动参与地址正确配置到公众号或微信公众号的活动介绍文章中后，您就可以群发活动介绍文章给您的粉丝了。</p>
        			</div>
        		</li>
        		<li class="homepage_four other">
        			<div class="flow_six">
        				<img src="img/count6.jpg">
-       				<p>群发文章</p>
-       				<p class="txt_concent">在微信公众号群发您已添加过活动说明的活动文章。</p>
-       			</div>
-       			<div class="flow_seven">
-       				<img src="img/count7.jpg">
-       				<p>复制微信文章地址</p>
-       				<p class="txt_concent">将公众号群发的活动文章地址复制，然后编辑活动，将地址填写到【分享地址一栏】，然后保存活动。（将活动复制到此活动编辑页面的【分享地址】栏中。）</p>
-       				<img src="img/4.jpg">
-       			</div>
+       				<p>填写分享地址</p>
+       				<p class="txt_concent">将微信公众号群发的活动介绍文章地址填写到活动配置的分享地址中，这样粉丝在参与活动时，就可以方便的将您的活动介绍文章分享到朋友圈或好友。如果你没有配置分享地址，将会默认分享由几何代为生成的活动介绍页面。</p>
+              <img src='img/4.jpg' width="450"/>
+						</div>
        		</li>
        	</ul>
        </div>

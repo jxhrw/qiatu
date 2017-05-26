@@ -1,5 +1,5 @@
 body{
-    /*width:1000px;*/
+    min-width:1000px;
 
 }
 #left{
@@ -184,14 +184,14 @@ input[type=number]{
     /*border: solid #cecece 1px;*/
     /*border-radius: 2px;*/
     /*background-color:#f9f9f9 ;*/
-    margin-top: 20px;
+    /*margin-top: 20px;*/
     padding-top: 10px;
     padding-left: 10px;
 }
 input.manAwardsInput{
     width: 170px;
     height: 30px;
-    margin-left: 89px;
+    /*margin-left: 89px;*/
 }
 #manAwards{
     margin-top: 25px;
@@ -200,6 +200,7 @@ input.manAwardsInput{
 }
 .manAwardsContent{
     margin-top: 20px;
+    margin-left: 77px;
 }
 .actTime{
     width: 170px;
@@ -401,7 +402,7 @@ input[type="checkbox"]:checked {
 .autoAwardsName{
     display: inline-block;
    font-size: 12px;
-    width: 129px;
+    width: 200px;
     overflow: hidden;
     height: 15px;
 }
@@ -427,6 +428,7 @@ input[type="checkbox"]:checked {
 
 #addAwards{
     background-color: #d13f4c;
+    width: 129px;
 }
 #addAwards:hover{
     background-color: #b92835;
@@ -516,4 +518,10 @@ input[type="checkbox"]:checked {
     background-image: url("../../setCoupons/images/icon.jpg");
     background-repeat: no-repeat;
     background-position: 52px 7px;
+}
+#needFollow1{
+  display: none;
+}
+#needFollow2{
+  display: none;
 }

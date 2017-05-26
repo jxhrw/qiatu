@@ -106,7 +106,7 @@
                                     <#if actType==2>
                                         <p class="brought">和配对人<br>「<span>${prize.inviteenickname}</span>」<br>共享该奖品</p>
                                     </#if>
-                                    <a href="http://api.jihelife.com/user/h5/mbcenter?regsucc_tourl=http%3A%2F%2Fapi.jihelife.com%2Fhtml%2Fjh-giftcard%2Fbuild%2Findex.html" class="submit">查看奖品</a>
+                                    <a href="http://api.jihelife.com/user/h5/qrcode?regsucc_tourl=http%3A%2F%2Fapi.jihelife.com%2Fhtml%2Fjh-giftcard%2Fbuild%2Findex.html" class="submit">查看奖品</a>
                                     <#else>
                                         <p class="brought">邀请你参加配对的<br>「<span>${prize.nickname}</span>」<br>已领取了你们共享的奖品</p>
                                 </#if>

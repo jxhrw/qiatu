@@ -1,9 +1,8 @@
 $(document).ready(function(){
-
-
     var couponCardData={"couponCode":GetParams().couponCode};
     ajaxPost(ajaxUrlAll.couponCardDetail,couponCardData,couponListFun,'');
-
+    var bodyPadding=parseFloat($("body").css("padding-top").split("px")[0])+parseFloat($("body").css("padding-bottom").split("px")[0]);
+    $('body').css({"min-height":$(window).height()-bodyPadding,"background":"#595d6a url('images/cardOrCouponBg.jpg') no-repeat center/100% 100%"});
     //卡券信息请求
     function couponListFun(res){
         if(res.data && res.data.couponBaseInfo){
@@ -22,7 +21,7 @@ $(document).ready(function(){
                 remainValue = oRemainValue + oFreeze,
 
                 usageStatus = res.data.usageStatus,
-                backgroundImg='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1494931546473&di=00f05f4228f8615fb9aaf05f468fa928&imgtype=0&src=http%3A%2F%2Fuploadfile.bizhizu.cn%2F2014%2F0912%2F20140912112409224.jpg',
+                backgroundImg = res.data.couponBaseInfo.cardFacePic?res.data.couponBaseInfo.cardFacePic:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1494931546473&di=00f05f4228f8615fb9aaf05f468fa928&imgtype=0&src=http%3A%2F%2Fuploadfile.bizhizu.cn%2F2014%2F0912%2F20140912112409224.jpg',
                 logoImg,
                 currencyType = res.data.couponBaseInfo.currencyType,//转让的售出类型
                 getRatio = res.data.couponBaseInfo.exchangePointsRatio,//兑换比例
@@ -35,6 +34,9 @@ $(document).ready(function(){
                 tradable = res.data.couponBaseInfo.tradable,//可转让
                 exchangePointsDeadline = parseInt(res.data.couponBaseInfo.exchangePointsDeadline),
                 exchangePoints = res.data.couponBaseInfo.exchangePoints;//可换积分
+            if(res.data.couponBaseInfo.cardFacePic){
+                getCouponName='';
+            }
             var discountHtml='';
             var logoHtml='';
             var subCouponCode;
@@ -42,7 +44,7 @@ $(document).ready(function(){
                 var discount,remain;
                 document.title="我的会员卡";
                 $(".recharge").show();
-                $("#introTitle").html("卡的使用说明");
+                $("#introTitle").html("使用说明");
                 if(res.data.subCouponList){
                     for(var j=0;j<res.data.subCouponList.length;j++){
                         //couponType -2 消费金、5 折扣
@@ -130,10 +132,14 @@ $(document).ready(function(){
             if(businessExchange==1){
                 var $dom1=$(".forNight"),
                     $dom2=$(".forGoods");
-                $dom1.removeClass("unavailable");
-                $dom2.removeClass("unavailable");
-                clickHref($dom1,exchangeUrl);
-                clickHref($dom2,goodspurchaseUrl);
+                if(exchangeUrl){
+                    $dom1.removeClass("unavailable");
+                    clickHref($dom1,exchangeUrl);
+                }
+                if(goodspurchaseUrl){
+                    $dom2.removeClass("unavailable");
+                    clickHref($dom2,goodspurchaseUrl);
+                }
             }
             if(tradable==1){
                 var $dom=$(".transfer");

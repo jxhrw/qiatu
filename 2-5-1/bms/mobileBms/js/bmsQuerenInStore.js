@@ -1,6 +1,8 @@
 $(document).ready(function() {
     var arr=[];
     var arr3=[];
+    var cash=[];
+    var discount=[];
     var data={"orderid":orderid};
     var winHeight=$(window).height();
     var ordername,quantity,nights,amount; //房型，数量，几晚，总价
@@ -44,12 +46,18 @@ $(document).ready(function() {
             $(".productinfo li").eq(1).children("strong").html(data.data.orderid);
             $(".priceinfo li").eq(0).children("strong").html("￥"+data.data.amount/100);
             for (var i =0; i < data.data.settlePayments.length; i++) {
-                //1是房券，2是现金抵用券，3是积分兑房，4是积分抵现
-                if(data.data.settlePayments[i].payType==2){
+                //1是房券，2是现金抵用券，3是积分兑房，4是积分抵现,5优惠
+                if(data.data.settlePayments[i].payType==2 || data.data.settlePayments[i].payType==1){
                     arr.push(data.data.settlePayments[i].amount/100);
                 }
-                else if(data.data.settlePayments[i].payType==4){
+                else if(data.data.settlePayments[i].payType==4 || data.data.settlePayments[i].payType==3){
                     arr3.push(data.data.settlePayments[i].amount/100);
+                }
+                else if(data.data.settlePayments[i].payType==0){
+                    cash.push(data.data.settlePayments[i].amount/100);
+                }
+                else if(data.data.settlePayments[i].payType==5){
+                    discount.push(data.data.settlePayments[i].amount/100);
                 }
             }
             amountDi=0;
@@ -60,11 +68,25 @@ $(document).ready(function() {
             for (var a= 0; a< arr3.length; a++) {
                 amountDi3 += arr3[a];
             }
+            cashAmount=0;
+            for (var a= 0; a< cash.length; a++) {
+                cashAmount += cash[a];
+            }
+            discountAmount=0;
+            for (var a= 0; a< discount.length; a++) {
+                discountAmount += discount[a];
+            }
             if (arr.length!=0) {
                 $(".priceinfo li").eq(1).children("strong").html("￥"+amountDi);
             }
             if (arr3.length!=0) {
                 $(".priceinfo li").eq(2).children("strong").html("￥"+amountDi3);
+            }
+            if (cash.length!=0) {
+                $(".priceinfo li").eq(3).children("strong").html("￥"+cashAmount);
+            }
+            if (discount.length!=0) {
+                $(".priceinfo li").eq(4).children("strong").html("￥"+discountAmount);
             }
 //判断订单状态 -1未创建 0待提交 1代确认房态 2房态确认处理中 3待支付 4支付中 5已支付 6预定处理中 8已确认【预订】11已发货 12交易完成 9 已取消
 

@@ -358,7 +358,7 @@ $(document).ready(function(){
         $(".payBoxShadow").hide();
     });
     $("#buyIntegral").click(function(){
-        window.location.href="/html/h5/order/virtualGoods.html?id=38607&mc=zqjf";
+        window.location.href="/html/h5/product/detail/virtualGoods.html?id=38607&mc=zqjf";
     });
 
     //获取url的参数

@@ -71,15 +71,15 @@ function jiHePrompt(text,type) {
         color='blue';
     }
     var myPrompt=$('<div id="myPrompt"></div>');
-    $('body').append(myPrompt);
+    $('body').prepend(myPrompt);
     myPrompt.css({
-        'position':'fixed',
+        'position':'absolute',
         'background':color,
         'width':'100%',
         'height':'50px',
         'z-index':'7002'
     });
-    
+
     var myPromptContent=$('<p></p>');
     myPrompt.append(myPromptContent);
     myPromptContent.css({
@@ -95,4 +95,3 @@ function jiHePrompt(text,type) {
         });
     },1000);
 }
-

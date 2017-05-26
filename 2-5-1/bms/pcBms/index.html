@@ -18,14 +18,59 @@
 	<script type="text/javascript" src="js/index.js"></script>
 -->
 	<script type="text/javascript" src="js/BMSConsumingRecord.js"></script>
+	<style>
+	.divHide{
+     display: none;
+	}
+	.hasHide{
+   font-size: 14px;
+	 width: 100px;
+   border-bottom: #454e58 1px solid;
+	 padding: 20px 0px;
+   margin-left: 12px;
+	 background-image: url(./images/left.png);
+	 background-size: 11px;
+    background-repeat: no-repeat;
+    background-position: 86px 25px;
+	}
+	.hasHideOpen{
+		background-image: url(./images/down.png);
+	}
+	.noHide{
+    font-size: 14px;
+		width: 100px;
+		border-bottom: #454e58 1px solid;
+		padding: 20px 0px;
+		margin-left: 12px;
+	}
+	.menuA{
+		color: white;
+	}
+	.BMSLeftContent{
+		overflow-x: hidden;
+		overflow-y: auto;
+		width:200px;
+		padding-bottom: 30px;
+	}
+	.pHide{
+		font-size: 12px;
+		width: 100px;
+		border-bottom: #454e58 1px solid;
+		padding: 10px 0px;
+		margin-left: 12px;
+	}
+	.afterClick{
+     border-left: 5px solid #e2574c;
+	}
+	</style>
 </head>
 <body>
-	
+
 	<div class="BMSWrap">
 		<!-- 左侧 -->
 		<div class="BMSLeft">
 			<img src="http://7xio74.com2.z0.glb.qiniucdn.com/memberLogo.png" alt="">
-			<ul>
+			<!-- <ul> -->
 <!--
 				<li class="current"><span></span>消费记录</li>
 				&lt;!&ndash; <li><span></span>积分兑换订单</li> &ndash;&gt;
@@ -34,7 +79,11 @@
 				<li><span></span>管理中心</li>
 				<li><span></span>结算</li>
 -->
-			</ul>
+
+			<!-- </ul> -->
+
+			<div class="BMSLeftContent">
+		  </div>
 		</div>
 		<!-- 右侧 -->
 		<div class="BMSRight">
@@ -97,7 +146,47 @@
 
 
 </body>
+<script>
+if (window.console)
+ {
+    var cons
+ = console;
+    if (cons)
+ {
+    console.log("%c", "padding:180px 180px;line-height:400px;background:url('http://test.jiheclub.com/html/bms/pcBms/images/console1.jpg') no-repeat;background-size:320px 320px;");
+		console.log("%c", "padding:180px 180px;line-height:400px;background:url('http://test.jiheclub.com/html/bms/pcBms/images/console2.jpg') no-repeat;background-size:320px 320px;");
+		console.log('%c'+[
+     "                   _ooOoo_",
+     "                  o8888888o",
+     "                  88\" . \"88",
+     "                  (| -_- |)",
+     "                  O\\  =  /O",
+     "               ____/`---'\\____",
+     "             .'  \\\\|     |//  `.",
+     "            /  \\\\|||  :  |||//  \\",
+     "           /  _||||| -:- |||||-  \\",
+     "           |   | \\\\\\  -  /// |   |",
+     "           | \\_|  ''\\---/''  |   |",
+     "           \\  .-\\__  `-`  ___/-. /",
+     "         ___`. .'  /--.--\\  `. . __",
+     "      .\"\" '<  `.___\\_<|>_/___.'  >'\"\".",
+     "     | | :  `- \\`.;`\\ _ /`;.`/ - ` : | |",
+     "     \\  \\ `-.   \\_ __\\ /__ _/   .-` /  /",
+     "======`-.____`-.___\\_____/___.-`____.-'======",
+     "                   `=---='",
+     "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+     "            佛祖保佑       永无BUG",
+		 "         写字楼里写字间,写字间里程序员;",
+     "         程序人员写程序,又拿程序换酒钱;",
+     "         酒醒只在网上坐,酒醉还来网下眠;",
+     "         酒醉酒醒日复日,网上网下年复年;",
+     "         但愿老死电脑间,不愿鞠躬老板前;",
+     "         奔驰宝马贵者趣,公交自行程序员;",
+     "         别人笑我忒疯癫,我笑自己命太贱;",
+     "         不见满街漂亮妹,哪个归得程序员."
+ ].join('\n'),'color:#d13f4c');
+    }
+}
+</script>
 
 </html>
-
-

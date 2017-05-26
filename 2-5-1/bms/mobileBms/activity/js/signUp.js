@@ -1,18 +1,6 @@
-$(document).ready(function(){
-    $(".screenBox,.screenFull").height($(window).height());
-
-    $("#winResults").click(function(){
-        $("#winningList").show();
-    });
-
-    $(".shadow,.close").click(function(){
-        $(".screenFull").hide();
-    });
-
-    $(".plus:last-child").css("display","none");
-
-});
-
+var resData={};
+var actId;
+var registerUrl;
 var activity={
     register:function(actid){
         //发起报名注册请求
@@ -101,22 +89,36 @@ var activity={
         })
     },
     init:function(params){
-        var actId=params['actid'];
-        var registerUrl=params['registerurl'];
-        //绑定
-        $("#signUp").click(function(){
-            activity.register(actId);
-        });
-
-        //开奖结果
-        $("#winResults").click(function(){
-            var resData={};
-            activity.winResults(actId,resData);
-        });
-
-        //注册会员
-        $("#register").click(function(){
-            window.location.href = registerUrl;
-        });
+        actId=params['actid'];
+        registerUrl=params['registerurl'];
     }
 };
+
+$(document).ready(function(){
+    $(".screenBox,.screenFull").height($(window).height());
+
+    $("#winResults").click(function(){
+        $("#winningList").show();
+    });
+
+    $(".shadow,.close").click(function(){
+        $(".screenFull").hide();
+    });
+
+    $(".plus:last-child").css("display","none");
+
+    //绑定
+    $("#signUp").click(function(){
+        activity.register(actId);
+    });
+    //开奖结果
+    $("#winResults").click(function(){
+        activity.winResults(actId,resData);
+    });
+
+    //注册会员
+    $("#register").click(function(){
+        window.location.href = registerUrl;
+    });
+
+});

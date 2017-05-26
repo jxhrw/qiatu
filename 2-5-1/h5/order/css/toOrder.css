@@ -110,6 +110,7 @@ input{font-size: 0.9rem;}
 .singleAsset ul{margin-left: 2.23rem;width: 85.2%;border-top: 1px solid #d8d8d8;padding-top: 0.85rem;display: none;}
 .singleAsset ul li{padding-left: 0.67rem;font-size: 0.8rem;color: #4a4a4a;padding-bottom: 0.6rem;position: relative;}
 .singleAsset ul li:last-child{padding-bottom: 0;}
+.singleAsset:last-child ul li:last-child{padding-bottom: 1px;}
 .singleAsset ul li div{padding-bottom: 0.6rem;}
 .singleAsset pre,.exchangeAssetsLis pre{color: #a4a4a4;display: inline-block;}
 .couponCardName{color: #000;position: relative;}

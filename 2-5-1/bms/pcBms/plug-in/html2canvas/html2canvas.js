@@ -2200,7 +2200,7 @@ _html2canvas.Preload = function( options ) {
   count = 0,
   element = options.elements[0] || document.body,
   doc = element.ownerDocument,
-  domImages = element.getElementsByTagName('img'), // Fetch images of the present element only
+  domImages = element.getElementsByTagName('img'), // Fetch image of the present element only
   imgLen = domImages.length,
   link = doc.createElement("a"),
   supportCORS = (function( img ){
@@ -2219,9 +2219,9 @@ _html2canvas.Preload = function( options ) {
   }
 
   function start(){
-    Util.log("html2canvas: start: images: " + images.numLoaded + " / " + images.numTotal + " (failed: " + images.numFailed + ")");
+    Util.log("html2canvas: start: image: " + images.numLoaded + " / " + images.numTotal + " (failed: " + images.numFailed + ")");
     if (!images.firstRun && images.numLoaded >= images.numTotal){
-      Util.log("Finished loading images: # " + images.numTotal + " (failed: " + images.numFailed + ")");
+      Util.log("Finished loading image: # " + images.numTotal + " (failed: " + images.numFailed + ")");
 
       if (typeof options.complete === "function"){
         options.complete(images);
@@ -2230,7 +2230,7 @@ _html2canvas.Preload = function( options ) {
     }
   }
 
-  // TODO modify proxy to serve images with CORS enabled, where available
+  // TODO modify proxy to serve image with CORS enabled, where available
   function proxyGetImage(url, img, imageObj){
     var callback_name,
     scriptUrl = options.proxy,
@@ -2483,13 +2483,13 @@ _html2canvas.Preload = function( options ) {
     timeoutTimer = window.setTimeout(methods.cleanupDOM, options.timeout);
   }
 
-  Util.log('html2canvas: Preload starts: finding background-images');
+  Util.log('html2canvas: Preload starts: finding background-image');
   images.firstRun = true;
 
   getImages(element);
 
-  Util.log('html2canvas: Preload: Finding images');
-  // load <img> images
+  Util.log('html2canvas: Preload: Finding image');
+  // load <img> image
   for (i = 0; i < imgLen; i+=1){
     methods.loadImage( domImages[i].getAttribute( "src" ) );
   }
@@ -2681,8 +2681,8 @@ window.html2canvas = function(elements, opts) {
     // preload options
     proxy: null,
     timeout: 0,    // no timeout
-    useCORS: false, // try to load images as CORS (where available), before falling back to proxy
-    allowTaint: false, // whether to allow images to taint the canvas, won't need proxy if set to true
+    useCORS: false, // try to load image as CORS (where available), before falling back to proxy
+    allowTaint: false, // whether to allow image to taint the canvas, won't need proxy if set to true
 
     // parse options
     svgRendering: false, // use svg powered rendering where available (FF11+)
@@ -2695,7 +2695,7 @@ window.html2canvas = function(elements, opts) {
 
     width: null,
     height: null,
-    taintTest: true, // do a taint test with all images before applying to canvas
+    taintTest: true, // do a taint test with all image before applying to canvas
     renderer: "Canvas"
   };
 
@@ -2726,7 +2726,7 @@ window.html2canvas = function(elements, opts) {
 
   };
 
-  // for pages without images, we still want this to be async, i.e. return methods before executing
+  // for pages without image, we still want this to be async, i.e. return methods before executing
   window.setTimeout( function(){
     _html2canvas.Preload( options );
   }, 0 );

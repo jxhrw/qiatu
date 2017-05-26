@@ -220,6 +220,7 @@ $(document).ready(function(){
                     $(".bookingTips").css("min-height","2rem");
                     $("#cancelBtn").show();
                 }else {
+                    $(".bookingTips").css("width","92%");
                     $("#cancelBtn").hide();
                 }
                 if(orderRes.data.refundStatus=="1"){

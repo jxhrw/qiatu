@@ -63,7 +63,8 @@ $(document).ready(function() {
             var grade=data.data.memberGrade;
             // var url='../images/'+data.data.
            // $(".information").css("background","url(url)");
-            var backGround='url("http://7xio74.com1.z0.glb.clouddn.com/cardImg/'+data.data.equityInfo.backGroundImg+'") no-repeat center top/100%';
+            var backGroundImg=data.data.equityInfo.backGroundImg.split(".png")[0]+"2.png";
+            var backGround='url("http://7xio74.com1.z0.glb.clouddn.com/cardImg/'+backGroundImg+'") no-repeat center top/100% 100%';
             $(".information").css("background",backGround);
             $(".points span").html(data.data.points);
             $(".annual span").html(data.data.nightsCurYear);
@@ -71,18 +72,20 @@ $(document).ready(function() {
             $(".upGrade").html(data.data.upgradeCondition);
             if(grade==2){
                 $(".info_left").css("color","#fff");
+                $(".info_right li").css("color","#909091");
                 $(".info_right li span").css("color","#fff");
-                $(".upGrade").css("display","none");
                 $(".tradesBtn").css("background","#454955");
+                //$(".upGrade").css("display","none");
+            }else if(grade==1){
+                $(".info_left").css("color","#4a4a4a");
+                $(".info_right li").css("color","#919296");
+                $(".info_right li span").css("color","#4a4a4a");
+                $(".tradesBtn").css("background","#454955");
+                //$(".upGrade").css("background","#4a4a4a");
             }else{
                 $(".info_left").css("color","#000");
                 $(".info_right li span").css("color","#000");
-                if (grade==0){
-                    $(".upGrade").css("background","#BB8E4B");
-                }else if(grade==1){
-                    $(".upGrade").css("background","#4a4a4a");
-                    $(".tradesBtn").css("background","#454955");
-                }
+                //$(".upGrade").css("background","#BB8E4B");
             }
             $.post('/user/h5/info', function(userData) {
                 console.log(userData);

@@ -1,9 +1,9 @@
 var couponCode = getRequest().couponCode,//拿到券code
     button = getRequest().button;//拿到列表类型的信息，0-订房，1-换宿，2-换商品
 $(document).ready(function () {
-    var leaveFlag=sessionStorage.getItem("leave");//存储离开页面的状态
-    if(leaveFlag==1){//检测到离开过页面则重新加载页面，并将状态归零
-        sessionStorage.setItem("leave","0");
+    var leaveFlag = sessionStorage.getItem("leave");//存储离开页面的状态
+    if (leaveFlag == 1) {//检测到离开过页面则重新加载页面，并将状态归零
+        sessionStorage.setItem("leave", "0");
         window.location.reload();
     }
     var assetType = getRequest().assetType,//拿到assetType的类型，0-所有资产，1-免房券，2-消费金，3-积分
@@ -31,7 +31,7 @@ $(document).ready(function () {
                 "pagecnt": 5,
                 "pageno": 1
             }
-        }else{
+        } else {
             reqData = {
                 "assetType": assetType,
                 "couponId": couponId,
@@ -48,52 +48,52 @@ $(document).ready(function () {
         }
         console.log(reqData)
         getList(reqData, 5, 1);
-        $(".search").on("click",function () {
-            $(".history").show(); 
-            $(".history ul").html(""); 
-            $(function(){
-                var str=localStorage.historyItems2;
-                if(str==undefined){
+        $(".search").on("focus", function () {
+            $(".history").show();
+            $(".history ul").html("");
+            $(function () {
+                var str = localStorage.historyItems2;
+                if (str == undefined) {
                     $(".history").hide();
-                }else{
-                    var strs= new Array();
-                    var s='';
-                    strs=str.split("|");
+                } else {
+                    var strs = new Array();
+                    var s = '';
+                    strs = str.split("|");
                     console.log(strs);
-                    for(var i=0;i<strs.length;i++){
-                        s= "<li><a>"+strs[i]+"</a></li>";
+                    for (var i = 0; i < strs.length; i++) {
+                        s = "<li><a>" + strs[i] + "</a></li>";
                         $(".history ul").append(s);
                     }
                 }
             });
-        })
-        $(".search").on("blur",function () {
-            $(".history ul li").click(function () {  
-                    $(".blankPage").remove();
-                    c=1;
-                    $(".items").html("");
-                    reqData.keyWord=$(this).find('a').html();
-                    console.log(reqData)
-                    getList(reqData, 5, 1);
-                    $(".history").hide(); 
-            })
-        })
-        $(".search").on('search',function () {//监听搜索内容
-            $(this).blur();
+        });
+        $(".search").on('search', function () {//监听搜索内容
             $(".history").hide().find('ul').html("");
-            var search=$(this).val();
-            if(search!=""){
+            var search = $(this).val();
+            if (search != "") {
                 setHistoryItems(search);
                 $(".blankPage").remove();
-                c=1;
+                c = 1;
                 $(".items").html("");
-                reqData.keyWord=search;
+                reqData.keyWord = search;
                 console.log(reqData)
                 getList(reqData, 5, 1);
             }
         });
+        $(".search").on("blur", function () {
+            $(".history ul li").click(function () {
+                $(".blankPage").remove();
+                c = 1;
+                $(".items").html("");
+                reqData.keyWord = $(this).find('a').html();
+                console.log(reqData)
+                getList(reqData, 5, 1);
+                $(".history").hide();
+            })
+        })
+
         $(".navBar span").on("click", function () {
-            window.location.href='/user/h5/qrcode';
+            window.location.href = '/user/h5/qrcode';
         });
         $(".icon-delete").click(function () {
             clearHistory();
@@ -102,12 +102,12 @@ $(document).ready(function () {
     } else if (button == "2") {//换商品
         $('title').html('换商品列表');
         $(".screen").show();
-        var sortKind=[];
-        var manualSort={"field":"manual", "rule":"DESC"},
-            sellAmountSort={"field":"sellamount", "rule":"DESC"},
-            updateTimeSort={"field":"updatetime", "rule":"DESC"},
-            priceSort={"field":"pointsprice", "rule":"DESC"};
-                        reqData = {
+        var sortKind = [];
+        var manualSort = { "field": "manual", "rule": "DESC" },
+            sellAmountSort = { "field": "sellamount", "rule": "DESC" },
+            updateTimeSort = { "field": "updatetime", "rule": "DESC" },
+            priceSort = { "field": "pointsprice", "rule": "DESC" };
+        reqData = {
             "assetType": assetType,
             "couponId": couponId,
             "scopes": [
@@ -115,48 +115,48 @@ $(document).ready(function () {
                 { "include": 0, "priceType": 0 },
                 { "exchFlag": 1, "include": 1 }
             ],
-            "sorts": [{"field":"manual", "rule":"DESC"}],//‘desc’降序排列
+            "sorts": [{ "field": "manual", "rule": "DESC" }],//‘desc’降序排列
             "pagecnt": 5,
             "pageno": 1
-            }
-            console.log(reqData)
-            getList(reqData, 5, 1);
-        $(".screen td").click(function(){
-                c=1;
-                $(".items").html("");
-                sortKind=[];
-                reqData.sorts=sortKind;
-               // pageNum_this=1;
-                $(".up_down").attr("src","images/up_down.png");
-                $(this).addClass("redFont").siblings("td").removeClass("redFont");
-                if($(this).attr("class").indexOf("price")!=-1){
-                    if("ASC"==priceSort.rule){
-                        priceSort.rule="DESC";
-                        $(".up_down").attr("src","images/down_ud.png");
-                    }else {
-                        priceSort.rule="ASC";
-                        $(".up_down").attr("src","images/up_ud.png");
-                    }
-                    sortKind.push(priceSort);
-                }else {
-                    priceSort.rule="DESC";
-                    $(".up_down").attr("src","images/up_down.png");
-                    if($(this).attr("class").indexOf("manual")!=-1){
-                        sortKind.push(manualSort);
-                    }
-                    if($(this).attr("class").indexOf("sell")!=-1){
-                        sortKind.push(sellAmountSort);
-                    }
-                    if($(this).attr("class").indexOf("update")!=-1){
-                        sortKind.push(updateTimeSort);
-                    }
+        }
+        console.log(reqData)
+        getList(reqData, 5, 1);
+        $(".screen td").click(function () {
+            c = 1;
+            $(".items").html("");
+            sortKind = [];
+            reqData.sorts = sortKind;
+            // pageNum_this=1;
+            $(".up_down").attr("src", "images/up_down.png");
+            $(this).addClass("redFont").siblings("td").removeClass("redFont");
+            if ($(this).attr("class").indexOf("price") != -1) {
+                if ("ASC" == priceSort.rule) {
+                    priceSort.rule = "DESC";
+                    $(".up_down").attr("src", "images/down_ud.png");
+                } else {
+                    priceSort.rule = "ASC";
+                    $(".up_down").attr("src", "images/up_ud.png");
                 }
+                sortKind.push(priceSort);
+            } else {
+                priceSort.rule = "DESC";
+                $(".up_down").attr("src", "images/up_down.png");
+                if ($(this).attr("class").indexOf("manual") != -1) {
+                    sortKind.push(manualSort);
+                }
+                if ($(this).attr("class").indexOf("sell") != -1) {
+                    sortKind.push(sellAmountSort);
+                }
+                if ($(this).attr("class").indexOf("update") != -1) {
+                    sortKind.push(updateTimeSort);
+                }
+            }
             console.log(reqData)
             getList(reqData, 5, 1);
         });
     } else if (button == "0") {//订房
         $('title').html('订房列表');
-        $('.items').css('margin-top',0);
+        $('.items').css('margin-top', 0);
         if (hotelIds == -1) {
             console.log(hotelIds);
             reqData = {
@@ -192,6 +192,7 @@ $(document).ready(function () {
         getList(reqData, 5, 1);
     } else {//积分兑房
         $('title').html('积分兑房');
+        $(".items").css("margin-top", "0");
         reqData = {
             "assetType": assetType,
             "scopes": [
@@ -207,7 +208,7 @@ $(document).ready(function () {
         getList(reqData, 5, 1);
     }
     $(window).scroll(function () {//滚动加载
-        $(".search").blur();
+        //$(".search").blur();
         $(".history").hide();
         var scrollTop = $(this).scrollTop();
         var scrollHeight = $(document).height();
@@ -250,7 +251,7 @@ function getList(reqData, pagecnt, pageno) {
             console.log(response);
             if (response.sc == 0) {
                 getData = response.data;
-                if ($(".items").html() == ""&&getData.length == 0) {
+                if ($(".items").html() == "" && getData.result.length == 0) {
                     var imgSrc = "http://7xio74.com1.z0.glb.clouddn.com/enchangeList/exchangeList_none.png";
                     if (button == 1) {//换宿
                         var todo = '进行换宿',
@@ -339,7 +340,7 @@ function getList(reqData, pagecnt, pageno) {
                         $(".scrollBot").html("加载更多");
                     }
                     $(".item").on("click", function () {
-                        sessionStorage.setItem("leave","1");
+                        sessionStorage.setItem("leave", "1");
                         window.location.href = $(this).attr("title");
                     })
                 }
@@ -369,18 +370,18 @@ function getRequest() {
 //存值方法,新的值添加在首位
 function setHistoryItems(keyword) {
     keyword = keyword.trim();
-    var  historyItems2  = localStorage.historyItems2;
+    let { historyItems2 } = localStorage;
     if (historyItems2 === undefined) {
         localStorage.historyItems2 = keyword;
     } else {
-        historyItems2 = keyword + '|' + historyItems2.split('|').filter(function(e){return e!=keyword}).join('|');
-        localStorage.historyItems2 = historyItems2.split("|").slice(0,3).join('|');//限制存储历史的个数，留出足够存储空间
+        historyItems2 = keyword + '|' + historyItems2.split('|').filter(e => e != keyword).join('|');
+        localStorage.historyItems2 = historyItems2.split("|").slice(0, 3).join('|');//限制存储历史的个数，留出足够存储空间
     }
 }
 //清除值
 function clearHistory() {
     localStorage.removeItem('historyItems2');
 }
-window.onload=function(){
+window.onload = function () {
     $(".search").val("");
 }

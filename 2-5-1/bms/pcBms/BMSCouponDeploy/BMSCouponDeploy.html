@@ -9,6 +9,8 @@
 	<script type="text/javascript" src="../../../html/member/js/general.js"></script>
 	<link rel="stylesheet" href="../plug-in/paging/paging.css">
 	<script src="../plug-in/paging/paging.js"></script>
+	<script src='../plug-in/ModalService/style.js'></script>
+	<script src='../plug-in/alert/alert.js'></script>
 </head>
 <body>
 <div class="Coupon-warp">
@@ -21,11 +23,11 @@
 	<div class="new-btn">
 		<input type="button" name="" value="新建折扣券" coupontype="5">
 	</div>
-    
+
     <ul class="li-warp">
 		<li class="state" id="end"><span>已过期</span></li>
 		<li class="state" id="wait"><span>待投放</span></li>
-		<li class="state" id="ing"><span>使用中</span></li>	
+		<li class="state" id="ing"><span>使用中</span></li>
 		<li class="state J-all"><span>全部状态</span></li>
 	</ul>
 
@@ -41,7 +43,8 @@
 					<td>核销量(次)</td>
 					<td>过期未使用</td>
 					<td>未领取</td>
-					<td class="all"> 全部状态 <img src="image/icon.jpg"></td>
+					<td class="all"> 全部状态</td>
+					<!-- <td class="all"> 全部状态 <img src="image/icon.jpg"></td> -->
 				</tr>
 				<tr class="content F-title">
     		</tbody>
@@ -54,6 +57,7 @@
 			<div class="btn shu_btn"><p>数据</p></div>
 			<div class="btn chi_btn"><p>持有人</p></div>
 			<div class="btn cha_btn" ><p>查看</p></div>
+			<div class="btn send_btn" ><p>发放</p></div>
 		</div>
     </div>
 
@@ -69,7 +73,8 @@
 					<td>核销量(次)</td>
 					<td>过期未使用</td>
 					<td>未领取</td>
-					<td class="all"> 全部状态 <img src="image/icon.jpg"></td>
+					<td class="all"> 全部状态 </td>
+					<!-- <td class="all"> 全部状态 <img src="image/icon.jpg"></td> -->
 				</tr>
 				<tr class="content H-title">
     	</table>
@@ -81,6 +86,7 @@
 			<div class="btn shu_btn"><p>数据</p></div>
 			<div class="btn chi_btn"><p>持有人</p></div>
 			<div class="btn cha_btn" ><p>查看</p></div>
+			<div class="btn send_btn" ><p>发放</p></div>
 		</div>
     </div>
 
@@ -96,10 +102,11 @@
 					<td>核销量(次)</td>
 					<td>过期未使用</td>
 					<td>未领取</td>
-					<td class="all"> 全部状态 <img src="image/icon.jpg"></td>
+					<td class="all"> 全部状态 </td>
+					<!-- <td class="all"> 全部状态 <img src="image/icon.jpg"></td> -->
 				</tr>
 				<tr class="content P-title">
-					
+
 				</tr>
     		</tbody>
     	</table>
@@ -111,6 +118,7 @@
 			<div class="btn shu_btn"><p>数据</p></div>
 			<div class="btn chi_btn"><p>持有人</p></div>
 			<div class="btn cha_btn" ><p>查看</p></div>
+			<div class="btn send_btn" ><p>发放</p></div>
 		</div>
     </div>
     <p class='wu'>
@@ -124,7 +132,7 @@
     <div class="tcback"></div>
 <!--发放窗口弹窗-->
     <!--窗口1-->
-    <div  class="template grant_xfj a" >
+    <div  class="template1 grant_xfj a" >
        <div class="top"><span>发放消费金</span>
        	<img src="image/x.png">
        </div>
@@ -137,7 +145,7 @@
 	   </div>
    </div>
    <!--窗口2-->
-   <div  class="template grant_xfj a" >
+   <div  class="template1 grant_xfj a" >
        <div class="top"><span>发放消费金</span>
        	<img src="image/x.png">
        </div>
@@ -147,12 +155,12 @@
 		   	<p class="xfj_list">1230000000000*2</p>
 		   	<p class="xfj_list">1230000000000*2</p>
 		   	<p class="xfj_list">1230000000000*2</p>
-		   	<p class="xfj_list">1230000000000*2</p>	
+		   	<p class="xfj_list">1230000000000*2</p>
 		   	<a href="javascript:void(0)" class="grant_btn yes_btn close">发放</a>
 	   </div>
    </div>
 <!--查看优惠券信息弹窗-->
-   <div  class="template cha_yhj a" >
+   <div  class="template1 cha_yhj a" >
        <div class="top"><span>查看折扣券信息</span>
        	<img src="image/x.png">
        </div>
@@ -197,7 +205,7 @@
 	   <a href="javascript:void(0)" class="cha_yhj_btn close_btn close">关闭</a>
    </div>
 <!--撤回消费金-->
-     <div  class="template chehui a" >
+     <div  class="template1 chehui a" >
        <div class="top"><span>撤回确认</span>
        	<img src="image/x.png">
        </div>
@@ -207,7 +215,7 @@
   </div>
 <!--发放房卷-->
     <!--窗口1-->
-	    <div  class="template grant_fj a" >
+	    <div  class="template1 grant_fj a" >
 	       <div class="top"><span>发放房卷</span>
 	       	<img src="image/x.png">
 	       </div>
@@ -224,7 +232,7 @@
 		   </div>
 	   </div>
    <!--窗口2-->
-       <div  class="template grant_fj_two a" >
+       <div  class="template1 grant_fj_two a" >
 	       <div class="top"><span>发放房卷</span>
 	       	<img src="image/x.png">
 	       </div>
@@ -234,11 +242,43 @@
 			   	<p class="xfj_list">1230000000000*2</p>
 			   	<p class="xfj_list">1230000000000*2</p>
 			   	<p class="xfj_list">1230000000000*2</p>
-			   	<p class="xfj_list">1230000000000*2</p>	
+			   	<p class="xfj_list">1230000000000*2</p>
 			   	<a href="javascript:void(0)" class="grant_btn yes_btn close">发放</a>
 	   		</div>
 	   </div>
 </div>
-	
+ <!-- 发放券和折扣弹窗 -->
+  <div id='sendCoupon' class="template">
+		<p style="color: black;font-size: 18px;font-weight: bold;margin-left: 30px;">发放券</p>
+		<div>
+			<span class="yhx_span" style="margin-left:30px;">发放数量:</span>
+			<select style="border-color:#cecece;width: 60px;height: 25px;" class="sendCouponSelect">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+			</select>
+		</div>
+		<div style="margin-top:20px;">
+			<span class="yhx_span" style="margin-left:19px;position:absolute">发放手机号:</span>
+			<textarea name="" placeholder="输入要发放的手机号，多个手机号用;隔开" class="yhx_textarea"></textarea>
+			<p class="yhx_span" style=" margin-left: 93px;width: 366px;">*发放的卡券将会和手机号绑定，如改手机号已注册为几何商户联盟会员，则直接 发放到会员账户，如未注册，则需用接受卡券的手机号注册为联盟商户会员。</p>
+		</div>
+		<button class="yhx_button" onclick="sendCouponClick()">发放</button>
+	</div>
+     <!-- 券确定页面弹窗 -->
+		 <div id='sendCouponTrue' class="template">
+			 <p class="sendCouponTrue" style="color: black;font-size: 14px;font-weight: bold;margin-left: 30px;">确认《<span class="sendCouponTrueName">券名</span>》发放名单</p>
+			 <div class="sendCouponTrueContent" style="max-height: 333px;overflow: auto;">
+
+			 </div>
+			 <button class='sendCouponTrueButton' onclick="sendCouponClickTrue()">确认发放</button>
+		 </div>
 </body>
 </html>

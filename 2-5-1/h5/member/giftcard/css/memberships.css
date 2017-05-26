@@ -6,7 +6,7 @@ body{
     background-color: #595d6a;
 }
 .content{
-    padding: 0 7.2% 1rem 7.2%;
+    padding: 0 9.2% 1rem 9.2%;
 }
 .cardsBox,.giftsBox{
     display: none;
@@ -18,9 +18,9 @@ body{
     color: #fff;
 }
 .cardsList{
-    border-radius: 0.6rem;
-    -webkit-border-radius: 0.6rem;
-    -moz-border-radius: 0.6rem;
+    border-radius: 0.73rem;
+    -webkit-border-radius: 0.73rem;
+    -moz-border-radius: 0.73rem;
     box-shadow: 0 0 0.5rem rgba(0,0,0,0.5);
     -o-box-shadow: 0 0 0.5rem rgba(0,0,0,0.5);
     -webkit-box-shadow: 0 0 0.5rem rgba(0,0,0,0.5);
@@ -29,15 +29,15 @@ body{
     margin-bottom: 0.5rem;
 }
 .cardsList li{
-    height: 11.33rem;
+    height: 12rem;
     width: 100%;
     color: #fff;
     background: url("") no-repeat center/100% 100%;
     font-size: 0.8rem;
     position: absolute;
-    border-radius: 0.6rem;
-    -webkit-border-radius: 0.6rem;
-    -moz-border-radius: 0.6rem;
+    border-radius: 0.73rem;
+    -webkit-border-radius: 0.73rem;
+    -moz-border-radius: 0.73rem;
     overflow: hidden;
 }
 .cardsList li a{
@@ -104,6 +104,9 @@ body{
     font-size: 0.8rem;
     font-weight: bold;
 }
+.giftCardName.titleGray{
+    color: gray;
+}
 .giftCardName p{
     height: 3.33rem;
     position: relative;
@@ -132,6 +135,9 @@ body{
     border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
+}
+.giftCardName.titleGray p span:before{
+    background: gray;
 }
 .giftCardName p span{
     position: absolute;

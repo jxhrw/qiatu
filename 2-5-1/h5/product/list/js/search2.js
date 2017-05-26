@@ -10,17 +10,28 @@ $(document).ready(function() {
 			sellAmountSort={"field":"sellamount", "rule":"DESC"},
 			updateTimeSort={"field":"updatetime", "rule":"DESC"},
 			priceSort={"field":"pointsprice", "rule":"DESC"};
-	var dataPost={"pagecnt":"5","pageno":"1","keyWords":keyWords,"tags":search};
+	var dataPost={"pagecnt":"5","pageno":"1","keyWords":keyWords};
 	var c=1;
 	var ajaxData=[];
 	var pageCount=0;//总页数
+	if(tags && '无此参数'!=tags){
+		dataPost.tags=search;
+	}
+	if(GetParams().sf && GetParams().sr){
+		dataPost.sorts={"field":sf, "rule":sr};
+	}
+	withOrWithout(dataPost.exchFlag,GetParams().ef);
+	withOrWithout(dataPost.ltporatio,GetParams().ltporatio);
+	withOrWithout(dataPost.checkin,GetParams().ltporatio);
+	withOrWithout(dataPost.assetType,GetParams().assetType);
+	withOrWithout(dataPost.priceType,GetParams().priceType);
 
-	if(undefined!=GetParams().assetType){
-		dataPost.assetType=GetParams().assetType;
-	}
-	if(undefined!=GetParams().priceType){
-		dataPost.priceType=GetParams().priceType;
-	}
+	withOrWithoutList(dataPost.productIds,GetParams().ids);
+	withOrWithoutList(dataPost.hotelIds,GetParams().hids);
+	withOrWithoutList(dataPost.objectTypes,GetParams().ots);
+	withOrWithoutList(dataPost.hotelTypes,GetParams().hts);
+	withOrWithoutList(dataPost.coopTypes,GetParams().ts);
+	withOrWithoutList(dataPost.cities,GetParams().cities);
 
 	if("开心兑"==add){
 		$(".navigation").hide();
@@ -454,4 +465,16 @@ function getRequest() {
 		}
 	}
 	return theRequest;
+}
+
+
+function withOrWithout(parameter,$parameter){
+	if($parameter && 'undefined'!=$parameter){
+		parameter=$parameter;
+	}
+}
+function withOrWithoutList(parameter,$parameter){
+	if($parameter && 'undefined'!=$parameter){
+		parameter=$parameter.split(",");
+	}
 }
