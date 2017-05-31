@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>几何生活</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <script src="http://7xio74.com1.z0.glb.clouddn.com/jquery-2.1.4.min.js"></script>
+    <!--<script type="text/javascript" src="http://7xio74.com2.z0.glb.qiniucdn.com/rem.js"></script>-->
+    <!--<link rel="stylesheet" type="text/css" href="http://7xio74.com1.z0.glb.clouddn.com/css/base.css">-->
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="shortcut icon" href="../images/icon.ico"/>
+    <link href="../plug-in/paging/paging.css" rel="stylesheet"/>
+    <script src="../plug-in/animate/animate.js"></script>
+    <script src="../plug-in/paging/paging.js"></script>
+    <script src="../plug-in/jiHeSelect/index.js"></script>
+    <!-- <link rel="stylesheet" href="http://at.alicdn.com/t/font_o5ckpr94aj2oi529.css"/> -->
+</head>
+<body>
+<div class="content">
+    <div class="topUp"></div>
+<div class="top">
+      <span class="voucherName" style="font-size: 12px;font-weight:bold">山水间消费金</span>
+       <button class="downloadExcel">下载持有人表格</button>
+    </div>
+<div class="mainTable">
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+        <td class="th_td" id='name'>姓名</td>
+        <td class="th_td">手机号</td>
+        <td class="th_td">初始额</td>
+        <td class="th_td">持有额</td>
+        <td class="th_td">核销量</td>
+        <!--<td class="th_td">转让量</td>-->
+        <td class="th_td" id="selectTd">全部持有人</td>
+        </tr>
+        <tr class="ifNoTableContent">
+            <td colspan="7" style="font-weight: bold;">暂无信息</td>
+        </tr>
+         <tbody class="ifHaveTableContent">
+
+         </tbody>
+        </table>
+    </div>
+    <div class="tcdPageCode" style="float: right"></div>
+    </div>
+<script src="js/index.js"></script>
+</body>
+</html>

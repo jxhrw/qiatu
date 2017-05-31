@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+        <meta http-equiv="Pragma" content="no-cache"/>
+        <meta http-equiv="Cache-Control" content="no-cache"/>
+        <meta http-equiv="Expires" content="0"/>
+		<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" name="viewport" id="viewport" />
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+		<title>我的礼券</title>	
+		<link href="http://7xio74.com1.z0.glb.clouddn.com/css/base.css" rel="stylesheet">
+		<link href="//at.alicdn.com/t/font_vfurd6i7sree9udi.css" rel="stylesheet">
+		<link href="css/all.css" rel="stylesheet">
+		<link href="css/myCoupon.css" rel="stylesheet">
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script type="text/javascript" src="http://7xio74.com2.z0.glb.qiniucdn.com/rem.js" charset="UTF-8"></script>
+	</head>
+	<body>
+	<div class="container page-swiper-panel" id="page-swiper-panel">
+	<!--tab选项卡切换-->
+		<ul class="kinerNav header">
+			<li class="all active">全部</li>
+<!--
+			<li class="exchange">可换宿/商品</li>
+-->
+			<li class="transfer">可转让</li>
+			<li class="record">转让记录</li>
+		</ul>
+		<div class="box">
+			<div class="kinerContent swiper-container swiper-container-horizontal">
+				<div class="wrapper swiper-wrapper">
+					<section class="couponList allList swiper-slide swiper-slide-active">
+					</section>
+<!--
+					<section class="couponList exchList swiper-slide swiper-slide-next">
+					</section>
+-->
+					<!--<section class="couponList allList swiper-slide">
+					</section>-->
+					<section class="couponList transList swiper-slide">
+					</section>
+					<section class="couponList recList swiper-slide">
+						<div></div>
+						<p class="load">下拉加载更多</p>
+					</section>
+				</div>
+			</div>
+		</div>
+	<!--适用详情弹窗-->
+			<div class="popup">
+				<h1 class="couponType"><span>抵用券</span><span class="close fr"></span></h1>
+				<div class="suitDesc">
+					<h2>无固定面额消费金</h2>
+					<ul class="productUsable">
+						<li class="proTitle">可用商户及房型</li>
+					</ul>
+					<ul class="dateUsable"></ul>
+					<ul class="bookCondition"></ul>
+					<ul class="remark"></ul>
+				</div>
+				<button class="know">知道了</button>
+			</div>
+			<div class="getMore">
+				<ul>
+				</ul>
+				<p class="cancelBtn">取消</p>
+			</div>
+			<div class="popCancel">
+				<p>取消交易后，未成交的冻结消费金将自动解冻</p>
+				<strong>确认取消<span></span>转让交易吗？</strong>
+				<div class="btns">
+					<button class="yes">确定取消</button>
+					<button class="wrong">点错了</button>
+				</div>
+			</div>
+			<div class="popSuccess">
+				<p>取消成功，未成交的消费金已取消冻结状态</p>
+				<div class="btns">
+					<button class="sucYes">确定</button>
+				</div>
+			</div>
+			<div class="mask"></div>
+	</div>
+		<script src="js/myCoupon-3-30.js"></script>		
+		<script type="text/javascript" src="js/kiner-swiper-panel.min.js" ></script>
+	</body>
+</html>

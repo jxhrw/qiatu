@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+   <head>
+      <meta charset="UTF-8" />
+      <title>A date range picker for Bootstrap</title>
+      <link href="bootstrap.min.css" rel="stylesheet">
+      <link href="font-awesome.min.css" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" media="all" href="daterangepicker-bs3.css" />
+      <script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+
+      <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="moment.js"></script>
+      <script type="text/javascript" src="daterangepicker.js"></script>
+      
+     
+   </head>
+   <body>
+
+      
+              <input type="text" readonly style="width: 200px;margin:20px;" name="reservation" id="reservation" class="form-control" value="" /> 
+                    
+           
+
+
+ <script type="text/javascript">
+ $(document).ready(function() {
+  function formatNum(num){//补0
+        return num.toString().replace(/^(\d)$/, "0$1");
+    }
+    function formatStrDate(vArg){//格式化日期
+        switch(typeof vArg) {
+            case "string":
+                vArg = vArg.split(/-|\//g);
+                return vArg[0] + "-" + formatNum(vArg[1]) + "-" + formatNum(vArg[2]);
+                break;
+            case "object":
+                return vArg.getFullYear() + "-" + formatNum(vArg.getMonth() + 1) + "-" + formatNum(vArg.getDate());
+                break;
+    }
+  }
+    // var start=2016-01-01;
+    // alert(formatStrDate(new Date()).toString())
+    // var end=formatStrDate(new Date());
+    $('#reservation').daterangepicker(null, function(start, end, label) {
+      console.log(start.toISOString(), end.toISOString(), label);
+    });
+
+ });
+ </script>
+
+
+   </body>
+</html>

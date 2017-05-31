@@ -1,0 +1,54 @@
+body{background: #f2f5fa;}
+.screenBox{position: relative;}
+.bannerBgp{height: 25rem;width: 25rem;background: url("http://7xio74.com1.z0.glb.clouddn.com/bannerBgp.jpg") no-repeat center/100% 100%;position: relative;}
+.triangle{position: absolute;left: 0;bottom: 0;width: 0;height: 0;border-left: 25rem solid transparent;border-bottom: 5.1rem solid #f2f5fa;}
+.signBox{font-size: 0.8rem;width: 23rem;min-height: 16rem;background-color: rgba(255,255,255,0.95);position: absolute;left: 1rem;bottom: 3rem;-moz-box-shadow: 0 2px 20px rgba(0,0,0,0.2);box-shadow: 0 2px 20px rgba(0,0,0,0.2);-o-box-shadow: 0 2px 20px rgba(0,0,0,0.2);-webkit-box-shadow: 0 2px 20px rgba(0,0,0,0.2);overflow: hidden;text-align: center;padding-bottom: 2rem;}
+.activityName{font-size: 1.1rem;font-weight: bold;padding: 2.4rem 1rem 0 1rem;margin-bottom: 2.4rem;line-height: 1.67rem;max-height: 3.34rem;overflow: hidden;}
+.activityPrize{font-size: 1.1rem;padding: 0 1rem 3rem 1rem;line-height: 1.67rem;min-height: 4.1rem;overflow: hidden;}
+.plus{color: #e3584d;}
+.phoneNum{background-color: #edeff2;width: 18.6rem;height: 2.4rem;border: none;text-align: center;line-height: 2.4rem;border-radius: 2rem;font-size: 0.8rem;color: #000;}
+.tips{color: #a6a6a6;text-align: left;line-height: 1rem;padding: 1rem 2.8rem 2rem 2.8rem;}
+.submit,.submit2{background-color: #333;width: 18.6rem;height: 2.4rem;text-align: center;line-height: 2.4rem;border-radius: 2rem;font-size: 0.8rem;color: #fff;border: 1px solid #333;}
+a.submit{display: inline-block;margin-top: 1rem;color: #4a4a4a;background-color: #fff;border: 1px solid #333;}
+.jiHe{width: 7.4rem;left: 50%;margin-left: -3.7rem;display: block;position: absolute;bottom: 0.9rem;}
+
+.stateBox{width: 100%;position: absolute;bottom: 2.5rem;color: #4a4a4a;}
+.tips2{padding-top: 1.2rem;}
+.tips3_box{min-height: 7rem;}
+.tips3{font-size: 1rem;text-align: left;padding: 1rem 2.8rem 2rem 2.8rem;}
+.states{font-size: 0.9rem;font-weight: bold;padding-bottom: 0.6rem;}
+.redLine{/*width: 2.33rem;height: 0.13rem;background-color: #db5e5e;margin: auto;box-shadow: 0 4px 10px rgba(226,87,76,0.6);-o-box-shadow: 0 4px 10px rgba(226,87,76,0.6);-moz-box-shadow: 0 4px 10px rgba(226,87,76,0.6);-webkit-box-shadow: 0 4px 10px rgba(226,87,76,0.6);*/width: 3.33rem;height: 1.33rem;background: url("../images/redline.png") no-repeat center/100% 100%;position: relative;margin: auto;left: -0.4rem;margin-top: -0.3rem;margin-bottom: -0.7rem;}
+.submit2{margin-top: 2.6rem;}
+
+/*弹窗*/
+.screenFull{width: 100%;position: fixed;top: 0;z-index: 100; display: none;}
+.shadow{background-color: rgba(0,0,0,0.5);width: 100%;height: 100%;position: absolute;top: 0;left: 0;}
+.shareTips{width: 21rem;padding: 2rem 1rem;background-color: #fff;margin-left: 1rem;z-index: 10;position: absolute;top: 47%;font-size: 0.9rem;line-height: 1.4rem;transform: translateY(-50%);-webkit-transform: translateY(-50%);-o-transform: translateY(-50%);-ms-transform: translateY(-50%);-moz-transform: translateY(-50%);}
+.whiteTriangle{width: 0;height: 0;border: 1rem solid;border-color: #fff;border-top-color: rgba(0,0,0,0);border-left-color: rgba(0,0,0,0);position: absolute;top: -1.7rem;right: 1.8rem;}
+.question{color: #000;font-weight: bold;padding-bottom: 1.4rem;font-size: 1.1rem}
+.answer{padding-bottom: 1.4rem;}
+.friendImg{width: 18.6rem;display: block;margin: auto;}
+.close{color: #fff;position: absolute;left: 50%;bottom: -2.7rem;margin-left: -0.7rem;width: 1.4rem;height: 1.4rem;background: url("http://7xio74.com1.z0.glb.clouddn.com/close_1.png") no-repeat center/100% 100%;}
+
+.shareTips2{text-align: center;height: 70%;}
+.overHidden{height: 100%;overflow-y: auto;position: relative;}
+.winnerUl{padding: 1rem 2rem;text-align: left;line-height: 1.3rem;}
+.winnerUl li{padding: 1rem 0 1rem 4.6rem;position: relative;}
+.winnerHead{position: absolute;width: 3.4rem;height: 3.4rem;border-radius: 50%;-moz-border-radius: 50%;-webkit-border-radius: 50%;left: 0;top: 1.5rem;}
+.winnerUl table tr td{vertical-align: top;}
+.winnerUl table tr td:first-child{width: 4.2rem;}
+.gradient{position: absolute;bottom: 1.8rem;left: 0;width: 100%;height: 3rem;background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0), #fff);background:-moz-linear-gradient(top, rgba(255, 255, 255, 0), #fff);background:-o-linear-gradient(top, rgba(255, 255, 255, 0), #fff);background:-ms-linear-gradient(top, rgba(255, 255, 255, 0), #fff);}
+
+.shareTips3{text-align: center;}
+.erweimaPic{margin-top: 1rem;}
+.erweimaPic img{width: 100%;}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>店内支付</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no"/>
+	<script type="text/javascript" src="http://7xio74.com2.z0.glb.qiniucdn.com/rem.js"></script>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<link rel="stylesheet" href="/html/member/css/reset.css">
+	<script type="text/javascript" src="js/hostAll.js"></script>
+	<script src="http://7xio74.com1.z0.glb.clouddn.com/js/pingpp_pay.js"></script>
+	<script type="text/javascript" src="js/consume-1-21.js"></script>
+	<style type="text/css">
+		body{
+			background: #ebedf0;
+		}
+		.no{
+			pointer-events: none;
+		}
+	.consumetitle{
+		color: #4a4a4a;
+		padding:1.5rem 1rem;
+		font-size: 1.2rem;
+		text-align: center;
+	}
+	/*h2{
+		padding: 0 0 1rem;
+	}*/
+	.payPart{
+		margin-top:2rem;
+	}
+	.wrapPopup{
+		display: none;
+		position:fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		width:100%;
+		z-index:10;
+		background: rgba(0,0,0,0.7);
+	}
+	.points,.giftCoupons{
+		width:20.1rem;
+		padding: 0.7rem 0;
+		margin: 0 auto;
+		color:#4a4a4a;
+		font-size:1rem;
+	}
+	.points{
+		border-bottom:1px solid #e4e5e6;
+	}
+	.giftCoupons{
+		position: relative;
+		border-top:1px solid #e4e5e6;
+		border-bottom:1px solid #e4e5e6;
+	}
+	@font-face {font-family: "iconfont";
+		src: url('./font1/iconfont.eot?t=1466480495'); /* IE9*/
+		src: url('./font1/iconfont.eot?t=1466480495#iefix') format('embedded-opentype'), /* IE6-IE8 */
+		url('./font1/iconfont.woff?t=1466480495') format('woff'), /* chrome, firefox */
+		url('./font1/iconfont.ttf?t=1466480495') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+		url('./font1/iconfont.svg?t=1466480495#iconfont') format('svg'); /* iOS 4.1- */
+	}
+	.iconfont {
+		font-family:"iconfont" !important;
+		font-size:14px;
+		font-style:normal;
+		-webkit-font-smoothing: antialiased;
+		-webkit-text-stroke-width: 0.2px;
+		-moz-osx-font-smoothing: grayscale;
+	}
+	.iconfont-unconfirm,.iconfont-unconfirm1,.iconfont-unconfirm2{
+		font-size:1.1rem;
+		color: #cdcdd3;
+		border-radius:50%;
+	}
+	.iconfont-confirm,.iconfont-confirm1,.iconfont-confirm2{
+		font-size:1.1rem;
+		color: #d13f4c;
+		border-radius:50%;
+	}
+	.giftCoupons em.triangle{
+		width: 0;
+		height: 0;
+		position:absolute;
+		font-size:0.47rem;
+		right:0.5rem;
+		top:50%;
+		margin-top:-0.23rem;
+		border-top: 0.5rem solid #000;
+		border-right: 0.4rem solid transparent;
+		border-left: 0.4rem solid transparent;
+	}
+	.couponPopup{
+		width: 100%;
+		height: 26.7rem;
+		position: fixed;
+		bottom:0;
+		left:0;
+		background: #fff;
+		z-index:11;
+		display:none;
+	}
+	.display{
+		display:none;
+	}
+	.couponPopup .head{
+		width: 100%;
+		height: 3.3rem;
+		background: #ebedf0;
+		color: #4a4a4a;
+		text-align: center;
+		line-height:3.3rem;
+		position: relative;
+	}
+	.couponPopup .head a{
+		position: absolute;
+		width: 1rem;
+		height: 1rem;
+		font-weight:bold;
+		right:1.6rem;
+		top:50%;
+		color: #000;
+		margin-top:-0.5rem;
+		line-height:1.1rem;
+		font-size:1.8rem;
+	}
+	.couponPopup ul.content{
+		width: 100%;
+		height: 19rem;
+		overflow-y:scroll;
+	}
+	.couponPopup ul.content li{
+		position: relative;
+		height: 5.93rem;
+		border-bottom:1px solid #e4e5e6;
+		padding-top:1.2rem;
+	}
+	ul.content li h1{
+		font-size:1rem;
+		color: #000;
+		font-weight:bold;
+		text-align:left;
+		margin:0 0 0.5rem 1.13rem;
+	}
+	ul.content li div.inTime,ul.content li div.balance{
+		margin:0 0 0.5rem 1.13rem;
+	}
+	/*未选中的样式*/
+	ul.content li em.couponIconfont,ul.content li em.couponIconfont1{
+		position: absolute;
+		font-size:1.47rem;
+		right:1.27rem;
+		top:50%;
+		margin-top:-0.7rem;
+	}
+	/*选中的样式*/
+	ul.content li em.couponIconfont1{
+		color: #d13f4c;
+	}
+	ul.content li div.inTime a{
+		color: #4a4a4a;
+		font-size:0.77rem;
+	}
+	ul.content li span.inTime,ul.content li span.balance{
+		color: #4a4a4a;
+		font-size:0.77rem;
+		margin-right:0.77rem;
+	}
+
+	ul.content li strong{
+		font-size:1.2rem;
+		color: #d13f4c;
+	}
+	ul.content li strong em.rmbSign{
+		font-size:0.57rem;
+	}
+	.couponPopup .footer{
+		width: 100%;
+		height: 3.3rem;
+		line-height:3.3rem;
+		text-align: center;
+		font-size:1.07rem;
+		background:#828d9a;
+		color: #fff;
+		position:fixed;
+		bottom:0;
+	}
+	.resetPhoneWrap input{
+		padding-top:1.5rem;
+	}
+	.resetPhoneWrap input::-webkit-input-placeholder{
+		font-size:1.2rem;
+	}
+	.shouldPay{
+		color: #4a4a4a;
+		width: 20.1rem;
+		margin: 0 auto;
+		padding-top: 2rem;
+	}
+	.shouldPay span{
+		color: #d13f4c;
+	}
+	.consume{
+		height: 100%;
+		background: #fff;
+		/*display: none;*/
+		position: fixed;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+	}
+	.order{
+		display: none;
+	}
+	.storeName{
+		height: 8rem;
+		background: #2c3642;
+		padding-left: 1rem;
+	}
+	.storeName h1{
+		padding: 3.4rem 0;
+		font-size: 1.2rem;
+		text-align: left;
+		font-family: "黑体",Arial;
+	}
+	.payDesc{
+		padding: 0.6rem 1rem;
+		background: #fff;
+		margin-bottom: 0.7rem;
+	}
+	.payDesc li{
+		line-height: 2rem;
+		color: #808080;
+	}
+	.payDesc span{
+		float: right;
+		color: #000;
+	}
+	.couponValue{
+		display: none;
+	}
+	.pointsValue{
+		display: none;
+	}
+	.payChannel{
+		padding:0 1.1rem;
+		background: #fff;
+		color: #000;
+		margin: 0 auto;
+		display: none;
+	}
+	.payChannel li{
+		line-height: 2.9rem;
+		padding-left: 3.5rem;
+	}
+	.payChannel li:last-child{
+		border-top: 1px solid #e4e5e6;
+	}
+	.payChannel em{
+		float: right;
+	}
+		.payChannel .wxPay{
+			background:url("images/wxpay.png") no-repeat left center/2.1rem;
+		}
+		.payChannel .jhPay{
+			background:url("images/jhpay.png") no-repeat left center/1.8rem;
+		}
+	.tel{
+		background: #fff;
+		height: 3rem;
+		padding-left: 6.3rem;
+		line-height: 3rem;
+		margin-top: 0.7rem;
+	}
+	.tel img{
+		width: 1.2rem;
+		padding: 0.7rem 1.4rem 0.7rem 0;
+		float: left;
+	}
+		.tel span{
+			display: inline-block;
+			color: #72ac1e;
+		}
+		.comfirmPay{
+			width: 100%;
+			background: #fff;
+			height: 3rem;
+			overflow: hidden;
+			position: fixed;
+			bottom: 0;
+		}
+		.payValue2{
+			float: left;
+			width: 63%;
+			color: #4a4a4a;
+			line-height: 3rem;
+			padding-left: 5%;
+			border-top: 1px solid #b3b3b3;
+		}
+		.payValue2 span{
+			color: #d13f4c;
+			font-size: 1.3rem;
+			letter-spacing: 1px;
+		}
+		.payBtn{
+			background: #d13f4c;
+			width: 32%;
+			float:right ;
+			color: #fff;
+			line-height: 3rem;
+			font-size: 1.1rem;
+			font-family: "黑体",Arial;
+			letter-spacing: 1px;
+		}
+	</style>
+</head>
+<body>
+<section class="consume">
+	<div class="consumetitle"></div>
+	<!--<h2>请输入要用积分抵现的消费金额</h2>-->
+	<div class="resetPhoneWrap" style="color:#000;font-size:1.2rem;">￥<input class="resetPhone" type="number" style="text-align:center;width:90%;font-size:1.6rem;color:#000;" placeholder="请输入要支付的金额"/></div>
+	<div class="tip" style="margin:2rem auto 1rem;background-color:#000;">您的积分不足</div>
+	<!--积分和抵用券的选用部分-->
+	<div class="payPart">
+		<div class="giftCoupons">
+			<span class="iconfont iconfont-unconfirm1">&#xe62c;</span>&nbsp;&nbsp;礼券可用余额:&nbsp;&nbsp;￥  <a class="couponBalance"></a>
+			<em class="triangle"></em>
+			<div class="wrapPopup display">
+
+			</div>
+			<div class="couponPopup">
+				<div class="head">
+					可用礼券
+					<a href="javascript:;">×</a>
+				</div>
+				<ul class="content">
+<!--
+					<li>
+						<h1>礼券名称</h1>
+						<div class="inTime"><span class="inTime">有效期:&nbsp;&nbsp;</span><a></a>
+						</div>
+						<div class="balance">
+							<span class="balance">余额:&nbsp;&nbsp;&nbsp;&nbsp;</span><strong><em class="rmbSign">￥</em></strong>
+						</div>
+						<em class="iconfont couponIconfont">&#xe62c;</em>
+					</li>
+-->
+				</ul>
+				<div class="footer">确定</div>
+			</div>
+		</div>
+		<div class="points">
+			<span class="iconfont iconfont-unconfirm">&#xe62c;</span>&nbsp;&nbsp;积分余额<em class="pointsBalance"></em>可抵现  ￥ <a class="pointsToCash"></a>
+		</div>
+		<div class="shouldPay">应付：<span>¥</span><span class="payValue">0</span></div>
+	</div>
+	<!--<p class="more">当前积分余额：<strong></strong><br/>最多可抵现：￥<span></span></p>-->
+	<input class="saveBtn" type="submit" id="submitBtn"  value="去支付" disabled="disabled"/>
+</section>
+	<section class="order">
+		<div class="storeName">
+			<h1></h1>
+		</div>
+		<ul class="payDesc">
+			<li class="totalValue">支付金额：<span>&yen;<strong></strong></span></li>
+			<li class="couponValue">礼&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;券：<span>-&yen;<strong></strong></span></li>
+			<li class="pointsValue">积分抵现：<span>-&yen;<strong></strong></span></li>
+			<li>应&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;付：<span>&yen;<strong class="payValue"></strong></span></li>
+		</ul>
+		<ul class="payChannel">
+			<li class="wxPay">微信支付<em class="iconfont">&#xe619;</em></li>
+			<!--<li class="jhPay">账户余额支付(&yen;<span></span>)<em class="iconfont iconfont-unconfirm2">&#xe62c;</em><input type="radio" name="payChannel"></li>-->
+		</ul>
+		<div class="tel">
+			<a href="tel:4000265225">
+				<img src="images/phoneIcon.jpg" alt="">
+				<span>几何客服 &nbsp;&nbsp; 400-026-5225</span>
+			</a>
+		</div>
+		<div class="comfirmPay">
+			<div class="payValue2">应付：<span>&yen;<strong class="payValue">1000</strong></span></div>
+			<button class="payBtn">
+				确认支付
+			</button>
+		</div>
+	</section>
+<div style="display:none">
+    <script src="http://s11.cnzz.com/z_stat.php?id=1253954519&web_id=1253954519" language="JavaScript"></script>
+</div> 		
+</body>
+
+</html>

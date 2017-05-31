@@ -1,0 +1,77 @@
+body{background: #ebedf0;}
+.mainContent{overflow-y: auto;position: fixed;top: 0;left: 0;width: 100%;display: none;z-index: 2;}
+.contentBox{}
+/*.innerBox{display: none;}*/
+.innerBox{position: relative;}
+.kindIcon{position: absolute;top: 1.1rem;left: 4%;width: 1.33rem;height: 1.33rem;background: url("") no-repeat center/100% 100%;z-index: 1;}
+.proNameIcon{background-image: url("../images/proNameIcon.png");}
+.cursumeIcon{background-image: url("../images/cursumeIcon.png");}
+.priceIcon{background-image: url("../images/priceIcon.png");}
+.hotelIcon{background-image: url("../images/hotelIcon.png");}
+.payIcon{background-image: url("../images/payIcon.png");}
+.morePadding{padding-top: 1.1rem!important;padding-bottom: 1.1rem!important;}
+
+.whiteBack{background: #fff;font-size: 0.9rem;padding: 0 4%;position: relative;}
+.black{color: #000;}
+.gray{color: #9b9b9b;}
+.paleRed{color: #d13f4c;}
+.quota{position: relative;}
+.multiLineBox{padding: 0.45rem 4%;}
+.multiLineBox2{padding: 0.8rem 4% 0.8rem 13.33%;}
+.multiLine{line-height: 1.2rem;padding: 0.3rem 0;}
+.multiLine2{line-height: 2rem;}
+
+.detailHead{height: 6.66rem;background-color: #4a4d57;color: #fff;padding: 0 4%;position: relative;overflow: hidden;}
+.heightCenter{position: absolute;top: 50%;transform: translateY(-50%);-moz-transform: translateY(-50%);-ms-transform: translateY(-50%);-o-transform: translateY(-50%);-webkit-transform: translateY(-50%);}
+.detailHead .iconfont{left: 6.4%;font-size: 1.6rem;}
+.orderStatus{left: 19.5%;width: 74%;}
+.nowStatus{font-size: 1.2rem;}
+.nowTips{font-size: 0.8rem;padding-top: 0.3rem;}
+.cancelOrder{font-size: 0.8rem;right: 1rem;color: #666;width: 4.8rem;border: 1px solid #e6e7e9;text-align: center;border-radius: 2rem;padding: 0.25rem 0;display: none;background: #fff;}
+.bookingName{font-size: 1rem;}
+.bookingInfo{font-size: 0.8rem;padding-top: 0.5rem;}
+.paddingOne{padding-top: 0.8rem;padding-bottom: 0.8rem;}
+.position{right: 1rem;}
+.hasWidth{width: 75%;}
+.borTop{border-top: 1px solid #e6e6e6;}
+.hotelName{font-size: 1.1rem;padding-bottom: 0.5rem;}
+.merchantBtn{text-align: center;padding-top: 1rem;padding-bottom: 0.5rem;}
+.merchantBtn a{display: inline-block;width: 45%;border: 1px solid #ccc;border-radius: 0.1rem;text-align: center;color: #4a4a4a;padding: 0.2rem;}
+.merchantBtn a:first-child {/*margin-right: 1rem;*/}
+
+.arrowImg{width: 0.8rem;height: 0.5rem;display: inline-block;background: url("../images/uArrow.jpg") no-repeat center/100% 100%;}
+.turnLeft{transform:rotate(270deg);-moz-transform: rotate(270deg);-ms-transform: rotate(270deg);-o-transform: rotate(270deg);-webkit-transform: rotate(270deg);}
+.turnUp{transform:rotate(180deg);-moz-transform: rotate(180deg);-ms-transform: rotate(180deg);-o-transform: rotate(180deg);-webkit-transform: rotate(180deg);}
+.tuneLeft{position: relative;top: 0.3rem;}
+.tuneDown{position: absolute;top: 50%;right: 0;transform: translateY(-50%);-moz-transform: translateY(-50%);-ms-transform: translateY(-50%);-o-transform: translateY(-50%);-webkit-transform: translateY(-50%);}
+
+.cusService{line-height: 3rem;}
+.telBoxHeight{height: 3rem;}
+.telIcon{width: 1.2rem;height: 1.6rem;position: absolute;right: 0.4rem;top: 50%;transform: translateY(-50%);-moz-transform: translateY(-50%);-ms-transform: translateY(-50%);-o-transform: translateY(-50%);-webkit-transform: translateY(-50%);}
+
+.bookingTips{font-size: 0.8rem;line-height: 1.1rem;color: #9b9b9b;padding: 0.8rem 4%;width: 68%;}
+
+.lastPayBtnBox{width: 25rem;height: 3rem;line-height: 3rem;position: fixed;bottom: 0;left: 0;background: #d13f4c;color: #fff;text-align: center;font-size: 1rem;display: none;}
+.timeBox{right: 1rem;width: 4.5rem;text-align: left;}
+.timeIcon{display: inline-block;width: 1.1rem;height: 1.1rem;margin-right: 0.3rem;background: url("../images/clock.png") no-repeat center/100% 100%;position: relative;top: 0.2rem;}
+
+.shadow{background: rgba(0,0,0,0.5);width: 100%;height: 100%;}
+.underWindow{height: 22rem;width: 100%;background: #fff;position: absolute;bottom: 0;font-size: 0.9rem;color: #000;overflow: hidden;display: none;}
+.windowHead{background: #ebedf0;line-height: 3.33rem;text-align: center;font-size: 1.1rem;color: #4a4a4a;}
+.clearDisc{background: #828d9a;line-height: 3rem;text-align: center;font-size: 1rem;color: #fff;position: fixed;bottom: 0;width: 100%;}
+.discListUl{padding: 0 1rem;height: 15.7rem;overflow-y: auto;}
+.question{font-size: 1.1rem;color: #000;font-weight: bold;padding: 2rem 0 1.5rem 0;}
+.answer{font-size: 1rem;color: #151515;line-height: 1.6rem;}
+.cancelBox{width: 14.33rem;padding: 1.5rem;background: #fff;left: 50%;transform: translate(-50%,-50%);-moz-transform: translate(-50%,-50%);-ms-transform: translate(-50%,-50%);-o-transform: translate(-50%,-50%);-webkit-transform: translate(-50%,-50%);line-height: 1.33rem;display: none;}
+.secondTips{height: 5.5rem;overflow: hidden;}
+.wrong{color: #4a4a4a;}
+.cancel{color: #d13f4c;}
+
+#checkTime,#hotelBox,.customerAddress{display: none;}
+
+.refundBox{font-size: 0.8rem;position: absolute;right: 1rem;bottom: 0.5rem;display: none;}
+.refund{display: inline-block;transform:rotate(90deg);-moz-transform: rotate(90deg);-ms-transform: rotate(90deg);-o-transform: rotate(90deg);-webkit-transform: rotate(90deg);}
+
+
+/*2.5.1修改*/
+.relative{position: relative;}

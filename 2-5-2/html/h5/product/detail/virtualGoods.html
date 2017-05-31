@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" name="viewport" id="viewport" />
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <script src="http://7xio74.com2.z0.glb.qiniucdn.com/rem.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://7xio74.com1.z0.glb.clouddn.com/css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/virtualGoods.css">
+    <script src="http://7xio74.com1.z0.glb.clouddn.com/jquery-2.1.4.min.js"></script>
+    <script src="http://7xio74.com1.z0.glb.clouddn.com/js/pingpp_pay.js"></script>
+    <script src="/html/h5/publicFile/js/general.js"></script>
+    <script src="js/virtualGoods.js"></script>
+    <title>详情</title>
+</head>
+<body>
+<img class="titleChart" src="" alt="">
+<div class="information">
+    <div class="packageName"></div>
+    <div id="cheng"></div>
+    <div class="chooseBox clearfix">
+        <div class="price fl">价格：<span></span><a id="needDeposit"></a></div>
+        <div class="handNum fr">数量：<input type="text" placeholder="请输入购买数量"></div>
+       <!-- <div class="numberBox fr clearfix">
+            <span class="add fr">+</span>
+            <input class="number fr" type="text" name="" id="" value="1">
+            <span class="reduce fr">-</span>
+        </div>-->
+    </div>
+    <div class="infoPay">
+        <span class="personNum"><em id="personNum"></em>人已认购</span><span class="personMon">认购总额 <em id="personMon"></em></span>
+    </div>
+</div>
+<div class="address">
+    <input class="addressInput" id="cusName" type="text" placeholder="* 请输入收货人姓名">
+    <input class="addressInput" id="cusPhone" maxlength="11" type="tel" placeholder="* 请输入收货人电话">
+    <input class="addressInput" id="addressInput" type="text" placeholder="* 请输入收货地址">
+</div>
+
+<div class="schedule">
+    <div class="intoGroup">
+        <!--<p class="speed">成团进度:<span class="fr">75%</span></p>-->
+        <div class="speedBox">
+            <div id="speed"><span>20%</span><div class="triangle"></div></div>
+        </div>
+        <div class="scheduleLineBox clearfix">
+            <div class="scheduleLine fl">
+                <div class="line"></div>
+            </div>
+            <div class="overScheduleLine fl">
+                <div class="overLine"></div>
+            </div>
+            <div id="target">认购目标:<span>500</span>&nbsp;</div>
+            <div id="stock">超额认购上限:<span>600</span>&nbsp;</div>
+            <div id="havePay"><span id="has">已认购 <em></em></span><span id="have">/认购上限<em></em></span></div>
+        </div>
+    </div>
+    <ul>
+       <!-- <li>需存本金<a id="needDeposit"></a> <p class="fr">￥<span></span></p></li>-->
+    </ul>
+    <p class="endTime">购买截止时间：<span></span></p>
+</div>
+
+<div class="details"></div>
+<a href="http://api.jihelife.com/html/h5/product/detail/virtualGoods.html?id=38607" id="jfBuy">
+    <img src="http://7s1sju.com1.z0.glb.clouddn.com/%E7%A7%AF%E5%88%86%E5%A5%97%E9%A4%9001.png" alt="">
+</a>
+
+<div style="height: 3rem;"></div>
+<div class="footer clearfix">
+    <div class="fl"><p>应付：<span></span></p></div>
+    <div class="fr">认购</div><!--不能支付加类名unPay-->
+</div>
+
+<!--小提示弹框-->
+<div class="smallBomb"></div>
+
+<!--支付弹框-->
+<div class="payBoxShadow Box1">
+    <div class="shadow"></div>
+    <div class="payBox">
+        <p class="title">支付订单 <span class="fr">×</span></p>
+        <div class="confContent">
+            <p></p>
+            <table id="payPay">
+                <tr><td>价格：</td><td id="pricePay"></td></tr>
+                <tr><td>数量：</td><td id="numberPay"></td></tr>
+                <tr><td>应付：</td><td id="shouldPay"></td></tr>
+            </table>
+            <p class="cancelPolicy"></p>
+        </div>
+        <div class="payed">
+            <div class="weixin">微信支付</div>
+        </div>
+        <div class="sure">确认支付</div>
+    </div>
+</div>
+<!--支付弹框-->
+<div class="payBoxShadow Box3">
+    <div class="shadow"></div>
+    <div class="payBox">
+        <p class="title">支付订单 <span class="fr">×</span></p>
+        <div class="confContent">
+            <p></p>
+            <table id="payPay1">
+                <tr><td>价格：</td><td id="pricePay1"></td></tr>
+                <tr><td>数量：</td><td id="numberPay1"></td></tr>
+                <tr><td>应付：</td><td id="shouldPay1"></td></tr>
+            </table>
+            <p class="cancelPolicy"></p>
+        </div>
+        <div class="appPayed clearfix">
+            <div class="fl pay"><div class="weixin">微信支付</div></div>
+            <div class="fr pay"><div class="zfbao">支付宝支付</div></div>
+        </div>
+        <div class="sure">确认支付</div>
+    </div>
+</div>
+<!--购买说明弹框-->
+<div class="payBoxShadow Box2">
+    <div class="shadow"></div>
+    <div class="payBox">
+        <p class="title">商品购买说明 <span class="fr">×</span></p>
+        <div class="confContent"></div>
+        <!--<div class="know">知道了</div>-->
+    </div>
+</div>
+
+<!--已有订单提示-->
+<div class="payBoxShadow" id="hasOrder"></div>
+<div class="notPay">
+    <p class="notPayTs">您有已认购订单未支付</p>
+    <p class="notPayLook"><span>查看</span></p>
+</div>
+
+<div class="payBoxShadow Box4">
+    <div class="shadow"></div>
+    <div class="cancelPrompt" id="noIntegral">
+        <p class="cancelP"><br>积分余额不足，无法完成购买</p>
+        <div class="clearfix">
+            <button class="cancelPromptBtn fl" id="iknow">知道了</button>
+            <button class="cancelPromptBtn fr" id="buyIntegral"><!--8折-->买积分</button>
+        </div>
+    </div>
+</div>
+
+<!--统计代码-->
+<div style="display:none">
+    <script src="http://s11.cnzz.com/z_stat.php?id=1253954519&web_id=1253954519" language="JavaScript"></script>
+    <script>
+        function longShort(id,id2,arrow,hidd){
+            var longOr=$(id).attr("class");
+            if(longOr=="short"){
+                $(id).css("height","auto");
+                var heught=$(id).css("height");
+                $(id).css("height","9rem");
+                $(id).attr("class","long").animate({"height":heught});
+                $(id2).html("收起");
+                $(arrow).css("background","url('http://7xio74.com1.z0.glb.clouddn.com/virtualGoodsArrow2.png') no-repeat center/contain");
+                $(hidd).hide();
+
+            }else if(longOr=="long"){
+                $(id).attr("class","short").animate({"height":"9rem"});
+                $(id2).html("查看全部风险提示");
+                $(arrow).css("background","url('http://7xio74.com1.z0.glb.clouddn.com/virtualGoodsArrow1.png') no-repeat center/contain");
+                $(hidd).show();
+            }
+        }
+        function longAndShort(id,id2,arrow,hidd,all,little,height){
+            var longOr=$(id).attr("class");
+            if(longOr=="short"){
+                $(id).css("height","auto");
+                var heught=$(id).css("height");
+                $(id).css("height",height+"rem");
+                $(id).attr("class","long").animate({"height":heught});
+                $(id2).html(little);
+                $(arrow).css("background","url('http://7xio74.com1.z0.glb.clouddn.com/virtualGoodsArrow2.png') no-repeat center/contain");
+                $(hidd).hide();
+
+            }else if(longOr=="long"){
+                $(id).attr("class","short").css({"height":height+"rem"});
+                window.location=id2;
+                $(id2).html(all);
+                $(arrow).css("background","url('http://7xio74.com1.z0.glb.clouddn.com/virtualGoodsArrow1.png') no-repeat center/contain");
+                $(hidd).show();
+            }
+        }
+    </script>
+</div>
+</body>
+</html>

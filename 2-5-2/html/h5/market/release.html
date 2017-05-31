@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" name="viewport" id="viewport" />
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <script src="http://7xio74.com2.z0.glb.qiniucdn.com/rem.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://7xio74.com1.z0.glb.clouddn.com/css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/release.css">
+    <script src="http://7xio74.com1.z0.glb.clouddn.com/jquery-2.1.4.min.js"></script>
+    <script src="http://7xio74.com1.z0.glb.clouddn.com/js/general.js?h4"></script>
+    <script src="js/release.js"></script>
+    <title>发布详情</title>
+</head>
+<body>
+    <div class="relDetail">
+        <img class="stateIcon" src="images/releaseSuccess.jpg" alt="">
+        <p class="stateDesc" id="stateDesc"></p>
+        <p class="relTitle" id="relTitle"></p>
+        <ul class="relInfo">
+            <li class="clearfix">
+                <p class="fl">转让额度：</p>
+                <p class="fr relInfoWord" id="saleNum"></p>
+            </li>
+            <li class="clearfix">
+                <p class="fl" id="kind">转让折扣：</p>
+                <p class="fr relInfoWord" id="saleDiscount"></p>
+            </li>
+            <li class="clearfix">
+                <p class="fl">转让总价：</p>
+                <p class="fr relInfoWord" id="saleMoney"></p>
+            </li>
+        </ul>
+        <div class="relTime clearfix">
+            <p class="timeTitle fl">发布时间：</p><p class="timeSecond fr" id="timeSecond"></p>
+        </div>
+        <div class="relBtn clearfix">
+            <p class="fl" id="relCancel">取消交易</p>
+            <p class="fr" id="giftCard">我的礼券</p>
+        </div>
+    </div>
+
+    <div class="phoneBtn">
+        <a href="tel:4000265225">
+            <img src="images/phoneIcon.jpg" alt="">
+            <span>几何客服 &nbsp;&nbsp; 400-0265225</span>
+        </a>
+    </div>
+<!--底部弹窗通用样式-end-->
+<div id="prompt"></div>
+
+    <!--底部弹窗通用-start-->
+    <div class="popupT">
+        <div class="backShadow"></div>
+        <div class="cancelPrompt" id="checkAgain">
+            <p class="cancelP">取消交易后，未成交的冻结消费金将自动解冻<br/><span>确认撤单吗？</span></p>
+            <div class="clearfix">
+                <button class="cancelPromptBtn fl" id="checkAgainBtn">确定撤单</button>
+                <button class="cancelPromptBtn fr" id="close">点错了</button>
+            </div>
+
+        </div>
+        <div class="cancelPrompt" id="returnInfo">
+            <p class="cancelP" id="returnPrompt"></p>
+            <button class="cancelPromptBtn" id="returnInfoBtn">确定</button>
+        </div>
+    </div>
+
+<!--统计代码-->
+<div style="display:none">
+    <script src="http://s11.cnzz.com/z_stat.php?id=1253954519&web_id=1253954519" language="JavaScript"></script>
+</div>
+</body>
+</html>

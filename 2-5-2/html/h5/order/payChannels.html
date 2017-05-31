@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" name="viewport" id="viewport" />
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <script src="http://7xio74.com2.z0.glb.qiniucdn.com/rem.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://7xio74.com1.z0.glb.clouddn.com/css/base.css?h1">
+
+    <link rel="stylesheet" type="text/css" href="css/payChannels.css">
+    <link rel="stylesheet" type="text/css" href="css/iconfont.css">
+    <script src="http://7xio74.com1.z0.glb.clouddn.com/jquery-2.1.4.min.js"></script>
+    <script src="http://7xio74.com1.z0.glb.clouddn.com/js/general.js?h3"></script>
+    <script src="http://7xio74.com1.z0.glb.clouddn.com/js/pingpp_pay.js"></script>
+    <script src="js/payChannels.js"></script>
+    <title>消费金购买</title>
+</head>
+<body>
+<div class="productName"></div>
+<ul class="productDetail">
+    <li>购买额度：<span id="quota" class="fr"></span></li>
+    <li>可享折扣：<span id="discount" class="fr"></span></li>
+    <!--<li>兑换比例：<span id="subRatio" class="fr"></span></li>-->
+    <!--<li>应付：<span id="payMoney" class="fr"></span></li>-->
+</ul>
+<!--未选中&#xe62c; 选中&#xe619;-->
+<ul class="payChannel">
+    <li id="alipay_wap"><img src="images/alipay.jpg" alt="">支付宝支付<i class="iconfont fr">&#xe62c;</i></li>
+    <li id="wx_pub"><img src="images/wx.jpg" alt="">微信支付<i class="iconfont fr">&#xe62c;</i></li>
+    <li id="alipay"><img src="images/alipay.jpg" alt="">支付宝支付<i class="iconfont fr">&#xe62c;</i></li>
+    <li id="wx"><img src="images/wx.jpg" alt="">微信支付<i class="iconfont fr">&#xe62c;</i></li>
+    <li id="jh"><img src="images/jh.jpg" alt="">账户余额支付(<span id="remain"></span>)<i class="iconfont fr">&#xe62c;</i></li>
+    <li id="jf"><img src="images/jh.jpg" alt="">积分余额支付(<span></span>)<i class="iconfont fr">&#xe62c;</i></li>
+</ul>
+<p class="tiShi">
+    消费金转让市场购买的消费金交易成功后，不支持退款或取消订单。
+</p>
+<div class="phoneBtn">
+    <a href="tel:4000265225">
+        <img src="images/phoneIcon.jpg" alt="">
+        <span>几何客服 &nbsp;&nbsp; 400-026-5225</span>
+    </a>
+</div>
+
+<div class="footer clearfix">
+    <div class="footerLeft fl">
+        <p>应付：<span id="payMoney2"></span></p>
+    </div>
+    <div class="footerRight fr">
+        <div>
+            立即支付 <img src="images/clock.jpg" alt=""> <span id="countdown"></span>
+        </div>
+    </div>
+</div>
+
+<!--底部弹窗通用样式-end-->
+<div id="prompt"></div>
+
+<!--底部弹窗通用-start-->
+<div class="popupT">
+    <div class="backShadow"></div>
+    <div class="setPsword">
+        <p class="setP">您还没有密码，请先设置</p>
+        <button class="setButton" id="setButton">确定</button>
+    </div>
+    <div class="checkPsword">
+        <div class="checkClose" id="checkClose"></div>
+        <div class="checkTitle"><p>&nbsp;</p></div>
+        <div class="titlePassword" id="titlePassword">请输入交易密码</div>
+        <table id="inputPassword" class="inputCss" cellpadding="0" cellspacing="3">
+            <tr>
+                <td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+        </table>
+        <button id="checkBtn" class="button no">确认</button>
+        <p class="checkForget">忘记交易密码</p>
+        <!--键盘-->
+        <div class="keyboard" style="position: fixed;bottom: 0;left: 0;width: 100%;z-index: 10;background: #fff;"></div>
+    </div>
+    <div class="textPs">
+        <p class="textPsTit">验证<span id="owner"></span>的身份</p>
+        <p class="textPsPhone">已发送验证码到</p><p class="textPsPhone" id="phoneNum"></p>
+        <div class="SMSVer">
+            <input type="tel" placeholder="请输入验证码">
+            <button id="again" class="no">60S</button>
+        </div>
+        <button id="sure" class="button">确定</button>
+    </div>
+</div>
+
+<div class="popupTGoBack">
+    <div class="backShadowGoBack"></div>
+    <div class="setPsword" id="goBackBox">
+        <p class="setP" style="text-align: center;">订单支付超时，请重新下单</p>
+        <button class="setButton" id="goBack">确定</button>
+    </div>
+</div>
+<!--统计代码-->
+<div style="display:none">
+    <script src="http://s11.cnzz.com/z_stat.php?id=1253954519&web_id=1253954519" language="JavaScript"></script>
+</div>
+</body>
+</html>

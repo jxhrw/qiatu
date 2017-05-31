@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>消费记录</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no"/>
+	<script type="text/javascript" src="http://7xio74.com2.z0.glb.qiniucdn.com/rem.js"></script>
+	<script src="http://g.alicdn.com/kissy/k/1.4.7/seed.js" data-config="{combine:true}"></script>
+	<script type="text/javascript" src="js/hostAll.js"></script>
+	<script type="text/javascript" src="js/isLogin.js"></script>
+	<script type="text/javascript" src="js/detail.js"></script>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/detail.css">
+	<link href="css/calendar.css" rel="stylesheet" type="text/css">
+	<script src="http://7xio74.com2.z0.glb.clouddn.com/jquery-1.4.2.js"></script>
+	<script type="text/javascript" src="js/handCalendar.js"></script>
+</head>
+<body>
+<h1 class="seldel">会员信息</h1>
+<ul class="detailTop">
+	<li>会员姓名：<span class="detailTopli1"></span></li>
+	<li>会员级别：<span class="detailTopli2"></span></li>
+	<li>手机号码：<span class="detailTopli3"></span></li>
+	<li>入住日期：<span class="detailTopli4"></span></li>
+	<li>离店日期：<span class="detailTopli5"></span></li>
+	<li>消费日期：<span class="detailTopli8"></span></li>
+	<li>消费金额：<span class="detailTopli6"></span></li>
+	<li>房间号码：<span class="detailTopli7"></span></li>
+
+</ul>
+<h1 class="sel">消费信息|可修改</h1>
+<ul class="detailEdit">
+	<li>消费日期：<span class="detailEditli1">05-10</span><i class="iconfont">&#xe61a;</i></li>
+	<li>入住日期：<span class="detailEditli2">05-10</span><i class="iconfont">&#xe61a;</i></li>
+	<li>离店日期：<span  class="detailEditli3">05-12</span><i class="iconfont">&#xe61a;</i></li>
+	<li>消费金额：<span>￥<input class="amoumt" type="number" value=""></input></span></li>
+	<li>房间号码：<span  class="detailEditli4"><input value=""></input></span></li>
+</ul>
+<button id="xiugaiBtn">确认修改</button>
+
+<div class="calendarBox">
+	<div id="mask">
+		<div id="alert">
+			<div class="tipOtaName"><span class="close">取消</span>修改日期<span class="yes">确定</span></div>
+			<table class="weekDay">
+				<tr>
+					<td>日</td>
+					<td>一</td>
+					<td>二</td>
+					<td>三</td>
+					<td>四</td>
+					<td>五</td>
+					<td>六</td>
+				</tr>
+			</table>
+			<div id="calendar">
+
+			</div>
+		</div>
+
+	</div>
+
+	<div id="mask1">
+		<div id="alert1">
+			<div class="tipOtaName"><span class="close">取消</span>修改日期<span class="yes">确定</span></div>
+			<table class="weekDay">
+				<tr>
+					<td>日</td>
+					<td>一</td>
+					<td>二</td>
+					<td>三</td>
+					<td>四</td>
+					<td>五</td>
+					<td>六</td>
+				</tr>
+			</table>
+			<div id="calendar1">
+
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<div class="tip"></div>
+
+<div style="display:none">
+    <script src="http://s11.cnzz.com/z_stat.php?id=1253954519&web_id=1253954519" language="JavaScript"></script>
+</div>
+</body>
+
+</html>

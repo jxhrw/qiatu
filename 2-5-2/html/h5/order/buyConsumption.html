@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" name="viewport" id="viewport" />
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <script src="http://7xio74.com2.z0.glb.qiniucdn.com/rem.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://7xio74.com1.z0.glb.clouddn.com/css/base.css?h1">
+    <link rel="stylesheet" type="text/css" href="css/buyConsumption.css">
+    <script src="http://7xio74.com1.z0.glb.clouddn.com/jquery-2.1.4.min.js"></script>
+    <script src="http://7xio74.com1.z0.glb.clouddn.com/js/general.js?h7"></script>
+    <script src="http://7xio74.com1.z0.glb.clouddn.com/js/pingpp_pay.js"></script>
+    <script src="js/buyConsumption.js"></script>
+    <title>购买消费金</title>
+</head>
+<body>
+<img class="banner" src="" alt="">
+<div class="buyCons" id="hrefA">
+    <div class="nameCons">&nbsp;</div>
+    <div class="deadLine">有效期至：<span id="deadLine"></span>
+        <span class="fr spanBtn" id="hotelBtn">适用酒店</span><span class="fr spanBtn" id="explainBtn">适用说明</span>
+    </div>
+    <div class="buyAmount">
+        <input type="tel" id="buyMoney" class="buyMoney" placeholder="请输入购买额度" maxlength="7">
+        <div class="fr enjoyDiscount" id="enjoyDiscount"><p class="perWord">可享折扣</p><p class="pert" id="pert"></p></div>
+    </div>
+    <div class="saleIntegral"><a href="">会员积分<!--8折-->出售中</a></div>
+</div>
+<div class="buyCons">
+    <p class="sellTitle">正在转让的消费金</p>
+    <table class="selling" cellpadding="0" cellspacing="0">
+        <tr>
+            <th></th><th>消费金额度</th><th>折扣</th><th>售价（元）</th>
+        </tr>
+        <tbody id="selling">
+
+        </tbody>
+    </table>
+    <div class="null"></div>
+    <div class="footer clearfix">
+        <div class="fl footLeft"><span class="tit">总 &nbsp;&nbsp;&nbsp; 价：</span><span class="price"><i id="yuan">￥</i><em id="shouldPrice">0</em><i id="jf"> 积分</i></span></div>
+        <div class="fr footRight">购 买</div>
+
+    </div>
+</div>
+
+<!--底部弹窗通用-start-->
+<div class="popupT">
+    <div class="backShadow"></div>
+    <div class="popupTArea" id="confirmEdu">
+        <div class="popupTTitle"><p>确认额度</p><div class="popupTClose"></div></div>
+        <ul class="confirmAmount">
+            <li class="clearfix"><div class="confirmLeft fl" id="goldName"></div><div class="confirmRight fr" id="goldStatus">购买</div></li>
+            <li class="clearfix"><div class="confirmLeft fl">购买额度</div><div class="confirmRight fr" id="goldBuy"></div></li>
+            <li class="clearfix"><div class="confirmLeft fl">折扣</div><div class="confirmRight fr" id="goldDiscount"></div></li>
+            <li class="clearfix"><div class="confirmLeft fl">应付</div><div class="confirmRight fr" id="goldPrice"></div></li>
+        </ul>
+        <div class="confirmSure" id="weixin">
+            微信购买
+        </div>
+    </div>
+    <div class="popupTArea" id="instructions">
+        <div class="popupTTitle"><p>适用说明</p><div class="popupTClose"></div></div>
+        <div class="useExplain">
+            <div class="guide-item" id="productUsable">
+                <h3>可用商户及房型</h3>
+            </div>
+            <div class="guide-item" id="dateUsable">
+                <h3>法定节假日不可用</h3>
+            </div>
+            <div class="guide-item" id="bookCondition">
+                <h3>不可同时使用的券</h3>
+            </div>
+            <div class="guide-item" id="remark">
+                <h3></h3>
+            </div>
+        </div>
+        <div class="useKnow">知道了</div>
+    </div>
+    <div class="popupTArea" id="applicableHotel">
+        <div class="popupTTitle"><p>适用酒店</p><div class="popupTClose"></div></div>
+        <ul class="useHotel">
+        </ul>
+    </div>
+    <div class="cancelPrompt" id="checkAgain">
+        <p class="cancelP">消费金交易价格变动提醒<br/>您的购买总价已由<span id="oldPrice"></span>变为<span id="newPrice"></span><br>是否继续下单购买？</p>
+        <div class="clearfix">
+            <button class="cancelPromptBtn fl" id="close">考虑一下</button>
+            <button class="cancelPromptBtn fr" id="goOn">继续购买</button>
+        </div>
+    </div>
+    <div class="cancelPrompt" id="isProduct">
+        <p class="productTit">您有待处理消费金购买记录</p>
+        <p class="productName"><span id="productName"></span></p>
+        <p class="productName">额度：<span id="productAmount"></span></p>
+        <p class="productName">总价：<span id="productPrice"></span></p>
+        <div class="clearfix productBox">
+            <button class="cancelPromptBtn fl" id="orderAgain">重新下单</button>
+            <button class="cancelPromptBtn fr" id="toPay">继续购买</button>
+        </div>
+    </div>
+    <div class="cancelPrompt" id="noIntegral">
+        <p class="cancelP"><br/>积分余额不足，无法完成购买</p>
+        <div class="clearfix">
+            <button class="cancelPromptBtn fl" id="iknow">知道了</button>
+            <button class="cancelPromptBtn fr" id="buyIntegral"><!--8折-->买积分</button>
+        </div>
+    </div>
+</div>
+<!--底部弹窗通用样式-end-->
+<div id="prompt"></div>
+
+<!--统计代码-->
+<div style="display:none">
+    <script src="http://s11.cnzz.com/z_stat.php?id=1253954519&web_id=1253954519" language="JavaScript"></script>
+</div>
+</body>
+</html>

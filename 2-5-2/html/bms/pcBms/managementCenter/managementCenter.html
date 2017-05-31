@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>几何生活</title>
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes"> -->
+	<meta name="format-detection" content="telephone=no"/>
+	<script type="text/javascript" src="http://7xio74.com2.z0.glb.qiniucdn.com/rem.js"></script>
+	<script type="text/javascript" src="http://7xio74.com2.z0.glb.qiniucdn.com/jquery-1.4.2.js"></script>
+	<link rel="stylesheet" href="css/reset.css">
+	<script type="text/javascript" src="js/hostAll.js"></script>
+	<script type="text/javascript" src="js/managementCenter.js"></script>
+	<script src="../plug-in/jquery/jquery.js"></script>
+<script type="text/javascript">
+ function copyUrl2(biao1)
+ {
+ var Url2=document.getElementById(biao1);
+ Url2.select(); // 选择对象
+ document.execCommand("Copy"); // 执行浏览器复制命令
+ alert("已复制好，可贴粘。");
+ }
+
+ </script>
+ 
+<style type="text/css">
+body{
+	color: #4A4A4A;
+
+}
+	input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0;
+}
+</style>
+</head>
+<body>
+	
+ <!-- <input type="button" onClick="copyUrl2()" value="点击复制代码" /> -->
+	<ul class="managementCenterTop" id="managementCenterTop">
+		<li><strong>商户名：</strong><span></span></li>
+		<li><strong>联系人：</strong><span></span></li>
+		<li><strong>电话：</strong><span></span></li>
+		<li><strong>地址：</strong><span></span></li>
+		<li><strong>默认推广二维码：<br/><i>增加推广二维码</i></strong><em><img src="" alt=""></em><em class="tuiGuang"><b>推广链接：</b><br/><textarea id="biao0" class="hah" rows="2"></textarea><br/><i class="first1" onClick="copyUrl2('biao0')">复制链接</i></em></li>	
+	</ul>
+	<ul class="managementCenterTop" id="managementCenterBottom">
+		<!-- <li><strong></strong><em><img src="http://7xio74.com2.z0.glb.qiniucdn.com/erweima.jpg" alt=""></em><em class="tuiGuang"><b>推广链接：</b><br/><textarea id="biao1" class="hah" rows="2">www.jiihelife.com/www.jiihelife.com1111</textarea><br/><i class="first1">复制链接</i></em><b class="channel" style="display:none"></b></li> -->	
+	</ul>
+		
+<div class="memberEqUid" style="display:none"></div>
+<!-- 入住弹层 -->
+<div class="mask">
+	<div class="alert">
+		<p class="maskTitle" style="color:#fff;">增加推广码<span class="maskClose"></span></p>
+			<dl class="dl1" style="padding:100px 0 50px;">
+				<dt>推广渠道名称：</dt>
+				<dd><input type="text" /></dd>
+			</dl>
+			
+			
+		 <buttom class="xiugaimimaBtn" id="xiugaimimaBtn1" style="color:#fff;">确认</buttom> 
+	</div>
+</div>
+<!-- 确认删除 -->
+<div class="mask2">
+	<div class="maskAlert">
+		<p class="maskTitle"><span class="maskClose"></span></p>
+		<p class="maskConTip">此推广码删除后，将不可恢复，确认删除？</p>
+		<div class="mask2Btn"><span>确认</span><span style="color:#fff">关闭</span></div>
+		
+	</div>
+</div>
+<div style="display:none">
+    <script src="http://s11.cnzz.com/z_stat.php?id=1253954519&web_id=1253954519" language="JavaScript"></script>
+</div>
+</body>
+	
+
+</html>
+
+

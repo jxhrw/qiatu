@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>几何生活</title>
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no"name="viewport" id="viewport"/>
+    <link rel="stylesheet" href="css/hotelDetail.css" type="text/css" media="screen" charset="utf-8"/>
+    <script src="http://7xio74.com2.z0.glb.qiniucdn.com/jquery-1.4.2.js"></script>
+    <script src="js/hostAll.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/touchslide.1.1.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/ask2.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="css/style-iphone6.css" media="(min-width:321px) and (max-width:413px)"/>
+    <link rel="stylesheet" type="text/css" href="css/style-iphone6_plus.css" media="(min-width:414px) and (max-width:540px)"/>
+<script type="text/javascript">
+    include("js/hotelDetail_data.js");
+    $(document).ready(function() {
+        var h=$(window).height();
+        $(".loading").css("height",h);
+    });
+</script>
+</head>
+<body>
+<div id="focus" class="focus">
+    <div class="hd">
+        <ul>
+        </ul>
+    </div>
+    <div class="bd">
+        <ul>
+        </ul>
+    </div>
+</div>
+<div class="content">
+    <ul class="price">
+        <li style="overflow:hidden"><em>￥</em><span></span>起/<i></i>晚<strong style="float:right;">未来7天最低价格</strong></li>
+    </ul>
+    <ul class="like">
+        <li class="qg" onclick="toGo()"><i></i><em></em>人去过</li>
+        <li class="xq" onclick="wantTo()"><i></i><em></em>人喜欢</li>
+    </ul>
+</div>
+<div class="item_active" id="item_active">
+    <div class="item_active_title">近期优惠</div>
+</div>
+<div class="item_hotel_share">
+    <ul class="item_hotel_title">
+        <li id="hotel_jieshao" class="currentli">酒店介绍</li>
+        <li id="hotel_sheshi">酒店设施</li>
+        <li id="hotel_fangxin" >酒店房型</li>
+    </ul>
+    <p><a style="color:#1a1a1a;" href="javascript:;"></a></p>
+    <div class="sheshi">
+        <ul></ul>
+    </div>
+    <div id="slideBox" class="slideBox">
+
+        <div class="bd">
+            <ul>
+            </ul>
+        </div>
+
+        <div class="hd" style="display: none">
+            <ul></ul>
+        </div>
+    </div>
+
+
+</div>
+<div class="mapWrap">
+    <div class="map">
+        <div class="mapPic" id="mapPic"><a href="javascript:;" class="mapPicIn"></a></div>
+    </div>
+    <p class="adress"></p>
+    <p class="phone"></p>
+</div>
+<div class="footerBtn" id="footerBtn">立即预订</div>
+
+<div class="loading"></div>
+<div class="square">
+    <div class="hid"></div>
+</div>
+
+</body>
+</html>

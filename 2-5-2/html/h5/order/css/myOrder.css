@@ -1,0 +1,146 @@
+body{
+	background-color:  #ebedf0;;
+	position: relative;
+}
+.tag{
+	padding: 0 1rem;
+	height: 3rem;
+	line-height: 3rem;
+	width: 100%;
+	display:-webkit-box;
+    display:-moz-box;
+    display:-ms-box;
+    display:-o-box;
+    border-bottom: 1px solid rgb(150,151,152);
+    box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -ms-box-sizing:border-box;
+    -o-box-sizing:border-box;
+    background-color: #fff;
+    position: fixed;
+    top:0;
+    left:0;
+    z-index: 99999;
+    
+}
+.myorder,.roomxiaofei{
+	/*padding:1rem 0;*/
+	-webkit-box-flex:1;
+    -moz-box-flex:1;
+    -ms-box-flex:1;
+    -o-box-flex:1;
+    text-align: center;
+    box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -ms-box-sizing:border-box;
+    -o-box-sizing:border-box;
+}
+.current{
+	border-bottom: 2px solid rgb(61,62,63);
+	color: #000;
+}
+.contentWrap{
+	/*margin-top: 3rem;*/
+}
+.card{
+	padding:0.5rem;
+	display:-webkit-box;
+    display:-moz-box;
+    display:-ms-box;
+    display:-o-box;
+    background-color: #fff;
+    margin-bottom: 0.5rem;
+    position: relative;
+
+}
+.card .tiao{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+}
+.cardLeft{
+	-webkit-box-flex:3;
+    -moz-box-flex:3;
+    -ms-box-flex:3;
+    -o-box-flex:3;
+    padding-left: 0.3rem;
+}
+.cardRight{
+	-webkit-box-flex:1;
+    -moz-box-flex:1;
+    -ms-box-flex:1;
+    -o-box-flex:1;
+    position: absolute;
+    right: 0.9rem;
+    bottom:0.1rem;
+    transform: translate(0,-20%);
+    -webkit-transform: translate(0,-20%);
+    -moz-transform: translate(0,-20%);
+    -ms-transform: translate(0,-20%);
+    -o-transform: translate(0,-20%);
+    font-size: 0.9rem ;
+    color: #d13f4c;
+}
+.cardRight span{
+    font-size: 1.2rem;
+    /*margin-right: 0.4rem;*/
+}
+.cardLeft li{
+	font-size: 0.8rem;
+	padding-bottom: 0.5rem;
+    padding-right: 0.4rem;
+}
+.cardLeft li:last-child{
+    padding-bottom: 0;
+}
+.cardLeft li:first-child{
+	color: #000;
+	font-size: 1rem;
+}
+.cardRight .iconfont{
+	font-size: 0.9rem !important;
+}
+
+/*.cardLeft li:last-child{
+	color: #d13f4c;
+}*/
+.orderStatus{
+    float: right;
+    color: #d13f4c;
+    font-size: 0.8rem;
+}
+.orderStatus1{
+    position: absolute;
+    right: 0.9rem;
+    top: 0.6rem;
+}
+.orderStatus2{
+    line-height: 0.8rem;
+}
+.load{
+    text-align: center;
+    padding: 1rem;
+    color: #555;
+}
+.price{
+    float: right;
+    font-size: 0.9rem;
+    color: #d13f4c;
+    line-height: 0.8rem;
+}
+.price span{
+    font-size: 1.2rem;
+    /*margin-right: 0.4rem;*/
+}
+.nameTit{
+    width: 19rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    white-space: nowrap;
+}

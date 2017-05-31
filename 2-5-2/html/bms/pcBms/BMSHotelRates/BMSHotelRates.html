@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>BMSHotelRates</title>
+	<script src="http://7xio74.com1.z0.glb.clouddn.com/jquery-2.1.4.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/BMSHotelRates.css">
+	<script type="text/javascript" src="js/BMSHotelRates.js"></script>
+	<script type="text/javascript" src="../plug-in/laydate/laydate.js"></script>
+	<script src="../plug-in/alert/alert.js"></script>
+	<link rel="stylesheet" type="text/css" href="../plug-in/laydate/skins/dahong/laydate.css">
+</head>
+<body>
+    <div class="btn-warp">
+    	<a href="javascript:void(0)" class="btn defaultprice J-defaultprice">默认房价</a>
+    	<a href="javascript:void(0)" class="btn changeprice J-changeprice">批量修改房价</a>
+    	<div style="clear: both;"></div>
+    </div>
+   
+    <div class="warp">
+    	<div class="left">
+			<table>
+				<tbody class="b-shang">
+					<tr class="b-tr">
+				        <th class="b-th">
+				        	<a href="javascript:void(0)" class="back J-back"></a>
+							<div class="range" id="J-ldate" onclick="laydate({elem:'#start',festival:true})">
+								<p><span id="start" class="start">2017-04-13</span>~<span class="end">04-26</span></p>
+								<p>2017</p>
+							</div>
+				            <a href="javascript:void(0)" class="next J-next"></a>
+				        </th>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="right">
+			<table>
+				<tbody class="housePrice">
+					<tr class="b-tou">
+						<th>
+							<p class="month">04-01</p>
+							<p>今天</p>
+						</th>
+						<th>
+							<p class="month">04-02</p>
+							<p>今天</p>
+						</th>
+						<th>
+							<p class="month">04-03</p>
+							<p>今天</p>
+						</th>
+						<th>
+							<p class="month">04-04</p>
+							<p>今天</p>
+						</th>
+						<th>
+							<p class="month">04-05</p>
+							<p>今天</p>
+						</th>
+						<th>
+							<p class="month">04-06</p>
+							<p>今天</p>
+						</th>
+						<th>
+							<p class="month">04-07</p>
+							<p>今天</p>
+						</th>
+						<th>
+							<p class="month">04-08</p>
+							<p>今天</p>
+						</th>
+						<th>
+							<p class="month">04-09</p>
+							<p>今天</p>
+						</th>
+						<th>
+							<p class="month">04-10</p>
+							<p>今天</p>
+						</th>
+						<th>
+							<p class="month">04-11</p>
+							<p>今天</p>
+						</th>
+						<th>
+							<p class="month">04-12</p>
+							<p>今天</p>
+						</th>
+						<th>
+							<p class="month">04-13</p>
+							<p>今天</p>
+						</th>
+						<th>
+							<p class="month">04-14</p>
+							<p>今天</p>
+						</th>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+<!--弹窗背景-->
+	<div class="tcback"></div>
+<!--单击选框修改房价-->
+    <div class="set-warp template">
+    	<div class="top">
+       	设置价格<img src="image/x.png">
+       </div>
+       <p class="setDate">2017-04-10</p>
+       <div class="shuru">
+	       	<span>输入价格:&nbsp;&nbsp;</span>
+	        <input type="text" name="price" class="price">
+       </div>
+       <a href="javascript:void(0)" class="close J-setSave">保存</a>
+    </div>
+<!--默认房价-->
+    <div class="defaultWarp template">
+    	<div class="top">
+        	默认房价<img src="image/x.png">
+        </div>
+        <div class="concentWarp">
+        	
+        </div>
+        <div class="btnWarp">
+        	<a href="javascript:void(0)" class="close J-defaultSave defaultSave">保存</a>
+        </div>
+        	
+    </div>
+<!--批量修改房价-->   
+	<div class="batchWarp template">
+    	<div class="top">
+        	批量修改房价<img src="image/x.png">
+        </div>
+        <div class="batchContent">
+        	<div class="batchChangeDate">
+        		<input type="text" name="" class="batchStartDate" id="J-batchStartDate">&nbsp;-
+        		<input type="text" name="" class="batchEndDate" id="J-batchEndDate">
+        	</div>
+        	<div class="batchWeek">
+        		<ul>
+        			<li class="gou">
+        				<img src="image/gou2.jpg">
+        				<span>周一</span>
+        			</li>
+        			<li class="gou">
+        				<img src="image/gou2.jpg">
+        				<span>周二</span>
+        			</li>
+        			<li class="gou">
+        				<img src="image/gou2.jpg">
+        				<span>周三</span>
+        			</li>
+        			<li class="gou">
+        				<img src="image/gou2.jpg">
+        				<span>周四</span>
+        			</li>
+        			<li class="gou">
+        				<img src="image/gou2.jpg">
+        				<span>周五</span>
+        			</li>
+        			<li class="gou">
+        				<img src="image/gou2.jpg">
+        				<span>周六</span>
+        			</li>
+        			<li class="gou">
+        				<img src="image/gou2.jpg">
+        				<span>周日</span>
+        			</li>
+        			<div style="clear: both;"></div>
+        		</ul>
+        	</div>
+        	<div class="batchChangePrice">
+        		<ul class="batchChangePriceUl">
+        		</ul>
+        		<div style="clear: both;"></div>
+        	</div>
+        </div>
+        <div class="btnWarp">
+        	<a href="javascript:void(0)" class="close J-batchSave batchSave">保存</a>
+        </div>
+        
+    </div> 
+</body>
+</html>

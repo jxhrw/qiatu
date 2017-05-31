@@ -1,0 +1,290 @@
+html{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}
+input[type="submit"],input[type="reset"],input[type="button"],input{-webkit-appearance:none;resize:none;}
+body,div,ul,li,ol,h1,h2,h3,h4,h5,h6,input,textarea,select,p,dl,dt,dd,a,img,button,form,table,th,tr,td,tbody,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{-webkit-tap-highlight-color:rgba(0,0,0,0);}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}
+img{max-width:100%;height:auto;width:auto\9;-ms-interpolation-mode:bicubic;}
+body,div,ul,li,ol,h1,h2,h3,h4,h5,h6,input,textarea,select,p,dl,dt,dd,a,img,button,form,table,th,tr,td,tbody,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{margin:0;padding:0;border:none;}
+em,i{font-style:normal;}strong,b{font-weight:normal;}
+.clearfix:after{content:"";display:block;visibility:hidden;height:0;clear:both;}
+.clearfix{zoom:1;}a{text-decoration:none;color:#969696;font-family:Heiti SC, Heiti TC,Microsoft YaHei,Tahoma,Arial,sans-serif;}
+a:hover{text-decoration:none;}
+ul,ol{list-style:none;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-family:"黑体","ºÚÌå",Heiti TC;}
+img{border:none;}
+.scope{min-width:320px;max-width:540px;}
+body{font-family: Heiti SC, Heiti TC,open sans,lantinghei SC,lantinghei TC, Microsoft YaHei,Tahoma,Arial,sans-serif,"黑体"; color: #000;;background-color: #fff ;}
+body,p,div{
+    moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -o-user-select:none;
+    -khtml-user-select:none;
+    -webkit-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+.pic{
+    height: 20.625rem;
+    position: relative;
+}
+.pic img{
+    display: block;
+    width: 100%;
+    height: 100%;
+} 
+.priceWrap{
+    position: absolute;
+    bottom: 1.4rem;
+}
+.priceWrap span{
+    display: block;
+}
+.plusPrice,.noPlus,.price{
+    text-align: center;
+    color: #fff;
+    font-size: 0.9rem;
+}
+.plusPrice,.price{
+    padding: 0.4rem 0.6rem;
+}
+.plusPrice strong,.price strong{
+    font-size: 1.5rem;
+    margin-left: 0.2rem;
+}
+.price{
+    background-color: rgba(0,0,0,.6);
+}
+.plusPrice,.noPlus{
+    background-color: #baab85; 
+}
+.noPlus{
+    padding: 0.3rem;
+}
+.priceWrap em{
+    display: block;
+}
+.icon{
+    width: 3.4rem;
+    height: 3.4rem;
+    position: absolute;
+    right: 1rem;
+    bottom: 0;
+    transform:translate(0,50%);
+    -webkit-transform:translate(0,50%);
+    -moz-transform:translate(0,50%);
+    -ms-transform:translate(0,50%);
+    -o-transform:translate(0,50%);
+}
+.icon img{
+    border: 1px solid #d5d4d9;
+    border-radius: 50%;
+}
+.title{
+    padding: 1rem ;
+    font-size: 1.2rem;
+}
+.tag{
+    padding: 0 1rem ;
+}
+.tag span{
+    padding:0 1rem ;
+    border: 1px solid #c8cacc;
+    border-radius: 25px;
+    color: #808080;
+    margin-right: 0.7rem;
+    font-size: 0.8rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+.promotion{
+    display:-webkit-box;
+    display:-moz-box;
+    display:-ms-box;
+    display:-o-box;
+    padding: 1rem 1rem 0;
+}
+.promotionLeft,.promotionRight{
+    -webkit-box-flex:1;
+    -moz-box-flex:1;
+    -ms-box-flex:1;
+    -o-box-flex:1;
+}
+.promotionLeftCon{
+    width: 9rem;
+    height: auto;
+    /* padding: 0.1rem 0;  */
+    border: 1px solid #d75c67;
+    box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -ms-box-sizing:border-box;
+    border-radius: 0.2rem;
+}
+.promotionLeftCon span{
+    display: inline-block;
+    padding: 0.2rem;
+    background-color: #d13f4c;
+    border-radius: 0.1rem;
+    color: #fff;
+    letter-spacing: 0.1rem;
+    font-size: 0.8rem;
+    margin-right: 0.2rem;
+}
+.huasuan,.chaozhi,.zhenhan{
+    display: inline-block;
+    vertical-align: middle;
+    width: 6rem;
+    height: 1rem;
+    margin-top: -0.2rem;
+    /* height: 100%; */
+    background:  url(http://7xio74.com2.z0.glb.qiniucdn.com/leapp_huaSuan.png) center center no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+}
+.chaozhi{
+    background:  url(http://7xio74.com2.z0.glb.qiniucdn.com/leapp_chaoZhi.png) center center no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+}
+.zhenhan{
+    background:  url(http://7xio74.com2.z0.glb.qiniucdn.com/leapp_zhenHan.png) center center no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+}
+.time{
+    width: 5.6rem;
+    height: 1.2rem;
+    padding-left:1.5rem;
+     background:  url(http://7xio74.com2.z0.glb.qiniucdn.com/leapp_time_icon.png) 0 0 no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+}
+.desc{
+    padding: 0 1rem 1rem;
+}
+.recommend{
+    padding: 0 0.8rem;
+}
+.recommend dl{
+  padding: 1.5rem 0;
+  overflow: hidden;
+  height: 7.3rem;
+  display:-webkit-box;
+  display:-moz-box;
+  display:-ms-box;
+  display:-o-box;
+  border-bottom: 1px solid #e6e6e6;
+
+}
+.recommend dl:last-child{
+    border-bottom: 0;
+}
+.itemLeft{
+  -webkit-box-flex:1;
+  -moz-box-flex:1;
+  -ms-box-flex:1;
+  -o-box-flex:1;
+  min-width: 90%;
+  max-width: 90%;
+  height: 100%;
+  background:  url(http://7xio74.com2.z0.glb.clouddn.com/166170) center center no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+.itemRight{
+  -webkit-box-flex:1;
+  -moz-box-flex:1;
+  -ms-box-flex:1;
+  -o-box-flex:1;
+  height: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  padding-left: 0.7rem;
+  box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -ms-box-sizing:border-box;
+  -o-box-sizing:border-box;
+  position: relative;
+}
+.itemRight span{
+  display: block;
+  line-height:1.4rem;
+  font-size: 0.9rem;
+}
+.itemRight .itemRightBottom{
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+  left: 50%;
+  transform: translate(-50%,0);
+  -webkit-transform: translate(-50%,0);
+  -moz-transform: translate(-50%,0);
+  -ms-transform: translate(-50%,0);
+  color: #d13f4c;
+  font-size: 0.8rem;
+}
+.itemRight .itemRightBottom strong{
+    font-size: 1.2rem;
+}
+.no{
+    display: none !important;
+}
+.proFooterTop{
+    width: 100%;
+    padding-bottom:0.5rem;
+    height:1.2rem;
+    background:#e8e9e8  url(http://7xio74.com2.z0.glb.qiniucdn.com/leapp_about.png) center center no-repeat;
+    -webkit-background-size:contain;
+    background-size:contain;
+}
+.proFooterEnd{
+    width: 100%;
+    margin:1.2rem 0 0.5rem;
+    height:1.2rem;
+    background: #fff url(http://7xio74.com2.z0.glb.qiniucdn.com/leapp_theEnd.png) center center no-repeat;
+    -webkit-background-size:contain;
+    background-size:contain;
+}
+.noFind{
+    height: 16.9rem;
+    line-height: 16.9rem;
+    text-align: center;
+    background: url(http://7xio74.com2.z0.glb.qiniucdn.com/searchLine.png) 0 0 repeat-x;
+    -webkit-background-size: contain;
+    background-size: contain;
+    color: #686868;
+}
+.picImg{
+  height:100%;
+}
+.load{
+    color: #d13f4c;
+    text-align: center;
+    padding:0.8rem 0;
+}
+
+
+.disabled{ pointer-events: none; }
+.proImg{width: 100%;height: 15.83rem;background: url("http://7xio74.com1.z0.glb.clouddn.com/10015") no-repeat center/100% 100%;position: relative;}
+.proStatus{height: 1.67rem;background: #000;position: absolute;top: 1.4rem;padding: 0 1rem 0 0.8rem;color: #fff;font-size: 0.8rem;}
+.statusDesc{line-height: 1.13rem;margin-top: 0.27rem;padding-left: 1.3rem;background: url("") no-repeat 0 0/contain;}
+.proDetail{background-color: #fff;padding: 0 1rem;color: #4a4a4a;}
+.proName{text-align: left;font-size: 1.2rem;color: #000;padding: 1rem 0;}
+.proDesc{font-size: 0.9rem;text-align: justify;line-height: 1.3rem;color: #808080;}
+.proOperate{text-align: right;padding: 0.5rem 0 0.9rem 0;}
+.proLike,.proComment{display: inline-block;padding-left: 1.73rem;line-height: 1.33rem;}
+.proLike{background: url("../images/like.png") no-repeat center left/contain;margin-right: 1.4rem;}
+.proLike.liked{background-image: url("../images/liked.png");}
+.proComment{background: url("../images/comment.png") no-repeat center left/contain;}
+/*http://7xio74.com1.z0.glb.clouddn.com/virtualList/comment.png*/
+
+.lastPrompt{text-align: center;color: #4a4a4a;padding-bottom: 1rem;}
+.hasLike{background: rgba(0,0,0,0.7);border-radius: 0.5rem;position: fixed;width: 7.33rem;height: 5.67rem;top: 50%;left: 50%;transform: translate(-50%,-50%);text-align: center;display: none;}
+.likeImg{text-align: center;margin-top: 1rem;width: 1.5rem;}
+.likeHas{color: #fff;font-size: 0.9rem;margin-top: 0.5rem;}
+
+.screen{width: 100%;background-color: #fff;table-layout : fixed;color: #4a4a4a;font-size: 0.8rem;vertical-align: middle;text-align: center;height: 3rem;position: fixed;top: 0;left: 0;z-index: 10;overflow: hidden;display: none;}
+.screen td{padding-top: 3px;}
+.redFont{color: #db5e5e;}
+.up_down{width: 0.5rem;height: 0.7rem;margin-left: 0.2rem;position: relative;top: 1px;}

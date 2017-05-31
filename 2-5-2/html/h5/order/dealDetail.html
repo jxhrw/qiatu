@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" name="viewport" id="viewport" />
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <script src="http://7xio74.com2.z0.glb.qiniucdn.com/rem.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://7xio74.com1.z0.glb.clouddn.com/css/base.css?h1">
+    <link rel="stylesheet" type="text/css" href="css/dealDetail.css">
+    <link rel="stylesheet" type="text/css" href="css/iconfont1.css">
+    <script src="http://7xio74.com1.z0.glb.clouddn.com/jquery-2.1.4.min.js"></script>
+    <script src="/html/member/js/general.js"></script>
+    <script src="http://7xio74.com1.z0.glb.clouddn.com/js/pingpp_pay.js"></script>
+    <script src="js/dealDetail.js"></script>
+    <title>订单详情</title>
+</head>
+<body>
+<!--&#xe618;待支付 &#xe610;支付完成 &#xe60d;已取消-->
+<div class="productName">
+    <div class="orderStatus">
+        <p class="title"><i class="iconfont">&#xe610;</i><span id="statusDesc"></span></p>
+        <p class="orderDesc"><span></span> 后自动取消订单</p>
+    </div>
+</div>
+<div class="orderDetail">
+    <div class="orderBox">
+        <p class="orderTitle"></p>
+        <p class="orderList">交易类型：<span id="orderType">购买</span></p>
+        <p class="orderList" id="payTime">支付时间：<span id="orderTime"></span></p>
+    </div>
+    <div class="giftBtnBox">
+        <div class="giftBox">查看/使用消费金</div>
+        <div class="cancel">取消交易</div>
+    </div>
+</div>
+<ul class="buyAmount">
+    <li>购买额度：<span id="referPrice"></span></li>
+    <li>总价：<span id="amount"></span></li>
+</ul>
+<div class="phoneBtn">
+    <a href="tel:4000265225">
+        <img src="images/phoneIcon.jpg" alt="">
+        <span>几何客服 &nbsp;&nbsp; 400-026-5225</span>
+    </a>
+</div>
+<div class="bottom">
+    继续支付
+</div>
+
+
+<!--底部弹窗通用样式-end-->
+<div id="prompt"></div>
+
+<!--底部弹窗通用-start-->
+<div class="popupT">
+    <div class="backShadow"></div>
+    <div class="cancelPrompt">
+        <p class="cancelP">订单取消后不可恢复，确认要取消订单吗？</p>
+        <div class="clearfix">
+            <button class="cancelPromptBtn fl" id="checkAgainBtn">确认取消</button>
+            <button class="cancelPromptBtn fr" id="close">点错了</button>
+        </div>
+    </div>
+</div>
+
+<!--统计代码-->
+<div style="display:none">
+    <script src="http://s11.cnzz.com/z_stat.php?id=1253954519&web_id=1253954519" language="JavaScript"></script>
+</div>
+</body>
+</html>

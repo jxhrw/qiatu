@@ -1,0 +1,99 @@
+header{
+	width: 100%;
+	height: 100%;
+	background-color: #e6e7e8;
+	/*background-color: red;*/
+	position: relative;
+}
+header span{
+	position: absolute;
+	bottom: 0;
+	right: 15px;
+	width: 50px;
+	/*height: 50px;*/
+	transform:translate(0,50%);
+	-webkit-transform:translate(0,50%);
+	-moz-transform:translate(0,50%);
+	-ms-transform:translate(0,50%);
+	-o-transform:translate(0,50%);
+}
+.icon{
+	border-radius: 50%;
+	border: 1px solid #ccc;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-o-border-radius: 50%;
+	z-index:99;
+}
+
+.time,.dist{
+	width: 100px;
+	line-height: 36px; 
+	/*left: 15px;*/
+	transform:translate(0,100%);
+	-webkit-transform:translate(0,100%);
+	-moz-transform:translate(0,100%);
+	-ms-transform:translate(0,100%);
+	-o-transform:translate(0,100%);
+	background: url(http://7xio74.com2.z0.glb.qiniucdn.com/time_icon.png) 0 10px no-repeat;
+	-webkit-background-size: 13px;
+	-moz-background-size: 13px;
+	-ms-background-size: 13px;
+	-o-background-size: 13px;
+	background-size:13px;
+	padding-left: 20px ;
+	font-size: 12px;
+	color:#9c9c9c;
+}
+.time:after{
+	content: "天结束";
+}
+.dist{
+	width:70%;
+	left: 15px;
+	background:none;
+	padding-left: 0 ;
+
+
+}
+.time i{
+	font-style: normal;
+
+}
+.focus{width:100%;position:relative;overflow:hidden;height:100%;}
+.focus .hd{width:100%;height:15px;position:absolute;z-index:99;bottom:0px;text-align:center;}
+.focus .hd ul{display:inline-block;height:15px;font-size:0;vertical-align:top;}
+.focus .hd ul li{
+	display:inline-block;
+	width:6px;height:6px;
+	-webkit-border-radius:50%;
+	-moz-border-radius:50%;
+	-ms-border-radius:50%;
+	-o-border-radius:50%;
+	border-radius:50%;
+	background:#6D7170;
+	margin:0 4px;
+	vertical-align:top;
+	overflow:hidden;
+}
+.focus .hd ul .on{background:#FFF;}
+.focus .bd{width:100%; position:relative;z-index:0; overflow: hidden;}
+.focus .bd li img{width:100%;height:100%;display:block;background: #e6e7e8 url(http://7xio74.com2.z0.glb.qiniucdn.com/loading5.gif) center center no-repeat;}
+.focus .bd li{background-color:#fff;position:relative;overflow:hidden;text-align:center;}
+.focus .bd li a{-webkit-tap-highlight-color:rgba(0,0,0,0);}
+.status1,.status2{
+	position: absolute;
+	top:0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.5) url(http://7xio74.com2.z0.glb.qiniucdn.com/leapp_proEnd.png) center center no-repeat;
+	-webkit-background-size:50%;
+	background-size: 50%;
+}
+.status2{
+	background: rgba(0,0,0,.5) url(http://7xio74.com2.z0.glb.qiniucdn.com/leapp_proShouQing.png) center center no-repeat;
+	-webkit-background-size: 50%;
+	background-size: 50%;
+}
