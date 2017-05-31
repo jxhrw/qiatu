@@ -6,14 +6,28 @@ $(document).ready(function () {
         sessionStorage.setItem("leave", "0");
         window.location.reload();
     }
+    var productIds = getRequest().ids,//list,商品id
+        hotelIds,                  //list,商户id
+        exchFlag = getRequest().ef,//交换
+        objectTypes = getRequest().ots,//list,商品类型
+        hotelTypes = getRequest().hts,//list,商户类型
+        cooTypes = getRequest().cts,//list,合作方式
+        sortField = getRequest().sf,//排序字段
+        sortRule = getRequest().sr,//排序规则
+        cities = getRequest().cities,//list,城市
+        ltporatio = getRequest().lto,//过滤积分比小于该值条件的数据
+        checkin = getRequest().ckn,//涉及价格过滤时取指定日期价格进行过滤
+        tags = getRequest().tags;//标签过滤
+    //拿到券对应的商户id，可以是一个或多个，将字符串转为数组的形式
+    (getRequest().hotelIds) ? hotelIds = getRequest().hotelIds : hotelIds = getRequest().hids;
+
     var assetType = getRequest().assetType,//拿到assetType的类型，0-所有资产，1-免房券，2-消费金，3-积分
         couponId = getRequest().couponId,//拿到券id
-        hotelIds = getRequest().hotelIds,//拿到券对应的商户id，可以是一个或多个，将字符串转为数组的形式
+        // hotelIds = getRequest().hotelIds,
         pagecnt,//声明一页包含的商品个数
         pageno;//声明页码数
     var c = 1;
     console.log(hotelIds);
-    var reqData;
     if (button == "1") {//换宿
         $('title').html('换宿列表');
         $(".navBar").show();
@@ -38,7 +52,7 @@ $(document).ready(function () {
                 "scopes": [
                     { "hotelTypes": [1], "include": 1 },
                     { "include": 1, "objectType": [1] },
-                    { "hotelIds": hotelIds.split(','), "include": 0 },
+                    //{ "hotelIds": hotelIds.split(','), "include": 0 },
                     { "exchFlag": 1, "include": 1 }
                 ],
                 "sorts": [{ "field": "pointsvalue", "rule": "DESC" }],//‘desc’降序排列
@@ -47,58 +61,6 @@ $(document).ready(function () {
             }
         }
         console.log(reqData)
-        getList(reqData, 5, 1);
-        $(".search").on("focus", function () {
-            $(".history").show();
-            $(".history ul").html("");
-            $(function () {
-                var str = localStorage.historyItems2;
-                if (str == undefined) {
-                    $(".history").hide();
-                } else {
-                    var strs = new Array();
-                    var s = '';
-                    strs = str.split("|");
-                    console.log(strs);
-                    for (var i = 0; i < strs.length; i++) {
-                        s = "<li><a>" + strs[i] + "</a></li>";
-                        $(".history ul").append(s);
-                    }
-                }
-            });
-        });
-        $(".search").on('search', function () {//监听搜索内容
-            $(".history").hide().find('ul').html("");
-            var search = $(this).val();
-            if (search != "") {
-                setHistoryItems(search);
-                $(".blankPage").remove();
-                c = 1;
-                $(".items").html("");
-                reqData.keyWord = search;
-                console.log(reqData)
-                getList(reqData, 5, 1);
-            }
-        });
-        $(".search").on("blur", function () {
-            $(".history ul li").click(function () {
-                $(".blankPage").remove();
-                c = 1;
-                $(".items").html("");
-                reqData.keyWord = $(this).find('a').html();
-                console.log(reqData)
-                getList(reqData, 5, 1);
-                $(".history").hide();
-            })
-        })
-
-        $(".navBar span").on("click", function () {
-            window.location.href = '/user/h5/qrcode';
-        });
-        $(".icon-delete").click(function () {
-            clearHistory();
-            $(".history").hide();
-        });
     } else if (button == "2") {//换商品
         $('title').html('换商品列表');
         $(".screen").show();
@@ -120,40 +82,7 @@ $(document).ready(function () {
             "pageno": 1
         }
         console.log(reqData)
-        getList(reqData, 5, 1);
-        $(".screen td").click(function () {
-            c = 1;
-            $(".items").html("");
-            sortKind = [];
-            reqData.sorts = sortKind;
-            // pageNum_this=1;
-            $(".up_down").attr("src", "images/up_down.png");
-            $(this).addClass("redFont").siblings("td").removeClass("redFont");
-            if ($(this).attr("class").indexOf("price") != -1) {
-                if ("ASC" == priceSort.rule) {
-                    priceSort.rule = "DESC";
-                    $(".up_down").attr("src", "images/down_ud.png");
-                } else {
-                    priceSort.rule = "ASC";
-                    $(".up_down").attr("src", "images/up_ud.png");
-                }
-                sortKind.push(priceSort);
-            } else {
-                priceSort.rule = "DESC";
-                $(".up_down").attr("src", "images/up_down.png");
-                if ($(this).attr("class").indexOf("manual") != -1) {
-                    sortKind.push(manualSort);
-                }
-                if ($(this).attr("class").indexOf("sell") != -1) {
-                    sortKind.push(sellAmountSort);
-                }
-                if ($(this).attr("class").indexOf("update") != -1) {
-                    sortKind.push(updateTimeSort);
-                }
-            }
-            console.log(reqData)
-            getList(reqData, 5, 1);
-        });
+        // getList(reqData, 5, 1);
     } else if (button == "0") {//订房
         $('title').html('订房列表');
         $('.items').css('margin-top', 0);
@@ -181,15 +110,15 @@ $(document).ready(function () {
             reqData = {
                 "scopes": [
                     { "hotelTypes": [1], "include": 1 },
-                    { "include": 1, "objectType": [1] },
-                    { "hotelIds": hotelIds.split(','), "include": 1 }
+                    { "include": 1, "objectType": [1] }//,
+                    //{ "hotelIds": hotelIds.split(','), "include": 1 }
                 ],
                 "pagecnt": 5,
                 "pageno": 1
             }
         }
         console.log(reqData)
-        getList(reqData, 5, 1);
+        // getList(reqData, 5, 1);
     } else {//积分兑房
         $('title').html('积分兑房');
         $(".items").css("margin-top", "0");
@@ -205,8 +134,71 @@ $(document).ready(function () {
             "pageno": 1
         }
         console.log(reqData)
-        getList(reqData, 5, 1);
-    }
+        //getList(reqData, 5, 1);
+    };
+    productIds?reqData.productIds =productIds.split(','):null;
+    hotelIds?reqData.hotelIds = hotelIds.split(','):null;
+    objectTypes?reqData.objectTypes = objectTypes.split(','):null;
+    hotelTypes?reqData.hotelTypes = hotelTypes.split(','):null;
+    cooTypes?reqData.cooTypes = cooTypes.split(','):null;
+    sortField?reqData.field = sortField:null;
+    sortRule?reqData.rule = sortRule:null;
+    cities?reqData.cities = cities.split(','):null;
+    ltporatio?reqData.ltporatio = ltporatio:null;
+    checkin?reqData.checkin = checkin:null;
+    tags?reqData.tags = tags.split(','):null;
+    console.log(reqData);
+    getList(reqData, 5, 1);
+    $(".search").on("focus", function () {
+        $(".history").show();
+        $(".history ul").html("");
+        $(function () {
+            var str = localStorage.historyItems2;
+            if (str == undefined) {
+                $(".history").hide();
+            } else {
+                var strs = new Array();
+                var s = '';
+                strs = str.split("|");
+                console.log(strs);
+                for (var i = 0; i < strs.length; i++) {
+                    s = "<li><a>" + strs[i] + "</a></li>";
+                    $(".history ul").append(s);
+                }
+            }
+        });
+    });
+    $(".search").on('search', function () {//监听搜索内容
+        $(".history").hide().find('ul').html("");
+        var search = $(this).val();
+        if (search != "") {
+            setHistoryItems(search);
+            $(".blankPage").remove();
+            c = 1;
+            $(".items").html("");
+            reqData.keyWord = search;
+            console.log(reqData)
+            getList(reqData, 5, 1);
+        }
+    });
+    $(".search").on("blur", function () {
+        $(".history ul li").click(function () {
+            $(".blankPage").remove();
+            c = 1;
+            $(".items").html("");
+            reqData.keyWord = $(this).find('a').html();
+            console.log(reqData)
+            getList(reqData, 5, 1);
+            $(".history").hide();
+        })
+    });
+    $(".navBar span").on("click", function () {
+        window.location.href = '/user/h5/mbcenter';
+    });
+    $(".icon-delete").click(function () {
+        clearHistory();
+        $(".history").hide();
+    });
     $(window).scroll(function () {//滚动加载
         //$(".search").blur();
         $(".history").hide();
@@ -224,7 +216,40 @@ $(document).ready(function () {
     });
     $("#navSearch").click(function () {//跳转至找民宿页面对相关订房/换宿/换商品进行搜索
         window.location.href = '/h5/findMinsu.html?button=' + button;
-    })
+    });
+    $(".screen td").click(function () {
+        c = 1;
+        $(".items").html("");
+        sortKind = [];
+        reqData.sorts = sortKind;
+        // pageNum_this=1;
+        $(".up_down").attr("src", "images/up_down.png");
+        $(this).addClass("redFont").siblings("td").removeClass("redFont");
+        if ($(this).attr("class").indexOf("price") != -1) {
+            if ("ASC" == priceSort.rule) {
+                priceSort.rule = "DESC";
+                $(".up_down").attr("src", "images/down_ud.png");
+            } else {
+                priceSort.rule = "ASC";
+                $(".up_down").attr("src", "images/up_ud.png");
+            }
+            sortKind.push(priceSort);
+        } else {
+            priceSort.rule = "DESC";
+            $(".up_down").attr("src", "images/up_down.png");
+            if ($(this).attr("class").indexOf("manual") != -1) {
+                sortKind.push(manualSort);
+            }
+            if ($(this).attr("class").indexOf("sell") != -1) {
+                sortKind.push(sellAmountSort);
+            }
+            if ($(this).attr("class").indexOf("update") != -1) {
+                sortKind.push(updateTimeSort);
+            }
+        }
+        console.log(reqData)
+        getList(reqData, 5, 1);
+    });
 });
 //获取搜索列表的方法
 function getList(reqData, pagecnt, pageno) {
@@ -370,11 +395,11 @@ function getRequest() {
 //存值方法,新的值添加在首位
 function setHistoryItems(keyword) {
     keyword = keyword.trim();
-    let { historyItems2 } = localStorage;
+    var historyItems2 = localStorage.historyItems2;
     if (historyItems2 === undefined) {
         localStorage.historyItems2 = keyword;
     } else {
-        historyItems2 = keyword + '|' + historyItems2.split('|').filter(e => e != keyword).join('|');
+        historyItems2 = keyword + '|' + historyItems2.split('|').filter(function (e) { return e != keyword }).join('|');
         localStorage.historyItems2 = historyItems2.split("|").slice(0, 3).join('|');//限制存储历史的个数，留出足够存储空间
     }
 }
