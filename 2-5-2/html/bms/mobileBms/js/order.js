@@ -2,8 +2,10 @@
 $(document).ready(function() {
 
     var pageCon=15;   //目前显示数据条数
-    var pageEve=15;   //滑到底部每次加载10条
-    download(pageCon);  //加载10条
+    var pageEve=15;   //滑到底部每次加载条数
+    var totalPages=1;//总页数
+    var res={pagecnt:10,pageno:1};
+    download(res);  //加载10条
 
     function month(date){     //获取单独的年月日，变量date要是字符串
         var obj={};
@@ -17,12 +19,12 @@ $(document).ready(function() {
         return obj;
     }
 
-    function addData(data,page){    //将数据一条条插入
+    function addData(data){    //将数据一条条插入
         //for(var i=0;i<data.data.length;i++){
         if(data.sc!=0){
             //window.location.href="/html/mobileBms/login.html?title=";
         }else {
-            for(var i=page-pageEve;i<page && i<data.data.length;i++){
+            for(var i=0;i<data.data.length;i++){
                 var orderId=data.data[i].orderid;
                 var classNum;
                 var statedesc;
@@ -92,19 +94,23 @@ $(document).ready(function() {
             scrollTop =$(window).scrollTop();//滚动高度
         if(contentH - viewH == scrollTop ) { //到达底部时,加载新内容
             // 这里加载数据..
-            pageCon+=pageEve;
-            download(pageCon);
+            res.pageno++;
+            if(res.pageno>totalPages){
+                return false;
+            }
+            download(res);
         }
     });
 
-    function download(page){  //加载page-pageEve条数据
+    function download(res){  //加载数据
         $.ajax({
             url:"/order/bmsh5/list",
             type:"POST",
             dataType:'json',
-            async: false,
+            data:{data:JSON.stringify(res)},
             success: function(data) {
-                addData(data,page);
+                totalPages=data.pageinfo.pageAmount;
+                addData(data);
             },
             error: function(error){
                 console.log(error.status);
