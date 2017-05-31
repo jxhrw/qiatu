@@ -1,0 +1,178 @@
+html{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}
+input[type="submit"],input[type="reset"],input[type="button"],input{-webkit-appearance:none;resize:none;}
+body,div,ul,li,ol,h1,h2,h3,h4,h5,h6,input,textarea,select,p,dl,dt,dd,a,img,button,form,table,th,tr,td,tbody,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{-webkit-tap-highlight-color:rgba(0,0,0,0);}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}
+img{max-width:100%;height:auto;width:auto\9;-ms-interpolation-mode:bicubic;}
+body,div,ul,li,ol,h1,h2,h3,h4,h5,h6,input,textarea,select,p,dl,dt,dd,a,img,button,form,table,th,tr,td,tbody,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{margin:0;padding:0;border:none;}
+em,i{font-style:normal;}strong,b{font-weight:normal;}
+.clearfix:after{content:"";display:block;visibility:hidden;height:0;clear:both;}
+.clearfix{zoom:1;}a{text-decoration:none;color:#969696;font-family:Heiti SC, Heiti TC,Microsoft YaHei,Tahoma,Arial,sans-serif;}
+a:hover{text-decoration:none;}
+ul,ol{list-style:none;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-family:"ºÚÌå",Heiti TC;}
+img{border:none;}
+.scope{min-width:320px;max-width:540px;}
+body{font-family: Heiti SC, Heiti TC,open sans,lantinghei SC,lantinghei TC, Microsoft YaHei,Tahoma,Arial,sans-serif,"黑体"; color: #fff;;background-color: #FFF ;}
+body,p,div{
+    moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -o-user-select:none;
+    -khtml-user-select:none;
+    -webkit-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+.wrap{
+    padding: 33px 0 39px;
+    position: absolute;
+    width: 100%;
+    left:0;
+    top:50%;
+    transform:translate(0,-50%);
+    -webkit-transform:translate(0,-50%);
+    -moz-transform:translate(0,-50%);
+    -ms-transform:translate(0,-50%);
+    -o-transform:translate(0,-50%);
+    height: auto;
+    background-color: rgba(255,255,255,.5);
+    box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -ms-box-sizing:border-box;
+    -o-box-sizing:border-box;
+    text-align: center;
+    font-size: 16px;
+}
+.too,.radio { 
+        width: 302px; 
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 10px; 
+        background:#FFF;
+        border: none;
+        outline: none;
+        padding: 10px;
+        font-size: 13px;
+        color: #000;
+        text-align: center;
+        box-sizing:border-box;
+        -webkit-box-sizing:border-box;
+        -moz-box-sizing:border-box;
+        -ms-box-sizing:border-box;
+        -o-box-sizing:border-box;
+    }
+.radio {
+    /*height: 44px;
+    line-height: 44px;*/
+    text-align: left;
+    background-color: rgba(0,0,0,0);
+    color: #FFF;
+    padding: 0;
+    margin-bottom: 0;
+
+}
+.radio input{
+    display: inline-block;
+    vertical-align: top;
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    background-color: #fff;
+    background: url(../images/checkBg.png) 0 0 no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+}
+.radio .current{
+    background: url(../images/checkBgCur.png) 0 0 no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+}
+.logo{
+    width: 145px;
+    display: block;
+    margin: 0 auto;
+}
+.wrap p{
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+    padding: 15px 0 45px;
+    letter-spacing: 2px;
+}
+.wrap .btn{
+    width: 302px; 
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px; 
+    background:#d13f4c;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 13px;
+    color: #fff;
+    border-radius: 4px;
+    text-align: center;
+    box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -ms-box-sizing:border-box;
+    -o-box-sizing:border-box;
+    margin-top: 10px;
+}
+.tip{
+    width: 302px;
+    margin: 0 auto;
+    color: #d13f4c;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    text-align: left;
+    display: none;
+
+}
+
+
+
+
+
+
+
+
+
+
+#erweima{
+  position: fixed;
+  height: auto;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0,0,0,.7);
+  /* display: none; */
+}
+#erweima .alert {
+  width: 17.3rem;
+  margin: 15% auto 55%;
+  border-radius: 5px;
+  text-align: center;
+}
+#erweima p {
+  padding: 1.9rem 1.6rem;
+  text-align: left;
+  font-size: 0.9rem;
+  color: #fff;
+  background-color: #bb8e4b;
+  border-radius: 5px 5px 0 0;
+}
+.erweimaPic {
+  background-color: #fff;
+  border-radius: 0 0 5px 5px;
+  padding: 2.1rem 0;
+  color: #000;
+}
+.erweimaBtn {
+  margin: 0 auto;
+  height: 3rem;
+  background: url(http://7xio74.com2.z0.glb.qiniucdn.com/anmanX2.png) center right no-repeat;
+  -webkit-background-size: contain;
+  background-size: contain;
+}

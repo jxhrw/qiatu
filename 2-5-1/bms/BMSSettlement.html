@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>几何生活</title>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes"> -->
+    <meta name="format-detection" content="telephone=no"/>
+    <meta content="no-cache, no-store, must-revalidate" http-equiv="cache-Control">
+    <meta content="no-cache" http-equiv="pragma">
+    <meta content="0" http-equiv="expires">
+    <script type="text/javascript" src="http://7xio74.com2.z0.glb.qiniucdn.com/rem.js"></script>
+    <script type="text/javascript" src="http://7xio74.com2.z0.glb.qiniucdn.com/jquery-1.4.2.js"></script>
+    <link rel="stylesheet" href="css/BMSSettlement.css">
+    <script type="text/javascript" src="js/hostAll.js"></script>
+    <script type="text/javascript" src="js/BMSSettlement.js"></script>
+    <script src="yui-min.js"></script>
+    <script src="jquery.js"></script>
+    <script>
+        var minTimestamp= Date.parse(new Date())-60*24*60*60*1000;
+        var min=formatStrDate(new Date(minTimestamp))
+        YUI({
+            modules: {
+                'trip-calendar': {
+                    fullpath: 'trip-calendar.js',
+                    type    : 'js',
+                    requires: ['trip-calendar-css']
+                },
+                'trip-calendar-css': {
+                    fullpath: 'trip-calendar.css',
+                    type    : 'css'
+                }
+            }
+        }).use('trip-calendar', function(Y) {
+
+            var oCal = new Y.TripCalendar({
+                minDate         : "",     //最小时间限制
+                maxDate         : new Date,
+                triggerNode     : '', //第一个触节点
+                finalTriggerNode: '#payTime' ,//最后一个触发节点
+                count           : 1
+            });
+
+        });
+
+    </script>
+
+</head>
+<body>
+<div class="content">
+    <div class="settlement" id="cashBox">
+        <p class="title">订单现金结算 &nbsp;&nbsp;&nbsp;&nbsp; <select class="theYear" id="cashYear"></select></p>
+        <div class="clearfix">
+            <div class="fl liBoxBig">
+                <p class="ulBefore">已入账（截止 <span id="deadLine"></span>）</p>
+                <ul class="liBox">
+                    <li>
+                        <p class="liTitle">总收入</p>
+                        <p class="liMoney"><span id="cashSettled"></span> 元</p>
+                        <p class="liBtn"><span id="cashRecords">收支明细</span></p>
+                    </li>
+                    <li>
+                        <p class="liTitle">已结算</p>
+                        <p class="liMoney"><span id="cashHasAmount"></span> 元</p>
+                        <p class="liBtn"><span style="width: 80px;" id="cashRechargew">提现充值记录</span></p>
+                    </li>
+                    <li>
+                        <p class="liTitle">可用余额</p>
+                        <p class="liMoney"><span id="cashBalance"></span> 元</p>
+                        <p class="liBtn"><span id="cashWithdrawals">提现</span></p>
+                    </li>
+                </ul>
+            </div>
+            <div class="fr liBoxSmall">
+                <p class="ulBefore">待入账（最近7天）</p>
+                <ul class="liBox">
+                    <li>
+                        <p class="liTitle">总收入</p>
+                        <p class="liMoney"><span id="cashUnSettled"></span> 元</p>
+                        <p class="liBtn"><span id="cashUnRecords">待结算记录</span></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="settlement" id="integralBox">
+        <p class="title">积分中心结算 &nbsp;&nbsp;&nbsp;&nbsp; <select class="theYear" id="integralYear"></select> <span class="creditLimit">我的信用额度：￥<em></em></span> <!--<span class="creditDescription">信用额度说明</span>--></p>
+        <div class="clearfix">
+            <div class="fl liBoxBig">
+                <p class="ulBefore">已入账（截止 <span id="integralDeadLine"></span>）</p>
+                <ul class="liBox">
+                    <li>
+                        <p class="liTitle">总收入</p>
+                        <p class="liMoney"><span id="integralSettled"></span> 元</p>
+                        <p class="liBtn"><span id="integralRecords">收支明细</span></p>
+                    </li>
+                    <li>
+                        <p class="liTitle">已结算</p>
+                        <p class="liMoney"><span id="integralHasAmount"></span> 元</p>
+                        <p class="liBtn"><span style="width: 80px;" id="integralRechargew">提现充值记录</span></p>
+                    </li>
+                    <li>
+                        <p class="liTitle">可用余额</p>
+                        <p class="liMoney"><span id="integralBalance"></span> 元</p>
+                        <p class="liBtn"><span id="integralWithdrawals">提现</span><span id="integralRecharge">充值</span></p>
+                    </li>
+                </ul>
+            </div>
+            <div class="fr liBoxSmall">
+                <p class="ulBefore">待入账（最近7天）</p>
+                <ul class="liBox">
+                    <li>
+                        <p class="liTitle">总收入</p>
+                        <p class="liMoney"><span id="integralUnSettled"></span> 元</p>
+                        <p class="liBtn"><span id="integralUnRecords">待结算记录</span></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="settlement">
+        <p class="title">充值提现记录</p>
+        <table class="rechargeCash">
+            <tbody>
+            </tbody>
+            <tfoot>
+                <tr><td colspan="10"><a class="aBtn">更多充值提现记录</a></td></tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <!-- 提现弹层 -->
+    <div class="mask" id="withdrawalsBox">
+        <div class="alert">
+            <p class="maskTitle">申请提现<span class="maskClose"></span></p>
+            <div class="information">
+                <div class="info">可提现金额： <span class="canWithdraw" id="canWithdraw"></span> 元</div>
+                <div class="info"><span class="verticalTop">选择提现银行：</span>
+                    <div class="cards">
+                        <div class="prompt">
+                            您还没有添加银行账户，请按照以下格式发送邮件至finance@jihelife.com <br>添加提现银行卡：民宿名字__银行账号__开户名__开户行__
+                        </div>
+                        <!--<p class="on">招商银行   杭州不足山舍**********8888</p>
+                        <p>招商银行   杭州不足山舍**********8888</p>-->
+                    </div>
+                </div>
+                <div class="info">提现金额：<div class="inputBox"><em>￥</em><input type="text" id="drawCash" class="drawCash"></div></div>
+                <div class="info" style="color: #d1424e;">工作人员将在每周三统一审核处理，审核通过后1-2工作日内到账</div>
+                <div class="info">提前咨询专线：0571-89010137，服务时间：10:00-18:00</div>
+            </div>
+            <div class="submitBtn">确认提现</div>
+        </div>
+    </div>
+
+    <!--提现申请成功弹层-->
+    <div class="mask" id="withdrawalsSuccessBox">
+        <div class="alert">
+            <p class="maskTitle">提现申请成功<span class="maskClose"></span></p>
+            <p class="voucherSuccess"><span>提现申请成功，1-2个工作日审核到账，请及时查询</span></p>
+        </div>
+    </div>
+
+    <!-- 充值弹层 -->
+    <div class="mask" id="rechargeBox">
+        <div class="alert">
+            <p class="maskTitle">线下转账充值<span class="maskClose"></span></p>
+            <div class="informationRecharge">
+                <div class="infoRecharge">账户可用余额： <span class="canWithdraw" id="canRecharge"></span> 元</div>
+                <div class="infoRecharge moveRight">充值金额：<div class="inputBox"><em>￥</em><input type="text" id="rechargeCash" class="drawCash"></div></div>
+            </div>
+            <div class="submitRecharge">确认充值</div>
+        </div>
+    </div>
+
+    <!--上传凭证弹层-->
+    <div class="mask" id="voucherBox">
+        <div class="alert">
+            <p class="maskTitle">线下转账凭证<span class="maskClose"></span></p>
+            <div class="informationVoucher">
+                <div class="infoVoucher">
+                    商户名称：<span id="nameVoucher">杭州不足山舍</span><br>
+                    当前余额：<span id="balanceVoucher">12334</span><br>
+                    充值金额：<span><em id="rechargeVoucher"></em> 元</span>
+                </div>
+                <p class="sureVoucher">您需转账  <span></span>  元 至以下账户，转账成功后填写相应信息并提交审核 <br><em style="color: #d1424e;">工作人员将在每周三审核凭证，审核通过后即充值到账</em></p>
+                <table class="tableVoucher">
+                    <tr>
+                        <td>收款方户名：</td>
+                        <td class="jiheBankAccountName"></td>
+                    </tr>
+                    <tr>
+                        <td>收款方开户行：</td>
+                        <td class="jiheBankName"></td>
+                    </tr>
+                    <tr>
+                        <td>收款方账号：</td>
+                        <td class="jiheBankAccountNumber"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="uploadVoucher">已转账汇款，我要上传凭证</div>
+        </div>
+    </div>
+
+    <!--上传凭证信息弹层-->
+    <div class="mask" id="voucherSureBox">
+        <div class="alert">
+            <p class="maskTitle">线下转账凭证<span class="maskClose"></span></p>
+            <div class="informationVoucher">
+                <div class="infoVoucher">
+                    <table class="tableVoucher">
+                        <tr>
+                            <td>收款方户名：</td>
+                            <td class="jiheBankAccountName"></td>
+                        </tr>
+                        <tr>
+                            <td>收款方开户行：</td>
+                            <td class="jiheBankName"></td>
+                        </tr>
+                        <tr>
+                            <td>收款方账号：</td>
+                            <td class="jiheBankAccountNumber"></td>
+                        </tr>
+                    </table>
+                </div>
+                <table class="rechargeAccount">
+                    <tr>
+                        <td>账号：</td>
+                        <td><input id="numAccount" type="text">
+                        <ul class="allAccount">
+                            <li></li>
+                            <li></li>
+                        </ul></td>
+                    </tr>
+                    <tr>
+                        <td>户名：</td>
+                        <td><input id="nameAccount" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>开户行：</td>
+                        <td><input id="bankAccount" type="text" placeholder="例：招商银行西湖支行"></td>
+                    </tr>
+                    <tr>
+                        <td>流水号：</td>
+                        <td><input id="serialNumber" type="text" placeholder="选填"></td>
+                    </tr>
+                    <tr>
+                        <td>金额：</td>
+                        <td><span id="moneyAccount"></span></td>
+                    </tr>
+                    <tr>
+                        <td>付款时间：</td>
+                        <td><input type="text" id="payTime"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="uploadSureVoucher">确认提交</div>
+        </div>
+    </div>
+
+    <!--上传凭证成功弹层-->
+    <div class="mask" id="voucherSuccessBox">
+        <div class="alert">
+            <p class="maskTitle">线下转账凭证<span class="maskClose"></span></p>
+            <p class="voucherSuccess"><span>转账凭证上传成功，1-2个工作日审核到账，请及时查询</span></p>
+        </div>
+    </div>
+
+    <!--信用额度说明弹层-->
+    <div class="mask" id="creditDescription">
+        <div class="alert">
+            <p class="maskTitle">信用额度说明<span class="maskClose"></span></p>
+            <div class="description">
+                信用额度用于与积分中心结算，包含会员积分发放结算、会员积分兑房、积分抵现结算、互助计划结算，结算金额在信用额度内时，商户可以选择暂时不结算
+            </div>
+        </div>
+    </div>
+
+</div>
+   
+
+
+</body>
+
+</html>
+
+

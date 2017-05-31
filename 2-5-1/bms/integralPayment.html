@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>几何生活</title>
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes"> -->
+	<meta name="format-detection" content="telephone=no"/>
+	<script type="text/javascript" src="http://7xio74.com2.z0.glb.qiniucdn.com/rem.js"></script>
+	<script type="text/javascript" src="http://7xio74.com2.z0.glb.qiniucdn.com/jquery-1.4.2.js"></script>
+	<link rel="stylesheet" href="css/reset.css">
+	<script type="text/javascript" src="js/hostAll.js"></script>
+	<script type="text/javascript" src="js/integralPayment.js"></script>
+	<script src="yui-min.js"></script>
+	<script src="jquery.js"></script>
+<script>
+var minTimestamp= Date.parse(new Date())-30*24*60*60*1000;
+var min=formatStrDate(new Date(minTimestamp))
+	YUI({
+    modules: {
+        'trip-calendar': {
+            fullpath: 'trip-calendar.js',
+            type    : 'js',
+            requires: ['trip-calendar-css']
+        },
+        'trip-calendar-css': {
+            fullpath: 'trip-calendar.css',
+            type    : 'css'
+        }
+    }
+		}).use('trip-calendar', function(Y) {
+    
+    var oCal = new Y.TripCalendar({
+        minDate         : min,     //最小时间限制
+        maxDate         : new Date,
+        triggerNode     : '#J_DepDate', //第一个触节点
+        finalTriggerNode: '#J_EndDate' ,//最后一个触发节点
+        count           : 1 
+
+    });
+		    
+		});
+
+</script>
+
+<style type="text/css">
+	.dl1 input,.dl2 input{
+		width: 200px !important;
+		color: #000;
+	}
+	input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0;
+}
+.hovertable .hovertableTitle{
+	background-color: #f8f8f8;
+}
+.hovertable .hovertableContent td{
+	background-color: #fff !important;
+}
+.bmsEnquiryBottom{
+	width: 94%;
+	margin-left:10px;
+}
+#pageDir{
+	width: 94%;
+	color: #333;
+}
+</style>
+</head>
+<body>
+	<div class="recordWrap">
+		<div class="recordWrapLeft"><input id="J_DepDate" type="text" class="f-text" value="" /><i>至 </i><input id="J_EndDate" type="text" class="f-text" value=""/><span class="searchIcon">搜索</span></div>
+		
+	</div>
+	<div class="bmsEnquiryBottom">
+	  <table class="hovertable" >
+		<tr class="hovertableTitle" >
+			<th>支付人</th><th>支付金额/元</th><th>支付时间</th>
+		</tr>
+		
+	  </table>
+
+
+	</div>
+<div id="pageDir"></div>
+<div style="display:none">
+    <script src="http://s11.cnzz.com/z_stat.php?id=1253954519&web_id=1253954519" language="JavaScript"></script>
+</div>
+
+</body>
+	
+
+</html>
+
+
