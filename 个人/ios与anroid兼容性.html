@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ios与anroid兼容性</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <script type="text/javascript" src="http://7xio74.com2.z0.glb.qiniucdn.com/rem.js"></script>
+    <style>
+        body{
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>
+        <pre>IOS中input键盘事件keyup的兼容解决办法
+用input监听键盘keyup事件，在安卓手机浏览器中是可以的，但是在ios手机浏览器中很慢，用输入法输入之后，并未立刻相应keyup事件。
+解决办法：
+在ios设备上可以用html5的input事件去代替keyup。
+eg：
+var bind_name = 'input';
+if (navigator.userAgent.indexOf("MSIE") != -1) {
+    bind_name = 'propertychange';
+}（此处是为了兼容IE）
+if(navigator.userAgent.match(/android/i) == "android")
+{
+    bind_name = "keyup";
+}
+$('.hb_num input').on(bind_name, function(){}</pre>
+    </li>
+</ul>
+</body>
+</html>
