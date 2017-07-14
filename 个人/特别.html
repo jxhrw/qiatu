@@ -7,6 +7,15 @@
 <body>
 <pre>
     js  keyup(),keyDown()等事件，function(e){e.which  //点击键盘返回的属性  8是删除键}
+
+    对象按key的首字母排序
+    var gh={"云南":'爱仕达',"杭州":'莫干山',"海南":'三亚'};
+    var arr=[];for(var key in gh){arr.push(key)};
+    arr.sort(function(a,b){return a.toString().localeCompare(b)});
+    for(var i in arr){console.log(arr[i]+":"+gh[arr[i]])};
+    海南:三亚
+    杭州:莫干山
+    云南:爱仕达
 </pre>
 </body>
 </html>
