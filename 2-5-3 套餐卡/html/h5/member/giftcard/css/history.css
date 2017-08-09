@@ -1,0 +1,302 @@
+body{
+    font-family: "黑体";
+    color: #333;
+    background-color: #f4f4f4;
+    font-size: 14px;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+.history-header{
+    background-color: #535662;
+    color: #fff;
+    padding: 0.87rem;
+}
+.card-name {
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 1.33rem;
+}
+.card-code {
+    font-size: 1rem;
+    margin: 0;
+}
+.group-header {
+    height: 2.46rem;
+    line-height: 2.46;
+    background-color: #ebeef0;
+    color: #4c4c4d;
+    padding-left: 1rem;
+    font-size: 0.87rem;
+}
+.group-item {
+    background-color: #fff;
+    border-bottom: 1px solid #e4e4e4;
+    font-size: 0.8rem;
+    color: #999999;
+    min-height: 4.5rem;
+}
+.cell-aside {
+    float: right;
+    padding-top: 1.1rem;
+    padding-right: 0.73rem;
+    padding-bottom: 1.1rem;
+    position: relative;
+
+}
+.cell-main {
+    float: right;
+    margin-top: 1.1rem;
+    margin-bottom: 1.1rem;
+    padding-left: 0.73rem;
+    border-left: 1px solid #ccc;
+    padding-right: 2.3rem;
+}
+
+.card-balance {
+    margin: 0.33rem 0;
+}
+.order-amount {
+    margin-bottom: 0.33rem;
+    font-size: 0.87rem;
+    color: #000;
+    margin-bottom: 0.54rem;
+}
+.order-amount .red {
+    color: #000;
+}
+.field-label {
+    display: inline-block;
+    width: 3.8em;
+}
+.field-content {
+    color: #999999;
+    margin-left: 3.17rem;
+}
+.order-date,.order-time {
+    color: #999999;
+}
+.order-id {
+    margin-top: 0.33rem;
+}
+.field-content {
+    color: #999999;
+}
+.consumptionType {
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    color: #fff;
+    text-align: center;
+    font-size: 1rem
+}
+.duihuan {
+    color: #d33d49;
+}
+.tuikuan {
+    color: #000;
+}
+.zhusu {
+    color: #d33d49;
+}
+.cell-main div {
+    color: #000;
+}
+
+.itemLeft {
+    font-size: 0.67rem;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0.33rem 0.73rem 0.33rem 3rem;
+}
+.itemLeft span {
+    font-size: 1rem;
+    color: #000;
+}
+.itemCentre {
+    padding-left: 0.73rem;
+    display: inline-block;
+    vertical-align: middle;
+    border-left: 1px solid #ccc;
+}
+.itemRight {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 0.43rem;
+}
+.item {
+    padding-top: 1.1rem;
+    padding-bottom: 1.1rem;
+    border-bottom: 1px solid #e4e4e4;
+}
+.itemLeft div {
+    text-align: right;
+}
+.couponList {
+    background-color: #fff;
+    font-size:0.8rem;
+    color: #999999;
+}
+.itemCentre p {
+    color: #000;
+    font-size: 0.87rem;
+    margin-bottom: 0.54rem;
+}
+.description li {
+    margin-top: 0.33rem;
+}
+.itemRight a {
+    color: #666666;
+    display: block;
+    border: 1px solid #666666;
+    border-radius: 0.65rem;
+    width: 5.1rem;
+    height: 1.3rem;
+    text-align: center;
+    line-height: 1.3rem;
+}
+.tcBack {
+    display: none;  
+    position: fixed;  
+    top: 0%;  
+    left: 0%;  
+    width: 100%;  
+    height: 100%;  
+    background-color: black;  
+    z-index:1001;  
+    -moz-opacity: 0.8;  
+    opacity:.80;    
+    filter: alpha(opacity=80); 
+}
+.popCancel,.popSuccess{
+    display: none;
+    width: 16.7rem;
+    height: 10rem;
+    position: fixed;
+    z-index: 1002;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: 50% auto;
+    bottom: 0;
+    background: #fff;
+    border-radius: 0.3rem;
+    line-height: 1.7rem;
+}
+.popCancel p,.popSuccess p{
+    width: 13rem;
+    padding-left: 2rem;
+    padding-top: 2rem;
+    font-size: 0.87rem;
+    color: #4A4A4A;
+}
+
+.btns{
+    width: 14.7rem;
+    position: absolute;
+    bottom: 2rem;
+}
+.btns button,.konw{
+    float: right;
+    border: none;
+    background: none;
+    line-height: 2.7rem;
+    font-size: 0.87rem;
+    font-weight: bold;
+}
+.yes,.konw{
+    color: #E2574C;
+    margin-right: 2rem;
+}
+/*‘点错了’样式*/
+.btns .wrong{
+    color: #4A4A4A;
+}
+
+.triangle-down {
+    width: 0;
+    height: 0;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-top: 5px solid #4a4a4a;
+    display: inline-block;
+    margin-left: 0.5rem;
+}
+/*.makeOver {
+    border:none;
+}*/
+.checkTransfer {
+    height: 1.8rem;
+    background: #fff;
+    border-bottom: 1px solid #e4e4e4;
+}
+.checkTransfer a {
+    display: inline-block;
+    color: #4a4a4a;
+    margin-left: 9rem;
+    /*line-height: 3rem;*/
+    font-size: 0.73rem;
+}
+.checkDetailCenter li {
+    list-style: none;
+    padding-top: 0.73rem;
+}
+.centerLeft li {
+    text-align: right;
+}
+.checkDetail {
+    width: 100%;
+    height: 21.5rem;
+    color:  gray;
+}
+.checkDetailTop {
+    height: 2.5rem;
+    background: #fff;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 2.5rem;
+}
+.checkDetailCenter {
+    height: 16rem;
+    background: #fff;
+    text-align: left;
+}
+.checkDetailButtom {
+    height: 3rem;
+    background: #fff;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 3rem;
+    color: #fff;
+    background: #828a9a;
+}
+.template {
+    z-index: 1002;
+    position: fixed;
+    bottom: 0;
+    display: none;
+    background: rgb(255, 255, 255);
+    background-color: #f7f7f7;
+}
+.centerLeft {
+    display: inline-block;
+    padding-left: 6rem;
+}
+.centerRight {
+    display: inline-block;
+    margin-left: 0.6rem;
+}
+.transactionIng {
+    display: none;
+}
+.field-date {
+    margin-left: 3.17rem;
+    display: inline-block;
+    width: 9.2rem;
+}
+.couponTradesTxt {
+    display: inline-block;
+    width: 5.8rem;
+}
+
+   

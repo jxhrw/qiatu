@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" name="viewport" id="viewport" />
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <script src="http://7xio74.com2.z0.glb.qiniucdn.com/rem.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://7xio74.com1.z0.glb.clouddn.com/css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/saleConsumption.css">
+    <script src="http://7xio74.com1.z0.glb.clouddn.com/jquery-2.1.4.min.js"></script>
+    <script src="http://7xio74.com1.z0.glb.clouddn.com/js/general.js?h3"></script>
+    <script src="js/saleConsumption.js"></script>
+    <title>转让消费金</title>
+</head>
+<body>
+<div class="saleCons white">
+    <div class="nameCons">&nbsp;</div>
+    <div class="deadLine">
+        <pre>到 期 日：</pre><span id="deadLine"></span>
+        <a href="/html/member/memberIntegral.html" class="jfA fr">积分消费说明</a>
+    </div>
+    <div class="canSale">
+        <pre>可售额度：</pre><span id="canSale"></span>
+    </div>
+    <div class="tips">
+        Tips：转让仅支持转成几何积分在几何平台使用，无法变现。
+    </div>
+    <div class="saleAmount">
+        <input type="tel" id="saleMoney" class="saleMoney" placeholder="请输入转让额度"><button class="saleAll fr">全部转让</button>
+    </div>
+    <div class="saleDiscount">
+        <span id="currencyType">售出折扣：</span><div class="changeDiscount fr clearfix"><div class="reduce fl">-</div>
+        <div class="numDiscount fl"><input type="tel" id="numDiscount" maxlength="3" value=""><span id="symbol">%</span></div><div class="add fl">+</div></div>
+    </div>
+    <div class="clearfix discountHtmlBox">
+        <p class="fr"><span id="discountHtml">最近成交折扣：</span><span id="recentDiscount"></span></p>
+    </div>
+    <div class="saleDiscount">
+        挂单时长：<div class="stickTime fr"><span id="saleStatus">30天</span> <div class="jtBtn"></div></div>
+    </div>
+</div>
+<div class="saleCons">
+    <p class="sellTitle">正在转让的消费金</p>
+    <table class="selling" cellpadding="0" cellspacing="0">
+        <tr>
+            <th></th><th>消费金额度</th><th>折扣</th><th>售价（元）</th>
+        </tr>
+        <tbody id="selling">
+
+        </tbody>
+    </table>
+    <div class="null"></div>
+    <div class="footer clearfix">
+        <div class="fl footLeft"><span class="tit">总 &nbsp;&nbsp;&nbsp; 价：</span><span class="price"><i id="yuan">￥</i><em id="shouldPrice">0</em><i id="jf"> 积分</i></span></div>
+        <div class="fr footRight">发布转让</div>
+    </div>
+</div>
+<!--底部弹窗通用-start-->
+<div class="popupT">
+    <div class="backShadow"></div>
+    <div class="popupTArea" id="saleLong">
+        <div class="popupTTitle"><p>挂单时长</p><div class="popupTClose"></div></div>
+        <ul class="saleHowLong">
+            <li id="7">7天</li>
+            <li id="15">15天</li>
+            <li id="30">30天</li>
+            <li id="-1">卖完为止</li>
+        </ul>
+        <div class="saleLongExplain">
+            <!--挂单时长用于控制您的消费金上架转让时间，如您设置为3-15天，则到期时，无论消费金是否转让完毕，均会自动取消交易，已卖出的消费金不受影响。-->
+            挂单时长用于控制您的消费金上架转让时间，如设置为7-30天，则最后一天的0点，无论发布的转让卖单是否全部成交，均会自动取消转让交易，已冻结未转让成功的消费金会自动解冻，已成交的消费金不受影响。
+        </div>
+    </div>
+    <div class="popupTArea" id="confirmationAmount">
+        <div class="popupTTitle"><p>转让信息</p><div class="popupTClose"></div></div>
+        <ul class="confirmAmount">
+            <li class="clearfix"><div class="confirmLeft fl" id="goldName"></div><div class="confirmRight fr" id="goldStatus">转让</div></li>
+            <li class="clearfix"><div class="confirmLeft fl">转让额度</div><div class="confirmRight fr" id="goldSale"></div></li>
+            <li class="clearfix"><div class="confirmLeft fl" id="kind">折扣</div><div class="confirmRight fr" id="goldDiscount"></div></li>
+            <li class="clearfix"><div class="confirmLeft fl">总价</div><div class="confirmRight fr" id="goldPrice"></div></li>
+            <li class="clearfix"><div class="confirmLeft fl">交易服务费（转让价的<span id="feesProportion"></span>）</div><div class="confirmRight fr" id="goldFees"></div></li>
+        </ul>
+        <div class="confirmSure">
+            确认发布转让
+        </div>
+    </div>
+    <div class="setPsword">
+        <p class="setP">在消费金交易市场转让消费金，并非立即成交，在您发布消费金转让卖单后，如有人愿意以您的转让价购买，您的卖单才会成交，同时您转让的消费金可能会被多人分批次买走，而非一次性全部成交。<br><br>您正在转让消费金，为保障您的资产安全，请点击下一步验证您的身份并设置交易密码。</p>
+        <button class="setButton" id="setButton">下一步</button>
+    </div>
+    <div class="checkPsword">
+        <div class="checkClose" id="checkClose"></div>
+        <div class="checkTitle"><p>&nbsp;</p></div>
+        <div class="titlePassword" id="titlePassword">请输入交易密码</div>
+        <table id="inputPassword" class="inputCss" cellpadding="0" cellspacing="3">
+            <tr>
+                <td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+        </table>
+        <button id="checkBtn" class="button no">确认</button>
+        <p class="checkForget">忘记交易密码</p>
+        <!--键盘-->
+        <div class="keyboard" style="position: fixed;bottom: 0;left: 0;width: 100%;z-index: 10;background: #fff;"></div>
+    </div>
+    <div class="textPs">
+        <p class="textPsTit">验证<span id="owner"></span>的身份</p>
+        <p class="textPsPhone">已发送验证码到</p><p class="textPsPhone" id="phoneNum"></p>
+        <div class="SMSVer">
+            <input type="tel" placeholder="请输入验证码">
+            <button id="again" class="no">60S</button>
+        </div>
+        <button id="sure" class="button">确定</button>
+    </div>
+</div>
+<!--底部弹窗通用样式-end-->
+<div id="prompt"></div>
+
+<script type="text/javascript" src="/html/h5/publicFile/js/cnzz.js"></script>
+</body>
+</html>

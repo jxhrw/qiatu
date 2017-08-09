@@ -1,0 +1,40 @@
+.item_detail{
+	font-size: 18px;
+}
+.font{
+	font-size: 18px !important;
+}
+.item_right_top{
+	font-size:20px;
+}
+.item_right_center {
+	overflow: hidden;
+	width: 100%;
+}
+.active{
+	width:100%;
+	/*margin: 0 auto;*/
+	height:60px;
+	line-height:60px;
+}
+.preferentialWrap .active,.conditionsWrap .active{
+	height:60px;
+	line-height:60px;
+}
+.btnhotel{
+	width: 40%;
+}
+.item_hotel_share p {
+	font-size: 16px;
+	line-height: 32px;
+}
+.slideBox .bd li .tit{
+	top:280px;
+}
+/*.item_hotel_image{
+    height:250px;
+}*/
+/* .item_right{
+	width: 70%;
+	float:right; 
+} */

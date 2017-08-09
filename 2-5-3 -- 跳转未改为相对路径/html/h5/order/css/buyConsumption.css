@@ -1,0 +1,79 @@
+body{-moz-user-select:none;/*火狐*/-webkit-user-select:none;/*webkit浏览器*/-ms-user-select:none;/*IE10*/-khtml-user-select:none;/*早期浏览器*/user-select:none;background: #fafafa;}
+.banner{display: block;height: 10rem;width: 100%;}
+.buyCons{padding: 0 1rem;color: #808080;font-size: 0.9rem;}
+.buyCons pre{display: inline-block;}
+#hrefA{background-color: #fff;padding-bottom: 1rem;}
+.nameCons{color: #000;font-size: 1.1rem;line-height: 2.4rem;padding: 0.3rem 0;border-bottom: 1px dashed #808080;}
+.deadLine{line-height: 1.7rem;margin-top: 0.7rem;}
+.deadLine #deadLine{color: #000;}
+.spanBtn{display: inline-block;width: 4.9rem;border: 1px solid #808080;text-align: center;margin-left: 0.33rem;color: #808080;height: 1.7rem;line-height: 1.8rem;overflow: hidden;}
+.buyAmount{line-height: 2.3rem;border: 1px solid #343f4c;color: #000;padding: 0.3rem 0.7rem;margin-top: 1.2rem;overflow: hidden;height: 2.3rem;}
+.buyMoney{border: none;height: 2rem;width: 14rem;margin-left: 0.3rem;position: relative;top: -0.06rem;font-size: 1rem;}
+.buyAll{width: 5rem;color: #d13f4c;background: #fff;border: none;height: 2rem;font-size: 1rem;line-height: 2rem;text-align: right;}
+.enjoyDiscount{display: none;overflow: hidden;width: 4rem;text-align: center;}
+.perWord{font-size: 0.6rem;line-height: 0.7rem;padding-top: 0.1rem;}
+.pert{font-size: 1.2rem;line-height: 1.2rem;padding-top: 0.3rem;}
+.sellTitle{text-align: center;font-size: 1rem;color: #333;padding: 1rem 0 0.5rem 0;}
+
+.saleIntegral{text-align: right;margin-top: 0.6rem;font-size: 0.8rem;color: #d13f4c;display: none;}
+.saleIntegral a{color: #d13f4c;}
+
+.selling{width: 100%;margin-top: 0.4rem;padding-bottom: 1.67rem;font-size: 0.8rem;}
+.selling th{text-align: center;font-weight: normal;height: 1.9rem;border-bottom: 1px solid #d4d7d9;}
+.selling th:nth-child(1){width: 3rem;}
+.selling th:nth-child(2){width: 7rem;}
+.selling th:nth-child(3){width: 7rem;}
+.selling td{text-align: center;border-bottom: 1px solid #d4d7d9;height: 2.1rem;}
+/*.selling td:first-child{text-align: left;}*/
+.footer{position: fixed;width: 100%;bottom: 0;z-index: 10;background-color: #fff;line-height: 3.23rem;left: 0;}
+.footLeft{color:#4a4a4a;height: 3.23rem;overflow: hidden;border-top: 1px solid #b3b3b3;border-bottom: 1px solid #b3b3b3;padding-left: 1rem;width: 14rem;background-color: #fff;}
+.footRight{width: 10rem;background-color: #d13f4c;text-align: center;color: #fff;border-top: 1px solid #d13f4c;border-bottom: 1px solid #d13f4c;}
+.footLeft .tit{font-size: 1rem;}
+.footLeft .price em{font-style: normal;font-size: 1.3rem;line-height: 3.1rem;}
+.footLeft .price i{font-style: normal;}
+#jf{display: none;}
+.null{width: 100%;height: 3.33rem;}
+
+/*底部弹窗通用样式-start*/
+.popupT{width: 100%;position: fixed;top: 0;z-index: 15;display: none;}
+.backShadow{width: 100%;height: 100%;background-color: rgba(0,0,0,0.5);position: relative;}
+.popupTArea{position: absolute;bottom: 0;width: 100%;background-color: #fff;display: none;}
+.popupTTitle{height: 3.33rem;background-color: #ebedf0;line-height: 3.33rem;text-align: center;color: #4a4a4a;position: relative;overflow: hidden;}
+.popupTClose{background: url("../images/closeBtn.jpg") no-repeat center/cover;width: 2.9rem;height: 100%;position: absolute;right: 0;top: 0;}
+/*底部弹窗通用样式-end*/
+
+
+/*弹窗局部-确认额度*/
+.confirmAmount{width: 23rem;padding: 0 1rem;color: #000;height: 15.2rem;overflow-y: scroll;}
+.confirmAmount li{line-height: 2.66rem;border-bottom: 1px solid #e4e5e6;text-align: center;}
+.confirmLeft{color: #808080;}
+.confirmSure{color: #fff;background-color: #6ea9a9;line-height: 3.3rem;text-align: center;}
+
+/*弹窗局部-适用说明*/
+.useExplain{width: 23rem;padding: 0 1rem;color: #000;height: 15.2rem;overflow-y: scroll;}
+.guide-item{display: none;}
+.guide-item h3 {color: #000;margin-top: 1.4rem;margin-bottom: 0;line-height: 1.6rem;padding-left: 1rem;font-size: 1rem;}
+.guide-item h3:before {content: '';display: inline-block;height: 14px;width: 4px;background-color: #bb904b;margin-right: 10px;margin-left: -14px;vertical-align: -1px;}
+.sub-item{padding-left: 1rem;}
+.sub-item h4 {margin-top: 0.5rem;margin-bottom: 0.66rem;color: #000;font-size: 1rem;}
+.sub-content {font-size: 0.8rem;color: gray;line-height: 1.6rem;}
+.useKnow{line-height: 3.3rem;text-align: center;color: #fff;background-color: #818e99;}
+
+/*弹窗局部-适用酒店*/
+.useHotel{width: 23rem;padding: 0 1rem;color: #000;height: 18.5rem;overflow-y: scroll;}
+.useHotel li{line-height: 3.5rem;border-bottom: 1px solid #e4e5e6;text-align: center;}
+.useHotelLeft{color: #000;}
+.useHotelRight{height: 3.5rem;width: 0.5rem;background: url("../images/rightArrow.jpg") no-repeat center/contain;}
+
+/*弹窗局部-设置密码*/
+.cancelPrompt{width: 13rem;padding: 0 1.8rem;background-color: #fff;height: 18rem;border-radius: 0.5rem;margin: -9rem 0 0 -8.33rem;position: absolute;top: 46%;left: 50%;display: none;}
+.cancelP{width: 13rem;margin: 0 auto;height: 10rem;padding-top: 2rem;font-size: 0.9rem;color: #808080;line-height: 1.5rem;}
+.cancelP span{color: #000;}
+.cancelPromptBtn{width: 48%;line-height: 2.66rem;border: none;background-color: #000;color: #fff;border-radius: 3px;margin: 0 auto;display: block;font-size: 1rem;}
+#close,#orderAgain,#iknow{background-color: #fff;color: #000;}
+.productTit{padding-top: 2rem;text-align: center;padding-bottom: 1rem;}
+.productName{text-align: center;color: #808080;line-height: 2rem;}
+.productBox{padding-top: 2rem;}
+
+
+#prompt{width: 10rem;line-height: 2rem;text-align: center;background: #000;color: #fff;border-radius: 0.7rem;position: fixed;top: 50%;left: 50%;margin-top: -5rem;margin-left: -5rem;display: none;z-index: 100;}

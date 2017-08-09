@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" name="viewport" id="viewport" />
+    <meta name="format-detection" content="telephone=no">
+    <meta content="no-cache, no-store, must-revalidate" http-equiv="cache-Control">
+    <meta content="no-cache" http-equiv="pragma">
+    <meta content="0" http-equiv="expires">
+    <script src="http://7xio74.com2.z0.glb.clouddn.com/rem.js"></script>
+    <link href="css/calendar.css" rel="stylesheet" type="text/css">
+    <link href="css/iconfont1.css" rel="stylesheet" type="text/css">
+    <link href="css/bnbDetail.css" rel="stylesheet" type="text/css">
+    <script src="http://7xio74.com1.z0.glb.clouddn.com/jquery-2.1.4.min.js"></script>
+    <style>
+        #calendar table{width: 100%;table-layout:fixed;}
+        #calendar table td{text-align: center;padding: 0.6rem 0;background-size: 100% 100%;position: relative;}
+        #calendar table td span{position: absolute;bottom: 0;display: block;width: 100%;font-size: 0.6rem;}
+        #calendar div{text-align: center;padding: 0.4rem 0;}
+        #calendar .year,#calendar .month{display: none;}
+    </style>
+    <title></title>
+</head>
+<body>
+<!--头部 包含头图、掌柜头像、距离、名称、是否喜欢、标签-->
+<header>
+    <div id="top_img">
+        <div class="hd">
+            <ul>
+
+            </ul>
+        </div>
+        <div class="bd">
+            <ul>
+
+            </ul>
+        </div>
+    </div>
+    <p id="top_img_index"><span>1</span> / <span></span></p>
+    <a class="shopkeeper_detail" href="javascript:;"><img class="shopkeeper_img" src="#"></a>
+    <div id="intro">
+        <div id="distance">
+            <img id="distance_icon" src="images/icon-add.png">
+            <p id="distance_unit"></p>
+        </div>
+        <h1></h1>
+
+        <ul id="like">
+            <li class="want"><img src="#"/><p>想去 [ <span></span> ]</p></li>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <li class="gap_1">丨</li>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <li class="togo"><img src="#"/><p>去过 [ <span></span> ]</p></li>
+        </ul>
+        <div id="tips">
+        </div>
+    </div>
+</header>
+<!--内容主体 包含印象、房型-->
+<article>
+    <div class="navDate">
+        <div id="nav">
+            <div id="yinxiang" class="select">印象</div>
+            <div id="fangxing">房型</div>
+        </div>
+        <ul class="date unselect" >
+            <li><strong></strong><span></span> <span>入住</span></li>
+            <li><strong></strong><span></span> <span>离店</span></li>
+        </ul>
+    </div>
+    <div id="content">
+        <!--印象-->
+        <div id="content_1">
+            <!--图文介绍-->
+            <div id="h5body">
+            </div>
+            <!--地图信息、联系方式-->
+            <div id="info">
+                <img id="map" src="#">
+                <ul id="address">
+                    <li><img src="images/icon-add.png">&nbsp; &nbsp; </li>
+                    <li><img src="images/icon-tel.png">&nbsp; &nbsp; </li>
+                </ul>
+            </div>
+            <div class="gap"></div>
+            <!--掌柜详情-->
+            <div class="zhangWrap">
+                <div id="shopkeeper_detail">
+                    <a class="shopkeeper_detail" href="javascript:;"><img class="shopkeeper_img" src="#"></a>
+                </div>
+                <p id="shopkeeper_name">掌柜: <span></span></p>
+                <p id="shopkeeper_intro" class="hidden"></p>
+                <div id="more">
+                    <p>查看全部</p>
+                    <img src="images/down.png">
+                </div>
+            </div>
+            <div class="gap"></div>
+            <!--猜你喜欢-->
+            <p id="title_guess">- 猜你喜欢 -</p>
+        </div>
+        <!--房型-->
+        <div id="content_2" class="unselect">
+        </div>
+    </div>
+</article>
+<!--导购条-->
+<footer>
+<!--
+    <div class="findMinsu">
+        <img src="../h5_2.0/images/findMinsu.png" alt="民宿图标">
+        <p class="findMins">找民宿</p>
+    </div>
+-->
+    <p class="price"><span> 起/<span class="prom_unit"></span> 晚</span></p>
+    <button>预&nbsp;&nbsp;订</button>
+</footer>
+<!--弹窗-->
+<div class="mask"></div>
+<div class="popup">
+    <p></p>
+    <div class="btns">
+        <a class="see">再看看</a>
+        <a class="login">登录/注册</a>
+    </div>
+</div>
+<div id="tanchuang_box">
+    <div id="tanchuang_background" class="disappear"></div>
+    <div id="tanchuang" class="disappear">
+        <img id="tanchuang_img" src="images/phoneBooking.png">
+        <p>抱歉,<span>本酒店</span>暂不支持在线预订。</p>
+        <p>请直接电话联系酒店预订</p>
+        <a id="phone"><button id="tanchuang_booking">电话预订</button>
+        </a>
+    </div>
+</div>
+<!--弹窗-->
+<div class="unselect" id="date_checkin"></div>
+<div class="unselect" id="date_checkout"></div>
+<div class="date_mask">
+    <div class="date_mask_alert">
+        <div class="date_mask_alert_top">
+            <div class="tipOtaName"><span class="yes iconfont">&#xe631;</span></div>
+            <ul class="dateXian">
+                <li><strong></strong><span></span> 入住</li>
+                <li><strong></strong><span></span> 离店</li>
+            </ul>
+            <div class="dateXing">
+                <table>
+                    <tr><th>日</th><th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th>六</th></tr></table></div>
+        </div>
+        <div id="calendar">
+        </div>
+    </div>
+</div>
+    <script src="/html/h5/publicFile/js/navHeader.js"></script>
+    <script type="text/javascript" src="js/touchslide.1.1.js"></script>
+    <script type="text/javascript" src="js/dianzan.js"></script>
+    <script type="text/javascript" src="js/shareBnbDetail-3-30.js"></script>
+<script type="text/javascript" src="/html/h5/publicFile/js/cnzz.js"></script>
+</body>
+</html>
+

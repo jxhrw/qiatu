@@ -1,0 +1,329 @@
+@font-face {
+    font-family: impact; /*这里是说明调用来的字体名字*/
+    src: url('../font/impact.ttf'); /*这里是字体文件路径*/
+}
+body{
+    background-color: #595d6a;
+    padding: 2.23rem 0;
+}
+.content{
+    padding: 0 9.2% ;
+}
+.cardsBox{
+    min-height: 11rem;
+    border-radius: 0.73rem;
+    -webkit-border-radius: 0.73rem;
+    -moz-border-radius: 0.73rem;
+    box-shadow: 0 0 0.5rem rgba(0,0,0,0.5);
+    -o-box-shadow: 0 0 0.5rem rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 0 0.5rem rgba(0,0,0,0.5);
+    -moz-box-shadow: 0 0 0.5rem rgba(0,0,0,0.5);
+}
+.card{
+    height: 12rem;
+    width: 100%;
+    color: #fff;
+    font-size: 0.866rem;
+    position: relative;
+    border-radius: 0.73rem;
+    -webkit-border-radius: 0.73rem;
+    -moz-border-radius: 0.73rem;
+    overflow: hidden;
+    background: -webkit-linear-gradient(bottom left, #cbb07c , #ebd9ab);
+    background: -o-linear-gradient(right top, #cbb07c, #ebd9ab);
+    background: -moz-linear-gradient(right top, #cbb07c, #ebd9ab);
+    background: linear-gradient(to right top, #cbb07c , #ebd9ab);
+}
+.cardsName{
+    padding: 0 1rem 0 1.4rem;
+    line-height: 3.33rem;
+    font-size: 1rem;
+    font-weight: bold;
+}
+.card .cardsName{
+    padding-top: 0.5rem;
+}
+.thisCardName{
+    width: 70%;
+    display: inline-block;
+    line-height: initial;
+    padding-top: 1rem;
+}
+.cardDiscount{
+    font-size: 0.7rem;
+    font-weight: 100;
+}
+.cardDiscount span{
+    font-family: impact;
+    font-size: 1.8rem;
+}
+.cardInfo{
+    line-height: 1.43rem;
+    position: absolute;
+    left:1.4rem;
+    bottom: 1.2rem;
+}
+.cardLogo{
+    width: 5.33rem;
+    height: 5.33rem;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    position: absolute;
+    right: 1.33rem;
+    bottom: 1.33rem;
+}
+.wavy{
+    height: 0.8rem;
+}
+.coupon{
+    background: #595d6a url("../images/couponBg.png") no-repeat center/100% 100%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    -o-box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    border-radius: 0.3rem;
+    -webkit-border-radius: 0.3rem;
+    -moz-border-radius: 0.3rem;
+    position: relative;
+    overflow: hidden;
+}
+.giftCardName{
+    padding: 1px 1px 0 1px;
+    color: #4a4a4a;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+.giftCardName.titleGray{
+    color: gray;
+}
+.giftCardName p{
+    height: 3.33rem;
+    position: relative;
+    padding: 0 1.33rem;
+}
+.giftCardName p:before{
+    /*content: "";*/
+    /*width: 0.2rem;*/
+    /*height: 1rem;*/
+    /*background: #E2574C;*/
+    /*position: absolute;*/
+    /*left: 0.7rem;*/
+    /*top: 34%;*/
+    /*border-radius: 3px;*/
+    /*-moz-border-radius: 3px;*/
+    /*-webkit-border-radius: 3px;*/
+}
+.giftCardName p span:before{
+    content: "";
+    width: 0.2rem;
+    height: 1rem;
+    background: #E2574C;
+    position: absolute;
+    left: -0.6rem;
+    top: 0.1rem;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+.giftCardName p span{
+    position: absolute;
+    line-height: 1.2rem;
+    top: 56%;
+    transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    width: 87%;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+.giftCardName.titleGray p span:before{
+    background: gray;
+}
+.giftInfo{
+    font-size: 0.8rem;
+    color: #4a4a4a;
+    line-height: 1.3rem;
+    padding: 1rem 1.33rem;
+}
+.applicable{
+    position: absolute;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    overflow: hidden;
+    width: 5rem;
+    border: 1px solid #999;
+    bottom: 1rem;
+    right: 1.3rem;
+    border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    text-align: center;
+}
+
+.function{
+    color: #fff;
+    width: 93.33%;
+    margin: 0 auto;
+    table-layout: fixed;
+    text-align: center;
+    font-size: 0.8rem;
+    margin-top: 2.5rem;
+}
+.function td{
+
+}
+.function div{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    overflow: hidden;
+    margin: auto;
+    margin-bottom: 0.5rem;
+}
+.booking div{
+    background: url("../images/booking.png") no-repeat center/100% 100%;
+}
+.forNight div{
+    background: url("../images/forNight.png") no-repeat center/100% 100%;
+}
+.forGoods div{
+    background: url("../images/goods.png") no-repeat center/100% 100%;
+}
+.transfer div{
+    background: url("../images/transfer.png") no-repeat center/100% 100%;
+}
+.recharge div{
+    background: url("../images/recharge.png") no-repeat center/100% 100%;
+}
+.forIntegral div{
+    background: url("../images/integral.png") no-repeat center/100% 100%;
+}
+.removed div{
+    background: url("../images/removed.png") no-repeat center/100% 100%;
+}
+.function td.unavailable{
+    pointer-events: none;
+    color: rgba(255,255,255,0.3);
+}
+.function td.unavailable div{
+    opacity: 0.3;
+    -moz-opacity: 0.3;
+    -khtml-opacity:0.3; /* 老版Safari */
+    filter:alpha(opacity=30);
+    -ms-filter:alpha(opacity=30);
+}
+.instructions{
+    color: #fff;
+    font-size: 0.8rem;
+    line-height: 1.33rem;
+    margin-top: 2.5rem;
+}
+.introTitle{
+    font-size: 0.9rem;
+    text-align: center;
+    letter-spacing: -2px;
+    line-height: 2rem;
+    padding-bottom: 0.5rem;
+}
+.introTitle span{
+    letter-spacing: normal;
+}
+.productUsable,.dateUsable,.bookCondition,.remark,.equityInfo,.agreementInfo{
+    /*text-indent: 2em;*/
+}
+.agreementInfo a{
+    color: #fff;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.recharge,.forIntegral,.removed,.placeholder{display: none;}
+
+
+
+/*新增*/
+.noUseLogo{
+    position: absolute;
+    line-height: 1.42rem;
+    width: 50%;
+    background: #494949;
+    text-align: center;
+    transform:rotate(45deg);
+    -ms-transform:rotate(45deg); 	/* IE 9 */
+    -moz-transform:rotate(45deg); 	/* Firefox */
+    -webkit-transform:rotate(45deg); /* Safari 和 Chrome */
+    -o-transform:rotate(45deg);
+    z-index: 10;
+    /*right: -3.4rem;*/
+    /*top: 1.2rem;*/
+    right: -3.6rem;
+    top: 0.8rem;
+    letter-spacing: 1px;
+    color: #fff;
+    font-size: 0.9rem;
+}
+.noUseIcon{
+    width: 4.67rem;
+    height: 4.67rem;
+    position: absolute;
+    top: -0.2rem;
+    right: -0.2rem;
+}
+.confirmBox{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    display: none;
+}
+.shadow{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+}
+.whiteBox{
+    font-size: 0.8rem;
+    width: 66.67%;
+    background: #fff;
+    border-radius: 0.3rem;
+    -moz-border-radius: 0.3rem;
+    -webkit-border-radius: 0.3rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.boxContent{
+    padding: 2rem 2rem 1.7rem 2rem;
+}
+.hint{
+    color: #4a4a4a;
+    line-height: 1.5rem;
+    display: none;
+    margin-bottom: 1.5rem;
+}
+.buttonBox{
+    text-align: right;
+}
+.remove{
+    color: #e2574c;
+    border: none;
+    background: #fff;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+.noRemove{
+    color: #4a4a4a;
+    border: none;
+    background: #fff;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-left: 2rem;
+}

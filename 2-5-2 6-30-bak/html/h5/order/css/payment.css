@@ -1,0 +1,74 @@
+body{background: #ebedf0;}
+.mainContent{overflow-y: auto;position: relative;}
+.contentBox{}
+.innerBox{display: none;}
+.subHeading{padding: 1.1rem 1rem 0.7rem 1rem;font-size: 0.8rem;line-height: 0.8rem;color: #000; }
+
+.regCrude{font-size: 0.9rem;color: #000;margin-bottom: 0.8rem;font-weight: bold;}
+.whiteBack{background: #fff;font-size: 0.9rem;padding: 0 1rem;}
+.smaller{font-size: 0.8rem;color: #4a4a4a;}
+.black{color: #000;}
+.gray{color: #ababab;}
+.paleRed{color: #d13f4c;}
+.quota{position: relative;}
+.multiLineBox{padding: 0.45rem 1rem;}
+.multiLineBox2{padding: 0.6rem 1rem;}
+.dividing{width: 23rem;margin: auto;border-top: 1px solid #e6e6e6;}
+.multiLine{line-height: 1.2rem;padding: 0.2rem 0;}
+.multiLine2{line-height: 2rem;}
+.hasWidth{width: 17.86rem;}
+.reseBox{padding: 1rem;}
+.bookingName{font-size: 1rem;}
+.bookingInfo{font-size: 0.8rem;padding-top: 0.5rem;}
+.openDetail{font-size: 0.8rem;margin-right: 0.5rem;color: #9b9b9b;}
+
+.redBtn,.addBtn{width: 1.9rem;height: 1.8rem;display: inline-block;border: 1px solid #979797;position: relative;top: 0.6rem;}
+.redBtn{background: url("../images/redBlack.jpg") no-repeat center/100% 100%;}
+.addBtn{background: url("../images/addBlack.jpg") no-repeat center/100% 100%;}
+.number{border: none;height: 1.8rem;width: 2.5rem;text-align: center;}
+.remarks{height: 2rem;border: none;width: 16rem;position: relative;top: -0.1rem;margin-left: 1rem;}
+.housing{width: 17.4rem;height: 2.5rem;border: none;position: relative;top: -0.1rem;background: #fff;}
+.housingP{width: 17.4rem;}
+
+.quarantine{margin-right: 0.5rem;}
+.arrowImg{width: 0.8rem;height: 0.5rem;display: inline-block;background: url("../images/uArrow.jpg") no-repeat center/100% 100%;}
+.turnLeft{transform:rotate(270deg);-moz-transform: rotate(270deg);-ms-transform: rotate(270deg);-o-transform: rotate(270deg);-webkit-transform: rotate(270deg);}
+.turnUp{transform:rotate(180deg);-moz-transform: rotate(180deg);-ms-transform: rotate(180deg);-o-transform: rotate(180deg);-webkit-transform: rotate(180deg);}
+.tuneLeft{position: relative;top: -0.1rem;}
+.tuneDown{position: absolute;top: 50%;right: 0;transform: translateY(-50%);-moz-transform: translateY(-50%);-ms-transform: translateY(-50%);-o-transform: translateY(-50%);-webkit-transform: translateY(-50%);}
+
+.choice{width: 1.2rem;height: 1.2rem;display: inline-block;background: url("../images/unchoosed.jpg") no-repeat center/100% 100%;position: relative;top: 0.2rem;margin-right: 0.86rem;}
+.choice.choosed{background: url("../images/choosed.jpg") no-repeat center/100% 100%;}
+.choice2{width: 1.5rem;height: 1.5rem;display: inline-block;background: url("../images/unchoosed.jpg") no-repeat center/100% 100%;position: absolute;top: 50%;right: 0;transform: translateY(-50%);-moz-transform: translateY(-50%);-ms-transform: translateY(-50%);-o-transform: translateY(-50%);-webkit-transform: translateY(-50%);}
+.choice2.choosed{background: url("../images/choosedRed.png") no-repeat center/100% 100%;}
+.discChoice{position: absolute;top: 50%;right: 0;transform: translateY(-50%);-moz-transform: translateY(-50%);-ms-transform: translateY(-50%);-o-transform: translateY(-50%);-webkit-transform: translateY(-50%);margin: 0;}
+.headSwitchBox{padding-top: 0.6rem;padding-bottom: 0.6rem;line-height: 1.8rem;}
+.switchBox{width: 3.2rem;height: 1.8rem;border-radius: 1rem;border: 1px solid #e5e5e5;position: relative;top: 0.5rem;}
+.headSwitch{position: relative;background: #808080;top: -0.05rem;}
+.switchBox.open{background: #d13f4c;border-color: #d13f4c;}
+.headSwitch.open{background: #e2574c;border-color: #e2574c;}
+.switchSpot{width: 1.8rem;height: 1.8rem;border-radius: 50%;position: absolute;background: white;top: 0;box-shadow: 0 1px 4px rgba(0,0,0,0.4);}
+.open .switchSpot{right: 0;top: 0;}
+.cusService{line-height: 3rem;}
+.telBoxHeight{height: 3rem;}
+.telIcon{width: 1.2rem;height: 1.6rem;position: absolute;right: 0.4rem;top: 50%;transform: translateY(-50%);-moz-transform: translateY(-50%);-ms-transform: translateY(-50%);-o-transform: translateY(-50%);-webkit-transform: translateY(-50%);}
+
+.payChannelList{}
+.payChannelList li{line-height: 3rem;border-bottom: 1px solid #e4e5e6;position: relative;padding-left: 3.5rem;}
+.payChannelList li:last-child{border-bottom: none;}
+.payChannelList li img{width: 1.9rem;height: 1.9rem;position: absolute;left: 2px;top: 50%;transform: translateY(-50%);-moz-transform: translateY(-50%);-ms-transform: translateY(-50%);-o-transform: translateY(-50%);-webkit-transform: translateY(-50%);}
+.payChannelList li .alipay{width: 1.9rem;height: 1.9rem;}
+.payChannelList li .wxpay{width: 2.07rem;height: 1.73rem;}
+.payChannelList li .jhpay{width: 1.87rem;height: 1.87rem;}
+
+.toPayBtnBox{line-height: 3rem;height: 3rem;overflow: hidden;background: #fff;color: #4a4a4a;position: fixed;bottom: 0;left: 0;width: 25rem;}
+.borTop{border-top: 1px solid #b3b3b3;}
+.payable{padding-left: 1rem;}
+.payAmount{color: #d13f4c;}
+.toPayBtn{width: 11.33rem;background: #d13f4c;color: #fff;border-top: 1px solid #d13f4c;margin-top: -1px;text-align: center;}
+.toPayBtn.noClick{background: grey;border-top-color: grey;}
+
+.bookingTips{font-size: 0.8rem;line-height: 1.1rem;color: #9b9b9b;padding: 0.8rem 1rem;display: none;}
+
+.payWord{display: inline-block;width: 5rem;}
+.timeIcon{display: inline-block;width: 1.1rem;height: 1.1rem;margin-right: 0.3rem;background: url("../images/clock.png") no-repeat center/100% 100%;position: relative;top: 0.2rem;}

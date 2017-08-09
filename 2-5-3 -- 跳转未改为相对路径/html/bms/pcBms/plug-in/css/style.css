@@ -1,0 +1,147 @@
+/*输入框选择框 css--start*/
+select {
+    border: solid #cecece 1px;
+    width: 88px;
+    height: 25px;
+    border-radius: 2px;
+    padding-left: 5px;
+}
+.selectClass {
+    background-image: url(../images/icon.jpg);
+    background-repeat: no-repeat;
+    background-position: 77px 7px;
+}
+.input {
+    border: solid #cecece 1px;
+    height: 25px;
+    border-radius: 2px;
+    padding-left: 5px;
+}
+.search {
+    margin-top: -3px;
+    margin-left: 30px;
+    border: none;
+    background-color: #d1021e;
+    color: white;
+    width: 170px;
+    height: 30px;
+    border-radius: 2px;
+}
+/*输入框选择框 css--end*/
+
+/*表格 css--start*/
+table{
+    width: 100%;
+    border-collapse:collapse;
+    font-size: 12px;
+}
+table tbody tr:nth-child(2n) td{
+    background-color: #fbfbfb;
+}
+table tbody tr:hover td{
+    background-color: #f2f2f2;
+}
+table th {
+    background-color: #fbfbfb;
+    padding: 14px 10px;
+    font-weight: normal;
+    font-size: 14px;
+    border: 1px solid #dcdcdc;
+}
+table tbody td{
+    border: 1px solid #dcdcdc;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.table{
+    border: 2px solid #dbdde5;
+}
+.table th{
+    font-weight: bold;
+    border: none;
+    border-bottom: 1px solid #dbdde5;
+}
+.table tbody td{
+    border: none;
+    line-height: 20px;
+}
+.table tfoot td{
+    border-top: 2px solid #dbdde5;
+    background: #fbfbfb;
+    text-align: left;
+    padding: 11px 32px;
+}
+.table tfoot td span{
+    display: block;
+    line-height: 22px;
+    width: 88px;
+    border: 1px solid #b3b3b3;
+    text-align: center;
+    margin-right: 10px;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+}
+.table tfoot td span:hover{
+    background: #e2574c;
+    color: #fff;
+    border-color: #e2574c;
+}
+.unavailable{
+    cursor: default!important;
+    filter:alpha(opacity=30); /* IE */
+    -moz-opacity:0.3; /* 老版Mozilla */
+    -khtml-opacity:0.3; /* 老版Safari */
+    opacity: 0.3; /* 支持opacity的浏览器*/
+}
+.unavailable:hover{
+    background: #fff!important;
+    color: #000!important;
+    border-color: #b3b3b3!important;
+}
+.table tbody tr,.newProgram,.table tfoot td span{
+    cursor: pointer;
+}
+/*表格 css--end*/
+
+/*弹窗 css-start*/
+/*层级 .popups > .frame > .closeBtn+.frameTitle */
+.popups{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 100;
+    display: none;
+}
+.frame{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #fff;
+    transform:translate(-50%,-50%);
+    -ms-transform:translate(-50%,-50%);
+    -moz-transform:translate(-50%,-50%);
+    -webkit-transform:translate(-50%,-50%);
+    -o-transform:translate(-50%,-50%);
+}
+.closeBtn{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    right: 0;
+    cursor: pointer;
+    background: url(../ModalService/x.png) no-repeat 20% center/40% 40%;
+}
+.frameTitle{
+    height: 40px;
+    font-size: 14px;
+    line-height: 40px;
+    background-color: rgb(51, 63, 75);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    text-align: center;
+}
+/*弹窗 css-end*/

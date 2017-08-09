@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" name="viewport" id="viewport" /> 
+	<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+	<link rel="stylesheet" type="text/css" href="css/comment.css"/>
+	<link rel="stylesheet" type="text/css" href="css/hotel.css"/>
+	<script src="http://7xio74.com2.z0.glb.qiniucdn.com/jquery-1.4.2.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/touchslide.1.1.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/hostAll.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/ask.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/hotelShare.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+
+	 $(document).ready(function() {
+		 h=$(window).height();
+		$("header").css("height",h*0.525);
+		$(".hotelFooter .footerRight").click(function(event) {
+			window.location="/h5_2.0/tiao.html?id="+id+"&act=toHotelDetail&actFrom=hotelDetail"
+		});
+	});
+	</script> 
+
+</head>
+<body>
+	<header>
+		<div id="focus" class="focus">
+    		<div class="hd">
+        		<ul>
+        		</ul>
+   			</div>
+    		<div class="bd">
+        		<ul>
+        		</ul>
+    		</div>
+		</div>
+		<span class="icon"></span>
+		<!-- <span class="time"><i>8</i>天结束</span> -->
+	</header>
+	<div class="content">
+		<h1></h1>
+		<ul class="like">
+			<li class="want"><i></i>想去 [ <b>5</b> ]</li>
+			<li class="togo"><i class="togo_current"></i>去过 [ <b>5</b> ]</li>
+		</ul>
+		<div class="detail"></div>
+
+	</div>
+	<div class="map">
+		<div class="mapPic" id="mapPic"><img /></div>
+	</div>
+	<p class="address"></p>
+	<p class="phone"></p>
+	<div class="proFooterTop"></div>
+	<div class="Promotion">
+	</div>
+	<div class="proFooterEnd" style="margin-bottom: 3rem;"></div>
+	<div class="hotelFooter">
+		<div class="footerLeft"><span class="origin"></span><span class="hotelPrice">788起/晚</span></div>
+		<div class="footerRight" >打开app</div>
+	</div>
+
+
+	<script type="text/javascript" src="/html/h5/publicFile/js/cnzz.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+

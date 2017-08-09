@@ -1,0 +1,309 @@
+body{
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+}
+
+.content{
+	padding:0 15px ;
+}
+.detail img{
+  min-width: 100%;
+}
+.content h1{
+	text-align: center;
+	font-weight: normal;
+	margin:40px 0 20px;
+    font-size: 1.25rem;
+}
+.like {
+  width: 100%;
+  margin: 0 auto 20px;
+  padding: 5px 0;
+  height: 30px;
+  line-height: 30px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: -o-box;
+}
+.like li {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -ms-box-flex: 1;
+  -o-box-flex: 1;
+  padding-bottom: 5px;
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+}
+.like .want {
+  background: url(http://7xio74.com2.z0.glb.qiniucdn.com/leapp_Line_grey.png) right center no-repeat;
+  -webkit-background-size: 1px 33px;
+  -moz-background-size: 1px 33px;
+  -ms-background-size: 1px 33px;
+  -o-background-size: 1px 33px;
+  background-size: 1px 33px;
+}
+.like i {
+  display: inline-block;
+  width: 30px;
+  height: 26px;
+  vertical-align: middle;
+  margin-top: -5px;
+  background: url(http://7xio74.com2.z0.glb.qiniucdn.com/leapp_like.png) 0 center no-repeat;
+  -webkit-background-size:30px;
+  -moz-background-size: 30px;
+  -ms-background-size: 30px;
+  -o-background-size:30px;
+  background-size: 30px;
+  margin-right: 7px;
+}
+.like .wantCurrent {
+  display: inline-block;
+  width: 30px;
+  height: 26px;
+  vertical-align: middle;
+  margin-top: -5px;
+  background: url(http://7xio74.com2.z0.glb.qiniucdn.com/leapp_likeCurrent.png) 0 center no-repeat;
+ -webkit-background-size:30px;
+  -moz-background-size: 30px;
+  -ms-background-size: 30px;
+  -o-background-size:30px;
+  background-size: 30px;
+  margin-right: 7px;
+}
+.like .togoCurrent {
+  display: inline-block;
+  width: 30px;
+  height: 26px;
+  vertical-align: middle;
+  margin-top: -5px;
+  background: url(http://7xio74.com2.z0.glb.qiniucdn.com/leapp_togoCurrent.png) 0 center no-repeat;
+   -webkit-background-size:30px;
+  -moz-background-size: 30px;
+  -ms-background-size: 30px;
+  -o-background-size:30px;
+  background-size: 30px;
+  margin-right: 7px;
+}
+.togo i {
+  display: inline-block;
+  width: 30px;
+  height: 26px;
+  vertical-align: middle;
+  margin-top: -5px;
+  background: url(http://7xio74.com2.z0.glb.qiniucdn.com/leapp_togo.png) 0 center no-repeat;
+  -webkit-background-size:30px;
+  -moz-background-size: 30px;
+  -ms-background-size: 30px;
+  -o-background-size:30px;
+  background-size: 30px;
+  margin-right: 7px;
+}
+.detail{
+  line-height: 2rem;
+}
+.detail p{
+  line-height: 1.5rem;
+}
+.mapPic img{
+ margin-top: 10px;
+  width:100%;
+  background:url(http://7xio74.com2.z0.glb.qiniucdn.com/leapp_loading.gif) center center no-repeat;
+}
+.address,.phone{
+  padding: 5px 15px;
+  color: #4a4a4a;
+  font-size: 12px;
+  line-height: 2px;
+}
+.address{
+  padding: 20px 15px 10px;
+}
+.address:before,.phone:before{
+  content:"";
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: -5px;
+  width: 20px;
+  height: 15px;
+  background: url(http://7xio74.com2.z0.glb.qiniucdn.com/leapp_distanceIcon.png) 0 bottom no-repeat;
+  -webkit-background-size: 13px;
+  background-size: 13px;
+
+
+}
+.phone:before{
+  background: url(http://7xio74.com2.z0.glb.qiniucdn.com/leapp_phone.png) 0 bottom no-repeat;
+  -webkit-background-size: 15px;
+  background-size: 15px;
+}
+.phone{
+  margin-bottom: 2rem ;
+}
+
+.Promotion dl{
+  padding: 10px 15px;
+  overflow: hidden;
+  height: 110px;
+  display:-webkit-box;
+  display:-moz-box;
+  display:-ms-box;
+  display:-o-box;
+}
+.itemLeft{
+  -webkit-box-flex:1;
+  -moz-box-flex:1;
+  -ms-box-flex:1;
+  -o-box-flex:1;
+  min-width: 90%;
+  max-width: 90%;
+  height: 100%;
+  background:  url(http://7xio74.com2.z0.glb.qiniucdn.com/leapp_alitrip.jpg) center center no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+
+.itemRight{
+  -webkit-box-flex:1;
+  -moz-box-flex:1;
+  -ms-box-flex:1;
+  -o-box-flex:1;
+  height: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  padding-left: 10px;
+  box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -ms-box-sizing:border-box;
+  -o-box-sizing:border-box;
+  position: relative;
+}
+.itemRight span{
+  display: block;
+  line-height: 20px;
+}
+.itemRightBottom{
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+  left: 50%;
+  transform: translate(-50%,0);
+  -webkit-transform: translate(-50%,0);
+  -moz-transform: translate(-50%,0);
+  -ms-transform: translate(-50%,0);
+  color: #d13f4c;
+
+}
+
+
+
+
+.hotelFooter{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: -o-box;
+  background-color: #fff;
+  padding: 7.5px 15px;
+  border-top: 1px solid #e1e3e6;
+  z-index: 99;
+  box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -ms-box-sizing:border-box;
+  -o-box-sizing:border-box;
+
+  /* position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height:3rem;
+  background-color: #fff;
+  display:-webkit-box;
+  display:-moz-box;
+  display:-ms-box;
+  display:-o-box;
+  border-top: 1px solid #979797;
+  padding:5px 10px;
+  box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -ms-box-sizing:border-box;
+  -o-box-sizing:border-box; */
+}
+.hotelFooter .footerRight{
+  height: 35px;
+  max-width: 120px;
+  line-height: 35px !important;
+  text-align: center;
+  background-color: #d13f4c;
+  color: #fff;
+  line-height: 24px;
+  text-align: center;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -webkit-box-flex:1;
+  -moz-box-flex:1;
+  -ms-box-flex:1;
+  -o-box-flex:1;
+  font-size: 14px;
+}
+.hotelFooter{
+  font-size: 14px;
+}
+.hotelFooter .origin{
+  font-size: 10px;
+  margin-top: -6px;
+  margin-bottom: 3px;
+}
+.footerLeft{
+  text-align: center;
+  -webkit-box-flex:3;
+  -moz-box-flex:3;
+  -ms-box-flex:3;
+  -o-box-flex:3;
+}
+.footerLeft span{
+  display: block; 
+  line-height: 18px;
+
+}
+.footerLeft span em{
+    font-size: 18px;
+    margin-right: 5px;
+}
+.footerRight{
+  text-align: right;
+  line-height: 2.3rem;
+}
+.footerRight span{
+  padding:10px 15px;
+  background-color: #ccc;
+} 
+.proFooterTop{
+    width: 100%;
+    padding-bottom:12.5px;
+    height:40px;
+    background:  url(http://7xio74.com2.z0.glb.qiniucdn.com/leapp_about.png) center center no-repeat;
+    -webkit-background-size:contain;
+    background-size:contain;
+}
+.proFooterEnd{
+    width: 100%;
+    margin:40px 0 12.5px;
+    height:40px;
+    background: #fff url(http://7xio74.com2.z0.glb.qiniucdn.com/leapp_theEnd.png) center center no-repeat;
+    -webkit-background-size:contain;
+    background-size:contain;
+}

@@ -1,0 +1,410 @@
+body{
+    font-family: "黑体",arial;
+    background: #edf0f5;
+}
+a{
+    text-decoration: none;
+}
+input{
+    outline: none;
+    border: none;
+}
+button{
+    border: none;
+    font-family: "黑体";
+}
+.disabled{
+    pointer-events: none;
+}
+.iconfont{
+    font-size: 20px;
+}
+[data-dpr="2"] .iconfont{
+    font-size: 40px;
+}
+[data-dpr="3"] .iconfont{
+    font-size: 60px;
+}
+.icon-selected,.icon-unselected{
+    margin-right: 0.4rem;
+}
+.icon-subselected,.icon-subunselect{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+}
+.icon-subselected:before{
+    color: #e2574c;
+}
+.hide{
+    display: none;
+}
+.enterAmount{
+    padding: 0 1rem 1.2267rem;
+    width: 80%;
+    background: #fff;
+}
+.enterAmount .hotelName{
+    font-size: 18px;
+    line-height: 2.2667rem;
+    text-align: center;
+}
+[data-dpr="2"] .enterAmount .hotelName{
+    font-size: 36px;
+}
+[data-dpr="3"] .enterAmount .hotelName{
+    font-size: 54px;
+}
+.enterAmount form{
+    height: 1.0133rem;
+    border-bottom: 1px solid #4a4a4a;
+    position: relative;
+}
+[data-dpr="2"] form{
+    border-bottom: 2px solid #4a4a4a;
+}
+[data-dpr="3"] form{
+    border-bottom: 3px solid #4a4a4a;
+}
+.enterAmount form span{
+    display: inline-block;
+    width: 0.4rem;
+    line-height: 1.0133rem;
+    position: absolute;
+    left: 0;
+    font-size: 18px;
+}
+[data-dpr="2"] form span{
+    font-size: 36px;
+}
+[data-dpr="3"] form span{
+    font-size: 54px;
+}
+.enterAmount form input{
+    display: inline-block;
+    width: 100%;
+    line-height: 1.0133rem;
+    font-size: 26px;
+    text-align: center;
+}
+[data-dpr="2"] .enterAmount form input{
+    font-size: 52px;
+}
+[data-dpr="3"] .enterAmount form input{
+    font-size: 78px;
+}
+.joinMember{
+    background: #edf0f5;
+    padding-top: 0.48rem;
+}
+.joinContent{
+    background: #fff;
+    width: 80%;
+    margin: 0 auto;
+    padding: 0.72rem 6%;
+    text-align: center;
+}
+.joinContent h1,.joinContent p{
+    text-align: left;
+}
+.joinContent h1{
+    font-size: 13px;
+    line-height: 0.56rem;
+}
+[data-dpr="2"] .joinContent h1{
+    font-size: 26px;
+}
+[data-dpr="3"] .joinContent h1{
+    font-size: 39px;
+}
+.joinContent p{
+    color: #4a4a4a;
+    line-height: 0.44rem;
+    margin: 0.48rem 0 0.84rem;
+}
+.joinContent button{
+    width: 5.3333rem ;
+    height: 0.8rem;
+    border-radius: 0.4rem;
+    background: #17181c;
+    color: #fff;
+    font-size: 12px;
+    /* Firefox 3.6+ */
+    background: -moz-linear-gradient(left top, #06080c, #252628);
+    /* Safari 5.1+, Chrome 10+ */
+    background: -webkit-linear-gradient(left top, #06080c, #252628);
+    /* Opera 11.10+ */
+    background: -o-linear-gradient(left top,#06080c, #252628);
+}
+[data-dpr="2"] .joinContent button{
+    font-size: 24px;
+}
+[data-dpr="3"] .joinContent button{
+    font-size: 36px;
+}
+.assetsWrap{
+    padding-bottom: 2.0667rem;
+}
+.options{
+    background: #fff;
+}
+.option{
+    margin-left: 4%;
+    border-bottom: 1px solid #e4e5e6;
+    display: none;
+}
+.brief span{
+    display: inline-block;
+    vertical-align: middle;
+}
+[data-dpr="2"] .option{
+    border-bottom: 2px solid #e4e5e6;
+}
+[data-dpr="3"] .option{
+    border-bottom: 3px solid #e4e5e6;
+}
+.caption{
+    width: 96%;
+    padding: 0.44rem 0 0.28rem 4%;
+}
+.brief{
+    line-height: 1.1733rem;
+    font-size: 13px;
+}
+[data-dpr="2"] .brief{
+    font-size: 26px;
+}
+[data-dpr="3"] .brief{
+    font-size: 39px;
+}
+.desc{
+    position: relative;
+    color: #4a4a4a;
+    float: right;
+    padding-right: 0.36rem;
+}
+.desc::after{
+    content: "";
+    display: inline-block;
+    width: 0.32rem;
+    height: 0.2rem;
+    margin-left: 0.28rem;
+    background: url("../images/downarrow.png") no-repeat center bottom/100%;
+}
+.up::after{
+    content: "";
+    display: inline-block;
+    width: 0.32rem;
+    height: 0.2rem;
+    margin-left: 0.28rem;
+    background: url("../images/uparrow.png") no-repeat center bottom/100%;
+}
+.subOptions{
+    margin:0 0.92rem 0 0.88rem;
+    padding-top: 0.24rem;
+    border-top: 1px solid #d8d8d8;
+    display: none;
+}
+.subOptions li{
+    margin-bottom: 0.4667rem;
+}
+.subOptions dl{
+    line-height: 0.56rem;
+    padding-left: 0.28rem;
+    position: relative;
+}
+.subOptions dl dt{
+    position: relative;
+}
+.subOptions dl dt::before{
+    content: "";
+    width: 0.0667rem;
+    height: 0.4rem;
+    background: #e2574c;
+    position: absolute;
+    top: 0.08rem;
+    left: -0.28rem;
+    border-radius: 0.04rem;
+}
+.subOptions dl span{
+    font-family: Arial,"黑体";
+}
+.subOptions dl dt span{
+    padding: 2px 0.2rem;
+    border: 1px solid #e2574c;
+    font-size: 10px;
+    border-radius: 2px;
+    color: #e2574c;
+    margin-left: 0.28rem;
+    letter-spacing: 1px;
+}
+[data-dpr="2"] .subOptions dl dt span{
+    font-size: 20px;
+}
+[data-dpr="3"] .subOptions dl dt span{
+    font-size: 30px;
+}
+.subOptions dl dd{
+    color: #9b9b9b;
+}
+.subOptions dl dd span{
+    color: #4a4a4a;
+}
+.subOptions .deduction{
+    width: 100%;
+    background: #f5f6f5;
+    overflow: hidden;
+}
+.subOptions .deduction p{
+    float: right;
+    margin-right: 0.12rem;
+    line-height: 0.4rem;
+}
+.deduction span{
+    color: #e2574c;
+}
+.exchOptions{
+    background: #fff;
+}
+.exchOption{
+    border-bottom: 1px solid #e4e5e6;
+    overflow: hidden;
+    padding: 0.36rem 0.4rem 0.2rem 0;
+    margin-left: 4%;
+}
+[data-dpr="2"] .exchOption{
+    border-bottom: 2px solid #e4e5e6;
+}
+[data-dpr="3"] .exchOption{
+    border-bottom: 3px solid #e4e5e6;
+}
+.exchOption dl{
+    font-size: 13px;
+}
+[data-dpr="2"] .exchOption dl{
+    font-size: 26px;
+}
+[data-dpr="3"] .exchOption dl{
+    font-size: 39px;
+}
+.exchOption>span{
+    float: left;
+}
+.exchOption dl{
+    width: 88%;
+    float: left;
+}
+.exchOption dl dt{
+    line-height: 0.44rem;
+    margin-bottom: 0.08rem;
+}
+.exchOption dl dd{
+    color: #9b9b9b;
+    line-height: 0.6rem;
+}
+.exchOption dl dd span{
+    color: #4a4a4a;
+}
+.exchDeduction{
+    width: 8.2667rem;
+    background: #f5f6f5;
+    margin: 0.2rem 0 0 0.9333rem;
+}
+.exchDeduction.inline{
+    display: inline-block;
+}
+.exchDeduction p{
+    float: right;
+    margin-right: 0.24rem;
+    line-height: 0.4rem;
+}
+.exchDeduction span:last-child{
+    color: #e2574c;
+}
+.pointsToCashInfo{
+    padding: 0.2rem 0.48rem;
+    line-height: 0.72rem;
+    background: #fff;
+    font-size: 13px;
+}
+[data-dpr="2"] .pointsToCashInfo{
+    font-size: 26px;
+}
+[data-dpr="3"] .pointsToCashInfo{
+    font-size: 39px;
+}
+.pointsToCashDesc{
+    vertical-align: middle;
+}
+.pointsSwitch{
+    float: right;
+    vertical-align: middle;
+    width: 1.2534rem;
+    height: 0.72rem;
+    border-radius: 0.4rem;
+    border: 0.04rem solid #e5e5e5;
+    position: relative;
+}
+.pointsSwitch span{
+    display: block;
+    width:  0.72rem;
+    height:  0.72rem;
+    background: #ffffff;
+    border-radius: 50%;
+    border: 0.04rem solid #e5e5e5;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    position: absolute;
+    left: 0;
+    top: -0.04rem;
+}
+.on.pointsSwitch{
+    background: #e2574c;
+}
+.on.pointsSwitch span{
+    left: 0.52rem;
+}
+button.submit{
+    width: 100%;
+    height: 1.2rem;
+    position: fixed;
+    bottom: 0;
+    /* Firefox 3.6+ */
+    background: -moz-linear-gradient(left top, #e63c51, #e2574c);
+    /* Safari 5.1+, Chrome 10+ */
+    background: -webkit-linear-gradient(left top, #e63c51, #e2574c);
+    /* Opera 11.10+ */
+    background: -o-linear-gradient(left top,#e63c51, #e2574c);
+    font-size: 16px;
+    color: #fff;
+}
+[data-dpr="2"] button.submit{
+    font-size: 32px;
+}
+[data-dpr="3"] button.submit{
+    font-size: 48px;
+}
+.submit span{
+    font-family: arial;
+}
+.errorPrompt{
+    max-width: 60%;
+    line-height: 30px;
+    text-align: center;
+    background: rgba(0,0,0,0.9);
+    color: #fff;
+    border-radius: 20px;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 100;
+    padding: 0.5rem 0.5rem;
+    font-size: 14px;
+}
+[data-dpr="2"] .errorPrompt{
+    font-size: 28px;
+}
+[data-dpr="3"] .errorPrompt{
+    font-size: 42px;
+}

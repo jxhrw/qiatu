@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" name="viewport" id="viewport" />
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <script src="http://7xio74.com2.z0.glb.qiniucdn.com/rem.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://7xio74.com1.z0.glb.clouddn.com/css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/orderDetailN.css">
+    <link rel="stylesheet" type="text/css" href="css/iconfont1.css">
+    <script src="http://7xio74.com1.z0.glb.clouddn.com/jquery-2.1.4.min.js"></script>
+    <!--<script src="http://7xio74.com1.z0.glb.clouddn.com/js/general.js?h6"></script>-->
+    <script src="/html/h5/publicFile/js/navHeader.js"></script>
+    <script src="/html/h5/publicFile/js/general.js"></script>
+    <script src="js/orderDetailN.js"></script>
+    <title>订单详情</title>
+</head>
+<body>
+<div class="">
+    <div class="contentBox">
+        <div class="innerBox">
+            <div class="detailHead">
+                <span class="heightCenter iconfont" id="iconStatus">&#xe610;</span>
+                <div class="orderStatus heightCenter">
+                    <p class="nowStatus" id="nowStatus"></p>
+                    <p class="nowTips" id="nowTips"></p>
+                </div>
+                <div class="refundBox">退款说明 <span class="refund"> > </span></div>
+            </div>
+        </div>
+        <div id="header" class="innerBox">
+            <div class="kindIcon proNameIcon"></div>
+            <div class="whiteBack multiLineBox2 morePadding">
+                <a id="productHref">
+                    <p class="bookingName" id="roomName"></p>
+                    <p class="bookingInfo" id="checkTime"><span id="checkIn"></span>入住 &nbsp;&nbsp; <span id="checkOut"></span>离店 &nbsp;&nbsp; <span id="nights"></span>晚 &nbsp;&nbsp; 预定<span id="quantity"></span>间房</p>
+                    <span class="arrowImg turnLeft heightCenter position"></span>
+                </a>
+            </div>
+        </div>
+        <div id="customer" class="innerBox">
+            <div class="kindIcon cursumeIcon"></div>
+            <div class="whiteBack"><div class="borTop"></div></div>
+            <div class="whiteBack black multiLineBox2 ">
+                <div class="clearfix multiLine">
+                    <div class="function gray fl">联系人：</div>
+                    <div class="quota hasWidth fr"><span id="customerName"></span> <span id="customerMobile" class="fr"></span></div>
+                </div>
+                <div class="clearfix multiLine customerAddress">
+                    <div class="function gray fl">收货地址：</div>
+                    <div class="quota hasWidth fr"><span id="customerAddress"></span></div>
+                </div>
+                <div class="clearfix multiLine customerAddress">
+                    <div class="function gray fl">数量：</div>
+                    <div class="quota hasWidth fr"><span id="proQuantity"></span></div>
+                </div>
+                <div class="clearfix multiLine">
+                    <div class="function gray fl">备注：</div>
+                    <div class="quota hasWidth fr"><span id="comments">无</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="innerBox">
+            <div class="kindIcon priceIcon"></div>
+            <div class="whiteBack"><div class="borTop"></div></div>
+            <div class="whiteBack black multiLineBox2" id="payInfoDiv">
+
+            </div>
+        </div>
+        <div id="hotelBox" class="innerBox">
+            <div class="kindIcon hotelIcon"></div>
+            <div class="whiteBack"><div class="borTop"></div></div>
+            <div class="whiteBack black multiLineBox2">
+                <div class="multiLine black hotelName"><span id="hotelCname"></span><span class="arrowImg tuneLeft turnLeft fr"></span></div>
+                <div class="multiLine gray"><span id="address"></span></div>
+                <div class="merchantBtn clearfix"><a id="navigation" class="fl">路线导航</a><a id="hotelPhone" class="fr">联系电话</a></div>
+            </div>
+        </div>
+        <div class="innerBox">
+            <div class="kindIcon payIcon"></div>
+            <div class="whiteBack"><div class="borTop"></div></div>
+            <div class="whiteBack black multiLineBox2" id="orderidDiv">
+                <div class="clearfix multiLine" id="orderidBox">
+                    <div class="function gray fl">订单编号：</div>
+                    <div class="quota fr"><span id="orderid"></span></div>
+                </div>
+            </div>
+        </div>
+        <div  class="innerBox">
+            <div class="relative">
+                <div class="bookingTips">
+                    <!--预定成功后，取消房间预订请提前一周通知预订部，确认后可免费取消，其他时间将扣除首晚房费-->
+                </div>
+                <div id="cancelBtn" class="cancelOrder heightCenter">
+                    取消订单
+                </div>
+            </div>
+            <div class="whiteBack">
+                <a href="tel:400-026-5225">
+                    <div class="clearfix cusService">
+                        <div class="function black fl">几何客服 400-026-5225</div>
+                        <div class="quota fr telBoxHeight"><img class="telIcon" src="images/tel.png" alt=""></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div id="bottomFree" style="height: 2.4rem;"></div>
+    <div id="goOnPay" class="lastPayBtnBox">
+        去支付
+        <div class="timeBox heightCenter"><span class="timeIcon"></span><span id="countDown"></span></div>
+    </div>
+</div>
+
+<div class="mainContent">
+    <div class="shadow"></div>
+    <div class="cancelBox heightCenter">
+        <p class="secondTips">订单取消后不可恢复，确认要取消订单吗？</p>
+        <div class="clearfix">
+            <div id="wrong" class="fl wrong">点错了</div>
+            <div id="cancel" class="fr cancel">取消订单</div>
+        </div>
+    </div>
+    <div class="underWindow">
+        <div class="windowHead">退款说明</div>
+        <div class="discListUl">
+            <p class="question">取消订单后，退款什么时候才能到账？</p>
+            <p class="answer">如您的订单符合退款政策，取消订单后，支付的现金部分一般会在七个工作日内由银行原路退回，支付的积分或抵用券将在48小时内退回您会员账户。</p>
+        </div>
+        <div id="clearDisc" class="clearDisc">知道了</div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/html/h5/publicFile/js/cnzz.js"></script>
+</body>
+</html>

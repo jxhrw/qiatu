@@ -1,0 +1,86 @@
+
+body{
+    /*background-color: #595d6a;*/
+    background: url("../images/membershipsBg.jpg") no-repeat center/100% 100%;
+}
+.content{
+    padding: 0 9.2% 0 9.2%;
+}
+.cardsBox,.giftsBox{
+    display: none;
+}
+.category{
+    padding: 1.3rem 0 1.2rem 0;
+    font-size: 1rem;
+    line-height: 1rem;
+    color: #fff;
+}
+
+.applicable{
+    position: absolute;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    overflow: hidden;
+    width: 5rem;
+    border: 1px solid #999;
+    bottom: 1rem;
+    right: 1.3rem;
+    border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    text-align: center;
+}
+
+.cardsBox,.giftsBox,.uselessBox{
+    display: none;
+}
+
+.cardsList{
+    padding-top: 0.5rem;
+}
+
+
+    /*新列表类型*/
+.kinerNav{
+    height: 3.33rem;
+    line-height: 3.33rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+.kinerNav > li{
+    width: 25%;
+}
+.kinerNav > li .number{
+    color: #666;
+    font-weight: 300;
+}
+.kinerNav > li.active .word{
+    color: #585858;
+    font-size: 1.2rem;
+}
+.kinerNav .realBorder{
+    background-color:#df594e;
+    width: 10.6%;
+    left: 7.2%;
+}
+.load{
+    display: none;
+    text-align: center;
+    padding-bottom: 1rem;
+    font-size: 0.8rem;
+    color: #B3B3B3;
+}
+.couponList{
+    overflow-y: auto;
+}
+.clickCard{
+    display: none;
+    text-align: center;
+    width: 100%;
+    height: 2.3rem;
+    font-size: 0.8rem;
+    color: #999;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}

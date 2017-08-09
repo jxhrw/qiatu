@@ -1,0 +1,247 @@
+*{
+    padding: 0;
+    margin: 0;
+    line-height: 1.5em;
+    font-size: 12px;
+    font-family: "Lantinghei SC","FZLanTingHei-R-GBK";
+    -webkit-text-size-adjust:none;
+    rem:16px;
+}
+
+.name{
+    font-size: 1.2rem;
+    color: rgb(1, 68, 76);
+    font-family: Heiti SC, Heiti TC,open sans,lantinghei SC,lantinghei TC, Microsoft YaHei,Tahoma,Arial,sans-serif,"黑体";
+}
+.pic {
+    height: 20.625rem;
+    position: relative;
+}
+.priceWrap {
+    position: absolute;
+    bottom: 1.4rem;
+}
+.pic img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+#bnbIcon {
+    width: 3.4rem;
+    height: 3.4rem;
+    position: absolute;
+    right: 1rem;
+    bottom: 0;
+    transform: translate(0,150%);
+    -webkit-transform: translate(0,150%);
+    -moz-transform: translate(0,150%);
+    -ms-transform: translate(0,150%);
+    -o-transform: translate(0,150%);
+}
+#unit{
+text-align: center;
+padding: 0.4rem 0.6rem;
+line-height: 1.2rem;
+background-color:rgb(180,139,74) ;
+}
+span{
+    letter-spacing: 0.1em;
+}
+#topicTitle{
+    width: 92%;
+    margin: 25px 4% 0 4%;
+    font-size: 22px;
+    border: none !important;
+}
+#topicSubtitle{
+    display: none;
+}
+#topicAuthor{
+    width: 92%;
+    margin: 5px 4% 10px 4%;
+    font-size: 12px;
+    color: #8c8c8c;
+    border: none !important;
+}
+.image{
+    width: 92%;
+    margin: 5px 4% 5px 4%;
+}
+.text{
+    width: 92%;
+    margin: 15px 4% 15px 4%;
+    color: #4A4A4A;
+    font-size: 15px;
+    background: none !important;
+}
+img#line{
+    width: 100%;
+    height: 0.938em;
+    margin: 10px 0 -10px 0 ;
+}
+img#endLine{
+    width: 100%;
+    margin: 10px 0 0 0 ;
+}
+
+div.list{
+    position: relative;
+    width: 100%;
+    height: 27.125rem;
+}
+.listImage{
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    /*height: 15rem;*/
+    height: 20.625rem;
+}
+img.statusMark{
+    width: 100%;
+    height: 15rem;
+}
+p.pricePlus{
+    width: 8.44rem;
+    height: 2.11rem;
+    font-size: 19px;
+    color: white;
+    position: absolute;
+    top: 9.14rem;
+    left: 0;
+    vertical-align: middle;
+    text-align: center;
+    padding: 0.5% 0 0 0 ;
+}
+.priceWrap {
+    position: absolute;
+    bottom: 1.4rem;
+}
+.price{
+	display: block;
+	float: left;
+	height: 2.4rem;
+	vertical-align: middle;
+    background-color: rgba(0,0,0,.6);	        
+    text-align: center;
+    color: #fff;
+    font-size: 0.9rem;
+    font-family: Heiti SC, Heiti TC,open sans,lantinghei SC,lantinghei TC, Microsoft YaHei,Tahoma,Arial,sans-serif,"黑体";
+ 	padding: 0.4rem 0.6rem;
+}
+.otherPrice{
+	position: absolute;
+	/*bottom: 39%;*/
+    bottom: 30%;
+}
+
+.price strong{
+	font-size: 1.5rem;
+	font-weight: normal;
+    margin-left: 0.2rem;
+  font-family: Heiti SC, Heiti TC,open sans,lantinghei SC,lantinghei TC, Microsoft YaHei,Tahoma,Arial,sans-serif,"黑体";
+}
+.tag{
+    padding: 0 1rem;
+}
+.tag span {
+    padding: 0 1rem;
+    border: 1px solid #c8cacc;
+    border-radius: 25px;
+    color: #808080;
+    margin-right: 0.7rem;
+    font-size: 0.8rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+img.tips{
+    width: 1.95rem;
+    position: absolute;
+    left: 0.75rem;
+    /*top: 15.63rem;*/
+    top: 19.3rem;
+}
+img.brand{
+    position: absolute;
+    top: 13.44rem;
+    right: 1.875rem;
+    width: 3.09rem;
+    border-radius: 50%;
+    border:1px solid #d5d4d9;
+    z-index: 999;
+}
+.brandh5url img.brand{
+    top: 18.7rem;
+    width: 3.4rem;
+    height: 3.4rem;
+}
+p.distant{
+    font-size: 12px;
+    color: #8c8c8c;
+    position: absolute;
+    left: 3.40rem;
+    top: 15.82rem;
+}
+p.introDiscount{
+    width: 93.6%;
+    margin: 6% 3.2% 0 3.2%;
+    font-size: 16px;
+}
+img.rank{
+    /*width: 25vw;*/
+    height: 1.06rem;
+    margin: 2.4% 0 2.4% 0.75rem;
+}
+p.discountStatus{
+    width: 75px;
+    font-size: 12px;
+    color: #8c8c8c;
+    float: right;
+}
+p.hotelName{
+    width: 18rem;
+    position: relative;
+    top: 16.99rem;
+    left: 0.75rem;
+}
+.bnbName{
+	padding: 1rem;
+}
+div.introHotel {
+    font-size: 12px;
+    color: #8c8c8c;
+    width: 93.6%;
+    margin: 0 3.2% 0 3.2%;
+    position: relative;
+    /*top: 17.11rem;*/
+    top: 21.61rem;
+    height: 54px;
+}
+div.introHotel p{
+    font-size: 12px;
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.nojihePlus{
+    width: 8.44rem;
+    position: absolute;
+    top: 9.69rem;
+    left: 0;
+}
+.jihePlus{
+    width: 8.44rem;
+    position: absolute;
+    top: 8.13rem;
+    left: 0;
+}
+
+/*当酒店介绍不存在时,酒店名称下移*/
+.movedown{
+    /*top:18.5rem !important;*/
+    top: 21.5rem !important;
+}

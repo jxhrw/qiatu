@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 54.64px;">
+<head>
+	<meta charset="UTF-8">
+	<title>几何生活</title>
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes"> -->
+	<meta name="format-detection" content="telephone=no"/>
+	<meta http-equiv="cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="expires" content="0" />
+	<!-- <script type="text/javascript" src="http://7xio74.com2.z0.glb.qiniucdn.com/rem.js"></script> -->
+	<script type="text/javascript" src="http://7xio74.com2.z0.glb.qiniucdn.com/jquery-1.4.2.js"></script>
+	<script src="http://7xio74.com1.z0.glb.clouddn.com/js/general.js?h6"></script>
+	<link rel="stylesheet" href="css/reset.css">
+	<script type="text/javascript" src="js/hostAll.js"></script>
+	<script type="text/javascript" src="js/enquiry.js"></script>
+	<script src="yui-min.js"></script>
+	<script src="../plug-in/jquery/jquery.js"></script>
+	<script src="../plug-in/alert/alert.js"></script>
+	<script src='../plug-in/ModalService/style.js'></script>
+	<script>
+
+		YUI({
+			modules: {
+				'trip-calendar': {
+					fullpath: 'trip-calendar.js',
+					type    : 'js',
+					requires: ['trip-calendar-css']
+				},
+				'trip-calendar-css': {
+					fullpath: 'trip-calendar.css',
+					type    : 'css'
+				}
+			}
+		}).use('trip-calendar', function(Y) {
+			var oCal= new Y.TripCalendar({
+				minDate         : "",     //最小时间限制
+				maxDate         : "",
+				triggerNode     : '#J_DepDate1', //第一个触节点
+				finalTriggerNode: '#J_EndDate1' ,//最后一个触发节点
+				count           : 1
+
+			});
+			var oCal= new Y.TripCalendar({
+				minDate         : "2016-01-01",     //最小时间限制
+				maxDate         : "",
+				triggerNode     : '#J_DepDate2', //第一个触节点
+				finalTriggerNode: '#J_EndDate2' ,//最后一个触发节点
+				count           : 1
+
+			});
+
+		});
+
+	</script>
+
+	<style type="text/css">
+		.dl1 input,.dl2 input{
+			width: 200px !important;
+			color: #000;
+		}
+		input::-webkit-outer-spin-button,
+		input::-webkit-inner-spin-button {
+			-webkit-appearance: none !important;
+			margin: 0;
+		}
+		.bmsEnquiryButtonContent{
+			width: 90%;
+	    height: 45px;
+	    border: 2px solid #dbdde5;
+	    border-top: none;
+	    margin-left: 1%;
+	    padding-left: 22px;
+	    padding-right: 22px;
+			background-color: #f1f1f1;
+		}
+		.bmsEnquiryButton{
+			height: 20px;
+      border: 1px solid #b3b3b3;
+      width: 88px;
+      background-color: white;
+      display: block;
+      float: left;
+      font-size: 12px;
+      text-align: center;
+      margin-left: 10px;
+      margin-top: 13px;
+			padding-top: 3px;
+			border-radius: 2px;
+		}
+		.bmsEnquiryButton:hover{
+			background-color: #d13f4c;
+			border: 1px solid #d13f4c;
+			color:white;
+		}
+		.grantVipModal1Span{
+			color: #adadad;
+    font-size: 13px;
+		margin-left: 35px;
+		}
+		.grantVipModal1Select{
+			border: #cecece 1px solid;
+			height: 25px;
+			width: 195px;
+		}
+		.grantVipModal1Input{
+			border: #cecece 1px solid;
+			height: 25px;
+			width: 165px;
+		}
+    .grantVipModal1A{
+			width: 150px;
+      height: 24px;
+      text-align: center;
+      padding-top: 6px;
+			border-radius: 2px;
+			margin-top: 41px;
+      margin-left: 125px;
+      border: 1px solid #d13f4c;
+			background-color: #d13f4c;
+      font-size: 12px;
+			display: block;
+			color: white;
+		}
+		.grantVipModal2P{
+			height: 40px;
+		}
+		.grantVipModal2Input{
+			border: #cecece 1px solid;
+			height: 25px;
+			width: 120px;
+		}
+		.grantVipModal2Select{
+			border: #cecece 1px solid;
+			height: 25px;
+			width: 150px;
+		}
+		.grantVipModal2Radio{
+			width: 16px;
+			height: 16px;
+			display: inline-block;
+			background-image: url('./images/gou1.jpg');
+			background-size: cover;
+			margin-bottom: -2px;
+		}
+	</style>
+</head>
+<body>
+<div class="bmsEnquiry">
+	<div class="bmsEnquiryTop">
+		<ul class="bmsEnquiryTopLeft">
+			<li>会员姓名：<span></span></li>
+			<li>会员电话：<span class='mobilePhone'></span></li>
+			<li>会员权益：<span></span></li>
+		</ul>
+		<ul class="bmsEnquiryTopCenter">
+			<li>会员卡号：<span></span></li>
+			<li>会员级别：<span></span></li>
+			<li>会员积分：<span></span></li>
+		</ul>
+		<!-- <ul class="bmsEnquiryTopRight">
+			<li>入住</li>
+			<li>离店补录</li>
+			<li>非住宿消费</li>
+		</ul> -->
+	</div>
+	<div class="writeOffDiv">
+		<table class="writeOffTable" cellspacing="0" cellpadding="0">
+
+		</table>
+	</div>
+	<div class="bmsEnquiryBottom" style="display: none;">
+		<table class="hovertable" >
+			<tr class="hovertableTitle">
+				<th>消费项</th><th>会员姓名</th><th>会员级别</th><th>手机号</th><th>入住/消费<br/>日期</th><th>离店日期</th><th>消费金额/元</th><th>房间号</th><th>预定渠道</th><th colspan=2 align="center">操作</th>
+			</tr>
+		</table>
+	</div>
+</div>
+<div class='bmsEnquiryButtonContent'>
+	<a class="bmsEnquiryButton check" href="javascript:void(0)">入住</a>
+	<a class="bmsEnquiryButton makeUp" href="javascript:void(0)">离店补录</a>
+	<a class="bmsEnquiryButton nonLodging" href="javascript:void(0)">非住宿消费</a>
+	<a class="bmsEnquiryButton grantVip" href="javascript:void(0)">发放会员卡</a>
+	<a class="bmsEnquiryButton backVip" href="javascript:void(0)">退卡</a>
+</div>
+<div class="none3" style="display:none"></div>
+<!-- 入住弹层 -->
+<div class="mask">
+	<div class="alert">
+		<p class="maskTitle">入住消费<span class="maskClose"></span></p>
+		<div class="alertWrap">
+			<div class="alertLeft">
+				<dl class="dl1" style="padding:35px 0 0px;">
+					<dt>手机号：</dt>
+					<dd></dd>
+				</dl>
+				<dl class="dl2">
+					<dt>入住日期：</dt>
+					<dd><input id="J_DepDate1" type="text" value=""/><span class="errTip2">入住日期不能为空</span></dd>
+				</dl>
+				<dl class="dl2">
+					<dt>离店日期：</dt>
+					<dd><input id="J_EndDate1" type="text" value=""/><span class="errTip3">离店日期不能为空</span></dd>
+				</dl>
+
+				<dl class="dl2">
+					<dt>消费金额：</dt>
+					<dd><input type="number" class="amount"/><span class="errTip5">金额不能为空</span></dd>
+				</dl>
+				<dl class="dl2">
+					<dt>房间号：</dt>
+					<dd><input type="text" class="roomNights" placeholder="选填"/></dd>
+				</dl>
+			</div>
+			<div class="alertRight">
+				<dl class="memberName" style="padding:35px 0 0px;">
+					<dt>会员姓名：</dt>
+					<dd>几何君</dd>
+				</dl>
+				<dl class="memberClass">
+					<dt>会员级别：</dt>
+					<dd>黑卡会员</dd>
+				</dl>
+				<dl class="memberEq">
+					<dt>会员权益：</dt>
+					<dd></dd>
+				</dl>
+			</div>
+		</div>
+
+		<buttom class="xiugaimimaBtn" id="xiugaimimaBtn1">录入</buttom>
+	</div>
+</div>
+<!-- 非住宿弹层 -->
+<div class="mask1">
+	<div class="alert">
+		<p class="maskTitle">非住宿消费<span class="maskClose"></span></p>
+		<div class="alertWrap">
+			<div class="alertLeft">
+				<dl class="dl1" style="padding:35px 0 0px;">
+					<dt>手机号：</dt>
+					<dd></dd>
+				</dl>
+				<dl class="dl2">
+					<dt>消费日期：</dt>
+					<dd><input id="J_DepDate1" type="text" value=""/><span class="errTip2">入住日期不能为空</span></dd>
+				</dl>
+				<dl class="dl2">
+					<dt>消费金额：</dt>
+					<dd><input type="number" class="amount"/><span class="errTip5">金额不能为空</span></dd>
+				</dl>
+			</div>
+			<div class="alertRight">
+				<dl class="memberName" style="padding:35px 0 0px;">
+					<dt>会员姓名：</dt>
+					<dd>几何君</dd>
+				</dl>
+				<dl class="memberClass">
+					<dt>会员级别：</dt>
+					<dd>黑卡会员</dd>
+				</dl>
+				<dl class="memberEq">
+					<dt>会员权益：</dt>
+					<dd></dd>
+				</dl>
+
+			</div>
+		</div>
+
+		<buttom class="xiugaimimaBtn" id="xiugaimimaBtn2">录入</buttom>
+	</div>
+</div>
+<div class="memberEqUid" style="display:none"></div>
+<!-- 修改弹层 -->
+<div class="mask3">
+	<div class="alert">
+		<p class="maskTitle">入住消费<span class="maskClose"></span></p>
+		<div class="alertWrap">
+			<div class="alertLeft">
+				<dl class="dl1" style="padding:35px 0 0px;">
+					<dt>手机号：</dt>
+					<dd></dd>
+				</dl>
+				<dl class="dl2">
+					<dt>入住日期：</dt>
+					<dd><input id="J_DepDate2" type="text" value=""/><span class="errTip2">入住日期不能为空</span></dd>
+				</dl>
+				<dl class="dl2">
+					<dt>离店日期：</dt>
+					<dd><input id="J_EndDate2" type="text" value=""/><span class="errTip3">离店日期不能为空</span></dd>
+				</dl>
+
+				<dl class="dl2">
+					<dt>消费金额：</dt>
+					<dd><input type="number" class="amount"/><span class="errTip5">金额不能为空</span></dd>
+				</dl>
+				<dl class="dl2">
+					<dt>房间号：</dt>
+					<dd><input type="text" class="roomNights" placeholder="选填"/></dd>
+				</dl>
+			</div>
+			<div class="alertRight">
+				<dl class="memberName" style="padding:35px 0 0px;">
+					<dt>会员姓名：</dt>
+					<dd>几何君</dd>
+				</dl>
+				<dl class="memberClass">
+					<dt>会员级别：</dt>
+					<dd>黑卡会员</dd>
+				</dl>
+				<dl class="memberEq">
+					<dt>会员权益：</dt>
+					<dd></dd>
+				</dl>
+			</div>
+		</div>
+
+		<buttom class="xiugaimimaBtn" id="xiugaimimaBtn3">录入</buttom>
+	</div>
+</div>
+<!-- 确认删除 -->
+<div class="mask2">
+	<div class="maskAlert">
+		<p class="maskTitle"><span class="maskClose"></span></p>
+		<p class="maskConTip">消费记录删除后，将不可恢复，确认删除？</p>
+		<div class="mask2Btn"><span>确认</span><span>关闭</span></div>
+
+	</div>
+</div>
+<!-- 消费记录详情 -->
+<div class="mask4">
+	<div class="alert">
+		<p class="maskTitle">消费记录详情 <span class="maskClose"></span></p>
+		<iframe class="recordIfr" src=""></iframe>
+	</div>
+</div>
+
+<!-- 扣减额度详情 -->
+<div class="mask10">
+	<div class="alert">
+		<p class="maskTitle">用户资产核销 <span class="maskClose"></span></p>
+		<div class="writeOffBox">
+			<p class="writeOffP"></p>
+			<input  class="writeOffNum" type="tel" placeholder="请输入要扣减的额度">
+			<div class="writeOffTypeBox">
+				<input name="writeType" type="radio" value="订房" checked="checked" /><span class="writeType">订房</span>
+				<input name="writeType" type="radio" value="餐饮" /><span class="writeType">餐饮</span>
+				<input name="writeType" type="radio" value="商品" /><span class="writeType">商品</span>
+				<input name="writeType" type="radio" value="旅游摄影" /><span class="writeType">旅游摄影</span>
+				<br>
+				<input name="writeType" type="radio" value="休闲娱乐" /><span class="writeType">休闲娱乐</span>
+				<input name="writeType" type="radio" value="其他" /><span class="writeType">其他</span>
+			</div>
+			<textarea class="writeOffText" name="" id="" cols="30" rows="10" placeholder="备注"></textarea>
+			<br>
+			<button class="writeOffBtn">提交</button>
+		</div>
+	</div>
+</div>
+<!-- 核销记录 -->
+<div class="mask11">
+	<div class="alert">
+		<p class="maskTitle">变动记录 <span class="maskClose"></span></p>
+		<div class="writeOffRecordBox">
+
+		</div>
+	</div>
+</div>
+<!--弹窗提示-->
+<div id="prompt"><!--已扣减500--></div>
+
+<!-- 补充弹窗发放会员卡1 -->
+<div id='grantVipModal1' class='template'>
+   <p>
+   <span class='grantVipModal1Span'>手机号：</span>
+	 <span class='grantVipModal1Phone grantVipModal1Span' style="color:black">手机号</span></span>
+	 </p>
+	 <div style="margin-top: -16px;">
+    <span class='grantVipModal1Span'>选择会员计划：</span>
+		<select class='grantVipModal1Select'>
+
+		</select>
+	 </div>
+	   <div style="margin-top: -16px;">
+			 <span class='grantVipModal1Span'>本次充值金额：</span>
+			 <input class='grantVipModal1Input'/>
+			 <span style="color: black;font-size: 12px;">元</span>
+		 </div>
+
+		 <a href='javascript:void(0)' class='grantVipModal1A' onclick="grantVipModal1AClick()">录入</a>
+</div>
+
+<!-- 补充弹窗发放会员卡2 -->
+<div id='grantVipModal2' class="template">
+	<p class="grantVipModal2P">
+  <span class="grantVipModal1Span">手机号：</span>
+	<span class="grantVipModal2Mobile grantVipModal1Span" style="color:black;">手机号</span>
+	</p>
+	<p class="grantVipModal2P">
+		<span class="grantVipModal1Span">本次充值：</span>
+		<span class="grantVipModal2FaceValue grantVipModal1Span" style="color:black;">本次充值金额</span>
+	</p>
+	<p class="grantVipModal2P">
+		<span class="grantVipModal1Span">累计充值：</span>
+		<span class="grantVipModal2Recharge grantVipModal1Span" style="color:black;">累计充值金额</span>
+	</p>
+	<div style="margin-top:40px">
+		<p class="grantVipModal1Span" style="float:left;">可获得：<p>
+			<div style="float: left; margin-top: -36px;">
+       <div style="height: 40px;">
+				 <span class="grantVipModal1Span">馈赠金:</span>
+				 <input type="text" class="grantVipModal2Input"/>
+				 <span class="grantVipModal1Span" style="margin-left:0;">元</span>
+			 </div>
+			 <div style="height: 0;">
+				 <span class="grantVipModal1Span">会员卡:</span>
+				  <select class="grantVipModal2Select" onchange="changeCardId()">
+
+					</select>
+			 </div>
+			</div>
+			<p class="grantVipModal2P grantNew1" style="clear: both;padding-top: 40px;">
+   <span class="grantVipModal2Radio grantVipModal1Span" onclick="grantVipModal2RadioClick()"></span>
+	 <span class="grantVipModal1Span" style="margin-left:0;">发放指定卡号：</span>
+	 <span class="grantVipModal1Span grantVipModal2CouponCode" style="margin-left:0;color:black;">卡号</span>
+	 <input type="text" class="grantVipModal2Input2" style="height: 25px;width: 98px;border: 1px solid #cecece;" onchange="testCardNum()" maxlength="4"/>
+	 <p class="grantVipModal1Span grantVipModal2Warn" style="margin-top: 27px;margin-left: 97px;position: absolute; color:red;display:none;">抱歉，您输入的卡号已被占用，请重新输入</p>
+ </p>
+  <p class="grantVipModal2P grantNew2" style="clear: both;padding-top: 40px;">
+		<span class="grantVipModal1Span">会员卡号：</span>
+		<span class="grantVipModal1Span grantVipModal2CouponCode2" style="color:black;"></span>
+	</p>
+	</div>
+    <a href='javascript:void(0)' class='grantVipModal1A' onclick="grantVipModal2AClick()" style="margin-top: 52px;">确定</a>
+</div>
+   <!-- 不是会员时的弹窗 -->
+   <div id='notVip' class="template">
+		 <p style="text-align:center;margin-top:10px;">
+		 <span class='notVipMobile grantVipModal1Span' style="margin-left:0;color:black;"></span>
+		 <span class="grantVipModal1Span" style="margin-left:0;color:black;">会员不存在</span>
+	 </p>
+		 <p class="grantVipModal1Span" style="margin-left:0; text-align:center;">您可以选择：</p>
+		 <a href='javascript:void(0)' class='grantVipModal1A' onclick="notVipClick()" style="margin-top: 52px;margin-left:98px;">发放会员卡</a>
+
+	 </div>
+</body>
+
+
+</html>

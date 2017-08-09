@@ -1,0 +1,43 @@
+
+@font-face {font-family: "iconfont";
+  src: url('../font/iconfont.eot'); /* IE9*/
+  src: url('../font/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../font/iconfont.woff') format('woff'), /* chrome, firefox */
+  url('../font/iconfont.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('../font/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  /*font-size:16px;*/
+  display: inline-block;
+  width: 1rem;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+  color: #c3c3c3;
+  margin-left: 0.5rem;
+  float: right;
+
+}
+.iconfont2,.iconfont3{
+  font-family:"iconfont" !important;
+  /*font-size:16px;*/
+  display: inline-block;
+  width: 1rem;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+  vertical-align: middle;
+  color: #d13f4c;
+  margin-left:0.3rem;
+}
+.iconfont3{
+  margin-left: 0;
+
+}
+.icon-iconfontsvgarrowsright:before { content: "\e601"; }
+.icon-iconfontjiantouxiangxia:before { content: "\e61e"; }
+.icon-iconfontjiantouxiangshang:before { content: "\e61d"; }

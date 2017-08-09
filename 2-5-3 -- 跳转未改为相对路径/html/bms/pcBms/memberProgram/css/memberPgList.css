@@ -1,0 +1,41 @@
+body{
+    font-size: 12px;
+    min-width: 1000px;
+}
+.htmlContent{
+    padding: 20px 2%;
+    width: 96%;
+}
+.pageTitle{
+    line-height: 30px;
+    margin-bottom: 18px;
+}
+.thisPgTitle{
+    font-size: 16px;
+    font-weight: bold;
+}
+.newProgram{
+    display: block;
+    height: 30px;
+    width: 160px;
+    text-align: center;
+    background: -webkit-linear-gradient(left, #e73a5e , #ef6454); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, #e73a5e, #ef6454); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, #e73a5e, #ef6454); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, #e73a5e , #ef6454); /* 标准的语法 */
+    color: #fff;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+}
+.gou{
+    display: inline-block;
+    position: relative;
+    top: 3px;
+    width: 14px;
+    height: 14px;
+    background: url("../../plug-in/public/images/gou-uncheck.png");
+}
+.tcdPageCode{
+    text-align: right!important;
+}

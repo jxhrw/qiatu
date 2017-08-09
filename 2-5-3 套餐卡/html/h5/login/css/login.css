@@ -1,0 +1,32 @@
+.pagePadding{padding: 2.5rem 2.5rem;}
+.content{text-align: center;font-size: 0.8rem;}
+.pageTitle,.loginBtn,.memberIntro{font-size: 0.9rem;}
+.phoneBox input,.codeBox input{font-size: 0.8rem;line-height: 2.5rem;border: none;background-color: #fff;}
+.phoneBox,.codeBox{height: 2.5rem;overflow: hidden;padding: 1.2rem 0 0.6rem 20%;border-bottom: 1px solid #808080;width: 80%;text-align: left;}
+.phoneBox{background: url('../images/phone.png') no-repeat -1% 60%/14% 66.7%;}
+.codeBox{background: url('../images/security.png') no-repeat 1% 60%/10% 44%;}
+.pageTitle{margin-bottom: 4rem;}
+.phoneBox input[type=tel]{width: 64%;color: #000;}
+.phoneBox input[type=button]{padding: 0 0.4rem;max-width: 34%;color: #808080;}
+.phoneBox input[type=button].red{color: #e2574c;}
+.codeBox input[type=tel]{width: 100%;color: #000;}
+.loginBtn{width: 100%;height: 2.67rem;border-radius: 5px;border: none;background-color: #000;color: #fff;margin-top: 5.7rem;}
+.cannotSub{background-color: #d8d8d8;pointer-events: none;}
+.memberIntro{color: #4a4a4a;margin-top: 1.9rem;display: inline-block;}
+.triangle{border-left: 0.33rem solid #4a4a4a;border-top: 0.3rem solid transparent;border-bottom: 0.3rem solid transparent;display: inline-block;margin-left: 0.7rem;}
+.loginMode{margin-top: 7.3rem;height: 1.3rem;line-height: 1.3rem;}
+.wx,.wb{padding: 0.1rem 0 0.1rem 2.1rem;}
+.dividing{margin: 0.1rem 1.8rem;display: inline-block;width: 1px;height: 1.1rem;background-color: #808080;}
+.wx{background: url('../images/WeChat.png') no-repeat left center/40% 100%;}
+.wb{background: url('../images/micro-blog.png') no-repeat left center/40% 100%;}
+
+/*弹窗*/
+.mask{position: fixed;height: auto;top: 0;left: 0;width: 100%;background-color: rgba(0,0,0,0.7); display: none; }
+.shadow{width: 100%;height: 100%;position: absolute;}
+.alert{width: 16.8rem;height: auto;padding: 1rem 1rem 0;margin: 40% auto 0 auto;background-color: #fff;box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;-ms-box-sizing: border-box;-o-box-sizing: border-box;position: relative;z-index: 10;}
+.closeBtn {height: 1.1rem;margin: 0 0 1rem;background: url(http://7xio74.com2.z0.glb.qiniucdn.com/weixinClose.png) center right no-repeat;-webkit-background-size: contain;background-size: contain;}
+.alert p {padding: 0 0.3rem 1rem;color: #000;}
+.fanPaiBtn {border-top: 1px solid #ccc;height: 3.5rem;line-height: 3.5rem;color: #4a4a4a;text-align: center;letter-spacing: 0.2rem;}
+
+
+.wx,.dividing{display: none;}

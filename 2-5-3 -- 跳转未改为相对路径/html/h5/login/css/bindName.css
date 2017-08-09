@@ -1,0 +1,13 @@
+.pagePadding{padding: 2.5rem 2.5rem;}
+.content{text-align: center;font-size: 0.8rem;}
+.pageTitle,.loginBtn,.memberIntro{font-size: 0.9rem;}
+.pageTitle{margin-bottom: 4rem;}
+.nameBox input{font-size: 0.8rem;line-height: 2.2rem;border: none;background-color: #fff;}
+.nameBox{overflow: hidden;padding: 0 0 0.6rem 0;border-bottom: 1px solid #808080;text-align: left;white-space : nowrap;}
+.realName{width: 5em;color: #9b9b9b;}
+.myName{width: 77%;color: #000;}
+.tips{text-align: left;color: #808080;line-height: 1.1rem;margin-top: 0.7rem;}
+.tips a{color: #4a90e2;}
+.subBtn{width: 100%;height: 2.67rem;border-radius: 5px;border: none;background-color: #000;color: #fff;margin-top: 5.7rem;}
+.cannotSub{background-color: #d8d8d8;pointer-events: none;}
+.check{width: 0.9rem;height: 0.9rem;position: relative;top: 0.2rem;}

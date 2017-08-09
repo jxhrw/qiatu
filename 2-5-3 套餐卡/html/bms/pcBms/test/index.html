@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>插件测试区</title>
+    <script src="http://7xio74.com1.z0.glb.clouddn.com/jquery-2.1.4.min.js"></script>
+    <script src='../plug-in/alert/alert.js'></script>
+    <style>
+    body{
+      margin:0;
+      padding: 0;
+    }
+    </style>
+  </head>
+  <body>
+    <button>测试</button>
+  </body>
+  <script>
+  $('button').click(function() {
+    jiHeAlert.prompt('测试一下','warn');
+  })
+  </script>
+</html>

@@ -1,0 +1,280 @@
+body{
+    font-size: 12px;
+    min-width: 1000px;
+}
+.htmlContent{
+    padding: 20px 2%;
+    width: 96%;
+}
+.pageTitle{
+    line-height: 30px;
+    margin-bottom: 18px;
+}
+.thisPgTitle{
+    font-size: 16px;
+    font-weight: bold;
+}
+#load{
+    margin-right: 10px;
+}
+.searchBox{
+    background: #fbfbfb;
+    padding: 19px 19px;
+    border: 1px solid #dbdde5;
+    margin-bottom: 12px;
+}
+.singleCond{
+    display: inline-block;
+    margin-left: 20px;
+    color: #aaa;
+}
+.singleCond .widS{
+    display: inline-block;
+    width: 60px;
+}
+.singleCond .widB{
+    display: inline-block;
+    width: 75px;
+}
+.singleCond .widBB{
+    display: inline-block;
+    width: 90px;
+}
+.noMarginLeft{
+    margin-left: 0!important;
+}
+.search{
+    margin-top: -3px;
+    margin-left: 30px;
+}
+.input{
+    /*width: 130px!important;*/
+}
+.searchLine{
+    margin-bottom: 20px;
+}
+.searchLine:last-child{
+    margin-bottom: 0;
+}
+.tcdPageCode{
+    text-align: right!important;
+}
+.orderId{
+    color: #00a0e9;
+    cursor: pointer;
+}
+.diffColor{
+    color: #000;
+}
+.operating span{
+    color: #d1021e;
+    cursor: pointer;
+}
+.withdraw{
+    /*padding: 40px 30px;*/
+    padding-bottom: 30px;
+    width: 360px;
+    background: #fff;
+}
+.withdrawP{
+    padding: 0 40px 0 40px;
+    margin-bottom: -10px;
+}
+.closeBtnSg{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+    height: 30px;
+    cursor: pointer;
+    background: url("../image/closeBtnSg1.png") no-repeat center/45% 60%;
+}
+.withdrawP{
+    font-size: 14px;
+}
+.buttonBtn{
+    margin-top: 40px;
+    text-align: center;
+}
+.button{
+    display: inline-block!important;
+}
+.buttonBtnOther{
+    text-align: center;
+}
+.withdrawBtn{
+    width: 100px!important;
+    margin: 0!important;
+    cursor: pointer;
+}
+.withdrawBtn:nth-child(2){
+    margin-left: 20px!important;
+}
+.orderDetail{
+    width: 530px;
+    height: 430px;
+}
+.frameContent{
+    padding: 30px 40px;
+}
+.roomOrder{
+    display: none;
+}
+.seeStatus{
+    font-size: 20px;
+    color: black;
+}
+.seeBookOperator,.seeBookResult{
+    margin-left: 20px;
+}
+.leftRight{
+    height: 230px;
+}
+.seeLeft{
+    width: 50%;
+}
+.seeRight{
+    width: 50%;
+    line-height: 20px;
+}
+.seeP {
+    margin-top: 10px;
+}
+.noMessage{
+    font-weight: bold;
+}
+#groupMch,.groupMchTd{
+    display: none;
+}
+
+
+/*addcss0630*/
+.firstTd{
+    max-width: 180px;
+}
+.lastTd{
+    text-align: right!important;
+}
+.lastTd span:last-child{
+    margin-left: 10px;
+}
+.change,.back{
+    height: 20px;
+    line-height: 20px;
+    width: 56px;
+    text-align: center;
+    border: 1px solid #ccc;
+    display: inline-block;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+.codeDetail{
+    width: 410px;
+    height: 350px;
+}
+.codeDetail2{
+    width: 410px;
+    padding-bottom: 30px;
+}
+.codeDetail3{
+    width: 410px;
+    min-height: 350px;
+}
+.frameCode{
+    text-align: center;
+    padding: 85px 0 90px 0;
+}
+.frameCode input{
+    width: 26px;
+    height: 27px;
+    border: 1px solid #cecece;
+    text-align: center;
+}
+.couponInfo{
+    padding: 18px 40px;
+}
+.couponInfo table{
+    font-size: 12px;
+    width: 100%;
+}
+.couponInfo table th{
+    width: 35%;
+    font-weight: 100;
+    text-align: left;
+    font-size: 12px;
+    color: #aaa;
+}
+.couponInfo table td{
+    width: 65%;
+    height: 30px;
+    text-align: left;
+}
+.offAmount{
+    /*display: none;*/
+}
+.optional .lineName{
+    color: #00a0e9!important;
+}
+.optional .input{
+    width: 100%;
+}
+.changeOrderId{
+    text-align: center;
+    padding: 85px 0 90px 0;
+}
+.changeOrderId .input{
+    width: 210px!important;
+}
+
+
+/*2017/7/21 add*/
+.useLimit{
+    display: inline-block;
+    border: 1px solid #e2574c;
+    color: #e2574c;
+    line-height: 18px;
+    padding: 0 10px;
+    margin-left: 10px;
+    border-radius: 30px;
+    -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
+}
+.codeLine{
+    padding: 10px 0;
+    line-height: 14px;
+}
+.lineName{
+    display: inline-block;
+    width: 30%;
+}
+.lineDetail{
+    display: inline-block;
+    width: 70%;
+}
+.underLine{
+    color: #e2574c;
+    text-align: right;
+    text-decoration: underline;
+}
+.underLine span{
+    cursor: pointer;
+}
+#offAmount{
+    width: 85%;
+}
+.limitBox{
+    padding: 20px 40px;
+    line-height: 18px;
+}
+.limitBox div{
+    padding: 10px 0;
+}
+.limitClose{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    right: 0;
+    cursor: pointer;
+    background: url(../../plug-in//ModalService/x.png) no-repeat 20% center/40% 40%;
+}

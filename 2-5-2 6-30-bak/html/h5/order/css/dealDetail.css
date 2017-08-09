@@ -1,0 +1,40 @@
+body{-moz-user-select:none;/*火狐*/-webkit-user-select:none;/*webkit浏览器*/-ms-user-select:none;/*IE10*/-khtml-user-select:none;/*早期浏览器*/user-select:none;background-color: #ebedf0;}
+#prompt{width: 10rem;line-height: 2rem;text-align: center;background: #000;color: #fff;border-radius: 0.7rem;position: fixed;top: 50%;left: 50%;margin-top: -1rem;margin-left: -5rem;display: none;z-index: 100;}
+
+.productName{height: 6rem;background-color: #262f3a;font-size: 1.2rem;color: #fff;width: 100%;display: table;}
+.orderStatus{text-align: center;display: table-cell;vertical-align: middle;}
+.title i{font-size: 1.4rem;margin-top: -3px;}
+.orderDesc{font-size: 0.9rem;margin-top: 0.8rem;display: none;}
+
+.orderDetail{padding: 0 1rem;background-color: #fff;font-size: 0.9rem;margin-bottom: 0.4rem;color: #808080;}
+.orderBox{padding-top: 0.5rem;padding-bottom: 0.3rem;}
+.orderTitle{color: #000;font-size: 1rem;line-height: 2.5rem;padding-top: 0.5rem;}
+.orderList{line-height: 1.9rem;}
+#payTime{display: none;}
+.orderList span{color: #000;}
+.giftBtnBox{text-align: right;padding: 0.8rem 0;display: none;border-top: 1px dashed #808080;}
+.giftBox{height: 1.4rem;width: 8rem;line-height: 1.4rem;text-align: center;color: #4a4a4a;border: 1px solid #4a4a4a;display: inline-block;}
+.cancel{height: 1.4rem;width: 6.6rem;line-height: 1.4rem;text-align: center;color: #4a4a4a;border: 1px solid #4a4a4a;display: inline-block;}
+
+.buyAmount{padding: 0.4rem 1rem;background-color: #fff;font-size: 0.9rem;margin-bottom: 0.4rem;}
+.buyAmount li{line-height: 1.9rem;color: #808080;}
+.buyAmount li span{color: #000;float: right;}
+
+.bottom{line-height: 3.2rem;background-color: #d13f4c;font-size: 1.1rem;color: #fff;text-align: center;position: fixed;bottom: 0;width: 100%;border-radius: 3px;display: none;}
+
+
+/*客服号码*/
+.phoneBtn{text-align: center;background-color: #fff;height: 3rem;width: 100%;overflow: hidden;line-height: 3rem;}
+.phoneBtn a{display: block;width: 100%;height: 100%;}
+.phoneBtn img{width: 1.3rem;height: 1.6rem;position: relative;top: 0.4rem;}
+.phoneBtn span{color: #75ae23;margin-left: 0.8rem;}
+
+.popupT{width: 100%;position: fixed;top: 0;z-index: 15;display: none;}
+.backShadow{width: 100%;height: 100%;background-color: rgba(0,0,0,0.5);position: relative;}
+
+/*弹窗局部-设置密码*/
+.cancelPrompt{width: 13rem;padding: 0 1.8rem;background-color: #fff;height: 16.67rem;border-radius: 0.5rem;margin: -8.33rem 0 0 -8.33rem;position: absolute;top: 46%;left: 50%;display: none;}
+.cancelP{width: 13rem;margin: 0 auto;height: 9rem;padding-top: 3rem;font-size: 0.9rem;color: #808080;line-height: 1.5rem;}
+.cancelP span{color: #000;}
+.cancelPromptBtn{width: 49%;line-height: 2.66rem;border: none;background-color: #000;color: #fff;border-radius: 3px;margin: 0 auto;display: block;font-size: 1rem;}
+#checkAgainBtn{background-color: #fff;color: #000;}

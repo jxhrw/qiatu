@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>几何生活</title>
+	<meta name="format-detection" content="telephone=no"/>
+	<meta content="no-cache, no-store, must-revalidate" http-equiv="cache-Control">
+	<meta content="no-cache" http-equiv="pragma">
+	<meta content="0" http-equiv="expires">
+	<script src="http://7xio74.com1.z0.glb.clouddn.com/jquery-2.1.4.min.js"></script>
+	<script src="/html/bms/yui-min.js"></script>
+	<script type="text/javascript" src="/html/member/js/general.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://7xio74.com1.z0.glb.clouddn.com/css/base.css">
+	<link rel="stylesheet" href="css/createCoupon.css">
+	<script type="text/javascript" src="js/createCoupon.js"></script>
+	<script>
+		var minTimestamp= Date.parse(new Date())-60*24*60*60*1000;
+		var min=formatStrDate(new Date(minTimestamp));
+		YUI({
+			modules: {
+				'trip-calendar': {
+					fullpath: '../trip-calendar.js',
+					type    : 'js',
+					requires: ['trip-calendar-css']
+				},
+				'trip-calendar-css': {
+					fullpath: '../trip-calendar.css',
+					type    : 'css'
+				}
+			}
+		}).use('trip-calendar', function(Y) {
+			var oCal = new Y.TripCalendar({
+				minDate         : new Date,     //最小时间限制
+				maxDate         : "",
+				triggerNode     : '#effective_begin', //第一个触节点
+				finalTriggerNode: '#effective_end' ,//最后一个触发节点
+				count           : 1
+
+			});
+			var oCal= new Y.TripCalendar({
+				minDate         : new Date,     //最小时间限制
+				maxDate         : "",
+				triggerNode     : '#unavailableDate', //第一个触节点
+				finalTriggerNode: '' ,//最后一个触发节点
+				count           : 1
+
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="wrap">
+		<div class="pageTitle">配置<span class="couponType"></span></div>
+		<label>券名称：<input type="text" maxlength="10"></label>
+	</div>
+
+	<div class="alertBox" id="chooseCouponBox">
+		<div class="alert">
+			<p class="maskTitle">选择券<span class="maskClose"></span></p>
+			<div class="couponBox">
+				<ul class="couponUl" id="couponUl">
+					<li><span class="checkbox" value="coupon"></span> <span class="couponName">房券A</span></li>
+					<li><span class="checkbox" value="coupon"></span> <span class="couponName">房券B</span></li>
+					<li><span class="checkbox" value="coupon"></span> <span class="couponName">房券C</span></li>
+					<li><span class="checkbox" value="coupon"></span> <span class="couponName">房券D</span></li>
+					<li><span class="checkbox" value="coupon"></span> <span class="couponName">房券E</span></li>
+					<li><span class="checkbox" value="coupon"></span> <span class="couponName">房券F</span></li>
+				</ul>
+			</div>
+			<div id="chooseSure" class="holdon holdon2">确定</div>
+		</div>
+	</div>
+
+
+</body>
+</html>
+
+

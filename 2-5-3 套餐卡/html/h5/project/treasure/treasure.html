@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>扫红包</title>
+    <meta http-equiv="Cache" content="no-cache">
+    <script src="http://7xio74.com1.z0.glb.clouddn.com/jquery-2.1.4.min.js"></script>
+    <script src='http://7xio74.com2.z0.glb.qiniucdn.com/rem.js'></script>
+    <link rel="stylesheet" type="text/css" href="http://7xio74.com1.z0.glb.clouddn.com/css/base.css"/>
+
+    <style>
+    html{
+      font-size: 12px;
+    }
+    #content{
+      background-image: url(./images/bg.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      overflow: hidden;
+    }
+    #envelope{
+      /*width:615px;
+      height: 780px;*/
+      margin-top: 206px;
+      margin-left: 10%;
+      /*display: none;*/
+    }
+    #open{
+      margin-top: 31%;
+      margin-left: 30%;
+      position: absolute;
+    }
+    #envelopeBg{
+      position: absolute;
+      width: 80%;
+    }
+    #getAward{
+      margin-top: 70px;
+      margin-left: 5%;
+      overflow: hidden;
+      display: none;
+    }
+    .allAward{
+      margin-top: 70px;
+      margin-left: 5%;
+      overflow: hidden;
+    }
+    #getAwardBg{
+      position: absolute;
+      width: 90%;
+    }
+    #congratulate{
+      position: absolute;
+      margin-top: 21%;
+      margin-left: 38%;
+    }
+    .p1{
+      color: #d8b263;
+      margin-top: 27%;
+      position: absolute;
+      font-size: 3rem;
+      font-weight: bold;
+    }
+  .p2{
+    font-size: 1rem;
+    position: absolute;
+    margin-top: 48%;
+    width: 593px;
+    text-align: center;
+    margin-left: 15%;
+  }
+  .allBg{
+    position: absolute;
+    width: 90%;
+  }
+  .allBg2{
+    position: absolute;
+    margin-top: 21%;
+    margin-left: 41%;
+  }
+  .allBg3{
+    position: absolute;
+    margin-top: 36%;
+    margin-left: 35%;
+  }
+  #noAward1{
+    display: none;
+  }
+  #noAward2{
+    display: none;
+  }
+  #getAward2{
+    display:none;
+  }
+  #look{
+    position: absolute;
+    margin-top: 90%;
+    margin-left: 28%;
+  }
+    </style>
+  </head>
+  <body>
+    <div id='content'>
+      <!-- 点击开奖 -->
+      <div id='envelope'>
+        <img src='./images/envelope.png' id='envelopeBg'/>
+        <a>
+        <img src='./images/open.png' id='open'/>
+        </a>
+      </div>
+      <!-- 获得消费金 -->
+      <div id='getAward'>
+       <img src='./images/haveEnvelope.png' id='getAwardBg'/>
+        <img src='./images/congratulate.png' id='congratulate'/>
+        <p class="p1">
+        <span id='faceValue'>30.00</span>
+        <img src='./images/yuan.png'/>
+      </p>
+      <p class='p2'><span id='getAwardName'>Arrval消费金</span>已存入您的尊享会员卡！请前往查看</p>
+      <img src='./images/look.png' id='look'/>
+      </div>
+      <!-- 未获得奖品 -->
+      <div id='noAward1' class="allAward">
+        <img src="./images/noEnvelope.png" id='noAwardBg' class="allBg"/>
+        <img src='./images/noAward.png' class="allBg2"/>
+        <img src='./images/noAwardFont.png' class="allBg3"/>
+        <p class="p2" id='noAward1Name'>
+         女士们先生们，我们很抱歉地通知您，奖品由于遭遇气流颠簸没能准时抵达此坑，但偷偷告诉你，记得看看另一边哟~
+        </p>
+      </div>
+      <!-- 未注册 -->
+      <div id="noAward2" class="allAward">
+        <img src="./images/noEnvelope.png" id='noAwardBg' class="allBg"/>
+          <img src='./images/noSignIn.png' class="allBg2"/>
+          <img src='./images/noSignInFont.png' class="allBg3" style="margin-left:30%; margin-top:35%"/>
+          <p class='p2' style="margin-top:59%;">
+            抱歉，您的身份尚未识别，联系现场工作人员进行签到
+          </p>
+      </div>
+      <!-- 获得洗发套装 -->
+      <div id="getAward2" class="allAward">
+        <img src='./images/noEnvelope.png' id='getAwardBg'/>
+         <img src='./images/congratulate.png' id='congratulate'/>
+         <img src='./images/showerGel.png' class="allBg3" id='showerGel' width='316' height='226' style="margin-left:29%;margin-top:33%""/>
+         <p class='p2' style="margin-top:59%;">
+          恭喜！收获<span id='getAward2Name'></span>一份，请于发布会结束后，前往签到台领取您的礼品。仅限发布会当日领取有效哦！
+         </p>
+      </div>
+    </div>
+  </body>
+  <script src='./js/treasure.js'></script>
+</html>

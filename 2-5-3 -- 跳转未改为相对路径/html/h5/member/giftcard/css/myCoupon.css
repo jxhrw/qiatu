@@ -1,0 +1,427 @@
+html{
+	overflow:hidden;
+}
+body{
+	background: #ecedf1;
+	font-family: "黑体";
+}
+/*选项卡头部样式*/
+.header{
+	line-height: 2.9rem;
+	display: flex;
+	justify-content: center;
+	background: #fff;
+	z-index: 100;
+	box-shadow: 0 0 2px rgba(0,0,0,0.3);
+}
+.header>li{
+	border-top: 2px #fff solid;
+	text-align: center;
+	float: left;
+	font-size: 0.934rem;
+	font-weight: normal;
+	color:#ababab;	
+	width: 33.33%;
+}
+.kinerNav > li.active {
+	color: #000;
+}
+.kinerNav .realBorder{
+	height: 0.13rem;
+	background-color: #000;
+}
+/*礼券列表样式*/
+.couponList{
+	-webkit-overflow-scrolling: touch;
+	overflow-y: auto;
+}
+.item{
+	width:21.27rem;
+	margin: 0.7rem auto 0;
+	background: #fff;
+	padding: 0 1rem;
+}
+.item h1{
+	font-weight: normal;
+	/*font-size: 1.1rem;*/
+	/*line-height: 3.1rem;*/
+	position: relative;
+}
+.item h1:before{
+	content: "";
+	width: 0.167rem;
+	height:1rem;
+	/*border-top: 1px #a75363 solid;
+	border-bottom: 1px #a75363 solid;*/
+	background: #E2574C;
+	position: absolute;
+	left: -0.5rem;
+	top:40%;
+	border-radius: 2.5px;
+}
+/*过期样式*/
+.expired h1{
+	color: #9b9b9b;
+}
+.expired h1:before{
+	background: #9b9b9b;
+	border-top: 1px #9b9b9b solid;
+	border-bottom: 1px #9b9b9b solid;
+}
+/*券的描述项样式*/
+.description{
+	padding: 0 0;
+	margin-top: 0.8rem;
+}
+.description li{
+	color: #a0a0a0;
+	line-height: 0.98rem;
+	font-size: 0.8rem;
+	margin-bottom: 0.6rem;
+}
+.description li>span{
+	color: #000;
+	font-family: arial;
+	float: right;
+}
+/*过期样式*/
+.expired .description li span{
+	color: #9b9b9b;
+}
+/*时间样式*/
+time{
+	font-family: arial;
+	color: #000;
+	float: right;
+}
+/*过期时间样式*/
+.expired time{
+	color: #9b9b9b;
+}
+.cName{
+	display: inline-block;
+	width: 17rem;
+	font-size: 0.934rem;
+	line-height: 1.2rem;
+	padding-top: 0.6rem;
+}
+/*适用详情按钮样式*/
+.suit{
+	font-size: 0.8rem;
+	/*color:#de3f4c!important;*/
+	color: #999;
+	font-family: "黑体";
+	display: block;
+	height: 1.2rem;
+	line-height: 1.2rem;
+	padding-left:1rem;
+	margin: 0.6rem 0 0;
+    /*
+	border-left:1px #979797 solid;
+    */
+	position: relative;
+}
+.suit:before{
+	content: '';
+	position: absolute;
+	top: 0.19rem;
+	left: 0;
+	width: 0.8rem;
+	height: 0.8rem;
+	background: url("../images/quesMark.png") no-repeat left 0/100%;
+}
+/*券的描述项样式*/
+.description strong{
+	font-size: 1rem;
+	color: #000;
+	float: right;
+}
+/*可转让列表样式*/
+.transList .description strong{
+	font-family: Arial;
+}
+/*过期样式*/
+.expired .description strong{
+	color: #9b9b9b;
+}
+/*转让记录列表的样式*/
+.recList .description{
+	overflow: hidden;
+}
+.recList .effective{
+	width: 100%!important;
+}
+.recList .description strong{
+	font-family: "黑体", arial;
+}
+/*卖完为止的样式*/
+.soldOut{
+	font-family: "黑体",arial!important;
+}
+/*交易按钮的样式*/
+.couponTrades{
+	border-top: 1px #E6E6E6 solid;
+	overflow: hidden;
+	padding: 0.767rem 0;
+	margin-top: 0.2rem;
+}
+.couponTrades li{
+	/*display: flex;
+	flex-direction: column;*/
+	float: right;
+	letter-spacing: 1px;
+	height: 1.6rem;
+	line-height: 1.75rem;
+	border:1px #999 solid;
+	width: 4rem;
+	/*justify-content: center;*/
+	text-align: center;
+	margin-left: 0.33rem;
+}
+.couponTrades li:first-child{
+	/*border:1px #de3f4c solid;*/
+}
+.couponTrades .more{
+	width: 2rem;
+	color: #808080;
+	font-size: 1.2rem;
+}
+.couponTrades li a{
+	display: block;
+	color: #4a4a4a;
+	font-size: 0.8rem/*1rem*/;
+}
+.couponTrades li:first-of-type a{
+	/*color: #de3f4c;*/
+}
+.recList .couponTrades li{
+	border: 1px #4a4a4a solid!important;
+}
+.recList .couponTrades li a{
+	color: #4a4a4a!important;
+}
+/*‘交易完成’及‘取消成功’样式*/
+.ok{
+	background: url("../images/ok.jpg") no-repeat left center;
+	background-size:4%;
+}
+/*‘交易’中样式*/
+.waiting{
+	float: left;
+	background: url("../images/waiting.jpg") no-repeat left center;
+	line-height: 1.8rem;
+	width: 50%;
+	background-size:8%;
+}
+.ok,.waiting{
+	padding-left: 1.2rem;
+}
+.cancel{
+	float: right;
+	border: 1px #de3f4c solid!important;
+}
+.expired .couponTrades li{border:1px #ccc solid !important;}
+.expired .couponTrades li a{
+	color:#ccc!important;
+}
+/*适用详情弹窗样式*/
+.mask{
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+    z-index: 500;
+}
+.popup{
+    width: 100%;
+    position: fixed;
+    bottom: -22rem;
+    z-index: 600;
+}
+.popup h1{
+    line-height: 3.38rem;
+    font-size: 1rem;
+    font-weight: normal;
+    padding-left: 8%;
+}
+.popup h2{
+    font-size: 1.2rem;
+    line-height: 3rem;
+}
+.couponType{
+	background: #ebeef0;
+	text-align: center;
+	padding-left: 0!important;
+}
+.unavailable{
+	text-align: center;
+	color: #ccc;
+	font-size: 0.8rem;
+}
+.close{
+	width: 1.2rem;
+	height: 1.2rem;
+	margin: 1rem 0.6rem 1rem 0;
+	background: url(../images/close.png) center center no-repeat;
+	background-size: contain;
+	position: absolute;
+	right: 0;
+}
+.know{
+    line-height:3.38rem ;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    border: none;
+    width: 100%;
+    color: #fff;
+    background: #818e99;
+    text-align: center;
+    margin: 0;
+    font-family: "黑体";
+}
+.suitDesc{
+	background: #FFFFFF;
+	padding-left: 2.5%;
+	width: 100%;
+	height: 15rem;
+	overflow: scroll;
+	overflow-x: hidden;
+}
+.suitDesc::-webkit-scrollbar{
+	width: 16px;
+	height: 16px;
+	background-color: #f5f5f5;
+}
+.suitDesc ul{
+    margin-bottom: 0.5rem;
+    padding: 0;
+    position: relative;
+}
+.suitDesc>ul li:first-child:before{
+    content: '';
+    width: 4px;
+    height: 1rem;
+    background:#bb904b ;
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+}
+.suitDesc ul li{
+    padding-left: 4%;
+    font-weight: bold;
+}
+.dateUsable,.bookCondition{
+    display: none;
+}
+.useDesc{
+    display: block;
+    color: gray;
+    font-weight: normal;
+    line-height: 2rem;
+    font-size: 0.86rem;
+}
+/*取消交易弹窗*/
+.popCancel,.popSuccess {
+	display: none;
+	width: 16.67rem;
+	height: 16.67rem;
+	position: fixed;
+	z-index: 800;
+	left: 0;
+	right: 0;
+	top: 0;
+	margin: 50% auto;
+	bottom: 0;
+	background: #fff;
+	/* padding: 1.7rem 0 0; */
+	border-radius: 0.3rem;
+	line-height: 1.7rem;
+}
+.popCancel p ,.popCancel strong,.popSuccess p{
+	width: 13rem;
+	margin: 0 auto ;
+	font-size: 0.9rem;
+	color: #525252;
+}
+.popCancel p,.popSuccess p{
+	margin-top:3.5rem ;
+}
+.popCancel strong{
+	display: block;
+	color: #000;
+}
+/*取消交易弹窗按钮样式*/
+.btns{
+	width: 13rem;
+	left:50%;
+	position: absolute;
+	transform: translateX(-50%);
+	bottom: 1.167rem;
+}
+.btns button{
+	float: left;
+	border: none;
+	background: none;
+	line-height: 2.7rem;
+	width: 50%;
+}
+.yes{
+	color: #000;
+	font-weight: bold;
+}
+/*‘点错了’样式*/
+.btns .wrong{
+	background: #000;
+	color: #fff;
+	border-radius: 0.2rem;
+}
+.btns .sucYes{
+	width: 100%;
+	background: #000000;
+	color: #fff;
+	border-radius: 0.2rem;
+}
+.hasNone{
+	text-align: center;
+	line-height: 6rem;
+}
+/*‘加载更多’样式*/
+.load{
+	text-align: center;
+	padding: 0.8rem 0;
+}
+/*点击‘更多’*/
+.moreBtns{
+	display: none;
+}
+.getMore{
+	display: none;
+	width: 100%;
+	background: #f1f2f6;
+	text-align: center;
+	position: fixed;
+	z-index: 801;
+	bottom: 0;
+}
+.getMore p,.getMore ul{
+	background: #fff;
+}
+.getMore ul li{
+	line-height: 3.4rem;
+}
+.getMore ul li:first-child{
+	border-bottom: 1px solid #f1f2f6;
+	margin: 0 1rem;
+}
+.getMore a{
+	display: block;
+	color: #000;
+}
+.cancelBtn{
+	line-height: 3.34rem;
+	margin-top: 0.67rem;
+	color: #4a4a4a;
+}

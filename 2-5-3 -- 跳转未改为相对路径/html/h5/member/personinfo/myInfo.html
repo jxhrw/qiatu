@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>个人信息</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no"/>
+	<meta content="no-cache, no-store, must-revalidate" http-equiv="cache-Control">
+	<meta content="no-cache" http-equiv="pragma">
+	<meta content="0" http-equiv="expires">
+	<script type="text/javascript" src="http://7xio74.com2.z0.glb.qiniucdn.com/rem.js"></script>
+	<script type="text/javascript" src="http://7xio74.com2.z0.glb.qiniucdn.com/jquery-1.4.2.js"></script>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/iconfont.css">
+	<script type="text/javascript" src="js/hostAll.js"></script>
+	<script type="text/javascript" src="js/myInfo.js"></script>
+</head>
+
+<body>
+	<ul class="memberFooter">
+		<li class="memberIcon"><strong>头像</strong><span><img src="" alt=""></span></li>
+		<li class="memberName"><strong>姓名</strong><span></span></li>
+		<li class="memberPhone"><a href="resetPhone.html?member_hotelid="><strong>手机号</strong><span></span> <i class="iconfont"> &#xe601;</i></a></li>
+		<li class="memberNick"><strong>昵称</strong><span></span></li>
+		<li class="memberPassword" id="set"><a><strong>交易密码</strong><i class="iconfont"> &#xe601;</i></a></li>
+		<li class="memberID"><a href="resetID.html"><strong>身份信息</strong><span></span> <i class="iconfont"> &#xe601;</i></a></li>
+	</ul>
+	<div class="verification">
+		<div class="null"></div>
+		<div class="textPs">
+			<p class="textPsTit">验证<span id="owner"></span>的身份</p>
+			<p class="textPsPhone">已发送验证码到</p><p class="textPsPhone" id="phoneNum"></p>
+			<div class="SMSVer">
+				<input type="tel" placeholder="请输入验证码">
+				<button id="again" class="no">60S</button>
+			</div>
+			<button id="sure" class="button">确定</button>
+		</div>
+	</div>
+	<ul class="psChoose">
+		<li id="forgot">忘记交易密码</li>
+		<li id="change">修改交易密码</li>
+	</ul>
+	<div class="null2"></div>
+	<div id="prompt">验证码错误</div>
+	<script type="text/javascript" src="/html/h5/publicFile/js/cnzz.js"></script>
+</body>
+
+</html>

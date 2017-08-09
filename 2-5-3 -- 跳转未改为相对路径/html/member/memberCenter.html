@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="Pragma" content="no-cache"/>
+		<meta http-equiv="Cache-Control" content="no-cache"/>
+		<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" name="viewport" id="viewport" />
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+		<title>会员中心</title>
+		<link href="http://7xio74.com1.z0.glb.clouddn.com/css/base.css" rel="stylesheet">
+		<link href="css/memberCenter.css" rel="stylesheet">
+		 <script src="http://7xio74.com1.z0.glb.clouddn.com/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="http://7xio74.com2.z0.glb.qiniucdn.com/rem.js" charset="UTF-8"></script>
+		<script src="js/memberCenter_6_1.js"></script>
+	</head>
+	<body>
+	<!--店内支付-->
+		<div class="in-store">
+			<div class="inner">
+				<img/>
+				<div class="payment">
+					<div class="hotel"></div>
+					<a href="javascript:;" class="pay">店内支付</a>
+				</div>
+			</div>
+		</div>
+    <!--会员信息-->
+		<div class="information">
+            <!--头像、用户名、卡号-->
+            <div class="info_left">
+                <img src="" class="avatar">
+                <div class="userName"></div>
+                <div class="memberCode"></div>
+            </div>
+            <!--积分余额、住宿统计、会员级别-->
+            <ul class="info_right">
+                <li class="points">积分余额<br/><span></span></li>
+                <li class="annual">本年度住宿<br/><span></span></li>
+                <li class="grade">会员级别<br/><span></span></li>
+            </ul>
+            <!--&lt;!&ndash;卖场及预定按钮&ndash;&gt;
+            <ul class="tradesBtn">
+                <li class="marketing"><a href="../member/weixinMinSu/list.html">民宿预定</a></li>
+                <li class="booking"><a href="../market/store.html">消费金转让市场</a></li>
+            </ul>-->
+		</div>
+	<!--会员升级提醒-->
+		<p class="upGrade">
+
+		</p>
+	<!--卖场及预定按钮-->
+	<ul class="tradesBtn">
+		<li class="marketing"><span></span><a href="/html/h5/product/list/list1.html">民宿预定</a></li>
+		<li class="booking"><span></span><a href="/html/h5/market/store.html">消费金转让市场</a></li>
+	</ul>
+	<!--选项链接-->
+		<div class="options">
+			<ul class="items">
+				<li class="integralMall"><span></span><span>积分商城</span></li>
+				<li class="myCoupon"><span></span><span>我的礼券</span></li>
+				<li class="orderList"><span></span><span>我的订单</span></li>
+				<!--<li class="exchange"><span></span><span>积分兑换</span></li>-->
+				<li class="cashAccount"><span></span><span>现金账户</span></li>
+			</ul>
+			<ul class="items">
+				<!--<li class="exchange"><span></span><span>积分兑换</span></li>-->
+				<li class="shareAssets"><span></span><span>众享资产</span></li>
+				<li class="earnPoints"><span></span><span>赚取积分</span></li>
+				<li class="trends"><span></span><span>积分动态</span></li>
+				<li class="vip"><span></span><span>会员礼遇</span></li>
+				<!--<li class="myInfo"><span></span><span>个人信息</span></li>-->
+			</ul>
+			<ul class="items">
+				<li class="myInfo"><span></span><span>个人信息</span></li>
+				<li class="faq"><span></span><span>常见问题</span></li>
+			</ul>
+		</div>
+	<!--模态框-->
+        <div class="modal">
+            <div class="mask"></div>
+			<div class="popup">
+                <div class="word">请长按识别下方二维码<br><!--关注几何会员服务号-->不错过每一个会员专属权益<br><!--享受会员专享权益-->（免费试睡、趣味线下体验）</div>
+                <div class="arrow"></div>
+                <div class="code"><img src="images/tipCode.jpg" alt="" style="display: block;width: 100%;height: 100%;"></div>
+				<div class="close">×</div>
+            </div>
+        </div>
+	<!--模态框-->
+	<div class="receiveBox">
+		<div class="mask"></div>
+		<div class="popup2">
+			<div class="receive">
+				<p class="call">尊敬的<span id="cusName"></span>：</p>
+				<p class="recExplain"></p>
+				<div class="rightsBox">
+					<ul class="rights">
+					</ul>
+				</div>
+				<a class="goReceive">去领取</a>
+			</div>
+			<div class="close">×</div>
+		</div>
+	</div>
+	</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" name="viewport" id="viewport" />
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <script src="http://7xio74.com2.z0.glb.qiniucdn.com/rem.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://7xio74.com1.z0.glb.clouddn.com/css/base.css?h7">
+    <link rel="stylesheet" type="text/css" href="css/payChannels.css">
+    <link rel="stylesheet" type="text/css" href="css/payment.css">
+    <script src="http://7xio74.com1.z0.glb.clouddn.com/jquery-2.1.4.min.js"></script>
+    <!--<script src="http://7xio74.com1.z0.glb.clouddn.com/js/general.js?h6"></script>-->
+    <script src="/html/h5/publicFile/js/general.js"></script>
+    <script src="js/payment.js"></script>
+    <script src="http://7xio74.com1.z0.glb.clouddn.com/js/pingpp_v20170227.js"></script>
+    <title>支付</title>
+</head>
+<body>
+<div class="mainContent">
+    <div class="contentBox">
+        <div id="virtualProName" class="innerBox">
+            <!--<div class="subHeading">您选择了众享方案</div>-->
+            <div class="whiteBack black reseBox">
+                <div class="clearfix">
+                    <div class="function">
+                        <div class="bookingName"><span id="virProName"></span><div id="lookVirOrderDetail" class="fr"><span class="openDetail">查看详情</span><span class="arrowImg tuneLeft"></span></div></div>
+                    </div>
+                </div>
+            </div>
+            <div id="virOrderDetail" class="whiteBack black multiLineBox">
+                <div class="clearfix multiLine">
+                    <div class="function gray fl"><pre>收 货 人：</pre></div>
+                    <div class="quota hasWidth fr"><span id="virCustomerName"></span><span class="fr" id="virCustomerMobile"></span></div>
+                </div>
+                <div class="clearfix multiLine">
+                    <div class="function gray fl"><pre>收货地址：</pre></div>
+                    <div class="quota hasWidth fr"><span id="virProAddress"></span></div>
+                </div>
+                <div class="clearfix multiLine">
+                    <div class="function gray fl"><pre>数　　量：</pre></div>
+                    <div class="quota hasWidth fr"><span id="virProNumber"></span></div>
+                </div>
+                <div class="clearfix multiLine">
+                    <div class="function gray fl"><pre>备　　注：</pre></div>
+                    <div class="quota hasWidth fr"><span id="virComments">无</span></div>
+                </div>
+            </div>
+        </div>
+        <div id="roomProName" class="innerBox">
+            <div class="whiteBack black reseBox">
+                <div class="clearfix">
+                    <div class="function fl">
+                        <p id="roomName" class="bookingName">产品名称/房型名称</p>
+                        <p class="bookingInfo"><span id="checkIn"></span>入住 &nbsp;&nbsp; <span id="checkOut"></span>离店 &nbsp;&nbsp; <span id="nights"></span>晚</p>
+                    </div>
+                </div>
+            </div>
+            <div class="whiteBack">
+                <div class="dividing"></div>
+            </div>
+            <div class="whiteBack black multiLineBox2 ">
+                <div class="clearfix multiLine">
+                    <div class="function gray fl"><pre>联 系 人：</pre></div>
+                    <div class="quota hasWidth fr"><span id="customerName"></span> <span id="customerMobile" class="fr"></span></div>
+                </div>
+                <div class="clearfix multiLine">
+                    <div class="function gray fl"><pre>备　　注：</pre></div>
+                    <div class="quota hasWidth fr"><span id="comments">无</span></div>
+                </div>
+            </div>
+        </div>
+        <div id="payInfo" class="innerBox">
+            <div class="subHeading">支付信息</div>
+            <div class="whiteBack black multiLineBox" id="payInfoDiv">
+            </div>
+        </div>
+        <div id="payMethod" class="innerBox">
+            <div class="subHeading">支付方式</div>
+            <ul class="payChannelList whiteBack black" id="payChannelUl">
+
+            </ul>
+        </div>
+        <div id="tipsAndPhone" class="innerBox">
+            <div class="bookingTips">
+                <!--预定成功后，取消房间预订请提前一周通知预订部，确认后可免费取消，其他时间将扣除首晚房费-->
+            </div>
+            <div style="height:1rem;"></div>
+            <div class="whiteBack">
+                <a href="tel:400-026-5225">
+                    <div class="clearfix cusService">
+                        <div class="function black fl">几何客服 400-026-5225</div>
+                        <div class="quota fr telBoxHeight"><img class="telIcon" src="images/tel.png" alt=""></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div style="height: 5.4rem;"></div>
+    <div class="toPayBtnBox">
+        <div class="borTop">
+            <span class="payable">应付：</span>
+            <span id="shouldPay" class="payAmount">￥0</span>
+            <div id="immPay" class="toPayBtn fr"><span class="payWord">立即支付</span> <span class="timeIcon"></span><span id="countDown"></span></div>
+        </div>
+    </div>
+</div>
+
+<!--密码弹窗通用-start-->
+<div class="popupT wxpop">
+    <div class="backShadow"></div>
+    <div class="setPsword">
+        <p class="setP">您还未设置交易密码，请点击下一步验证您的身份并设置交易密码。</p >
+        <button class="setButton" id="setButton">下一步</button>
+    </div>
+    <div class="checkPsword">
+        <div class="checkClose" id="checkClose"></div>
+        <div class="checkTitle"><p>&nbsp;</p ></div>
+        <div class="titlePassword" id="titlePassword">请输入交易密码</div>
+        <table id="inputPassword" class="inputCss" cellpadding="0" cellspacing="3">
+            <tr>
+                <td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+        </table>
+        <button id="checkBtn" class="button no">确认</button>
+        <p class="checkForget">忘记交易密码</p >
+        <!--键盘-->
+        <div class="keyboard" style="position: fixed;bottom: 0;left: 0;width: 100%;z-index: 10;background: #fff;"></div>
+    </div>
+    <div class="textPs">
+        <p class="textPsTit">验证<span id="owner"></span>的身份</p >
+        <p class="textPsPhone">已发送验证码到</p ><p class="textPsPhone" id="phoneNum"></p >
+        <div class="SMSVer">
+            <input type="tel" placeholder="请输入验证码">
+            <button id="again" class="no">60S</button>
+        </div>
+        <button id="sure" class="button">确定</button>
+    </div>
+</div>
+
+
+
+
+
+<script type="text/javascript" src="/html/h5/publicFile/js/cnzz.js"></script>
+</body>
+</html>

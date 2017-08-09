@@ -1,0 +1,35 @@
+table.hovertable {
+    width: 100%;
+    font-family: verdana,arial,sans-serif;
+    font-size:11px;
+    color:#4a4a4a;
+    border-width: 1px;
+    border-color: #c8cacc;
+    border-collapse: collapse;
+}
+table.hovertable th {
+    background-color:#bb8e4b;
+    border-width: 1px;
+    padding:10px 0;
+    border-style: solid;
+    border-color: #c8cacc;
+    font-weight: normal;
+    font-size: 1rem;
+    color: #fff;
+}
+table.hovertable tr {
+    background-color:#fff;
+}
+table.hovertable td {
+	 background-color:#fff;
+    border-width: 1px;
+    padding: 10px 0;
+    border-style: solid;
+    border-color: #c8cacc;
+    text-align: center;
+}
+table.hovertable .hovertableTitle th{
+	border-left: 0;
+	border-top: 0;
+	border-bottom: 0;
+}

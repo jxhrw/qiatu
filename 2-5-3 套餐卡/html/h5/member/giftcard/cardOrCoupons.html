@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" name="viewport" id="viewport">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <script src="http://7xio74.com2.z0.glb.qiniucdn.com/rem.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://7xio74.com1.z0.glb.clouddn.com/css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/singleCard.css">
+    <link rel="stylesheet" type="text/css" href="css/cardOrCoupons.css">
+    <script src="http://7xio74.com1.z0.glb.clouddn.com/jquery-2.1.4.min.js"></script>
+    <script src="/html/h5/publicFile/js/general.js"></script>
+    <script src="js/timeCardCount.js"></script>
+    <script src="js/singleCard.js"></script>
+    <script src="js/cardOrCoupons.js"></script>
+    <title>卡券详情</title>
+</head>
+<body>
+<div class="whiteBg">
+    <div class="content">
+        <div class="cardsBox">
+
+        </div>
+    </div>
+    <table class="function" id="couponTd" cellpadding="0" cellspacing="0">
+        <tr>
+            <td class="booking unavailable"><div class="iconBox"><div class="icon"></div><span>预订</span></div></td>
+            <td class="forNight unavailable"><div class="iconBox"><div class="icon"></div><span>换宿</span></div></td>
+            <td class="forGoods unavailable"><div class="iconBox"><div class="icon"></div><span>换商品</span></div></td>
+        </tr>
+        <tr>
+            <td class="transfer unavailable"><div class="iconBox"><div class="icon"></div><span>转让</span></div></td>
+            <td class="forIntegral unavailable"><div class="iconBox"><div class="icon"></div><span>换积分</span></div></td>
+            <td class="recharge unavailable"><div class="iconBox"><div class="icon"></div><span>充值</span></div></td>
+            <td class="give unavailable"><div class="iconBox"><div class="icon"></div><span>赠送</span></div></td>
+        </tr>
+    </table>
+    <table class="function" id="removeBtn" cellpadding="0" cellspacing="0">
+        <tr>
+            <td class="removed unavailable"><div class="iconBox"><div class="icon"></div><span>移除</span></div></td>
+        </tr>
+    </table>
+</div>
+
+<div class="content">
+    <div class="instructions">
+        <p class="introTitle">-- &nbsp;&nbsp; <span id="introTitle"></span> &nbsp;&nbsp; -- </p>
+        <div class="introWord"></div>
+    </div>
+    <div style="height: 2.23rem;"></div>
+</div>
+<div class="confirmBox" style="display: none;">
+    <div class="shadow"></div>
+    <div class="whiteBox">
+        <div class="boxContent">
+            <div class="hint" id="coupon">礼券一旦移除不可恢复 <br> 请谨慎操作</div>
+            <div class="hint" id="card">会员卡一旦移除不可恢复 <br> 请慎重操作 <br> 若再次购卡，可重新获得该卡片 <br> 并累计充值记录</div>
+            <div class="buttonBox">
+                <button class="remove">确定移除</button>
+                <button class="noRemove">不移除了</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/html/h5/publicFile/js/cnzz.js"></script>
+</body>
+</html>

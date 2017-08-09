@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>核销记录</title>
+    <link rel="stylesheet" href="http://7xio74.com1.z0.glb.clouddn.com/css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/writeoffRecords.css">
+    <link rel="stylesheet" type="text/css" href="../plug-in/public/css/style.css">
+    <script src="http://7xio74.com1.z0.glb.clouddn.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="../plug-in/public/js/general.js"></script>
+    <script type="text/javascript" src="js/writeoffRecords.js"></script>
+    <!--过渡动画-->
+    <script src="../plug-in/animate/animate.js"></script>
+    <!--翻页插件-->
+    <link rel="stylesheet" href="../plug-in/paging/paging.css">
+    <script src="../plug-in/paging/paging.js"></script>
+    <!--日历插件-->
+    <script src="../plug-in/laydate/laydate.js"></script>
+</head>
+<body>
+<div class="htmlContent">
+    <!--筛选条件-->
+    <div class="searchCondition">
+        <div class="pageTitle"><span class="thisPgTitle">核销记录</span><span class="button fr" id="writeOff">核销礼券</span><span class="button fr" id="load">下载核销记录</span></div>
+        <div class="searchBox">
+            <div class="searchLine">
+                <div class="singleCond noMarginLeft">
+                    <span class="widS">资产名称：</span> <input class="input" type="text" id="couponName">
+                </div>
+                <div class="singleCond">
+                    <span class="widS">核销人：  </span> <input class="input" type="text" id="operator">
+                </div>
+                <div class="singleCond">
+                    <span class="widB">持有人姓名：</span> <input class="input" type="text" id="couponOwner">
+                </div>
+                <div class="singleCond">
+                    <span class="widBB">持有人手机号：</span> <input class="input" type="text" id="phoneOwner">
+                </div>
+            </div>
+            <div class="searchLine">
+                <div class="singleCond noMarginLeft">
+                    <span class="widS">资产类型：</span>
+                    <select name="couponType" class="selectClass" id="couponType">
+                        <option value="">全部</option>
+                        <option value="1">房券</option>
+                        <option value="2">消费金</option>
+                        <option value="3">会员卡</option>
+                        <option value="5">折扣券</option>
+                        <option value="7">红包</option>
+                    </select>
+                </div>
+                <div class="singleCond">
+                    <span class="widS">核销方式：</span>
+                    <select name="manual" class="selectClass" id="manual">
+                        <option value="">全部</option>
+                        <option value="0">线上</option>
+                        <option value="1">线下</option>
+                    </select>
+                </div>
+                <div class="singleCond">
+                    <span class="widB">核销时间：  </span> <input class="input calendar" id="startDate" type="text" readonly>&nbsp; 至 &nbsp;<input class="input calendar" id="endDate" type="text" readonly>
+                </div>
+
+                <div class="singleCond" id="groupMch">
+                    核销商户
+                    <select name="hotelName" class="selectClass" id="hotelName">
+                        <option value="">全部</option>
+                        <option value="">翠域1</option>
+                        <option value="">翠域2</option>
+                    </select>
+                </div>
+               <div class="singleCond">
+                   <button class="search" id="search">搜索</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--列表-->
+    <table cellpadding="0" cellspacing="0" class="tableBase table" id="listTable">
+        <thead>
+        <tr>
+            <th>资产名称</th>
+            <th>资产类型</th>
+            <th>核销数量</th>
+            <th>持有人</th>
+            <th>持有人手机号</th>
+            <th>核销时间</th>
+            <th>核销商户</th>
+            <th>核销方式</th>
+            <th>核销人</th>
+            <th>订单号</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <!--翻页-->
+    <div class="tcdPageCode" id="tcdPageCode"></div>
+</div>
+<!--确认撤销记录-->
+<div class="popups" id="withdrawBox">
+    <div class="frame withdraw">
+        <div class="closeBtnSg" id="closeBtn"></div>
+        <!--<div class="closeBtn"></div>-->
+        <div class="frameTitleWhite"></div>
+        <p class="withdrawP">核销记录一旦撤销不可恢复 <br> 请慎重操作 <br><br> 确定撤销核销记录？</p>
+        <div class="buttonBtn">
+            <!--<button class="search withdrawBtn" id="cancelBtn">取消</button>-->
+            <button class="button" id="withdrawBtn">确 定</button>
+        </div>
+    </div>
+</div>
+<!--查看订单详情-->
+<div class="popups" id="orderDetailBox">
+    <div class="frame orderDetail">
+        <div class="closeBtn"></div>
+        <div class="frameTitle">订单详情</div>
+        <div class="frameContent">
+            <div class="seeTop">
+                <span class="seeStatus">已取消</span>
+                <!--<span class="seeBookOperator"></span>-->
+                <span class="seeBookResult">拒绝</span>
+            </div>
+            <div class="leftRight clearfix">
+                <div class="seeLeft fl">
+                    <p class="seeP">
+                        <span>产品：</span>
+                        <span class="seeOrderName"></span>
+                    </p>
+                    <p class="seeP">
+                        <span>间数：</span>
+                        <span class="seeQuantity"></span>
+                    </p>
+                    <p class="seeP roomOrder">
+                        <span>入住日期：</span>
+                        <span class="seeCheckInTime"></span>
+                    </p>
+                    <p class="seeP roomOrder">
+                        <span>离店日期：</span>
+                        <span class="seeCheckOutTime"></span>
+                    </p>
+                    <p class="seeP">
+                        <span>客人姓名：</span>
+                        <span class="seeCustomerName"></span>
+                    </p>
+                    <p class="seeP">
+                        <span>客人电话：</span>
+                        <span class="seeCustomerMobile"></span>
+                    </p>
+                    <p class="seeP">
+                        <span>支付时间：</span>
+                        <span class="seePaidTime"></span>
+                    </p>
+                    <p class="seeP">
+                        <span>订单号：</span>
+                        <span class="seeOrderid"></span>
+                    </p>
+                </div>
+                <div class="seeRight fr">
+                    <p class="seeP">
+                        <span>订单总额：</span>
+                        <span class="seeAmount">￥1200</span>
+                    </p>
+                    <div class="seeRightContent"></div>
+                </div>
+            </div>
+        </div>
+        <div class="buttonBtnOther">
+            <button class="button" id="closeOrder">关闭</button>
+        </div>
+    </div>
+</div>
+<!--核销礼券&#45;&#45;输券码-->
+<div class="popups" id="writeOffCode">
+    <div class="frame codeDetail">
+        <div class="closeBtn"></div>
+        <div class="frameTitle">核销礼券</div>
+        <div class="frameCode" id="codeInput">
+            核销码：
+            <input type="text" maxlength="1">
+            <input type="text" maxlength="1">
+            <input type="text" maxlength="1">
+            <input type="text" maxlength="1">
+            -
+            <input type="text" maxlength="1">
+            <input type="text" maxlength="1">
+            <input type="text" maxlength="1">
+            <input type="text" maxlength="1">
+        </div>
+        <div class="buttonBtnOther">
+            <button class="button" id="codeNext">下一步</button>
+        </div>
+    </div>
+</div>
+<!--核销礼券&#45;&#45;确认-->
+<div class="popups" id="codeDetailBox">
+    <div class="frame codeDetail">
+        <div class="closeBtn"></div>
+        <div class="frameTitle">核销礼券</div>
+        <div class="couponInfo">
+            <table>
+                <tr>
+                    <th>礼券名称：</th><td>消费金</td>
+                </tr>
+                <tr>
+                    <th>余额：</th><td></td>
+                </tr>
+                <tr>
+                    <th>有效期：</th><td></td>
+                </tr>
+                <tr>
+                    <th>持有人：</th><td></td>
+                </tr>
+                <tr class="offAmount">
+                    <th>核销金额：</th><td><input id="offAmount" class="input" type="text"> &nbsp;&nbsp;元</td>
+                </tr>
+                <tr class="optional">
+                    <th>订单号（选填）：</th><td><input id="offOrderId" class="input" type="text"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="buttonBtnOther">
+            <button class="button" id="checkSure">确认核销</button>
+        </div>
+    </div>
+</div>
+<!--修改订单号-->
+<div class="popups" id="changeOrderId">
+    <div class="frame codeDetail">
+        <div class="closeBtn"></div>
+        <div class="frameTitle">修改订单号</div>
+        <div class="changeOrderId">
+            修改订单号：<input id="showOrderId" class="input" type="text">
+        </div>
+        <div class="buttonBtnOther">
+            <button class="button" id="changeSure">确认</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

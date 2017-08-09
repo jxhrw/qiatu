@@ -1,0 +1,600 @@
+body{
+    font-family: "黑体", arial;
+    text-align: center;
+    background: #ebedf0;
+    color: #000;
+}
+a{
+    text-decoration: none;
+}
+input{
+    border: none;
+    outline: none;
+    vertical-align: middle;
+}
+header{
+    height: 9.2rem;
+    color:#ffffff ;
+    text-align: center;
+    font-size: 0.9rem;
+    line-height: 3.5rem;
+    background: url("../images/cashAccount.jpg") no-repeat center top/contain;
+}
+header span{
+    display: block;
+    font-family: Arial;
+    font-size: 2.5rem;
+    line-height: 2.2rem;
+}
+.assets{
+    overflow: hidden;
+    padding: 0.8rem 0 1.1rem;
+}
+.assets:before{
+    content: "";
+    width: 1px;
+    height:4.8rem ;
+    background: #e4e2e2;
+    position: absolute;
+    left: 50%;
+}
+.assets>div{
+    float: left;
+    width: 50%;
+    line-height: 2.2rem;
+    font-size: 0.8rem;
+}
+.assets>div span{
+    display: block;
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    font-family: Arial;
+}
+.assets,.list{
+    background: #ffffff;
+}
+.list{
+    padding: 0 0 0 1rem;
+    margin:0.7rem 0 3.33rem 0;
+}
+.list li{
+    text-align: left;
+}
+.list li a{
+    color: #000;
+    display: block;
+    background: url("../images/more.jpg") no-repeat 22.4rem center/2.3%;
+    line-height: 2.7rem;
+    font-size: 1rem;
+    border-bottom: 1px #dcd9d9 solid;
+}
+.list li:last-child a{
+    border: none;
+}
+.withDraw{
+    background: #000;
+    border: none;
+    color: #ffffff;
+    width: 53.33%;
+    height: 2.67rem;
+    line-height: 2.7rem;
+    font-size: 1rem;
+    font-family: "黑体", arial;
+    letter-spacing: 1px;
+    border-radius: 2px;
+}
+.mask{
+    display: none;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.openwx {
+    display: none;
+    width: 22rem;
+    margin: 0 auto;
+    background: #fff;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 8rem;
+    border-radius: 0.3rem;
+    padding-bottom: 1rem;
+}
+.openwx p {
+    margin: 2rem 1rem;
+}
+.openwx img{
+    width: 90%;
+}
+.openwx button{
+    width: 13.4rem;
+    height: 2.8rem;
+    background: #000;
+    color: #fff;
+    border-radius: 2px;
+    font-size: 1rem;
+    margin-top: 0.6rem;
+}
+.wxpop #sure{
+    margin-top: 1.5rem;
+}
+.wxpop .setP{
+    height: 11rem;
+}
+.wxpop .setPsword{
+    height: 18rem;
+}
+.tel{
+    display: block;
+    width: 100%;
+    color: #72ac1e;
+    line-height: 3rem;
+    background: #fff;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background: #fff url("../images/tel.png") no-repeat 6rem center /4.8%;
+}
+.popup{
+    display: none;
+}
+/*
+.tel span {
+    padding-left: 1.1rem;
+}*/
+.setCard p{
+    font-size: 0.867rem;
+    line-height: 3rem;
+    text-align: left;
+    padding-left: 1rem;
+    color: #8c8c8c;
+}
+.setInfo{
+    width: 24rem;
+    padding-left: 1rem;
+    background: #FFFFFF;
+}
+.setInfo li{
+    text-align: left;
+    border-bottom: 1px #ebedf0 solid;
+    line-height:  3.6rem;
+}
+.setInfo li:last-of-type{
+    border: none;
+}
+.setInfo span{
+    display: inline-block;
+    /*
+    border: 1px red solid;
+    */
+    vertical-align: middle;
+    font-size: 0.96rem;
+    color: #b3b3b3;
+}
+.accountName span{
+    color: #000;
+    font-size: 1rem;
+}
+.bankName,.getInfo .chooseBank{
+    background:#fff url("../images/more.jpg") no-repeat 22.4rem center/2.3%;
+}
+.chooseBank span{
+    color:#b3b3b3;
+    font-size: 1rem;
+}
+.getInfo{
+    margin-top: 0.8rem;
+}
+.getInfo li{
+    text-align: left;
+    line-height: 4.3rem;
+    margin-bottom: 0.2rem;
+    background: #fff;
+    padding-left: 2.4rem;
+    font-size: 1.1rem;
+}
+.setInfo label{
+    font-family: "黑体", arial;
+    display: inline-block;
+    width: 6.7rem;
+    text-align: left;
+    /*
+    border: 1px red solid;
+    */
+}
+.bankList{
+    margin-top: 0.667rem;
+}
+.bankList li{
+    text-align: left;
+    background: #fff;
+    line-height: 3.334rem;
+    padding-left: 5.834rem;
+    margin-bottom: 1px;
+}
+button.addBank{
+    width: 13.334rem;
+    height:2.667rem ;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 2px;
+    margin-top: 3.3rem;
+    letter-spacing: 1px;
+}
+.tip{
+    display: none;
+    width: 60%;
+    height: 2rem;
+    line-height: 2rem;
+    margin: -5.4rem auto;
+    position: fixed;
+    left: 0;
+    right: 0;
+    color: #fff;
+    border-radius: 1rem;
+    background: rgba(0,0,0,0.8);
+}
+.transRecord{
+    margin-top: 0.7rem;
+}
+.transRecord .item{
+    background: #fff;
+    overflow: hidden;
+    padding: 0.634rem 0;
+    margin-bottom: 0.334rem;
+}
+.transRecord .amount{
+    font: 1.5rem/3.8rem arial;
+    float: left;
+    width: 8.4rem;
+    border-right: 1px solid #eeeded;
+}
+.transRecord .amount span{
+    margin-right: 0.3rem;
+}
+/*
+.transRecord .amount.minus{
+    color: #d13f4c;
+}
+.transRecord .amount.add{
+     color: #72ac1e;
+}
+*/
+.transRecord .recordInfo{
+    width: 14.4rem;
+    float: right;
+    text-align: left;
+    padding-left: 2.1rem;
+}
+.recordDesc{
+    line-height: 1.2rem;
+    margin-top: 0.5rem;
+}
+.createTime{
+    line-height: 2.134rem;
+}
+.createTime .date{
+    margin-right: 0.7rem;
+}
+.createTime span{
+    color: #808080;
+    font-size: 0.934rem;
+    font-family: Arial;
+}
+.withdrawInfo h2{
+    position: relative;
+    margin: 0.867rem auto 1.234rem;
+}
+.withdrawInfo h2 span{
+    display: block;
+    width: 5.7rem;
+    font-size: 1.1rem;
+    font-weight: normal;
+    color: #7c7c7c;
+    margin: 0 auto;
+}
+.withdrawInfo h2:before,.withdrawInfo h2:after{
+    content: "";
+    width: 6.9rem;
+    height: 1px;
+    background: #bfbfbf;
+    position: absolute;
+    top: 0.5rem;
+}
+.withdrawInfo h2 span:before,.withdrawInfo h2 span:after{
+    content: "";
+    width: 0.4rem;
+    height: 0.4rem;
+    background: transparent;
+    border: 0.1rem solid #cdcdcd;
+    position: absolute;
+    top: 0.3rem;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.withdrawInfo h2:before{
+    left: 0.3rem;
+}
+.withdrawInfo h2 span:before{
+    left: 8.1rem;
+}
+.withdrawInfo h2:after{
+    right: 0.3rem;
+}
+.withdrawInfo h2 span:after{
+    right: 8.1rem;
+}
+.notice{
+    margin:1rem 1rem 0.6rem;
+}
+.notice p{
+    text-align: left;
+    font-size: 0.9rem;
+    color: #838383;
+    text-indent: 1.8rem;
+}
+.notice p span{
+    color: red;
+}
+.notice a{
+    color: #72ac1e;
+}
+.cardInfo{
+    background: url("../images/bkcard.png") no-repeat center top/100%;
+    width: 23.534rem;
+    height:13.4rem;
+    margin: 0 auto;
+    position: relative;
+}
+.cardInfo>div{
+    padding:0.267rem 0.334rem 0.4rem;
+}
+.cardInfo form{
+    overflow: hidden;
+}
+.cardInfo label,.cardInfo input{
+    display: inline-block;
+    color: #d13f4c;
+    font-size: 1.8rem;
+    line-height: 5rem;
+}
+.cardInfo label{
+    margin-left: 2rem;
+    float: left;
+    /*
+    padding-top: 0.2rem;
+    */
+}
+.cardInfo input{
+    width: 80%;
+    float: right;
+    background: transparent;
+}
+.cardInfo input::-webkit-input-placeholder{
+    font-size: 1rem;
+}
+ .hint{
+    color: #838383;
+     font-size: 0.867rem;
+     line-height: 2.4rem;
+}
+ .modifyCard{
+     color: #336dc1;
+     font-size: 0.934rem;
+ }
+.cardTop{
+    overflow: hidden;
+    color: #fff;
+}
+.cardTop li{
+    float: left;
+    line-height: 2.934rem;
+}
+.cardTop .bkName{
+    padding-left: 4.5rem;
+}
+.cardTop .accountName{
+    float: right;
+    padding-right:1.4rem ;
+}
+.cardTop .bkName span:last-of-type{
+    font-family: "黑体",Arial;
+}
+.headImg{
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: #ccc;
+    margin: 0.45rem 0.45rem 0 0.6rem;
+}
+.wxdraw .nickname{
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+.changeCard .cardNumber li{
+    line-height: 5rem;
+}
+.cardBottom{
+    height: 4.7rem;
+}
+.cardBottom li{
+    line-height: 4.7rem;
+    font-size: 0.934rem;
+}
+.cardBottom li:first-of-type{
+    float: left;
+    margin-left: 2.1rem;
+    color: #838383;
+    font-family: "黑体", Arial;
+}
+.cardBottom li:first-of-type span{
+    font-family: Arial;
+}
+.cardBottom li:last-of-type{
+    float: right;
+    margin-right: 1.3rem;
+}
+.cardBottom .cashAll{
+    background: transparent;
+    border: 1px solid #4e4e4e;
+    color: #4e4e4e;
+    width: 5rem;
+    height: 1.8rem;
+    line-height: 1.8rem;
+}
+.changeCard .cardInfo{
+    margin-top: 0.4rem;
+}
+.changeCard .cardNumber li,.changeCard .cardBottom li{
+    text-align: left;
+    margin-left: 1.6rem;
+    font-size: 1rem;
+}
+.changeCard .cardNumber span{
+    font-size: 1.4rem;
+    color: #838383;
+    vertical-align: bottom;
+    font-family: Arial;
+    margin-left: 1rem;
+}
+.changeCard .cardBottom li:first-of-type{
+    color: #000;
+}
+.changeCard .cardBottom li:last-of-type{
+     float:left;
+    margin-left: 1rem;
+    font-size: 1.2rem;
+    color: #838383;
+ }
+.changeBtn{
+    display: block;
+    margin: 2.9rem auto;
+    border: none;
+    border-radius: 3px;
+    width: 13.334rem;
+    height: 2.667rem;
+    color: #fff;
+    background: #000;
+    letter-spacing: 1px;
+}
+.subBtn{
+    display: block;
+    margin: 0 auto 1.2rem;
+    border: none;
+    border-radius: 2px;
+    width: 13.334rem;
+    height: 2.667rem;
+    line-height: 2.7rem;
+    color: #fff;
+    background: #9b9b9b;
+    font-size: 1rem;
+}
+.subBtn.wx{
+    margin-top: 2.4rem;
+}
+.drawRecord .item{
+    height: 6.5rem;
+    background: #fff;
+    margin-bottom: 0.334rem;
+}
+.drawRecord .item:first-of-type{
+     margin-top: 0.667rem;
+ }
+.drawRecord ul li{
+    float: left;
+}
+.drawRecord ul li:last-of-type{
+     float: right;
+ }
+.drawRecord ul{
+     width: 18.9rem;
+    margin: 0 1.4rem 0 4.7rem;
+    overflow: hidden;
+ }
+.drawRecord .wx ul{
+    margin: 0 1.4rem;
+    width: 22.2rem;
+}
+.item_t{
+    line-height: 4rem;
+    border-bottom: 1px dashed #dcd9d9;
+    font-size:1.1rem;
+}
+.drawRecord ul li span{
+    font-family: Arial;
+}
+.drawRecord .amount span{
+    font-weight: bold;
+}
+.drawRecord .item_b{
+    line-height: 2.1rem;
+    margin-top: 0.3rem;
+    font-size: 0.9rem;
+}
+.item_b .date,.item_b .time{
+    font-size: 0.8rem;
+    color: #808080;
+    font-family: Arial;
+}
+.item_b .date{
+    margin-right: 1.8rem;
+}
+.hasdrawed{
+    display: none;
+    width:13.1rem ;
+    height: 14.3rem;
+    background: #fff;
+    border-radius: 0.3rem;
+    position: fixed;
+    left:0;
+    right: 0;
+    top:8rem;
+    margin: 0 auto;
+    padding: 2.4rem 1.8rem 0;
+}
+.hasdrawed img{
+    width: 2.7rem;
+    display: block;
+    margin: 0 auto;
+}
+.hasdrawed h3{
+    font-size: 1.1rem;
+    color: #4a4a4a;
+    font-weight: normal;
+    line-height: 4.8rem;
+}
+.hasdrawed p{
+    font-size: 0.9rem;
+    color: #838383;
+    line-height: 1.7rem;
+}
+.scrollBot{
+    text-align: center;
+    line-height: 3rem;
+    font-size: 1rem;
+    color: #838383;
+}
+.scrollBot span{
+    width: 1.2rem;
+    margin-right: 0.8rem;
+    height: 1.2rem;
+    display: inline-block;
+    vertical-align: top;
+    background: url("../images/loading.gif") no-repeat left top/contain;
+}
+.hasNone{
+    text-align:center;
+    margin-top:40%;
+    background:url("http://7xio74.com1.z0.glb.clouddn.com/blankPage.png") no-repeat center top/40%;
+    padding-top:13rem;
+}
+

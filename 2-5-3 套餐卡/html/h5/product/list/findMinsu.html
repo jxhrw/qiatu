@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>发现好去处</title>
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no"
+          name="viewport" id="viewport"/>
+    <!--<link rel="stylesheet" href="css/reset.css">-->
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_ww6ko2hlo6979zfr.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_v0gs76qswwubx1or.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_ynv0jgh0lmnm6lxr.css">
+    <script type="text/javascript" src="http://7xio74.com2.z0.glb.qiniucdn.com/rem.js"></script>
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <!--<script type="text/javascript" src="js/search.js" charset="UTF-8"></script>-->
+    <style type="text/css">
+        html{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}
+        input[type="submit"],input[type="reset"],input[type="button"],input{-webkit-appearance:none;resize:none;}
+        body,div,ul,li,ol,h1,h2,h3,h4,h5,h6,input,textarea,select,p,dl,dt,dd,a,img,button,form,table,th,tr,td,tbody,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{-webkit-tap-highlight-color:rgba(0,0,0,0);}
+        article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}
+        img{max-width:100%;height:auto;width:auto\9;-ms-interpolation-mode:bicubic;}
+        body,div,ul,li,ol,h1,h2,h3,h4,h5,h6,input,textarea,select,p,dl,dt,dd,a,img,button,form,table,th,tr,td,tbody,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{margin:0;padding:0;border:none;}
+        em,i{font-style:normal;}strong,b{font-weight:normal;}
+        .clearfix:after{content:"";display:block;visibility:hidden;height:0;clear:both;}
+        .clearfix{zoom:1;}a{text-decoration:none;color:#969696;font-family:Heiti SC, Heiti TC,Microsoft YaHei,Tahoma,Arial,sans-serif;}
+        a:hover{text-decoration:none;}
+        ul,ol{list-style:none;}
+        h1,h2,h3,h4,h5,h6{font-size:100%;font-family:"ºÚÌå",Heiti TC;}
+        img{border:none;}
+        .scope{min-width:320px;max-width:540px;}
+        body{font-family: Heiti SC, Heiti TC,open sans,lantinghei SC,lantinghei TC, Microsoft YaHei,Tahoma,Arial,sans-serif,"黑体";color:#1a1a1a;background-color: #FFF ;}
+    body {
+            /*background: #ededf0;*/
+            overflow-x: hidden;
+
+        }
+        .header2{
+            display: none;
+            overflow: hidden;
+        }
+        form{
+            height: 2.267rem;
+            background: #fff;
+            border-radius: 0.134rem;
+            border: 1px solid #d8d8d8;
+            margin: 0rem 0.7rem;
+        }
+        .header{
+          padding: 0.5rem 0rem;
+          background-color: #ededf0;
+        }
+        .header1 form{
+            width: 23.6rem;
+        }
+        .header2 form{
+            width: 20.267rem;
+            float: left;
+          }
+        .header2 span{
+            display: block;
+            padding: 0.5rem 0;
+            color: #808080;
+        }
+        form i{
+            color: #9b9b9b;
+        }
+        .iconfont{
+            display: inline-block;
+            font-size: 1.2rem;
+            vertical-align: middle;
+            padding: 0 0.667rem;
+        }
+        .header2 .iconfont{
+            padding: 0 0.6rem 0 0.667rem;
+        }
+        form input[type=search]{
+            width: 80%;
+            display: inline-block;
+            line-height: 2.3rem;
+            font-size: 0.93rem;
+            color: #d13f4c;
+            outline: none;
+            background: transparent;
+        }
+        input[type="search"]::-webkit-search-cancel-button{
+            display: none;
+        }
+        input[type="search"]::-webkit-input-placeholder { /* WebKit browsers */
+            color: #9b9b9b;
+        }
+        input[type="search"]:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+            color: #9b9b9b;
+        }
+        input[type="search"]::-moz-placeholder { /* Mozilla Firefox 19+ */
+            color: #9b9b9b;
+        }
+        input[type="search"]:-ms-input-placeholder { /* Internet Explorer 10+ */
+            color: #9b9b9b;
+        }
+        .history{
+            display: none;
+            background: #fff;
+            font-size: 0.867rem;
+        }
+        .history p{
+            color: #ccc;
+            line-height: 2.1rem;
+        }
+        .history ul li{
+            line-height: 3rem;
+            text-align: center;
+            border-top: 1px solid #ececec;
+        }
+        .history ul li:first-of-type{
+           border: none;
+        }
+        .history ul li a{
+            display: block;
+        }
+        .title {
+            background: #fff;
+            padding: 1.5rem 0;
+            width: 100%;
+        }
+
+        ul.place {
+            margin-left: 1.5rem;
+        }
+
+        .place li {
+            height: 5.5rem;
+            margin-bottom: 1.53rem;
+            overflow: hidden;
+        }
+
+        li:nth-child(3) {
+            margin-bottom: 0;
+        }
+
+        .titleIntro {
+            width: 4rem;
+            height: 5.5rem;
+            float: left;
+            margin-right: 2.1rem;
+        }
+
+        .marginNone {
+            margin-right: 0;
+        }
+
+        p.text {
+            font-size: 0.93rem;
+            text-align: center;
+        }
+
+        .icon1, .icon2, .icon3, .icon4, .icon5, .icon6, .icon7, .icon8, .icon9, .icon10, .icon11 {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+        }
+
+        .icon1 {
+            background: url('http://7xio74.com1.z0.glb.clouddn.com/icon1.png') no-repeat center center;
+        }
+
+        .icon2 {
+            background: url('http://7xio74.com1.z0.glb.clouddn.com/icon2.png') no-repeat center center;
+        }
+
+        .icon3 {
+            background: url('http://7xio74.com1.z0.glb.clouddn.com/icon3.png') no-repeat center center;
+        }
+
+        .icon4 {
+            background: url('http://7xio74.com1.z0.glb.clouddn.com/icon4.png') no-repeat center center;
+        }
+
+        .icon5 {
+            background: url('http://7xio74.com1.z0.glb.clouddn.com/icon5.png') no-repeat center center;
+        }
+
+        .icon6 {
+            background: url('http://7xio74.com1.z0.glb.clouddn.com/icon6.png') no-repeat center center;
+        }
+
+        .icon7 {
+            background: url('http://7xio74.com1.z0.glb.clouddn.com/icon7.png') no-repeat center center;
+        }
+
+        .icon8 {
+            background: url('http://7xio74.com1.z0.glb.clouddn.com/icon8.png') no-repeat center center;
+        }
+
+        .icon9 {
+            background: url('http://7xio74.com1.z0.glb.clouddn.com/icon9.png') no-repeat center center;
+        }
+
+        .icon10 {
+            background: url('http://7xio74.com1.z0.glb.clouddn.com/icon10.png') no-repeat center center;
+        }
+
+        .icon11 {
+            background: url('http://7xio74.com1.z0.glb.clouddn.com/icon11.png') no-repeat center center;
+        }
+
+        .photo {
+            background: #fff;
+            margin-top: 0.33rem;
+            padding: 0.73rem;
+        }
+
+        .img {
+            width: 23.7em;
+            height: 8rem;
+            margin-bottom: 0.16rem;
+        }
+
+        .img:last-child {
+            margin-bottom: 0;
+        }
+        .fr{
+            float: right;
+        }
+        .icon-delete{
+            margin-right: 0.3rem;
+            font-size: 1.3rem;
+        }
+        .timeCardImg{
+          box-sizing: border-box;
+          padding: 0rem 0.5rem;
+          position: fixed;
+          bottom: 0.5rem;
+          width: 100%;
+          max-height: 8rem;
+        }
+    </style>
+</head>
+<body>
+<div class=" header header1">
+    <form>
+        <label><i class="iconfont icon-search"></i><input type="search" placeholder="搜索民宿或区域"></label>
+    </form>
+</div>
+<div class="header header2">
+    <form onsubmit="return false">
+        <label><i class="iconfont icon-search"></i><input type="search" class="search"></label>
+    </form>
+    <span>取消</span>
+</div>
+<div class="history">
+    <p><i class="iconfont icon-clock"></i>搜索历史<i class="iconfont icon-delete fr"></i></p>
+    <ul>
+<!--
+        <li><a href="javascript:;">杭州</a></li>
+        <li><a href="javascript:;">海边的民宿</a></li>
+        <li><a href="javascript:;">亲子</a></li>
+        <li><a href="javascript:;">杭州</a></li>
+        <li><a href="javascript:;">海边的民宿</a></li>
+-->
+    </ul>
+</div>
+<div class="title">
+    <ul class="place">
+        <li>
+            <div class="titleIntro">
+                <div class="icon1"></div>
+                <p class="text">杭州</p>
+            </div>
+            <div class="titleIntro">
+                <div class="icon2"></div>
+                <p class="text">厦门</p>
+            </div>
+            <div class="titleIntro">
+                <div class="icon3"></div>
+                <p class="text">青岛</p>
+            </div>
+            <div class="titleIntro marginNone">
+                <div class="icon4"></div>
+                <p class="text">莫干山</p>
+            </div>
+        </li>
+        <li>
+            <div class="titleIntro">
+                <div class="icon5"></div>
+                <p class="text">成都</p>
+            </div>
+            <div class="titleIntro">
+                <div class="icon6"></div>
+                <p class="text">大理</p>
+            </div>
+            <div class="titleIntro">
+                <div class="icon7"></div>
+                <p class="text">黄山</p>
+            </div>
+            <div class="titleIntro marginNone">
+                <div class="icon8"></div>
+                <p class="text">丽江</p>
+            </div>
+        </li>
+        <li>
+            <div class="titleIntro">
+                <div class="icon9"></div>
+                <p class="text">丽水</p>
+            </div>
+            <div class="titleIntro">
+                <div class="icon10"></div>
+                <p class="text">上海</p>
+            </div>
+            <div class="titleIntro">
+                <div class="icon11"></div>
+                <p class="text">苏州</p>
+            </div>
+        </li>
+    </ul>
+</div>
+<img src='./images/toTimeCard.jpg' class="timeCardImg" onclick="window.location.href='/html/h5/product/detail/virtualGoods.html?id=44147&src=fxhqcggw'"/>
+<!--<div class="photo">
+    <div class="img"><img src="http://7xio74.com1.z0.glb.clouddn.com/pic1.png" alt="这是一张图片"></div>
+    <div class="img"><img src="http://7xio74.com1.z0.glb.clouddn.com/pic2.png" alt="这是一张图片"></div>
+    <div class="img"><img src="http://7xio74.com1.z0.glb.clouddn.com/pic3.png" alt="这是一张图片"></div>
+    <div class="img"><img src="http://7xio74.com1.z0.glb.clouddn.com/pic4.png" alt="这是一张图片"></div>
+    <div class="img"><img src="http://7xio74.com1.z0.glb.clouddn.com/pic5.png" alt="这是一张图片"></div>
+    <div class="img"><img src="http://7xio74.com1.z0.glb.clouddn.com/pic6.png" alt="这是一张图片"></div>
+    <div class="img"><img src="http://7xio74.com1.z0.glb.clouddn.com/pic7.png" alt="这是一张图片"></div>
+</div>-->
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".header1 input").click("on", function () {
+            $(".header1").hide();
+            $(".header2").show();
+            $(".history").show();
+            $(".title").hide();
+            $(".timeCardImg").hide();
+            $(".header2 input").focus();
+            $(function(){
+                var str=localStorage.historyItems;
+                if(str==undefined){
+                    $(".history").hide();
+                }else{
+                    var strs= new Array();
+                    var s='';
+                    strs=str.split("|");
+                    console.log(strs);
+                    for(var i=0;i<strs.length;i++){
+                        s= "<li><a href='/html/h5/product/list/list2.html?keyWords="+strs[i]+"&tags=民宿' >"+strs[i]+"</a></li>";
+                        $(".history ul").append(s);
+                    }
+                }
+            });
+        });
+        $(".header2 span").click("on", function () {
+            window.history.back();
+        });
+        $(".search").on('search',function () {//监听搜索内容
+            $(this).blur();
+            var search=$(this).val();
+            if(search!=""){
+                window.location = '/html/h5/product/list/list2.html?keyWords=' + search + '&tags="民宿"';
+                setHistoryItems(search);
+            }
+        });
+        $(".icon-delete").click(function () {
+            clearHistory();
+            $(".history").hide();
+        });
+        var arr1 = ['杭州', '厦门', '青岛', '湖州', '成都', '大理', '黄山', '丽江', '丽水', '上海', '苏州'];
+       /* var arr3 = ['http://api.jihelife.com/h5/topicShare.html?id=35844&src=topc_yuhaitongmian', 'http://api.jihelife.com/h5/topicShare.html?id=35847&src=topc_zhenan', 'http://api.jihelife.com/h5/topicShare.html?id=35846&src=topc_bieshuhongpa', 'http://api.jihelife.com/h5/topicShare.html?id=35843&src=topc_piaoliu', 'http://api.jihelife.com/static/weixinMinSu/list.html?tags=%E5%AE%A0%E7%89%A9,%E6%B0%91%E5%AE%BF&src=topc_chongwu', 'http://api.jihelife.com/static/weixinMinSu/list.html?tags=%E6%B3%B3%E6%B1%A0,%E6%B0%91%E5%AE%BF&src=topc_yongchi', 'http://api.jihelife.com/static/weixinMinSu/list.html?tags=%E4%BA%B2%E5%AD%90,%E6%B0%91%E5%AE%BF&src=topc_qinzi'];*/
+        var $titleIntro = $('.titleIntro');
+        var $img = $('.img');
+
+        $titleIntro.click(function () {
+            var i=$(this).find("div").attr("class").split("icon")[1]-1;
+            window.location = '/html/h5/product/list/list2.html?tags=' + arr1[i] + ',民宿';
+        });
+
+        for (var i = 0; i < $img.length; i++) {
+            $img.eq(i).click(function () {
+                var i = $(this).index();
+                window.location = arr3[i];
+            })
+        }
+    });
+    //存值方法,新的值添加在首位
+    function setHistoryItems(keyword) {
+        keyword = keyword.trim();
+        let { historyItems } = localStorage;
+        if (historyItems === undefined) {
+            localStorage.historyItems = keyword;
+        } else {
+            historyItems = keyword + '|' + historyItems.split('|').filter(e => e != keyword).join('|');
+            localStorage.historyItems = historyItems.split("|").slice(0,5).join('|');//限制存储历史的个数，留出足够存储空间
+        }
+    }
+    //清除值
+    function clearHistory() {
+        localStorage.removeItem('historyItems');
+    }
+    window.onload=function(){
+        $(".search").val("");
+    }
+</script>
+</body>
+</html>

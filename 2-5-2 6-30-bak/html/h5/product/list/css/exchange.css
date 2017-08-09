@@ -1,0 +1,215 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+body{
+    font-family: "黑体",Arial;
+}
+/*.navigation{
+    box-shadow: 0 0 2px rgba(0,0,0,0.3);
+}*/
+a{
+    text-decoration: none;
+    -webkit-tap-highlight-color:transparent;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.header .screen {
+    display: none;
+    width: 100%;
+    background-color: #fff;
+    table-layout: fixed;
+    color: #4a4a4a;
+    font-size: 0.834rem;
+    vertical-align: middle;
+    text-align: center;
+    height: 3rem;
+    padding-top: 3px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
+}
+.redFont {
+    color: #db5e5e;
+}
+.up_down {
+    width: 0.5rem;
+    height: 0.7rem;
+    margin-left: 0.2rem;
+    position: relative;
+    top: 1px;
+}
+.navBar{
+    width: 100%;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+    display: none;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    background: #fff;
+}
+.form{
+    /*height: 2.267rem;*/
+    background: #fff;
+    border-radius: 0.134rem;
+    border: 1px solid #d8d8d8;
+    margin: 0.5rem 0 0.5rem 0.7rem;
+}
+.navBar .form{
+    width: 18rem;
+    float: left;
+}
+.navBar span{
+    display: inline-block;
+    font-size: 0.8rem;
+    float: right;
+    padding: 1.1rem 0.5rem 1rem 1.8rem;
+    color: #808080;
+    background: url(http://7xio74.com1.z0.glb.clouddn.com/navPerson.png) no-repeat 0 0.8rem/32%;
+}
+.form i{
+    color: #9b9b9b;
+}
+.iconfont{
+    display: inline-block;
+    font-size: 1.2rem;
+    vertical-align: middle;
+    padding: 0 0.667rem;
+}
+.navBar .iconfont{
+    padding: 0 0.6rem 0 0.667rem;
+}
+.form input[type=search]{
+    width: 80%;
+    display: inline-block;
+    line-height: 2rem;
+    font-size: 0.93rem;
+    color: #000000;
+    outline: none;
+    background: transparent;
+    border: none;
+}
+    input[type="search"]::-webkit-search-cancel-button{
+        display: none;
+    }
+    input[type="search"]::-webkit-input-placeholder { /* WebKit browsers */
+        color: #9b9b9b;
+    }
+    input[type="search"]:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        color: #9b9b9b;
+    }
+    input[type="search"]::-moz-placeholder { /* Mozilla Firefox 19+ */
+        color: #9b9b9b;
+    }
+    input[type="search"]:-ms-input-placeholder { /* Internet Explorer 10+ */
+        color: #9b9b9b;
+    }
+.history{
+    display: none;
+    background: #fff;
+    font-size: 0.867rem;
+}
+.history p{
+    display: inline-block;
+    width: 100%;
+    color: #ccc;
+    line-height: 2.1rem;
+}
+.history ul li{
+    line-height: 3rem;
+    text-align: center;
+    border-top: 1px solid #ececec;
+}
+.history ul li:first-of-type{
+    border: none;
+}
+.history ul li a{
+    display: block;
+}
+
+.items{
+    margin-top: 3rem;
+}
+.ellips{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.item{
+    padding: 1rem 0;
+    margin: 0 0.8rem;
+    height: 6.7rem;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: flex-start;
+    border-bottom: 1px solid #D6D5D9;
+}
+.item img{
+    display: block;
+    width: 10.4rem;
+    /*height: 6.7rem;*/
+    background: #ccc;
+}
+.item .itemInfo{
+    padding-left: 0.8rem;
+    width: 12.2rem;
+    position: relative;
+}
+.itemInfo .bnbName{
+    height: 2.5rem;
+    /*font-size: 0.934rem;*/
+    line-height: 1.3rem;
+}
+.itemInfo .bnbDesc{
+    color: #808080;
+    line-height: 1.2rem;
+    /* height: 2.4rem; */
+    position: absolute;
+    bottom: 0.5rem;
+    margin: 0.5rem 0;
+}
+.itemInfo .bnbPrice{
+    color: #E2574C;
+    position: absolute;
+    bottom: -2px;
+}
+.bnbDesc,.bnbPrice{
+    font-size: 0.834rem;
+}
+.scrollBot{
+    text-align: center;
+    height: 3rem;
+    line-height: 3rem;
+    font-size: 0.8rem;
+    color: #B3B3B3;
+}
+.blankPage {
+    font-size: 0.934rem;
+    text-align: center;
+}
+.blankPage img{
+    display: block;
+    width: 50%;
+    margin: 6.6rem auto 2.5rem;
+}
+.blankPage p{
+    color: #4a4a4a;
+    line-height: 1.7rem;
+}
+.blankPage a{
+    margin: 5.6rem auto 0;
+    line-height: 2.4rem;
+    color: #fff;
+    display: block;
+    width: 13.2rem;
+    height: 2.4rem;
+    border-radius: 1.2rem;
+    background: #e2574c;
+}

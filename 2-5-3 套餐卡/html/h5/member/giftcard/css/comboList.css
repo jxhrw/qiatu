@@ -1,0 +1,41 @@
+body{
+    background-color: #f0f2f5;
+}
+.content{
+    padding: 1.33rem 9.2% 0 9.2%;
+}
+.category{
+    padding: 1.3rem 0 1.2rem 0;
+    font-size: 1rem;
+    line-height: 1rem;
+    color: #fff;
+}
+.defaultHide{
+    height: 3rem;
+    width: 100%;
+    z-index: 10;
+    display: none;
+}
+.fixedPos{
+    position: fixed;
+    bottom: 0;
+    background: #fff;
+    overflow: hidden;
+    text-align: center;
+    font-size: 0.9rem;
+}
+.middle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+
+    height: 1.5rem;
+    line-height: 1.7rem;
+    padding-left: 2.4rem;
+    background: url("../images/giveIcon.png") no-repeat center left/contain;
+}

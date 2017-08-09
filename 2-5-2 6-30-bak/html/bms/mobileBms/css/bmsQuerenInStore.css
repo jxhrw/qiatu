@@ -1,0 +1,220 @@
+body{
+	background-color: #ebedf0;
+	/*font-size: 0.8rem;*/
+	font-size: 0.94rem;
+}
+
+.header{
+	background-color: #343f4c;
+	color: #fff;
+	padding: 1rem 0;
+	display: none;
+}
+
+.header h1{
+	text-align: center;
+	padding: 0.5rem;
+	font-size: 1rem;
+	font-weight: normal;
+}
+.header p{
+	text-align: center;
+	font-size: 0.8rem;
+}
+.memberinfo,.productinfo,.priceinfo{
+	margin-top: 0.5rem;
+	padding: 0 1rem;
+	background-color: #fff;
+}
+.memberinfo{
+	margin-top: 0;
+}
+.memberinfo li{
+	color: #000;
+}
+.productinfo li strong{
+	color: #000;
+}
+.memberinfo li,.priceinfo li{
+	padding: 1rem 0;
+}
+.memberinfo li:first-child{
+	position: relative;
+}
+.memberinfo li:first-child span:last-child{
+	position: absolute;
+	right: 0;
+	top:50%;
+	transform: translate(0,-50%);
+    -webkit-transform: translate(0,-50%);
+    -ms-transform: translate(0,-50%);
+    -o-transform: translate(0,-50%);
+    -moz-transform: translate(0,-50%);
+    /*color: rgb(200,166,112);*/
+	color: #bb8e4b;
+}
+.memberinfo li:first-child span:first-child{
+	margin-right: 1rem;
+}
+.memberinfo li:first-child span:nth-child(2){
+	padding-left: 1rem;
+	color: #000;
+}
+.productinfo li{
+	padding: 0 0 1rem;
+}
+.productinfo li:first-child{
+	padding: 1rem 0;
+}
+.productinfo li span{
+	display: inline-block;
+	width: 30%;
+}
+.priceinfo li{
+	position: relative;
+}
+.priceinfo {
+	padding: 0.5rem 1rem;
+}
+.priceinfo li:first-child{
+	border-bottom: 1px solid #e4e5e6;
+	
+}
+.priceinfo li{
+	padding: 0.5rem 0;
+}
+.priceinfo li strong{
+	position: absolute;
+	right: 0;
+	top:50%;
+	transform: translate(0,-50%);
+    -webkit-transform: translate(0,-50%);
+    -ms-transform: translate(0,-50%);
+    -o-transform: translate(0,-50%);
+    -moz-transform: translate(0,-50%);
+	color: #000;
+	font-weight: bold;
+}
+.priceinfo li:first-child strong{
+	font-size: 1.06rem;;
+}
+.footer{
+	position: fixed;
+	bottom:0;
+	left: 0;
+	width: 100%;
+	padding: 0.5rem 1rem;
+	background-color: #fff;
+	text-align: center;
+	box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -ms-box-sizing:border-box;
+    -o-box-sizing:border-box;
+    display: none;
+}
+.footer span{
+	display: inline-block;
+	width:47%;
+	padding: 0.5rem 0;
+	text-align: center;
+	color: #fff;
+	border-radius: 0.2rem;
+	-webkit-border-radius: 0.2rem;
+	-moz-border-radius: 0.2rem;
+	-ms-border-radius: 0.2rem;
+	-o-border-radius: 0.2rem;
+}
+.footer span:first-child{
+	background-color: rgb(130,140,155);
+	margin-right: 1rem;
+}
+.footer span:last-child{
+	background-color: rgb(208,54,76);
+}
+.dianhua{
+	background-color: #fff;
+	display: block;
+	margin-top: 0.5rem;
+	color: rgb(148,195,47);
+	text-align: center;
+	padding:1rem;
+}
+/*与之前增加的*/
+.cancelBox{
+	width: 100%;
+	padding: 0.5rem 0;
+	background-color: #fff;
+	border-top: 1px solid #b3b3b3;
+	position: absolute;
+	bottom: 0;
+	display: none;
+}
+.cancelBox .cancelOrder{
+	width: 10.3rem;
+	text-align: center;
+	padding: 0.6rem 0;
+	background-color: #d13f4c;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	margin: 0 auto;
+	color: #fff;
+}
+
+/*弹出的选择层*/
+.orderDetailPopup{
+	position: fixed;
+	width: 100%;
+	background-color: rgba(0,0,0,0.5);
+	z-index: 1;
+	display: none;
+	top: 0;
+	left: 0;
+}
+.orderDetailPopup .popupBox{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background-color: #fff;
+	height: 18.8rem;
+	width: 100%;
+}
+.orderDetailPopup .popupTitle{
+	height: 3.3rem;
+	line-height: 3.3rem;
+	text-align: center;
+	font-size: 1.1rem;
+	color: #4a4a4a;
+	background-color: #ebedf0;
+	position: relative;
+}
+.orderDetailPopup .popupTitle i{
+	position: absolute;
+	right: 0.5rem;
+	top: 50%;
+	display: block;
+	width: 2rem;
+	height: 2rem;
+	color: #000;
+	font-size: 2rem;
+	line-height: 2rem;
+	margin-top: -1rem;
+}
+.orderDetailPopup .sure{
+	line-height: 1.5rem;
+	padding: 2rem 2rem 0 2rem;
+	color: #000;
+	font-size: 1rem;
+}
+.orderDetailPopup .confirm{
+	height: 3.2rem;
+	line-height: 3.2rem;
+	color: #fff;
+	background-color: #d13f4c;
+	text-align: center;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	font-size: 1.1rem;
+}

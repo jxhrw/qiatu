@@ -1,0 +1,23 @@
+.agreementBox{
+    padding: 1rem 1rem;
+    color: #4a4a4a;
+    font-style: normal;
+}
+.agreementBox h1{
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 3rem;
+}
+.agreementBox h2{
+    font-size: 1rem;
+    line-height: 2rem;
+    text-indent: 2em;
+}
+.agreementBox h3{
+    font-size: 1rem;
+    line-height: 2.7rem;
+}
+.agreementBox p{
+    font-size: 0.9rem;
+    line-height: 2rem;
+}

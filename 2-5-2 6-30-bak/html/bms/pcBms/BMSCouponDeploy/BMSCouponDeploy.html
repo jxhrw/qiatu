@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>BMSCouponDeploy</title>
+	<link rel="stylesheet" type="text/css" href="css/BMSCouponDeploy.css">
+	<script src="http://7xio74.com1.z0.glb.clouddn.com/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="js/BMSCouponDeploy.js"></script>
+	<script type="text/javascript" src="/html/h5/publicFile/js/general.js"></script>
+	<link rel="stylesheet" href="../plug-in/paging/paging.css">
+	<script src="../plug-in/paging/paging.js"></script>
+	<script src='../plug-in/ModalService/style.js'></script>
+	<script src='../plug-in/alert/alert.js'></script>
+</head>
+<body>
+<div class="Coupon-warp">
+	<div class="navigation">
+		<div class="favotable top-btn zhong" coutype="5">折扣券</div>
+		<div class="house top-btn" coutype="1">房券</div>
+		<div class="pay top-btn" coutype="2">消费金</div>
+	</div>
+
+	<div class="new-btn">
+		<input type="button" name="" value="新建折扣券" coupontype="5">
+	</div>
+    
+    <ul class="li-warp">
+		<li class="state" id="end"><span>已过期</span></li>
+		<li class="state" id="wait"><span>待投放</span></li>
+		<li class="state" id="ing"><span>使用中</span></li>
+		<li class="state J-all"><span>全部状态</span></li>
+	</ul>
+
+    <div class="list-warp" id="J-Favotable">
+    	<table>
+    		<tbody>
+    			<tr class="list-title">
+					<td></td>
+					<td>券名称</td>
+					<td>有效期</td>
+					<td>发放量</td>
+					<td>流通量(张)</td>
+					<td>核销量(次)</td>
+					<td>过期未使用</td>
+					<td>未领取</td>
+					<td class="all"> 全部状态</td>
+					<!-- <td class="all"> 全部状态 <img src="image/icon.jpg"></td> -->
+				</tr>
+				<tr class="content F-title">
+    		</tbody>
+    	</table>
+    	<div class="buttom">
+			<span>操作:</span>
+			<div class="btn fa_btn"><p>发布</p></div>
+			<div class="btn bian_btn" ><p>编辑</p></div>
+			<div class="btn shan_btn"><p>删除</p></div>
+			<div class="btn shu_btn"><p>数据</p></div>
+			<div class="btn chi_btn"><p>持有人</p></div>
+			<div class="btn cha_btn" ><p>查看</p></div>
+			<div class="btn send_btn" ><p>发放</p></div>
+		</div>
+    </div>
+
+    <div class="list-warp" id="J-House" style="display: none;">
+    	<table>
+    		<tbody>
+    			<tr class="list-title">
+					<td></td>
+					<td>券名称</td>
+					<td>有效期</td>
+					<td>发放量</td>
+					<td>流通量(张)</td>
+					<td>核销量(次)</td>
+					<td>过期未使用</td>
+					<td>未领取</td>
+					<td class="all"> 全部状态 </td>
+					<!-- <td class="all"> 全部状态 <img src="image/icon.jpg"></td> -->
+				</tr>
+				<tr class="content H-title">
+    	</table>
+    	<div class="buttom">
+			<span class="caoZuo">操作:</span>
+			<div class="btn fa_btn"><p>发布</p></div>
+			<div class="btn bian_btn" ><p>编辑</p></div>
+			<div class="btn shan_btn"><p>删除</p></div>
+			<div class="btn shu_btn"><p>数据</p></div>
+			<div class="btn chi_btn"><p>持有人</p></div>
+			<div class="btn cha_btn" ><p>查看</p></div>
+			<div class="btn send_btn" ><p>发放</p></div>
+		</div>
+    </div>
+
+    <div class="list-warp" id="J-Pay" style="display: none;">
+    	<table>
+    		<tbody>
+    			<tr class="list-title">
+					<td></td>
+					<td>券名称</td>
+					<td>有效期</td>
+					<td>发放量</td>
+					<td>流通量(张)</td>
+					<td>核销量(次)</td>
+					<td>过期未使用</td>
+					<td>未领取</td>
+					<td class="all"> 全部状态 </td>
+					<!-- <td class="all"> 全部状态 <img src="image/icon.jpg"></td> -->
+				</tr>
+				<tr class="content P-title">
+
+				</tr>
+    		</tbody>
+    	</table>
+    	<div class="buttom">
+			<span>操作:</span>
+			<div class="btn fa_btn"><p>发布</p></div>
+			<div class="btn bian_btn" ><p>编辑</p></div>
+			<div class="btn shan_btn"><p>删除</p></div>
+			<div class="btn shu_btn"><p>数据</p></div>
+			<div class="btn chi_btn"><p>持有人</p></div>
+			<div class="btn cha_btn" ><p>查看</p></div>
+			<div class="btn send_btn" ><p>发放</p></div>
+		</div>
+    </div>
+    <p class='wu'>
+	    <span>暂无折扣卷，</span>
+	    <a href='javascript:void(0)' class="new_a">新建优惠券</a>
+    </p>
+    <div class="tcdPageCode" id="Favotable"></div>
+    <div class="tcdPageCode CFavotable"></div>
+    <div class="tcdPageCode" id="House"></div>
+    <div class="tcdPageCode" id="Pay"></div>
+    <div class="tcback"></div>
+<!--发放窗口弹窗-->
+    <!--窗口1-->
+    <div  class="template1 grant_xfj a" >
+       <div class="top"><span>发放消费金</span>
+       	<img src="image/x.png">
+       </div>
+	   <div id="grant" >
+		   	<h5 class="xfj_title"><span class="actxfj_name"></span>消费金</h5>
+		   	<p>发放数量：<input type="text" name="xfj_count" class="xfj_count"> &nbsp;消费金</p>
+		   	<p>手机号码：<input type="text" name="xfj_phone" class="xfj_phone"></p>
+		   	<p class="text_buttom">*发放的消费金会和手机号绑定，如该手机号已注册为几何商户联盟会员，则直接发放到会员账号，如未注册，则需要接受消费金的手机号注册为联盟商户会员。</p>
+		   	<a href="javascript:void(0)" class="grant_btn close">发放</a>
+	   </div>
+   </div>
+   <!--窗口2-->
+   <div  class="template1 grant_xfj a" >
+       <div class="top"><span>发放消费金</span>
+       	<img src="image/x.png">
+       </div>
+	   <div id="grant" >
+		   	<h5 class="xfj_title">确认<span class="actxfj_name">《几何大爆炸》</span>发放名单</h5>
+		   	<p class="text_buttom_two">*发现非会员用户，该用户如需要查看卡卷或只用卡卷在线消费。需要接受卡卷的手机号注册为几何联盟商户会员。然后在会员中心，我的礼券中查看</p>
+		   	<p class="xfj_list">1230000000000*2</p>
+		   	<p class="xfj_list">1230000000000*2</p>
+		   	<p class="xfj_list">1230000000000*2</p>
+		   	<p class="xfj_list">1230000000000*2</p>
+		   	<a href="javascript:void(0)" class="grant_btn yes_btn close">发放</a>
+	   </div>
+   </div>
+<!--查看优惠券信息弹窗-->
+   <div  class="template1 cha_yhj a" >
+       <div class="top"><span>查看折扣券信息</span>
+       	<img src="image/x.png">
+       </div>
+	   <ul class="yhj_ul">
+	   	  <li class="yhj_concent">
+	   	  	<p class="yhj_left">券名称：</p>
+	   	  	<p id="yhj_txt" class="quanname"></p>
+	   	  </li>
+          <li class="yhj_concent">
+	   	  	<p class="yhj_left">折扣额度：</p>
+	   	  	<p id="yhj_txt" class="zhekou"></p>
+	   	  </li>
+	   	  <li class="yhj_concent">
+	   	  	<p class="yhj_left">有效期：</p>
+	   	  	<p id="yhj_txt" class="youxiaoqi"></p>
+	   	  </li>
+	   	  <li class="yhj_concent">
+	   	  	<p class="yhj_left">可用商户：</p>
+	   	  	<p id="yhj_txt" class="keyong"></p>
+	   	  </li>
+	   	  <li class="yhj_concent">
+	   	  	<p class="yhj_left">可用消费类型：</p>
+	   	  	<p id="yhj_txt" class="usagetype">除“<span></span>”以外都可用</p>
+	   	  </li>
+	   	  <li class="yhj_concent cishuli">
+	   	  	<p class="yhj_left">使用次数：</p>
+	   	  	<p id="yhj_txt" class="cishu"></p>
+	   	  </li>
+	   	  <li class="yhj_concent usagedateli">
+	   	  	<p class="yhj_left">可用日期：</p>
+	   	  	<p id="yhj_txt" class="usagedate"></p>
+	   	  </li>
+	   	  <li class="yhj_concent tiaojianli">
+	   	  	<p class="yhj_left">使用条件：</p>
+	   	    <p id="yhj_txt" class="tiaojian"></p>
+	   	  </li>
+	   	  <li class="yhj_concent beizhuli">
+	   	  	<p class="yhj_left">备注：</p>
+	   	  	<p id="yhj_txt" class="beizhu"></p>
+	   	  </li>
+	   </ul>
+	   <a href="javascript:void(0)" class="cha_yhj_btn close_btn close">关闭</a>
+   </div>
+<!--撤回消费金-->
+     <div  class="template1 chehui a" >
+       <div class="top"><span>撤回确认</span>
+       	<img src="image/x.png">
+       </div>
+	   <p>确认要撤回已发放的消费金吗？</p>
+       <a href="javascript:void(0)" class="close_btn chehui_no close">取消</a>
+       <a href="javascript:void(0)" class="yes_btn chehui_yes close">确认撤回</a>
+  </div>
+<!--发放房卷-->
+    <!--窗口1-->
+	    <div  class="template1 grant_fj a" >
+	       <div class="top"><span>发放房卷</span>
+	       	<img src="image/x.png">
+	       </div>
+		   <div id="grant_fj" >
+			   	<h5 class="xfj_title"><span class="actxfj_name">活动名称</span></h5>
+			   	<div class="count_fj">发放数量：&nbsp;<input type="text" name="fj_count" class="fj_count_txt">
+				   	<a href="javascript:void(0)" class="add"></a>
+				   	<a href="javascript:void(0)" class="sub"></a>
+			   	</div>
+			   	<div class="fj_phone"><p class="fj_shouji">发放手机号：</p>&nbsp;<textarea placeholder="输入要发放的手机号，多个手机号时用“，”隔开。"></textarea><br>
+			   		<p class="fj_sm">*发放的卡卷会和手机号绑定，如该手机号已注册为几何商户联盟会员，则直接发放到会员账号，如未注册，则需要接受消费金的手机号注册为联盟商户会员。</p>
+			   	</div>
+			   	<a href="javascript:void(0)" class="yes_btn fj_btn close">发放</a>
+		   </div>
+	   </div>
+   <!--窗口2-->
+       <div  class="template1 grant_fj_two a" >
+	       <div class="top"><span>发放房卷</span>
+	       	<img src="image/x.png">
+	       </div>
+		   <div id="grant" >
+			   	<h5 class="xfj_title">确认<span class="actxfj_name">《几何大爆炸》</span>发放名单</h5>
+			   	<p class="text_buttom_two">*发现非会员用户，该用户如需要查看卡卷或只用卡卷在线消费。需要接受卡卷的手机号注册为几何联盟商户会员。然后在会员中心，我的礼券中查看</p>
+			   	<p class="xfj_list">1230000000000*2</p>
+			   	<p class="xfj_list">1230000000000*2</p>
+			   	<p class="xfj_list">1230000000000*2</p>
+			   	<p class="xfj_list">1230000000000*2</p>
+			   	<a href="javascript:void(0)" class="grant_btn yes_btn close">发放</a>
+	   		</div>
+	   </div>
+</div>
+ <!-- 发放券和折扣弹窗 -->
+  <div id='sendCoupon' class="template">
+		<p style="color: black;font-size: 18px;font-weight: bold;margin-left: 30px;">发放券</p>
+		<div>
+			<span class="yhx_span" style="margin-left:30px;">发放数量:</span>
+			<select style="border-color:#cecece;width: 60px;height: 25px;" class="sendCouponSelect">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+			</select>
+		</div>
+		<div style="margin-top:20px;">
+			<span class="yhx_span" style="margin-left:19px;position:absolute">发放手机号:</span>
+			<textarea name="" placeholder="输入要发放的手机号，多个手机号用;隔开" class="yhx_textarea"></textarea>
+			<p class="yhx_span" style=" margin-left: 93px;width: 366px;">*发放的卡券将会和手机号绑定，如改手机号已注册为几何商户联盟会员，则直接 发放到会员账户，如未注册，则需用接受卡券的手机号注册为联盟商户会员。</p>
+		</div>
+		<button class="yhx_button" onclick="sendCouponClick()">发放</button>
+	</div>
+     <!-- 券确定页面弹窗 -->
+		 <div id='sendCouponTrue' class="template">
+			 <p class="sendCouponTrue" style="color: black;font-size: 14px;font-weight: bold;margin-left: 30px;">确认《<span class="sendCouponTrueName">券名</span>》发放名单</p>
+			 <div class="sendCouponTrueContent" style="max-height: 333px;overflow: auto;">
+
+			 </div>
+			 <button class='sendCouponTrueButton' onclick="sendCouponClickTrue()">确认发放</button>
+		 </div>
+</body>
+</html>

@@ -31,6 +31,41 @@ if(navigator.userAgent.match(/android/i) == "android")
 }
 $('.hb_num input').on(bind_name, function(){}</pre>
     </li>
+    <li>
+        ios手机部分滑动不流畅问题
+        <pre>
+导读：-webkit-overflow-scrolling 用来控制元素在移动设备上是否使用滚动回弹效果.兼容安卓和IOS的写法如下overflow:auto;/*winphone8和android...
+-webkit-overflow-scrolling 用来控制元素在移动设备上是否使用滚动回弹效果.
+兼容安卓和IOS的写法如下
+
+        overflow:auto;/* winphone8和android4+ */
+        -webkit-overflow-scrolling: touch; /* ios5+ */
+
+取值
+
+auto
+使用普通滚动, 当手指从触摸屏上移开，滚动会立即停止。
+touch
+使用具有回弹效果的滚动, 当手指从触摸屏上移开，内容会继续保持一段时间的滚动效果。继续滚动的速度和持续的时间和滚动手势的强烈程度成正比。同时也会创建一个新的堆栈上下文。
+
+例子
+
+        -webkit-overflow-scrolling: touch; /* 当手指从触摸屏上移开，会保持一段时间的滚动 */
+        -webkit-overflow-scrolling: auto; /* 当手指从触摸屏上移开，滚动会立即停止 */
+
+浏览器兼容性
+
+移动版 Safari iOS 5.0+
+
+Bug
+
+当你给一个元素设置过position:absolute;或者position:relative;后再增加-webkit-overflow-scrolling: touch;属性后，你会发现，滑动几次后可滚动区域会卡主，不能在滑动，这时给元素增加个z-index值就可以了。
+
+        -webkit-overflow-scrolling: touch;
+        position:absolute;
+        z-index:1;
+        </pre>
+    </li>
 </ul>
 </body>
 </html>

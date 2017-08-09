@@ -1,0 +1,84 @@
+.tcdPageCode{
+    padding: 15px 20px;
+    text-align: left;
+    color: #ccc;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+.tcdPageCode a{
+    display: inline-block;
+    color: #428bca;
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 10px;
+    border: 1px solid #ddd;
+    margin: 0 2px;
+    /*border-radius: 4px;*/
+    vertical-align: middle;
+}
+.tcdPageCode a:hover{
+    text-decoration: none;
+    border: 1px solid #e2574c;
+    background-color: #e2574c ;
+    color:white;
+}
+.tcdPageCode a{
+    color: rgb(106,106,106)
+}
+.tcdPageCode span.current{
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 10px;
+    margin: 0 2px;
+    color: #fff;
+    background-color: #e2574c;
+    border: 1px solid #e2574c;
+    /*border-radius: 4px;*/
+    vertical-align: middle;
+}
+.tcdPageCode span.disabled{
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 10px;
+    margin: 0 2px;
+    color: #bfbfbf;
+    background: #f2f2f2;
+    border: 1px solid #bfbfbf;
+    /*border-radius: 4px;*/
+    vertical-align: middle;
+}
+
+a,a:hover{ text-decoration:none; color: rgb(106,106,106)}
+
+.tcdPageInput{
+    width: 40px;
+    border:1px solid #ddd ;
+    padding: 1px 0;
+    text-align: center;
+    position: relative;
+    top: 0;
+    margin: 0 2px;
+}
+.tcdPageButton{
+    border-radius: 4px;
+    border: none;
+    width: 46px;
+    height: 20px;
+    background-color: #e2574c;
+    color: white;
+    outline: none;
+    margin-left: 3px;
+    position: relative;
+    top: 1px;
+}
+.tcdPageRight{
+    font-size: 13px;
+    color: #4a4a4a;
+    position: relative;
+    top: 2px;
+}

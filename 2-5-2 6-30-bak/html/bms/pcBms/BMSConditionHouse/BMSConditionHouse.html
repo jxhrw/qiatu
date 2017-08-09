@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ConditionHouse</title>
+	<script src="http://7xio74.com1.z0.glb.clouddn.com/jquery-2.1.4.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/BMSConditionHouse.css">
+	<script type="text/javascript" src="js/BMSConditionHouse.js"></script>
+	<script type="text/javascript" src="../plug-in/laydate/laydate.js"></script>
+	<link rel="stylesheet" type="text/css" href="../plug-in/laydate/skins/dahong/laydate.css">
+	<script src='../plug-in/alert/alert.js'></script>
+</head>
+<body>
+    <div class="btn-warp">
+    	<a href="javascript:void(0)" class="btn defaultState J-defaultState">批量修改房态</a>
+    	<div style="clear: both;"></div>
+    </div>
+
+	<div class="left">
+		<table>
+			<tbody class="b-shang">
+				<tr class="b-tr">
+			        <th class="b-th">
+			        	<a href="javascript:void(0)" class="back J-back"></a>
+						<div class="range" id="J-ldate" onclick="laydate({elem:'#start',festival:true})">
+							<p style="display: none;"><span id="start" class="start" ></span>~<span class="end">04-26</span></p>
+
+							<p><span id="startshow" class="startshow"></span>~<span class="endshow">04-26</span></p>
+							<p class="rangeYear">2017</p>
+						</div>
+			            <a href="javascript:void(0)" class="next J-next"></a>
+			        </th>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="right">
+		<table>
+			<tbody class="houseStatus">
+				<tr class="bTou">
+					<th>
+						<p class="month">04-01</p>
+						<p>今天</p>
+					</th>
+					<th>
+						<p class="month">04-02</p>
+						<p>今天</p>
+					</th>
+					<th>
+						<p class="month">04-03</p>
+						<p>今天</p>
+					</th>
+					<th>
+						<p class="month">04-04</p>
+						<p>今天</p>
+					</th>
+					<th>
+						<p class="month">04-05</p>
+						<p>今天</p>
+					</th>
+					<th>
+						<p class="month">04-06</p>
+						<p>今天</p>
+					</th>
+					<th>
+						<p class="month">04-07</p>
+						<p>今天</p>
+					</th>
+					<th>
+						<p class="month">04-08</p>
+						<p>今天</p>
+					</th>
+					<th>
+						<p class="month">04-09</p>
+						<p>今天</p>
+					</th>
+					<th>
+						<p class="month">04-10</p>
+						<p>今天</p>
+					</th>
+					<th>
+						<p class="month">04-11</p>
+						<p>今天</p>
+					</th>
+					<th>
+						<p class="month">04-12</p>
+						<p>今天</p>
+					</th>
+					<th>
+						<p class="month">04-13</p>
+						<p>今天</p>
+					</th>
+					<th>
+						<p class="month">04-14</p>
+						<p>今天</p>
+					</th>
+				</tr>
+			</tbody>
+		</table>
+		<ul class="state">
+			<div style="clear: both;"></div>
+		</ul>
+	</div>
+	<!--弹窗背景-->
+	<div class="tcback"></div>
+	<!--批量修改房态弹窗-->
+	<div class="batchStatusWarp template">
+    	<div class="top">
+        	批量修改房态<img src="image/x.png">
+        </div>
+        <div class="batchStatus">
+        	
+        	<div class="houseTypeSelect">
+        		<p class="typeTitle">房型：</p>
+        		<div class="houseSelectWarp">
+        			<ul>
+	        			<li class="allSelect houseLi">
+	        				<img src="image/gou1.jpg">
+	        			    <span>全选</span>
+	        			</li>
+	                    <div style="clear: both;"></div>
+	        		</ul>
+        		</div>
+        	</div>
+        	<div class="dateSelect">
+        		<span>日期：<span>
+        		<input type="text" name="" class="batchStartDate" id="J-batchStartDate">&nbsp;-
+        		<input type="text" name="" class="batchEndDate" id="J-batchEndDate">
+        	</div>
+        	<div class="invertory">
+        		<span class="invertoryTitle">库存：</span>
+        		<div class="invertorySelectWarp">
+        			<ul>
+        				<li class="houseLi invertoryLi shutHouse" count="shut">
+        					<img src="image/gou1.jpg">
+        					<span>关房</span>
+        				</li>
+        				<li class="houseLi invertoryLi fullHouse" count="0">
+        					<img src="image/gou1.jpg">
+        					<span>满房</span>
+        				</li>
+        				<div style="clear: both;"></div>
+        			</ul>
+        		</div>
+        	</div>
+        </div>
+        <div class="btnWarp">
+        	<a href="javascript:void(0)" class="close J-batchSave batchSave">保存</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+
+.jumping{
+	padding: 0 15px;
+}
+.jumpingLogo{
+	width: 100%;
+	text-align: center;
+}
+.jumpingLogo img{
+	width: 40%;
+	margin: 20px 0;
+}
+.jumpingTitle{
+	font-size: 18px;
+	line-height: 26px;
+}
+.jumpingPrice{
+	margin: 10px 0;
+	width: 100%;
+	padding: 10px 0 5px;
+	line-height: 36px;
+	text-align: center;
+	color: #9b9b9b;
+	letter-spacing: 3px;
+	border-top: 1px dashed #cdcdcd;
+	border-bottom: 1px dashed #cdcdcd;
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-ms-box-sizing:border-box;
+	-o-box-sizing:border-box;
+}
+.jumpingPrice span{
+	display: inline-block;
+	vertical-align: middle;
+	color: #d13f4c;
+	font-size: 26px;
+	margin: -7px 5px 0;
+}
+.jumpingPrice em{
+	color: #d13f4c;
+}
+.jumpingContent{
+	margin: 50px 0;
+	text-align: center;
+	font-size: 18px;
+}
+.jumpingContent span{
+	display: block;
+	color: #d13f4c;
+	font-size: 22px;
+}
+.jumpingLoading{
+	width: 100%;
+	height: 20px;
+	background:  url(http://7xio74.com2.z0.glb.qiniucdn.com/leapp_loading4.gif) center center no-repeat;
+	-webkit-background-size: 100px;
+	background-size: 100px;
+	margin-bottom: 50px;
+}
+.jumpingNotice{
+	padding: 0 20px;
+	font-size: 18px;
+	line-height:30px;
+	color: #808080;
+}

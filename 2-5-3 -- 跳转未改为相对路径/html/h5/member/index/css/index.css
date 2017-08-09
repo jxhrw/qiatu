@@ -1,0 +1,332 @@
+body{
+    font-family: "黑体",arial;
+}
+@font-face {
+    font-family: impact; 
+    src: url('/html/h5/member/giftcard/font/impact.ttf'); 
+}
+a{
+    display: block;
+}
+a:active{
+    text-decoration:none;
+}
+small{
+    font-size: inherit;
+}
+.invalid{
+    pointer-events: none;
+}
+.invalid span{
+    opacity: 0.3
+}
+.header{
+    padding-top: 0.7333rem;
+    height: 2.4133rem;
+    background: url('../images/index_2.0/border.png') no-repeat center top/100%;
+}
+.icons-top{
+    display: flex;
+    display: -webkit-flex;
+    display: box;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    width: 79.6%;
+    color: #fff;
+    margin: 0 auto;
+}
+.icons-top li{
+    width: 2.6667rem;
+    text-align: center;
+    font-size: 13px;
+}
+[data-dpr="2"] .icons-top li{
+    font-size: 26px;
+}
+[data-dpr="3"] .icons-top li{
+    font-size: 39px;
+}
+.icons-top li span{
+    display: block;
+    height: 0.8534rem;
+    margin:0 auto 0.44rem;
+}
+.book span{
+    background: url("../images/index_2.0/booking.png") no-repeat center top/contain;
+}
+.orders span{
+    background: url("../images/index_2.0/order.png") no-repeat center top/contain;
+}
+.pay span{
+    background: url("../images/index_2.0/pay.png") no-repeat center top/contain;
+}
+/*.icons li{
+    display: table-cell;
+}*/
+.tabs{
+    width: 81.6%;
+    margin: 0.5333rem auto;
+    overflow: hidden;
+}
+.tabs li{
+    float: left;
+    width: 50%;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: #b2b2b2;
+}
+.tabs li.active{
+    color: #000;
+}
+[data-dpr="2"] .tabs li{
+    font-size: 26px;
+}
+[data-dpr="3"] .tabs li{
+    font-size: 39px;
+}
+.tabs li span{
+    display: block;
+    margin: 0.16rem auto 0;
+    width: 18.63%;
+}
+.tabs li.active span{
+    border-bottom: 0.08rem solid #e2574c;
+}
+.swiper-container {
+    width: 100%;
+    -webkit-perspective: 1200px;
+    -moz-perspective: 1200px;
+    -ms-perspective: 1200px;
+    perspective: 1200px
+}
+.swiper-wrapper{
+    height: 4.44rem;
+}
+.swiper-slide {
+    width: 6.8rem;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d
+}
+.blank{
+    margin: 0 auto;
+    width: 2.4rem;
+    padding-top: 3.3333rem;
+    background:url('../images/index_2.0/none.png') no-repeat center 0.44rem/100%;
+    color: #404040;
+    text-align: center;
+}
+.card,.coupon{
+    width: 6.8rem;
+    height: 4rem;
+    border-radius: 0.2rem;
+    margin: 0 auto;
+    box-shadow:0 0.1333rem 0.4rem rgba(0,0,0,0.2);
+    position: relative;
+}
+.card{
+    background: #c6cad3;
+}
+.cards{
+    color: #fff;
+}
+.coupons{
+    display: none;
+}
+.card .name{
+    width: 4rem;
+    display: inline-block;
+    margin: 0.8rem 0 0 0.64rem;
+    font-size: 16px;
+}
+[data-dpr="2"] .card .name{
+    font-size: 32px;
+}
+[data-dpr="3"] .card .name{
+    font-size: 48px;
+}
+.card .faceValue{
+    display: inline-block;
+    position: absolute;
+    top: 0.3733rem;
+    right: 0.4rem;
+}
+.card .faceValue strong{
+    display: table-cell;
+    font-family: 'impact';
+    font-weight: normal;
+    font-size: 32px;
+}
+[data-dpr="2"] .card .faceValue strong{
+    font-size: 64px;
+}
+[data-dpr="3"] .card .faceValue strong{
+    font-size: 96px;
+}
+.card .faceValue span{
+    display: table-cell;
+    vertical-align: bottom;
+    padding:0 0 0.16rem 0.1333rem;
+}
+.card .desc{
+    position: absolute;
+    left: 0.6rem;
+    bottom: 0.36rem;
+    line-height: 0.48rem;
+}
+.desc{
+    font-size: 11px;
+}
+[data-dpr="2"] .desc{
+    font-size: 22px;
+}
+[data-dpr="3"] .desc{
+    font-size: 33px;
+}
+.desc span{
+    font-family: arial;
+}
+.card img{
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 50%;
+    /*background:url('../images/index_2.0/logo.png') no-repeat center center/contain;*/
+    position: absolute;
+    right: 0.4rem;
+    bottom: 0.4rem;
+}
+.coupon{
+    color: #4a4a4a;
+    background: url('../images/index_2.0/coupon.png') no-repeat center bottom/contain;
+}
+.coupon .name{
+    display: table-cell;
+    height: 1.7733rem;
+    vertical-align: middle;
+    font-size: 13px;
+    font-weight: 600;
+    padding-left: 0.5467rem;
+    padding-right: 0.4rem;
+}
+.coupon .name::before{
+    content: "";
+    width: 0.08rem;
+    height: 0.4rem;
+    background: #e2574c;
+    border-radius: 3px;
+    position: absolute;
+    left: 0.24rem;
+}
+[data-dpr="2"] .coupon .name{
+    font-size: 26px;
+}
+[data-dpr="3"] .coupon .name{
+    font-size: 39px;
+}
+.coupon .desc{
+    line-height: 0.44rem;
+    position: absolute;
+    left: 0.5467rem;
+    bottom: 0.32rem;
+}
+.checkmore{
+    visibility: hidden;
+    margin: 0 auto;
+    color: #000;
+    font-size: 12px;
+    text-align: center;
+}
+[data-dpr="2"] .checkmore{
+    font-size: 24px;
+}
+[data-dpr="3"] .checkmore{
+    font-size: 36px;
+}
+.checkmore::after{
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 0.1733rem solid #4a4a4a;
+    border-top: 0.1067rem solid transparent;
+    border-right:0.1733rem solid transparent;
+    border-bottom:0.1067rem solid transparent;
+    margin-left: 0.28rem;
+}
+.icons-bottom{
+    display: flex;
+    display: -webkit-flex;
+    display: box;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    width: 92%;
+    margin: 0.44rem auto 0.52rem;
+}
+.icons-bottom li{
+    font-size: 12px;
+    line-height: 1.2rem;
+    width: 1.6rem;
+    text-align: center;
+}
+[data-dpr="2"] .icons-bottom li{
+    font-size: 24px;
+}
+[data-dpr="3"] .icons-bottom li{
+    font-size: 36px;
+}
+.icons-bottom li a{
+    color: #000;
+}
+.icons-bottom li span{
+    display: block;
+    height: 0.8rem;
+}
+.hotels span{
+    background:url('../images/index_2.0/hotels.png') no-repeat center top/contain;
+}
+.goods span{
+    background:url('../images/index_2.0/goods.png') no-repeat center top/contain;
+}
+.transfer span{
+    background:url('../images/index_2.0/transfer.png') no-repeat center top/contain;
+}
+.recharge span{
+    background:url('../images/index_2.0/recharge.png') no-repeat center top/contain;
+    opacity: 0.3;
+}
+.exchange span{
+    background:url('../images/index_2.0/recharge.png') no-repeat center top/contain;
+}
+.getmore{
+    margin: 0 auto;
+    width: 8rem;
+    height: 1.0667rem;
+    font-size: 13px;
+    border-radius: 0.5333rem;
+    background: #2d2e31;
+    color: #fff;
+    text-align: center;
+    line-height:1.0667rem; 
+}
+[data-dpr="2"] .getmore{
+    font-size: 26px;
+}
+[data-dpr="3"] .getmore{
+    font-size: 39px;
+}
+.tel{
+    margin-top: 0.68rem;
+    line-height: 0.56rem;
+    color: #808080;
+    text-align: center;
+    background:url('../images/index_2.0/tel.png') no-repeat 2.7733rem top/contain;
+}
+.coupon img {
+    position: absolute;
+    right: 0.4rem;
+    bottom: 0.45rem;
+    width: 0.64rem;
+    height: 0.64rem;
+}

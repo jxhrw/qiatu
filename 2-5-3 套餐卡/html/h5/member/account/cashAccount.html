@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="Pragma" content="no-cache"/>
+		<meta http-equiv="Cache-Control" content="no-cache"/>
+		<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" name="viewport" id="viewport" />
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+		<title>现金账户</title>
+		<link href="http://7xio74.com1.z0.glb.clouddn.com/css/base.css" rel="stylesheet">
+		<link href="css/cashAccount-1-21.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="/html/h5/market/css/saleConsumption.css">
+		 <script src="http://7xio74.com1.z0.glb.clouddn.com/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="http://7xio74.com2.z0.glb.qiniucdn.com/rem.js" charset="UTF-8"></script>
+		<script src="http://7xio74.com1.z0.glb.clouddn.com/js/general.js?h6"></script>
+		<script type="text/javascript" src="/html/h5/publicFile/js/transPassword.js"></script>
+		<script src="js/cashAccount-1-21.js"></script>
+	</head>
+	<body>
+    <!--现金账户-->
+	<section style="/*display: none*/" class="cashAccount">
+		<header class="total">
+			现金余额<br/><span></span>
+		</header>
+		<div class="assets">
+			<div class="available">可用现金资产（元）<br/><span></span></div>
+			<div class="freeze">冻结资产（元）<br/><span></span></div>
+		</div>
+		<div class=""></div>
+		<ul class="list">
+			<li class="cashRec"><a href="#" >提现记录</a></li>
+			<li class="changeRec"><a href="#">账户变动记录</a> </li>
+		</ul>
+		<button class="withDraw">提现到微信钱包</button><br/>
+        <a class="tel" href="tel:4000265225">&nbsp;&nbsp;&nbsp;&nbsp;几何客服&nbsp;&nbsp;400-0265225</a>
+		<div class="popup">
+			<h1>验证几何君的身份</h1>
+		</div>
+		<div class="mask"></div>
+	</section>
+	<!--底部弹窗通用-start-->
+	<div class="popupT wxpop">
+		<div class="backShadow"></div>
+		<div class="setPsword">
+			<p class="setP">您正在提现，为保障您的资产安全，请点击下一步验证您的身份并设置交易密码。</p>
+			<button class="setButton" id="setButton">下一步</button>
+		</div>
+		<div class="checkPsword">
+			<div class="checkClose" id="checkClose"></div>
+			<div class="checkTitle"><p>&nbsp;</p></div>
+			<div class="titlePassword" id="titlePassword">请输入交易密码</div>
+			<table id="inputPassword" class="inputCss" cellpadding="0" cellspacing="3">
+				<tr>
+					<td></td><td></td><td></td><td></td><td></td><td></td>
+				</tr>
+			</table>
+			<button id="checkBtn" class="button no">确认</button>
+			<p class="checkForget">忘记交易密码</p>
+			<!--键盘-->
+			<div class="keyboard" style="position: fixed;bottom: 0;left: 0;width: 100%;z-index: 10;background: #fff;"></div>
+		</div>
+		<div class="textPs">
+			<p class="textPsTit">验证<span id="owner"></span>的身份</p>
+			<p class="textPsPhone">已发送验证码到</p><p class="textPsPhone" id="phoneNum"></p>
+			<div class="SMSVer">
+				<input type="tel" placeholder="请输入验证码">
+				<button id="again" class="no">60S</button>
+			</div>
+			<button id="sure" class="button">确定</button>
+		</div>
+	</div>
+	<div class="mask"></div>
+	<div class="openwx">
+		<p>请前往【几何民宿】微信公众号提交提现申请</p>
+		<img src="./images/openwx.png">
+		<button>确定</button>
+	</div>
+	<script type="text/javascript" src="/html/h5/publicFile/js/cnzz.js"></script>
+	</body>
+</html>

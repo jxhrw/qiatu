@@ -1,0 +1,30 @@
+html{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}
+input[type="submit"],input[type="reset"],input[type="button"],input{-webkit-appearance:none;resize:none;}
+body,div,ul,li,ol,h1,h2,h3,h4,h5,h6,input,textarea,select,p,dl,dt,dd,a,img,button,form,table,th,tr,td,tbody,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{-webkit-tap-highlight-color:rgba(0,0,0,0);}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}
+img{max-width:100%;height:auto;width:auto\9;-ms-interpolation-mode:bicubic;}
+body,div,ul,li,ol,h1,h2,h3,h4,h5,h6,input,textarea,select,p,dl,dt,dd,a,img,button,form,table,th,tr,td,tbody,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{margin:0;padding:0;border:none;}
+em,i{font-style:normal;}strong,b{font-weight:normal;}
+.clearfix:after{content:"";display:block;visibility:hidden;height:0;clear:both;}
+.clearfix{zoom:1;}a{text-decoration:none;color:#969696;font-family:Heiti SC, Heiti TC,Microsoft YaHei,Tahoma,Arial,sans-serif;}
+a:hover{text-decoration:none;}
+ul,ol{list-style:none;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-family:"ºÚÌå",Heiti TC;}
+img{border:none;}
+.scope{min-width:320px;max-width:540px;}
+body{font-family: Heiti SC, Heiti TC,open sans,lantinghei SC,lantinghei TC, Microsoft YaHei,Tahoma,Arial,sans-serif,"黑体";color:#1a1a1a;background-color: #FFF ;}
+@font-face {font-family: 'iconfont';
+    src: url('../font/iconfont.eot'); /* IE9*/
+    src: url('../font/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../font/iconfont.woff') format('woff'), /* chrome、firefox */
+    url('../font/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('../font/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+.iconfont{
+    font-family:"iconfont" !important;
+    font-size:16px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;}
+
+

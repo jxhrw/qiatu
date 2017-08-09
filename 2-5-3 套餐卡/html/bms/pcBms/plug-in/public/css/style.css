@@ -1,0 +1,189 @@
+/*输入框选择框 css--start*/
+select {
+    border: solid #cecece 1px;
+    width: 160px;
+    height: 25px;
+    border-radius: 2px;
+    padding-left: 5px;
+    color: #2a2a2a;
+}
+.selectClass {
+    background-image: url(../images/icon.jpg);
+    background-repeat: no-repeat;
+    background-position: 147px 7px;
+    appearance: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    -moz-appearance: none;
+}
+.input {
+    border: solid #cecece 1px;
+    height: 25px;
+    box-sizing: border-box;
+    border-radius: 2px;
+    padding-left: 5px;
+    width: 160px;
+    color: #2a2a2a;
+    font-size: 12px;
+}
+.calendar{
+    width: 130px;
+    background: url("../images/calendarIcon.png") no-repeat right center/27% 100%;
+}
+.search {
+    border: none;
+    box-sizing: border-box;
+    background-color: #343f4c;
+    color: white;
+    width: 80px;
+    height: 25px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+/*输入框选择框 css--end*/
+
+/*表格 css--start*/
+.tableBase{
+    width: 100%;
+    border-collapse:collapse;
+    font-size: 12px;
+}
+.tableBase tbody tr:nth-child(2n) td{
+    background-color: #fbfbfb;
+}
+.tableBase tbody tr:hover td{
+    background-color: #f2f2f2;
+}
+.tableBase th {
+    background-color: #fbfbfb;
+    padding: 14px 10px;
+    font-weight: normal;
+    font-size: 14px;
+    border: 1px solid #dcdcdc;
+}
+.tableBase tbody td{
+    border: 1px solid #dcdcdc;
+    padding: 0 10px;
+    height: 60px;
+    text-align: center;
+}
+
+.table{
+    border: 2px solid #dbdde5;
+}
+.table th{
+    font-weight: bold;
+    border: none;
+    border-bottom: 1px solid #dbdde5;
+}
+.table tbody td{
+    border: none;
+}
+.table tfoot td{
+    border-top: 2px solid #dbdde5;
+    background: #fbfbfb;
+    text-align: left;
+    padding: 11px 32px;
+}
+.table tfoot td span{
+    display: block;
+    line-height: 22px;
+    width: 88px;
+    border: 1px solid #b3b3b3;
+    text-align: center;
+    margin-right: 10px;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+}
+.table tfoot td span:hover{
+    background: #e2574c;
+    color: #fff;
+    border-color: #e2574c;
+}
+.unavailable{
+    pointer-events: none;
+    cursor: default!important;
+    filter:alpha(opacity=30); /* IE */
+    -moz-opacity:0.3; /* 老版Mozilla */
+    -khtml-opacity:0.3; /* 老版Safari */
+    opacity: 0.3; /* 支持opacity的浏览器*/
+}
+.unavailable:hover{
+    background: #fff!important;
+    color: #000!important;
+    border-color: #b3b3b3!important;
+}
+.table tbody tr,.newProgram,.table tfoot td span{
+    cursor: pointer;
+}
+.noMessage {
+    font-weight: bold;
+}
+/*表格 css--end*/
+
+/*弹窗 css-start*/
+/*层级 .popups > .frame > .closeBtnSg+.frameTitleWhite+other || .closeBtn+.frameTitle+other */
+.popups{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 100;
+    display: none;
+}
+.frame{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #fff;
+    transform:translate(-50%,-50%);
+    -ms-transform:translate(-50%,-50%);
+    -moz-transform:translate(-50%,-50%);
+    -webkit-transform:translate(-50%,-50%);
+    -o-transform:translate(-50%,-50%);
+}
+.closeBtn{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    right: 0;
+    cursor: pointer;
+    background: url(../../ModalService/x.png) no-repeat 20% center/40% 40%;
+}
+.frameTitle{
+    height: 40px;
+    font-size: 14px;
+    line-height: 40px;
+    background-color: rgb(51, 63, 75);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    text-align: center;
+}
+.frameTitleWhite{
+    background: none;
+    height: 40px;
+}
+/*弹窗 css-end*/
+
+/*按钮 css-start*/
+.button {
+    cursor: pointer;
+    display: block;
+    height: 30px;
+    width: 160px;
+    text-align: center;
+    background: -webkit-linear-gradient(left, #e73a5e , #ef6454);
+    background: -o-linear-gradient(right, #e73a5e, #ef6454);
+    background: -moz-linear-gradient(right, #e73a5e, #ef6454);
+    background: linear-gradient(to right, #e73a5e , #ef6454);
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+}
+
+
+/*按钮 css-end*/

@@ -1,0 +1,11 @@
+body{background-color: #fff;}
+.screenBox{position: relative;}
+.screen{width: 21.8rem;padding-bottom: 2.9rem;margin: 0 auto;position: relative;top: 50%;transform: translateY(-50%);-webkit-transform: translateY(-50%);-o-transform: translateY(-50%);-ms-transform: translateY(-50%);-moz-transform: translateY(-50%);}
+.shareArrow{height: 2.1rem;background: url("http://7xio74.com1.z0.glb.clouddn.com/shareArrow.png") no-repeat center/100% 100%;}
+.signSusTips{padding-left: 5rem;position: relative;padding-top: 1.8rem;}
+.signSusTips img{width: 2.8rem;position: absolute;left: 1rem;}
+.signTitle1{font-size: 1rem;color: #000;line-height: 1.6rem;font-weight: bold;}
+.signTitle2{font-size: 0.9rem;color: #4a4a4a;line-height: 1.3rem;margin-top: 0.8rem;}
+.shareImg{width: 18.5rem;margin: 0 auto;display: block;padding: 2.2rem 0;}
+.twoLine{height: 0.3em;margin-bottom: 0;background: url("http://7xio74.com1.z0.glb.clouddn.com/shareArrow2.png") no-repeat center/100% 100%;}
+.jiHe{width: 7.4rem;left: 50%;margin-left: -3.7rem;display: block;position: absolute;bottom: 1rem;}

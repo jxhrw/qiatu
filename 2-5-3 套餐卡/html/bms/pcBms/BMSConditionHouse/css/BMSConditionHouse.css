@@ -1,0 +1,350 @@
+table {
+	font-family: verdana,arial,sans-serif;
+	font-size: 12px;
+	border-width: 1px;
+	border-color: #dcdcdc;
+	border-collapse: collapse;
+    font-family: block;
+    text-align: center;
+}
+.left p {
+	margin-bottom: 0;
+	margin-top: 0;
+}
+.right p {
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+.left tr {
+	width: 155px;
+	height: 61px;
+}
+.right tr {
+	width: 155px;
+	height: 61px;
+}
+th{
+	border: 1px solid #dbdbdb;
+}
+td {
+	border: 1px solid #dbdbdb;
+}
+.left {
+	width: 15%;
+}
+.left table {
+	  width: 100%;
+}
+.left {
+	float: left;
+}
+.left td {
+	border-right: none;
+}
+.num {
+	margin: 0 auto;
+	width: 90px;
+	word-wrap: break-word;
+}
+.left th {
+	border-right: none;
+}
+.right table {
+	width: 85%;
+	table-layout:fixed
+}
+/*.right {
+	overflow: auto;
+	margin-left:15%;
+}*/
+.back {
+	margin-top: 2px;
+	float: left;
+	height: 30px;
+	width: 30px;
+	background-image: url('../image/back.png');
+	background-size: 30px 30px;
+	display: inline-block;
+}
+.next {
+	margin-top: 2px;
+	height: 30px;
+	width: 30px;
+	background-image: url('../image/more.png');
+	background-size: 30px 30px;
+	float: right;
+	display: inline-block;
+}
+.b-th{
+	position: relative;
+}
+.range {
+	width: 81px;
+	display: block;
+	float: left;
+	position: absolute;
+	top: -5%;
+	left: 50%;
+	transform: translate(-50%,50%);
+}
+.full {
+	background-color: red;
+	color: #fff;
+}
+.shut {
+	background-color: #ccc;
+	color: #fff;
+}
+.state {
+	position:absolute;
+    background-color: #fff;
+    padding-left: 0;
+    display: none;
+    box-shadow: #908e8e 0px 0px 10px 3px;
+}
+.state li {
+	background-color: #fff;
+	list-style: none;
+	text-align: center;
+	float: left;
+	height: 30px;
+	line-height: 30px;
+	font-size: 12px;
+}
+.state li:hover{
+	background-color: #F2F2F2;
+	color: #000;
+}
+.canselected {
+	height: 58px;
+	position: relative;
+}
+.canselected p{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+.xuan{
+	background-color: #7feee6;
+}
+.xuan1{
+	background-color: #7feee6;
+}
+.xuan2{
+	background-color: #7feee6;
+}
+#start {
+	margin-left: -35px;
+}
+.range p {
+	overflow: hidden;
+}
+.laydate_body .laydate_box a {
+    background-color: #D91600;
+}
+.bTou {
+	background-color: #f8f8f8;
+}
+.b-shang {
+	background-color: #f8f8f8;
+}
+.btn {
+	display: inline-block;
+    height: 30px;
+    width: 160px;
+    text-align: center;
+    background: -webkit-linear-gradient(left, #e73a5e , #ef6454);
+    background: -o-linear-gradient(right, #e73a5e, #ef6454);
+    background: -moz-linear-gradient(right, #e73a5e, #ef6454);
+    background: linear-gradient(to right, #e73a5e , #ef6454);
+    color: #fff;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+	text-decoration: none;
+    text-align: center;
+    float: right;
+    margin-bottom: 5px;
+    line-height: 30px;
+}
+.template {
+	z-index: 1002;
+	position: absolute;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: none;
+    background: rgb(255, 255, 255);
+    background-color: #f7f7f7;
+}
+.top span {
+	color: #fff;
+	font-size: 14px;
+}
+.top img {
+	width: 18px;
+    height: 18px;
+    float: right;
+    margin-top: 6px;
+    margin-right: 20px;
+}
+.top {
+	height: 35px;
+    font-size: 14px;
+    padding-left: 10px;
+    line-height: 30px;
+    background-color: rgb(51, 63, 75);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    text-align: center;
+    padding-top: 5px;
+}
+.batchStatusWarp {
+	overflow: hidden;
+	width: 790px;
+}
+.batchChangeDate {
+	float: left;
+}
+.batchChangeDate input {
+	width: 100px;
+	height: 30px;
+	outline: none;
+	border:1px solid #ccc;
+	text-align: center;
+}
+.houseLi {
+    list-style: none;
+    float: left;
+    margin-left: 21px;
+    width: 66px;
+}
+.typeTitle {
+	float: left;
+	margin-top: 28px;
+}
+.invertoryTitle {
+	float: left;
+}
+.btnWarp {
+	height: 50px;
+	padding-bottom: 20px;
+	background-color: #dfdddd;
+}
+.batchSave {
+    margin-top: 20px;
+    margin-left: 336px;
+}
+.houseLi img {
+	margin-top: 6px;
+	margin-left: 10px;
+	float: left;
+}
+.houseLi span {
+	position: relative;
+    top: 3px;
+    left: 5px;
+}
+.houseSelectLi p {
+	margin-top: 3px;
+	margin-left: 31px
+}
+.batchStatus {
+	margin-top: 30px;
+	margin-left: 64px;
+	overflow: auto;
+	height: 400px;
+    width: 734px;
+}
+.houseSelectWarp li{
+	width: 197px;
+    margin-left: 20px;
+    margin-top: 26px;
+/*    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;*/
+}
+.houseTypeSelect {
+    width: 710px;
+	overflow: hidden;
+}
+.houseSelectWarp {
+    margin-left: 21px;
+    width: 689px;
+    height: 171px;
+    /*overflow: auto;*/
+}
+.houseSelectWarp ul {
+	padding-left: 0;
+	margin-top: 0;
+	margin-left: 28px;
+}
+.invertorySelectWarp {
+	height: 49px;
+	/*overflow: auto;*/
+	margin-left: 21px;
+    width: 686px;
+}
+.invertorySelectWarp ul {
+	padding-left: 0;
+	margin-top: 0;
+    width: 568px;
+    margin-left: 28px;
+}
+.batchStartDate {
+	margin-left: 27px;
+}
+.dateSelect {
+	margin-top:40px; 
+}
+.invertory {
+	margin-top: 40px;
+	margin-bottom: 40px;
+	width: 686px;
+
+}
+.dateSelect input {
+	width: 100px;
+    height: 30px;
+    outline: none;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+.tcback {
+	display: none;  
+    position: fixed;  
+    top: 0%;  
+    left: 0%;  
+    width: 100%;  
+    height: 100%;  
+    background-color: black;  
+    z-index:1001;  
+    -moz-opacity: 0.8;  
+    opacity:.80;  	
+    filter: alpha(opacity=80); 
+}
+.popBtn {
+	box-sizing: border-box;
+	text-align: center;
+	border: 1px solid #e2574c;
+	color: #e2574c;
+	border-radius: 15px;
+	display: inline-block;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    text-decoration: none;
+    text-align: center;
+    margin-left: 300px;
+    margin-top: 20px;
+}
+.popBtn:hover {
+	background: -moz-linear-gradient(left top, #e73a5e, #ef6454);
+    background: -webkit-linear-gradient(left top, #e73a5e, #ef6454);
+    background: -o-linear-gradient(left top, #e73a5e, #ef6454);
+    color: #fff;
+    border: 1px solid transparent;
+}

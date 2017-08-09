@@ -1,0 +1,16 @@
+body{background: #ebedf0 url("../images/topBg.png") no-repeat top center/contain;min-height: 300px;}
+.open{height: 10.1rem;}
+.phoneBox{width: 19.2rem;padding: 1rem 1.9rem 2.1rem 1.9rem;margin: 0 auto;background:-webkit-gradient(linear,0 0,0 36%,from(rgba(255, 255, 255, 0.6)),to(rgba(255, 255, 255, 1)));border-radius: 0.5rem;box-shadow: 0 0 15px #666;font-size: 1rem;color: #4a4a4a;font-weight: bold;text-align: center;}
+
+.successIcon{width: 4.4rem;}
+.successTxt{font-size: 1.1rem;}
+.findTxt{text-align: left;font-weight: normal;letter-spacing: 1px;font-size: 0.9rem;line-height: 1.67rem;margin-top: 1rem;}
+.findIcon{width: 16.37rem;margin-top: 1rem;}
+
+.checkBox{width: 19.2rem;padding: 1rem 1.9rem 1rem 1.9rem;margin: 1rem auto 0 auto;background:#fff;border-radius: 5px;box-shadow: 0 0 15px #666;font-size: 1rem;color: #4a4a4a;text-align: center;}
+.hasCardTitle{color: #000;font-size: 1.2rem;font-weight: bold;padding-top: 1rem;}
+.hasCardTxt{margin-top: 1rem;padding-bottom: 1rem;font-size: 1rem;}
+
+.logo{height: 2.27rem;background: url("../images/LOGO.png") no-repeat center/contain;margin-top: 1rem;margin-bottom: 0.5rem;}
+
+#prompt{max-width: 18rem;line-height: 2rem;text-align: center;background: #000;color: #fff;border-radius: 0.7rem;position: fixed;top: 40%;left: 50%;transform: translate(-50%,-50%);display: none;z-index: 100;padding: 0 1rem;}

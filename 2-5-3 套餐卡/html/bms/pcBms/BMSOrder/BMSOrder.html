@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>订单</title>
+    <script src="http://7xio74.com1.z0.glb.clouddn.com/jquery-2.1.4.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://7xio74.com1.z0.glb.clouddn.com/css/base.css">
+    <link rel="stylesheet" type="text/css" href='./css/style.css'>
+    <link rel="stylesheet" type="text/css" href='../plug-in/paging/paging.css'>
+    <script src="../plug-in/laydate/laydate.js"></script>
+    <script src="../plug-in/paging/paging.js"></script>
+    <script src='../plug-in/animate/animate.js'></script>
+    <script src='../plug-in/ModalService/style.js'></script>
+
+</head>
+<body>
+<div class='queryArea'>
+    <div class="queryAreaContent" style="margin-left:0">
+        <select class="selectClass" id='chooseTime'>
+            <option value="createTime">预定日期</option>
+            <option value="checkIn">入住日期</option>
+            <option value="checkOut">离店日期</option>
+        </select>
+        <input type="text" class='input' id='startDate' readonly/>
+        <span>-</span>
+        <input type="text" class='input' id='endDate' readonly/>
+    </div>
+    <div class='queryAreaContent'>
+        <span>客人姓名</span>
+        <input type="text" class='input'id='customerName'/>
+    </div>
+    <div class='queryAreaContent'>
+        <span>手机号</span>
+        <input type="text" class='input' id='customerMobile'/>
+    </div>
+</div>
+<div class='queryArea1'>
+    <div class="queryAreaContent" style="margin-left:0">
+        <span>订单状态</span>
+        <select class="selectClass" id='status'>
+            <option value="">全部</option>
+            <option value="5">等待确认</option>
+            <option value="8">已确认</option>
+            <option value="9">已取消</option>
+            <option value="12">订单完成</option>
+        </select>
+    </div>
+    <div class='queryAreaContent'>
+        <span>订单类型</span>
+        <select class="selectClass" id='orderType'>
+            <option value="">全部</option>
+            <option value="2">订房订单</option>
+            <option value="6">店内支付</option>
+        </select>
+    </div>
+    <button id='search'>搜索</button>
+    <button id='download'>下载</button>
+</div>
+
+
+<div class="mainTable">
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td class="th_td">订单号</td>
+            <td class="th_td">订单类型</td>
+            <td class="th_td">客人姓名</td>
+            <td class="th_td">手机号</td>
+            <td class="th_td">订单金额（元）</td>
+            <td class="th_td">入住-离店/消费日期</td>
+            <td class="th_td">订单状态</td>
+            <td class="th_td">操作</td>
+        </tr>
+        <tr class="ifNoTableContent">
+            <td colspan="8" style="font-weight: bold;">暂无信息</td>
+        </tr>
+        <tbody class="ifHaveTableContent">
+
+        </tbody>
+    </table>
+</div>
+<div class="tcdPageCode" style="float:right"></div>
+
+<div id='see' class="template">
+    <div class='seeTop'>
+        <span style='font-size:20px;' class="seeStatus">订单状态</span>
+        <span style="margin-left:20px;" class='seeBookOperator'></span>
+        <span class="seeBookResult"></span>
+    </div>
+    <div class='seeLeft'>
+        <p class="seeP">
+            <span>产品：</span>
+            <span class='seeOrderName'>产品内容</span>
+        </p>
+        <p class="seeP">
+            <span>间数：</span>
+            <span class="seeQuantity">间数内容</span>
+        </p>
+        <p class="seeP seeCheckIn">
+            <span>入住日期：</span>
+            <span class="seeCheckInTime">入住日期</span>
+        </p>
+        <p class="seeP seeCheckOut">
+            <span>离店日期：</span>
+            <span class="seeCheckOutTime">离店日期</span>
+        </p>
+        <p class="seeP">
+            <span>客人姓名：</span>
+            <span class="seeCustomerName">客人姓名</span>
+        </p>
+        <p class="seeP">
+            <span>客人电话：</span>
+            <span class="seeCustomerMobile">客人电话</span>
+        </p>
+        <p class="seeP">
+            <span>支付时间：</span>
+            <span class="seePaidTime">支付时间</span>
+        </p>
+        <p class="seeP">
+            <span>订单号：</span>
+            <span class="seeOrderid">订单号</span>
+        </p>
+    </div>
+    <div class='seeRight'>
+        <p class="seeP">
+            <span>订单总额：</span>
+            <span class="seeAmount">订单总额</span>
+        <div class="seeRightContent"></div>
+        </p>
+    </div>
+    <div class="seeBottom">
+        <!-- 向上100px -->
+        <button onclick="operateOrder(2)" class="seeHideButton seeRefuse1">价格错误</button>
+        <!-- 向上60px -->
+        <button onclick="operateOrder(0)" class='seeHideButton seeRefuse2'>无房</button>
+        <!-- 向上20px -->
+        <button onclick="operateOrder(3)" class="seeHideButton seeRefuse3">其他</button>
+        <button class="seeRefuse" onclick="refuseAnimate()">拒单</button>
+        <button class="seeConfirm" onclick="operateOrder(1)">确认有房</button>
+        <button onclick="operateOrder(3)" class="cancellation">取消</button>
+        <button onclick="modalService.close()" class="seeClose">关闭</button>
+    </div>
+</div>
+</body>
+<script>
+    laydate.skin('dahong');
+    var start = {
+        elem: '#startDate',
+        format: 'YYYY/MM/DD',
+        //        max: '2099-06-16 23:59:59', //最大日期
+        istime: true,
+        start:laydate.now(0, 'YYYY-MM-DD'),
+        istoday: false,
+        choose: function(datas){
+            end.min = datas; //开始日选好后，重置结束日的最小日期
+            end.start = datas //将结束日的初始值设定为开始日
+        }
+    };
+    var end = {
+        elem: '#endDate',
+        format: 'YYYY/MM/DD',
+        //        max: '2099-06-16 23:59:59',
+        istime: true,
+        start:laydate.now(0, 'YYYY-MM-DD'),
+        istoday: false,
+        choose: function(datas){
+            start.max = datas; //结束日选好后，重置开始日的最大日期
+        }
+    };
+    laydate(start);
+    laydate(end);
+</script>
+<script src='./js/BMSOrder.js'></script>
+</html>

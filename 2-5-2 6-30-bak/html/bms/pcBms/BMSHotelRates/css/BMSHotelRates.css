@@ -1,0 +1,374 @@
+table {
+	font-family: verdana,arial,sans-serif;
+	font-size: 12px;
+	border-width: 1px;
+	border-color: #dcdcdc;
+	border-collapse: collapse;
+    font-family: block;
+    text-align: center;
+}
+.left p {
+	margin-bottom: 0;
+	margin-top: 0;
+}
+.right p {
+	margin-bottom: 0;
+	margin-top: 0;
+}
+.right th {
+	width: 50px;
+}
+.left tr {
+	width: 155px;
+	height: 61px;
+}
+.right tr {
+	width: 155px;
+	height: 61px;
+}
+.right td {
+	width: 50px;
+}
+/*.right table {
+	width: 1000px;
+}*/
+th{
+	border: 1px solid #dbdbdb;
+}
+td {
+	border: 1px solid #dbdbdb;
+}
+.left {
+	width: 15%;
+}
+.left table {
+	  width: 100%;
+}
+.left {
+	float: left;
+}
+.left td {
+	border-right: none;
+}
+.num {
+	margin: 0 auto;
+	width: 90px;
+	word-wrap: break-word;
+}
+.left th {
+	border-right: none;
+}
+.right table {
+	width: 85%;
+	table-layout:fixed
+}
+/*.right {
+	user-select:none;
+	margin-left:15%;
+}*/
+.back {
+	margin-top: 2px;
+	float: left;
+	height: 30px;
+	width: 30px;
+	background-image: url('../image/back.png');
+	background-size: 30px 30px;
+	display: inline-block;
+}
+.next {
+	margin-top: 2px;
+	height: 30px;
+	width: 30px;
+	background-image: url('../image/more.png');
+	background-size: 30px 30px;
+	float: right;
+	display: inline-block;
+}
+.b-th{
+	position: relative;
+}
+.range {
+	width: 81px;
+	display: block;
+	float: left;
+	position: absolute;
+	top: -5%;
+	left: 50%;
+	transform: translate(-50%,50%);
+}
+.full {
+	background-color: red;
+	color: #fff;
+}
+.shut {
+	background-color: #ccc;
+	color: #fff;
+}
+.state {
+	position:absolute;
+    border: 1px solid #000;
+    background-color: #fff;
+    padding-left: 0;
+    display: none;
+}
+.state li {
+	list-style: none;
+	float: left;
+}
+.state li:hover{
+	background-color: #ccc;
+	color: #fff;
+}
+.canselected {
+	height: 58px;
+}
+.xuan{
+	background-color: #7feee6!important;
+}
+.xuan1{
+	background-color: #7feee6;
+}
+.xuan2{
+	background-color: #7feee6;
+}
+#start {
+	margin-left: -35px;
+}
+.range p {
+	overflow: hidden;
+}
+.laydate_body .laydate_box a {
+    background-color: #D91600;
+}
+.b-tou {
+	background-color: #f8f8f8;
+}
+.b-shang {
+	background-color: #f8f8f8;
+}
+.btn {
+	display: inline-block;
+	background-color: #D91600;
+	color:#fff;
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	text-decoration: none;
+    text-align: center;
+    float: right;
+    margin-bottom: 5px;
+}
+.changeprice{
+	margin-right: 2%;
+}
+.tcback {
+	display: none;  
+    position: fixed;  
+    top: 0%;  
+    left: 0%;  
+    width: 100%;  
+    height: 100%;  
+    background-color: black;  
+    z-index:1001;  
+    -moz-opacity: 0.8;  
+    opacity:.80;  	
+    filter: alpha(opacity=80); 
+}
+.template {
+	z-index: 1002;
+	position: absolute;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: none;
+    background: rgb(255, 255, 255);
+    background-color: #f7f7f7;
+}
+.top span {
+	color: #fff;
+	font-size: 14px;
+}
+.top img {
+	width: 18px;
+    height: 18px;
+    float: right;
+    margin-top: 6px;
+    margin-right: 20px;
+}
+.top {
+	height: 35px;
+    font-size: 14px;
+    padding-left: 10px;
+    line-height: 30px;
+    background-color: rgb(51, 63, 75);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    text-align: center;
+    padding-top: 5px;
+}
+.set-warp {
+	display: none;
+	width: 430px;
+	padding-bottom: 50px;
+}
+.set-warp p {
+	font-size: 14px;
+	text-align: center;
+}
+.shuru {
+	height: 27px;
+    font-size: 15px;
+	display: block;
+	width: 255px;
+	margin-left: 72px;
+	margin-top: 50px;
+}
+.shuru input {
+	text-align: center;
+	height: 23px;
+	outline: none;
+}
+.set-warp a {
+	display: inline-block;
+    background-color: #D91600;
+    color: #fff;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    text-decoration: none;
+    text-align: center;
+    margin-left: 162px;
+    margin-top: 67px;
+}
+.defaultWarp {
+	overflow: hidden;
+	width: 710px;
+	/*padding-bottom: 30px;*/
+}
+.bedTypeLi {
+	list-style: none;
+	float: left;
+	margin-left: 20px;
+}
+.bedType {
+	font-weight: bold;
+}
+.bedTypePrice {
+	width: 60px;
+	height: 30px;
+	outline: none;
+	border:1px solid #ccc;
+	text-align: center;
+}
+.bedType {
+	margin-left: 59px;
+}
+.defaultSave {
+	display: inline-block;
+    background-color: #D91600;
+    color: #fff;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    text-decoration: none;
+    text-align: center;
+    margin-left: 300px;
+    margin-top: 20px;
+}
+.setPrice {
+    height: 150px;
+}
+.concentWarp {
+	margin-top: 17px;
+    height: 500px;
+    overflow: auto;
+    width: 719px;
+    margin: 0 auto;
+}
+.batchContent {
+	margin-top: 30px;
+}
+.batchWarp {
+	overflow: hidden;
+	width: 790px;
+/*	padding-bottom: 30px;*/
+}
+.batchChangeDate {
+	margin-left: 23px;
+}
+.batchWeek img {
+	margin-top: 6px;
+	margin-left: 10px;
+}
+.batchWeek span {
+	position: relative;
+	top: -4px;
+}
+.batchChangeDate {
+	float: left;
+}
+.batchChangeDate input {
+	width: 100px;
+	height: 30px;
+	outline: none;
+	border:1px solid #ccc;
+	text-align: center;
+}
+.batchChangePriceUl {
+	margin-top: -20px;
+}
+.batchChangePriceUl li {
+	margin-top: 20px;
+	width: 144px;
+}
+.batchContent li {
+	list-style-type: none;
+	float: left;
+}
+.batchBedPrice {
+	width: 100px;
+	height: 30px;
+	outline: none;
+	border:1px solid #ccc;
+	text-align: center;
+}
+.batchBedTypeLi {
+	margin-left: 62px;
+}
+.batchChangeDate {
+	margin-left: 76px;
+}
+.batchSave {
+	display: inline-block;
+    background-color: #D91600;
+    color: #fff;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 336px;
+}
+.batchChangePrice {
+	padding-bottom: 20px;
+	margin-left: -25px;
+    overflow: auto;
+    width: 824px;
+    height: 300px;
+}
+.move {
+	background-color: #7feee6!important;
+}
+.youhui {
+	background-color: #ccc;
+}
+.btnWarp {
+	height: 50px;
+	padding-bottom: 20px;
+	background-color: #dfdddd;
+}

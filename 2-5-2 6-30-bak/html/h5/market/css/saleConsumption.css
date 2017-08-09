@@ -1,0 +1,91 @@
+body{-moz-user-select:none;/*火狐*/-webkit-user-select:none;/*webkit浏览器*/-ms-user-select:none;/*IE10*/-khtml-user-select:none;/*早期浏览器*/user-select:none;background-color: #fafafa;}
+.saleCons{padding: 0 1rem;color: #808080;font-size: 0.9rem;margin-bottom: 5rem;}
+.saleCons pre{display: inline-block;}
+.white{background-color: #fff;margin-bottom: 0;padding-bottom: 3rem;}
+.sellTitle{text-align: center;font-size: 1rem;color: #333;padding: 1rem 0 0.5rem 0;}
+.nameCons{color: #000;font-size: 1.1rem;line-height: 2.4rem;padding: 0.3rem 0;border-bottom: 1px dashed #808080;}
+.deadLine{/*line-height: 1.4rem;*/padding-top: 0.8rem;}
+.canSale{/*line-height: 1.4rem;*/padding-top: 0.6rem;}
+.deadLine span,.canSale span{color: #000;}
+.deadLine .jfA{color: #d13f4c;display: none;margin-right: 0.9rem;}
+.saleAmount{line-height: 2rem;border: 1px solid #343f4c;color: #000;padding: 0.3rem 0.9rem 0.3rem 0.7rem;margin-top: 1.2rem;}
+.saleMoney{border: none;height: 2rem;width: 14rem;margin-left: 0.3rem;position: relative;top: -0.05rem;font-size: 1rem;}
+.saleAll{width: 5rem;color: #d13f4c;background: #fff;border: none;height: 2rem;font-size: 1rem;line-height: 2rem;text-align: right;position: relative;top: 1px;}
+.discountHtmlBox{margin-top: 0.5rem;margin-bottom: -0.5rem;}
+.saleDiscount{margin-top: 1rem;line-height: 3rem;height: 3rem;overflow: hidden;}
+.changeDiscount{background-color: #fff;}
+.changeDiscount .reduce,.changeDiscount .add{background-color: #eee;border: none;color: #d13f4c;width: 3rem;text-align: center;font-size: 1.6rem;}
+.numDiscount{background-color: #eee;display: inline-block;width: 3.9rem;text-align: center;border-left: 2px solid #fff;border-right: 2px solid #fff;color: #000;}
+.numDiscount input{width: 1.7rem;background-color: #eee;border: none;text-align: center;font-size: 1rem;height: 3rem;line-height: 3rem;}
+.numDiscount span{position: relative;top: 0.1rem;}
+.stickTime{width: 9.99rem;background-color: #eee;line-height: 3rem;height: 3rem;border-left: 3px solid #eee;color: #000;text-align: center;}
+.jtBtn{display: inline-block;border: 0.5rem solid #eee;border-top-color: #d13f4c;left: 1.3rem;position: relative;top: 0.4rem;}
+#saleStatus{position: relative;left: 0.5rem;display: inline-block;width: 4rem;}
+#recentDiscount{margin-right: 0.9rem;}
+.selling{width: 100%;font-size: 0.8rem;}
+.selling th{text-align: center;font-weight: normal;height: 1.9rem;border-bottom: 1px solid #d4d7d9;padding: 0.2rem 0;}
+.selling th:nth-child(1){width: 3rem;}
+.selling th:nth-child(2){width: 7rem;}
+.selling th:nth-child(3){width: 5rem;}
+.selling td{text-align: center;border-bottom: 1px solid #d4d7d9;height: 2.1rem;}
+/*.selling td:first-child{text-align: left;}*/
+.footer{position: fixed;width: 100%;bottom: 0;z-index: 10;background-color: #fff;line-height: 3.23rem;left: 0;}
+.footLeft{color:#4a4a4a;height: 3.23rem;overflow: hidden;border-top: 1px solid #b3b3b3;border-bottom: 1px solid #b3b3b3;padding-left: 1rem;width: 14rem;background-color: #fff;}
+.footRight{width: 10rem;background-color: #6ea9a9;text-align: center;color: #fff;border-top: 1px solid #6ea9a9;border-bottom: 1px solid #6ea9a9;}
+.footLeft .tit{font-size: 1rem;}
+.footLeft .price em{font-style: normal;font-size: 1.3rem;line-height: 3.1rem;}
+.footLeft .price i{font-style: normal;}
+#jf{display: none;}
+.null{width: 100%;height: 5rem;}
+.tips{padding-top: 0.6rem;color: #d13f4c;}
+
+/*底部弹窗通用样式-start*/
+.popupT{width: 100%;position: fixed;top: 0;z-index: 15;display: none;}
+.backShadow{width: 100%;height: 100%;background-color: rgba(0,0,0,0.5);position: relative;}
+.popupTArea{position: absolute;bottom: 0;width: 100%;background-color: #fff;}
+.popupTTitle{height: 3.33rem;background-color: #ebedf0;line-height: 3.33rem;text-align: center;color: #4a4a4a;position: relative;overflow: hidden;}
+.popupTClose{background: url("../images/closeBtn.jpg") no-repeat center/cover;width: 2.9rem;height: 100%;position: absolute;right: 0;top: 0;}
+/*底部弹窗通用样式-end*/
+
+/*弹窗局部-挂单时长*/
+.popupTArea{height: 21.9rem;display: none;}
+.saleHowLong{width: 23rem;margin: 0 auto;color: #000;}
+.saleHowLong li{line-height: 3.3rem;border-bottom: 1px solid #e4e5e6;text-align: center;}
+.saleLongExplain{color: #808080;line-height: 1.1rem;font-size: 0.8rem;width: 23rem;margin: 0.5rem auto 0 auto;text-align: justify;}
+
+/*弹窗局部-确认额度*/
+.confirmAmount{width: 23rem;padding: 0 1rem;color: #000;height: 15.37rem;overflow-y: scroll;}
+.confirmAmount li{line-height: 2.66rem;border-bottom: 1px solid #e4e5e6;text-align: center;}
+.confirmLeft{color: #808080;}
+.confirmSure{color: #fff;background-color: #6ea9a9;line-height: 3.2rem;text-align: center;position: absolute;bottom: 0;width: 100%;}
+
+/*弹窗局部-设置密码*/
+.setPsword{width: 16.67rem;background-color: #fff;height: 22rem;border-radius: 0.5rem;margin: -11.5rem 0 0 -8.33rem;position: absolute;top: 50%;left: 50%;display: none;}
+.setP{width: 13.5rem;line-height: 1.4rem;margin: 0 auto;height: 16rem;padding-top: 2rem;font-size: 0.9rem; color: #808080;text-align: justify;}
+.setButton{width: 13.33rem;line-height: 2.66rem;border: none;background-color: #000;color: #fff;border-radius: 3px;margin: 0 auto;display: block;}
+
+
+
+.textPs{padding: 0 1.6rem;width: 13.4rem;height: 16.6rem;background-color: #fff;color: #4a4a4a;font-size: 0.9rem;position: absolute;z-index: 10;top: 50%;left: 50%;margin-top: -11.3rem;margin-left: -8.3rem;border-radius: 5px;display: none;}
+.textPsTit{text-align: center;padding-top: 1.3rem;color: #000;font-size: 1rem;}
+.textPsPhone{width: 7rem;display: inline-block;padding-top: 1.3rem;}
+.textPs #phoneNum{width: 6.2rem;text-align: right;}
+.SMSVer{border-bottom: 1px solid #4a4a4a;margin-top: 2rem;}
+.SMSVer input,button{background: none;border: none;display: inline-block;line-height: 2rem;}
+.SMSVer input{width: 9rem;}
+.SMSVer button{width: 4rem;text-align: right;color: #d13f4c;}
+.button{width: 100%;line-height: 2.66rem;background: #000;border: none;border-radius: 4px;color: #fff;margin-top: 3.8rem;}
+.no{pointer-events: none;}
+#prompt{width: 10rem;line-height: 2rem;text-align: center;background: #000;color: #fff;border-radius: 0.7rem;position: fixed;top: 50%;left: 50%;margin-top: -5rem;transform: translateX(-50%);display: none;z-index: 100;}
+
+
+.checkPsword{position: absolute;background-color: #fff;display: none;z-index: 100;height: 19rem;width: 16.67rem;border-radius: 0.5rem;padding-top: 1rem;margin-left: -8.33rem;left: 50%;top: 10%;}
+.checkTitle{color: #de3f4c;position: relative;text-align: center;z-index: 100;}
+.checkClose{background: url("../images/closeBtn2.jpg") no-repeat center/cover;width: 2.9rem;height: 2.9rem;position: absolute;right: 0;top: 0.5rem;z-index: 105;}
+.titlePassword{color: #9b9b9b;font-size: 0.9rem;text-align: center;padding: 1.6rem 0 1.4rem 0;}
+.inputCss{table-layout: fixed;margin: 0 auto;position: relative;z-index: 5;}
+.inputCss td{border: 1px solid #9b9b9b;height: 2.2rem;width: 2.2rem;text-align: center;cursor: pointer;}
+.null{position: fixed;z-index: 1;bottom: 0;left: 0;width: 100%;}
+.button{width: 13.33rem;height: 2.66rem;background-color: #000;border: none;font-size: 0.9rem;color: #fff;margin: 0 auto;display: block;border-radius: 3px;margin-top: 3rem;position: relative;z-index: 5;}
+.button.no{background-color: #9b9b9b;pointer-events: none;}
+.checkForget{text-align: center;margin-top: 1.8rem;}

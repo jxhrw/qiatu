@@ -1,0 +1,13 @@
+body{background-color: #ebedf0;}
+.prompt{text-align: center;color: #4a4a4a;font-size: 0.8rem;}
+.saleList{width: 23rem;margin: 0 auto;padding: 0.83rem 0 0.23rem 0;}
+.single{border: 1px solid #c8cacc;border-radius: 5px;margin-bottom: 0.6rem;overflow: hidden;}
+.single img{display: block;width: 100%;height: 8.53rem;}
+.singleCon{padding: 0 0.8rem;background-color: #fff;}
+.conLeft{width: 14rem;font-size: 0.8rem;color: #9b9b9b;line-height: 1.3rem;padding: 0.4rem 0;}
+.conTitle{color: #000;font-size: 1rem;line-height: 1.8rem;overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;}
+.conLastDis span{color: #d13f4c;}
+.conRight{width: 6.6rem;text-align: right;height: 5.2rem;}
+.conRight a{display: block;text-align: center;width: 6.6rem;line-height: 1.73rem;border: 1px solid #d13f4c;color: #d13f4c;position: relative;top: 50%;margin-top: -0.86rem;margin-left: -1px;}

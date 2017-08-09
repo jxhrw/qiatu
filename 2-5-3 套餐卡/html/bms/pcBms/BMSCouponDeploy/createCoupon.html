@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>几何生活</title>
+	<meta name="format-detection" content="telephone=no"/>
+	<meta content="no-cache, no-store, must-revalidate" http-equiv="cache-Control">
+	<meta content="no-cache" http-equiv="pragma">
+	<meta content="0" http-equiv="expires">
+	<script src="http://7xio74.com1.z0.glb.clouddn.com/jquery-2.1.4.min.js"></script>
+	<script src="/html/bms/html_old_bak/yui-min.js"></script>
+	<script type="text/javascript" src="/html/member/js/general.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://7xio74.com1.z0.glb.clouddn.com/css/base.css">
+	<link rel="stylesheet" href="css/createCoupon.css">
+	<script src="/html/bms/pcBms/plug-in/alert/alert.js"></script>
+	<script type="text/javascript" src="js/createCoupon.js"></script>
+	<script>
+		var minTimestamp= Date.parse(new Date())-60*24*60*60*1000;
+		var min=formatStrDate(new Date(minTimestamp));
+		YUI({
+			modules: {
+				'trip-calendar': {
+					fullpath: '../trip-calendar.js',
+					type    : 'js',
+					requires: ['trip-calendar-css']
+				},
+				'trip-calendar-css': {
+					fullpath: '../trip-calendar.css',
+					type    : 'css'
+				}
+			}
+		}).use('trip-calendar', function(Y) {
+			var oCal = new Y.TripCalendar({
+				minDate         : new Date,     //最小时间限制
+				maxDate         : "",
+				triggerNode     : '#effective_begin', //第一个触节点
+				finalTriggerNode: '#effective_end' ,//最后一个触发节点
+				count           : 1
+
+			});
+			var oCal= new Y.TripCalendar({
+				minDate         : new Date,     //最小时间限制
+				maxDate         : "",
+				triggerNode     : '#unavailableDate', //第一个触节点
+				finalTriggerNode: '' ,//最后一个触发节点
+				count           : 1
+
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="wrap">
+<div class="createCoupon">
+	<div class="pageTitle">配置<span id="couponType"></span></div>
+	<table class="configure" cellspacing="0" cellpadding="0">
+		<tr>
+			<td class="category">券名称：</td>
+			<td class="detailed couponTitle">
+				<input type="text" class="roomVhName" id="setName" maxlength="30" placeholder="输入要发行的券的名称（20字内）">
+			</td>
+		</tr>
+		<tr class="discountCoupon">
+			<td class="category">折扣额度：</td>
+			<td class="detailed discount">
+				<input type="number" class="roomVhName" id="discount" min="1" max="9">
+				折
+			</td>
+		</tr>
+		<tr class="changeLine">
+			<td class="category">有效期：</td>
+			<td class="detailed">
+				<!--<div class="">
+					<span class="radio selected" value="validity"></span>
+					领取后&nbsp;&nbsp;
+					<select name="select" id="" class="effect">
+						<option value="0">立即</option>
+						<option value="1">第二天</option>
+						<option value="2">第三天</option>
+						<option value="3">第四天</option>
+						<option value="4">第五天</option>
+					</select>
+					生效
+					&nbsp;&nbsp;
+					<select name="select" id="" class="effect">
+						<option value="0">7天</option>
+						<option value="1">15天</option>
+						<option value="2">30天</option>
+						<option value="3">2个月</option>
+						<option value="4">3个月</option>
+						<option value="5">6个月</option>
+					</select>
+					内有效
+				</div>-->
+				<div class="">
+					<span class="radio selected" value="validity" id="nonEmpty"></span>
+					固定日期&nbsp;&nbsp;
+					<div class="timeChoiceBox">
+						<input id="effective_begin" type="text" value="" placeholder="开始使用时间">
+						<p class="nonEmpty">时间不能为空</p>
+					</div>
+					 --
+					<div class="timeChoiceBox">
+						<input id="effective_end" type="text" value="" placeholder="结束使用时间">
+						<p class="nonEmpty">时间不能为空</p>
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr class="consumption discountCoupon">
+			<td class="category">可用商户：</td>
+			<td class="detailed">
+				<ul class="clearfix merchant" id="chooseMerchant">
+					<!--<li class="fl"><span class="checkbox" value="merchant"></span> 商户1</li>
+					<li class="fl"><span class="checkbox" value="merchant"></span> 商户1</li>
+					<li class="fl"><span class="checkbox" value="merchant"></span> 商户1</li>
+					<li class="fl"><span class="checkbox" value="merchant"></span> 商户1</li>
+					<li class="fl"><span class="checkbox" value="merchant"></span> 商户1</li>
+					<li class="fl"><span class="checkbox" value="merchant"></span> 商户1</li>
+					<li class="fl"><span class="checkbox" value="merchant"></span> 商户1</li>
+					<li class="fl"><span class="checkbox" value="merchant"></span> 商户1</li>
+					<li class="fl"><span class="checkbox" value="merchant"></span> 商户1</li>
+					<li class="fl"><span class="checkbox" value="merchant"></span> 商户1</li>
+					<li class="fl"><span class="checkbox" value="merchant"></span> 商户1</li>-->
+				</ul>
+			</td>
+		</tr>
+		<tr class="consumption discountCoupon">
+			<td class="category">可用消费类型：</td>
+			<td class="detailed">
+				<ul class="clearfix consumerType">
+					<li class="fl"><span class="checkbox " value="1" title="book"></span> 订房</li>
+					<li class="fl"><span class="checkbox " value="1" title="directpay"></span> 店内支付</li>
+					<li class="fl"><span class="checkbox" value="0" title="service"></span> 其他商品</li>
+				</ul>
+			</td>
+		</tr>
+		<tr class="discountCoupon">
+			<td class="category">使用次数：</td>
+			<td class="detailed">
+				<ul class="clearfix usage" id="usageCount">
+					<li class="fl"><span class="radio selected" value="usage" title="1"></span> 一次有效</li>
+					<li class="fl"><span class="radio" value="usage" title="-1"></span> 可重复使用至有效期结束</li>
+				</ul>
+			</td>
+		</tr>
+		<tr class="roomVouchers">
+			<td class="category">可用房型：</td>
+			<td class="detailed">
+				<label><span class="radio selected" value="avaRoom"></span> 全部房型可用</label> &nbsp;&nbsp;&nbsp;&nbsp;
+				<label><span class="radio open" value="avaRoom" id="chooseRoom"></span> 部分房型可用</label>
+				<div class="availableRoom" id="availableRoom">
+					<ul class="clearfix merchant" style="margin-top: 20px;" id="roomLists">
+						<!--<li class="fl"><span class="checkbox" value="house"></span> 房型1</li>
+						<li class="fl"><span class="checkbox" value="house"></span> 房型1</li>
+						<li class="fl"><span class="checkbox" value="house"></span> 房型1</li>-->
+					</ul>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="category">可用日期：</td>
+			<td class="detailed">
+				<label><span class="radio selected" value="availableDate"></span> 全部日期可用</label> &nbsp;&nbsp;&nbsp;&nbsp;
+				<label><span class="radio open" value="availableDate" id="setLimitedDate"></span> 设置不可用日期</label>
+				<div id="chooseDateBox" class="chooseDateBox">
+					<table class="chooseDate">
+						<tr >
+							<!--<td><span class="checkbox" value="availableDate"></span> 周一</td>
+							<td><span class="checkbox" value="availableDate"></span> 周二</td>
+							<td><span class="checkbox" value="availableDate"></span> 周三</td>
+							<td><span class="checkbox" value="availableDate"></span> 周四</td>
+							<td><span class="checkbox" value="availableDate"></span> 周五</td>
+							<td><span class="checkbox" value="availableDate"></span> 周六</td>
+							<td><span class="checkbox" value="availableDate"></span> 周日</td>-->
+						</tr>
+						<tr id="dateCondition">
+							<td><span class="checkbox" value="0" title="weekend"></span> 周末</td>							
+							<td colspan="8"><span class="checkbox" value="0" title="holiday"></span> 法定节假日</td>
+							<td><span class="checkbox" value="0" title="Valentinesday"></span> 情人节</td>
+							<td><span class="checkbox" value="0" title="Christmas"></span> 圣诞节</td>
+						</tr>
+						<tr>
+							<td colspan="7">自定义不可用日期： &nbsp;&nbsp;&nbsp; <input id="unavailableDate" type="text" value="" readonly="readonly"> <span id="addDay" class="addDay">添加</span></td>
+						</tr>
+					</table>
+					<div class="optionalDate">
+						<!--自定义日期-->
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr class="consumption roomVouchers">
+			<td class="category">订房时间限制：</td>
+			<td class="detailed">
+				<label><span class="radio selected" value="timeLimit"></span> 不需要提前</label> &nbsp;&nbsp;&nbsp;&nbsp;
+				<label><span class="radio open" value="timeLimit" id="needAhead"></span> 需要提前预订</label>
+			</td>
+		</tr>
+		<tr id="limitDays">
+			<td class="category">提前天数：</td>
+			<td class="detailed">
+				<select name="select" id="aheadDays" class="effect">
+					<option value="1" selected="selected">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+					<option value="12">12</option>
+					<option value="13">13</option>
+					<option value="14">14</option>
+				</select>
+				天
+			</td>
+		</tr>
+		<tr class="consumption discountCoupon">
+			<td class="category">使用条件：</td>
+			<td class="detailed" id="ifTogether">
+				<label><span class="radio selected" value="useLimit" title="1"></span> 可以和<span class="alsoUse"></span>同时使用</label> &nbsp;&nbsp;&nbsp;&nbsp;
+				<label><span class="radio" value="useLimit" title="0"></span> 不可以和<span class="alsoUse"></span>同时使用</label> &nbsp;&nbsp;&nbsp;&nbsp;
+				<!--<br><span class="radio open" value="useLimit"></span> 可以和部分<span class="alsoUse"></span>同时使用
+				<div class="conditions" id="conditions">
+					<div id="alsoUseBox" class="alsoUseBox">选择可同时使用的<span class="alsoUse"></span></div>
+					<ul id="alsoUse" class="customDate clearfix"></ul>
+				</div>-->
+			</td>
+		</tr>
+		<tr>
+			<td class="category">备注：</td>
+			<td class="detailed">
+				<textarea class="roomVhName" id="remark"></textarea>
+			</td>
+		</tr>
+	</table>
+	<div id="save" class="holdon">保存</div>
+</div>
+	</div>
+
+<div class="alertBox" id="chooseCouponBox">
+	<div class="alert">
+		<p class="maskTitle">选择券<span class="maskClose"></span></p>
+		<div class="couponBox">
+			<ul class="couponUl" id="couponUl">
+				<li><span class="checkbox" value="coupon"></span> <span class="couponName">房券A</span></li>
+				<li><span class="checkbox" value="coupon"></span> <span class="couponName">房券B</span></li>
+				<li><span class="checkbox" value="coupon"></span> <span class="couponName">房券C</span></li>
+				<li><span class="checkbox" value="coupon"></span> <span class="couponName">房券D</span></li>
+				<li><span class="checkbox" value="coupon"></span> <span class="couponName">房券E</span></li>
+				<li><span class="checkbox" value="coupon"></span> <span class="couponName">房券F</span></li>
+			</ul>
+		</div>
+		<div id="chooseSure" class="holdon holdon2">确定</div>
+	</div>
+</div>
+
+
+</body>
+</html>
+
+
